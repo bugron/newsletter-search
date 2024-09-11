@@ -1,0 +1,298 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #8 - TypeScript gets a facelift</title><link rel="canonical" href="https://bytes.dev/archives/8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="New TypeScript site, Angular releases a roadmap, and Rome takes over the world."/><meta property="og:url" content="https://bytes.dev/archives/8"/><meta property="og:title" content="Bytes #8 - TypeScript gets a facelift"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/pam.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="New TypeScript site, Angular releases a roadmap, and Rome takes over the world."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #8 - TypeScript gets a facelift"/><meta property="twitter:description" content="New TypeScript site, Angular releases a roadmap, and Rome takes over the world."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/pam.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">TypeScript gets a facelift</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->8<!-- -->.</span><span class="mr-6 font-bold">August 10, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p class="image-alt">Made this here with all the ice on in the booth.</p>
+<h2>TypeScript’s site gets a major redesign and a “new” logo</h2>
+<p><img src="https://bytes.dev/images/content/pam.png" alt="old vs new typescript logo">
+</p><p class="image-alt">old TypeScript logo vs new TypeScript logo</p><p></p>
+<p>After 6 long years of competing with Webpack for the most unhelpful site, TypeScript has decided to throw in the towel by releasing <a href="https://www.typescriptlang.org/">typescriptlang.org</a>. This was a much-needed overhaul, and includes some helpful new features that we think are particularly noteworthy -</p>
+<p><strong><a href="https://www.typescriptlang.org/docs/">Better docs</a>:</strong> One of the team’s biggest goals with the new site was to <a href="https://devblogs.microsoft.com/typescript/announcing-the-new-typescript-website/">“make the documentation for TypeScript feel as expansive as its type-system”</a> (which is the most on on-brand way to describe a website I’ve ever seen).</p>
+<p><strong><a href="https://www.typescriptlang.org/play">New and improved Playground</a>:</strong> The new set of code examples is pretty robust, and it should be especially helpful for those looking to play with TypeScript for the first time.</p>
+<p><strong>TSConfig Updates:</strong> New, long-form descriptions for each of the 100+ compiler flags and compiler-backed code samples. The TypeScript community has been asking for this for a while.</p>
+<h3>The bottom line</h3>
+<p>If you were thinking about learning TypeScript but haven’t gotten around to it, this new site should make it easier than ever to get started. And with <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-0-rc/">TypeScript 4.0 hitting RC last week</a>, new and experienced TS devs should get a lot of value out of the newly updated docs and playground.</p>
+<hr>
+<h2>Angular releases its first official roadmap</h2>
+<p><img src="https://bytes.dev/images/content/map.png" alt="I'm the map">
+</p><p class="image-alt">I’m the map</p><p></p>
+<p><strong>The Angular team is tired of all the feature requests…</strong> but they’re too nice to say that. So instead, <a href="https://angular.io/guide/roadmap">they published an official Angular Roadmap for the first time last week</a>. Now everyone in the Angular community can get an inside look on what the team is currently working on and what future projects they’re considering.</p>
+<p>We read it so you don’t have to, and here are some of the highlights:</p>
+<ul>
+<li>
+<p><strong>Refreshing the introductory documentation:</strong> Not sure why TypeScript and Angular just now decided that beginner friendly documentation is valuable, but we’re here for it. The new docs will do a better job of clearly stating the benefits of Angular and give better guidance on how new users can get started.</p>
+</li>
+<li>
+<p><strong>Webpack 5 in the Angular CLI:</strong> No more using deprecated and deleted Webpack APIs, lol.</p>
+</li>
+<li>
+<p><strong>Addition by subtraction:</strong> The Angular team wants to simplify the framework by making cumbersome technologies like Zone.js and NgModules optional in future releases.</p>
+</li>
+</ul>
+<h3>The Bottom line</h3>
+<p>The Angular team said that a major reason for releasing a public roadmap is to <a href="https://blog.angular.io/a-roadmap-for-angular-1b4fa996a771?gi=8e7edac58851">“build stronger connections with the Angular community”</a>. A lot of these planned features and improvements seem aimed at trying to expand that community by simplifying the framework and making it more appealing to developers. We’ll see if that helps Angular to regain some of its popularity that has faded in recent years.</p>
+<hr>
+<p>We got inspired by the Angular team, so here’s a quick look at our <strong>Bytes Newsletter Roadmap:</strong></p>
+<ol>
+<li>Sell all your data to the highest bidder.</li>
+<li>That’s it. That’s the plan.</li>
+</ol>
+<hr>
+<h2>Protip</h2>
+<p>If you’re using yarn, you can run <code>yarn upgrade-interactive --latest</code> to see your outdated packages and upgrade them via your terminal UI.</p>
+<p><img src="https://bytes.dev/images/content/upgrade.jpeg" alt="yarn upgrade-interactive"></p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p><a href="https://romefrontend.dev/blog/2020/08/08/introducing-rome.html">Rome</a> was released. It’s a small project “designed to replace Babel, ESLint, Webpack, Prettier, Jest, and others”.</p>
+</li>
+<li>
+<p>(A different) Dan wrote about the <a href="https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1">key differences between CommonJS and ES Modules in Node</a>.</p>
+</li>
+<li>
+<p><a href="https://bumbag.style/?fbclid=IwAR05JQlIDQcMJ-FQy4AwXFy8vXe04acMjU9L5Ao4sStnnyRQfxcJ2TAEX-Y">Bumbag is an accessible &amp; themeable React UI Kit that recently got a big update</a>.</p>
+</li>
+<li>
+<p>Jake wrote about how <a href="https://jakearchibald.com/2020/multiple-versions-same-time/">different versions of your site could be running at the same time</a> and how it can happen more easily than you might think.</p>
+</li>
+<li>
+<p>Abhijeet recorded <a href="https://github.com/microsoft/fast">all of the technical interview questions he was asked during his recent job hunt for a frontend dev position</a> and their solutions. Turns out, lots of technical interview Q’s are still mostly garbage.</p>
+</li>
+<li>
+<p>The <a href="https://twitter.com/ReactNativeMSFT/status/1290340391967956993">new Microsoft store on Xbox is a lot faster and a lot better-looking</a> thanks to a re-write in React Native for Windows. Knowing that the Xbox store is built in React Native will make Shotty Snipes on Hang ‘Em High even better.</p>
+</li>
+<li>
+<p>Raathi built a <a href="https://github.com/Raathigesh/waypoint">VSCode extension that lets you search for symbols and bookmark them</a> in JavaScript code bases.</p>
+</li>
+<li>
+<p>The <a href="https://js1024.fun/results/2020">winners were announced last week for JS1024</a>, a contest to see who could build the coolest thing in 1024 bytes (1kb, 1/31 Super Mario Brothers) of JavaScript. The winner made a simple keyboard app, but it’s pretty impressive for being so small.</p>
+</li>
+</ol>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"TypeScript gets a facelift","date":"2020-08-10","description":"New TypeScript site, Angular releases a roadmap, and Rome takes over the world.","featuredImage":"https://bytes.dev/images/content/pam.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp class=\"image-alt\"\u003eMade this here with all the ice on in the booth.\u003c/p\u003e\n\u003ch2\u003eTypeScript’s site gets a major redesign and a “new” logo\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/pam.png\" alt=\"old vs new typescript logo\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eold TypeScript logo vs new TypeScript logo\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eAfter 6 long years of competing with Webpack for the most unhelpful site, TypeScript has decided to throw in the towel by releasing \u003ca href=\"https://www.typescriptlang.org/\"\u003etypescriptlang.org\u003c/a\u003e. This was a much-needed overhaul, and includes some helpful new features that we think are particularly noteworthy -\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.typescriptlang.org/docs/\"\u003eBetter docs\u003c/a\u003e:\u003c/strong\u003e One of the team’s biggest goals with the new site was to \u003ca href=\"https://devblogs.microsoft.com/typescript/announcing-the-new-typescript-website/\"\u003e“make the documentation for TypeScript feel as expansive as its type-system”\u003c/a\u003e (which is the most on on-brand way to describe a website I’ve ever seen).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.typescriptlang.org/play\"\u003eNew and improved Playground\u003c/a\u003e:\u003c/strong\u003e The new set of code examples is pretty robust, and it should be especially helpful for those looking to play with TypeScript for the first time.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTSConfig Updates:\u003c/strong\u003e New, long-form descriptions for each of the 100+ compiler flags and compiler-backed code samples. The TypeScript community has been asking for this for a while.\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eIf you were thinking about learning TypeScript but haven’t gotten around to it, this new site should make it easier than ever to get started. And with \u003ca href=\"https://devblogs.microsoft.com/typescript/announcing-typescript-4-0-rc/\"\u003eTypeScript 4.0 hitting RC last week\u003c/a\u003e, new and experienced TS devs should get a lot of value out of the newly updated docs and playground.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eAngular releases its first official roadmap\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/map.png\" alt=\"I'm the map\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eI’m the map\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe Angular team is tired of all the feature requests…\u003c/strong\u003e but they’re too nice to say that. So instead, \u003ca href=\"https://angular.io/guide/roadmap\"\u003ethey published an official Angular Roadmap for the first time last week\u003c/a\u003e. Now everyone in the Angular community can get an inside look on what the team is currently working on and what future projects they’re considering.\u003c/p\u003e\n\u003cp\u003eWe read it so you don’t have to, and here are some of the highlights:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRefreshing the introductory documentation:\u003c/strong\u003e Not sure why TypeScript and Angular just now decided that beginner friendly documentation is valuable, but we’re here for it. The new docs will do a better job of clearly stating the benefits of Angular and give better guidance on how new users can get started.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWebpack 5 in the Angular CLI:\u003c/strong\u003e No more using deprecated and deleted Webpack APIs, lol.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAddition by subtraction:\u003c/strong\u003e The Angular team wants to simplify the framework by making cumbersome technologies like Zone.js and NgModules optional in future releases.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom line\u003c/h3\u003e\n\u003cp\u003eThe Angular team said that a major reason for releasing a public roadmap is to \u003ca href=\"https://blog.angular.io/a-roadmap-for-angular-1b4fa996a771?gi=8e7edac58851\"\u003e“build stronger connections with the Angular community”\u003c/a\u003e. A lot of these planned features and improvements seem aimed at trying to expand that community by simplifying the framework and making it more appealing to developers. We’ll see if that helps Angular to regain some of its popularity that has faded in recent years.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003eWe got inspired by the Angular team, so here’s a quick look at our \u003cstrong\u003eBytes Newsletter Roadmap:\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eSell all your data to the highest bidder.\u003c/li\u003e\n\u003cli\u003eThat’s it. That’s the plan.\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eProtip\u003c/h2\u003e\n\u003cp\u003eIf you’re using yarn, you can run \u003ccode\u003eyarn upgrade-interactive --latest\u003c/code\u003e to see your outdated packages and upgrade them via your terminal UI.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/upgrade.jpeg\" alt=\"yarn upgrade-interactive\"\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://romefrontend.dev/blog/2020/08/08/introducing-rome.html\"\u003eRome\u003c/a\u003e was released. It’s a small project “designed to replace Babel, ESLint, Webpack, Prettier, Jest, and others”.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e(A different) Dan wrote about the \u003ca href=\"https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1\"\u003ekey differences between CommonJS and ES Modules in Node\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://bumbag.style/?fbclid=IwAR05JQlIDQcMJ-FQy4AwXFy8vXe04acMjU9L5Ao4sStnnyRQfxcJ2TAEX-Y\"\u003eBumbag is an accessible \u0026amp; themeable React UI Kit that recently got a big update\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJake wrote about how \u003ca href=\"https://jakearchibald.com/2020/multiple-versions-same-time/\"\u003edifferent versions of your site could be running at the same time\u003c/a\u003e and how it can happen more easily than you might think.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAbhijeet recorded \u003ca href=\"https://github.com/microsoft/fast\"\u003eall of the technical interview questions he was asked during his recent job hunt for a frontend dev position\u003c/a\u003e and their solutions. Turns out, lots of technical interview Q’s are still mostly garbage.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ca href=\"https://twitter.com/ReactNativeMSFT/status/1290340391967956993\"\u003enew Microsoft store on Xbox is a lot faster and a lot better-looking\u003c/a\u003e thanks to a re-write in React Native for Windows. Knowing that the Xbox store is built in React Native will make Shotty Snipes on Hang ‘Em High even better.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRaathi built a \u003ca href=\"https://github.com/Raathigesh/waypoint\"\u003eVSCode extension that lets you search for symbols and bookmark them\u003c/a\u003e in JavaScript code bases.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ca href=\"https://js1024.fun/results/2020\"\u003ewinners were announced last week for JS1024\u003c/a\u003e, a contest to see who could build the coolest thing in 1024 bytes (1kb, 1/31 Super Mario Brothers) of JavaScript. The winner made a simple keyboard app, but it’s pretty impressive for being so small.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"8"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"8"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

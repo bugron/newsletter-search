@@ -1,0 +1,302 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #84 - Swimming in Gravy</title><link rel="canonical" href="https://bytes.dev/archives/84"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real -- but at this point we&#x27;re too afraid to ask."/><meta property="og:url" content="https://bytes.dev/archives/84"/><meta property="og:title" content="Bytes #84 - Swimming in Gravy"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/hitme.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real -- but at this point we&#x27;re too afraid to ask."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #84 - Swimming in Gravy"/><meta property="twitter:description" content="This issue, we&#x27;ve got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real -- but at this point we&#x27;re too afraid to ask."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/hitme.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Swimming in Gravy</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->84<!-- -->.</span><span class="mr-6 font-bold">January 24, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real — but at this point we’re too afraid to ask. Welcome to #84.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/hitme.png" alt="Napolean Dynamite Meme">
+</p><p class="image-alt">Come down here and see what happens if you try and hit me.</p><p></p>
+<h2>Remix vs Next.js — The Showdown</h2>
+<p><strong>Let’s get ready to rumble…</strong> Remix threw down the gauntlet last week with a <a href="https://remix.run/blog/remix-vs-next">6,700 word essay</a> on why they’re better than Next.js. It’s well-written but super long, so we made this <a href="https://video.twimg.com/ext_tw_video/1424050741778403333/pu/vid/360x360/2AdfLnYANcS80PQk.mp4?tag=12">13-second video summary</a> for you.</p>
+<p><strong>How We Got Here:</strong> Remix is a React meta-framework that’s SSR-only and was created by the folks behind React Router. It’s “edge-first,” able to deploy anywhere, and has gotten <a href="https://twitter.com/jaffathecake/status/1483706092215586816?s=20">lots of hype</a> since it launched v1 in November.</p>
+<p><strong>But how is that different from Next.js?</strong> Turns out, the Remix team was tired of literally everyone asking that question, so the article uses lots of nuanced measurements to directly compare a Next.js app and a Remix app. From there, they shared the following scientific conclusions:</p>
+<ul>
+<li>Remix is faster</li>
+<li>Next.js is slower</li>
+<li>Remix’s dad could beat up your dad</li>
+</ul>
+<p><strong><a href="https://www.youtube.com/watch?v=W-TGdhurBdU">HOW?</a></strong> The Remix app server-rendered every single page, instead of using SSG. They could do this faster than Next.js because they cache their data “at the edge” with a Redis database and also run their servers “at the edge.” (Not everyone agrees on what “the edge” <a href="https://twitter.com/crim_codes/status/1484594510483054592?s=20">actually means</a>, but just imagine servers close to users.)</p>
+<p><strong>But at what cost?</strong> Is “best-in-class performance” really worth it if you have to run a distributed server <em>and</em> a distributed database <em>and</em> a Redis cache? That Remix example even included a <a href="https://github.com/jacob-ebey/remix-ecommerce/blob/main/docker-compose.yml">Docker Compose file</a> — and now I’ve got Egghead pushing <a href="https://twitter.com/eggheadio/status/1484548808742563841?s=20">Docker courses for Remix devs</a> on my timeline. At least we all got our Master’s Degrees in Distributed Systems, right? <span role="img" aria-label="skull">💀</span></p>
+<p><strong>Remix <em>is</em> on to something, though</strong> — hosting sites closer to users does provide a better experience, and Vercel knows it too. Soon, Vercel will follow Remix over the edge by providing <a href="https://twitter.com/leeerob/status/1484340768290471936">edge-rendered sites</a>, thanks to their new Edge Functions feature (AKA two Cloudflare Workers in a <a href="https://www.youtube.com/watch?v=D1RgdMLbx3M">trench coat</a>). All the speed and flexibility of edge-rendering <em>without</em> all the extra infrastructure sounds pretty nice right now.</p>
+<p><strong>Bottom Line:</strong> When frameworks compete, <a href="https://twitter.com/leeerob/status/1465702417513680897">developers win</a>. When frameworks have raised mountains of VC cash, they tend to compete a little harder. Personally, I’m still just waiting for <a href="https://twitter.com/mjackson/status/1459656714362310658?s=20">this livestream</a> to happen.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/raygun.png" alt="Raygun Spiderman meme">
+</p><p class="image-alt">The only pair programmer I’ll allow [sponsored]</p><p></p>
+<h2><a href="https://raygun.com/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=homepage">Raygun</a> gives you X-ray vision</h2>
+<p>…for your code. Now stop looking at me like that.</p>
+<p>Raygun is a <a href="https://raygun.com/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=homepage">super powerful tool</a> that makes it easy to get all the diagnostics you care about for your team’s web and mobile apps. When there’s an issue, it shows you exactly what’s going on, who’s being impacted, and exactly how to fix the root cause – down to the specific line of code itself.</p>
+<p>This <a href="https://raygun.com/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=homepage">X-Ray Code Vision</a> lets you quickly prioritize fixing the issues that have the biggest impact on your users, so that you can quickly return to watching <em>Spider-Man 3</em> starring Tobey Maguire (aka the greatest film of the 21st century).</p>
+<p><a href="https://raygun.com/pricing?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=pricing">Start a 14-day free trial</a> of Raygun and give your team a tool that’ll genuinely make their lives easier. It only takes a few lines of code, and their simple <a href="https://raygun.com/pricing?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=pricing">usage-based plans</a> start at $4 a month – a small price to get your users to love you, your team to love you, and your stepdad to finally respect you.</p>
+<p><a href="https://raygun.com/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=homepage">Try it out.</a> Thank me later.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/daddyboy.png" alt="TypeScript Meme">
+</p><p class="image-alt">better type inference with indexed access types</p><p></p>
+<h2>TypeScript 4.6</h2>
+<p>TypeScript just announced its v4.6 beta — but unlike our last story, they didn’t even write a blog post calling out one of their rivals by name (boring). Hopefully they’ll fire up the hot take machine soon and write that scorching “TypeScript vs. Flow” blog post we’ve all been waiting for (since 2014).</p>
+<p>In the mean time, there are <em>a lot</em> of <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-6-beta/">new features and improvements</a> in TypeScript 4.6. Will you notice most of them? Probably not, but here’s the highlights:</p>
+<ul>
+<li>
+<p>TypeScript now warns you about more errors, like duplicate <code>const</code> statements or using a static <code>import</code> inside a function.</p>
+</li>
+<li>
+<p>If you’re writing extended classes, you can now write code <em>before</em> calling <code>super()</code>. Previously, you couldn’t include any code before <code>super()</code>, since you needed to call <code>super()</code> before accessing <code>this</code>. We warned you this would be dry but here you are, still reading - good on you.</p>
+</li>
+<li>
+<p>TypeScript has better performance when doing recursive type checks, like with types that appear to be infinitely nested inside themselves.</p>
+</li>
+<li>
+<p>There’s better type inference and type checking when working with indexed access types and dependent parameters. We don’t know what that means either but hey I’m sure it’s great.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> It’s another solid release for TypeScript — but Zuck just told me that Flow already had all these exact same features years ago. I guess it’s time for him and Satya to take a page out of the <em>Remix vs. Next.js</em> playbook and settle this once and for all… by writing long blog posts and subtweeting each other while pretending they’re on the same team.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>There’s a new <a href="https://developer.chrome.com/docs/devtools/recorder/">Chrome DevTools feature</a> that lets you record, replay, and measure user flows. I can’t tell if this feature will replace 50% of a product manager’s work, or result in 50% more product managers getting hired. Probably both.</p>
+</li>
+<li>
+<p>Kyle Simpson (AKA Getify AKA Mr. LinkedIn) wrote an <a href="https://github.com/getify/monio/blob/master/MONADS.md#fp--monads">Expansive Intro to Monads</a>. After reading it, you’ll probably still have some questions, like <em>What are Monads?</em> and <em>Is that even a real word?</em> But I’m pretty sure that’s the point — <em>no one</em> knows what it means, but it’s provocative. It gets the people going.</p>
+</li>
+<li>
+<p><a href="https://tinybase.org/">TinyBase</a> is a new, “smarter way” to structure your application state with a more database-like approach. If this thing catches on they may even get their own “Remix vs TinyBase” hit piece.</p>
+</li>
+<li>
+<p><a href="https://deno.com/blog/v1.18">Deno 1.18</a> was just released, and it comes with a fancy new Web Cryptography API. If you’re confused about what a <em>Web Cryptography API</em> is, please re-read the last sentence of Cool Bit #2 for an explanation.</p>
+</li>
+<li>
+<p>Orta Theroux (from the TypeScript team) created 4 helpful-looking <a href="https://www.typescriptlang.org/cheatsheets">TypeScript cheat sheets</a>. But if the professor catches you using them on the midterm, you DID NOT get them from me, ok? I need this class to graduate.</p>
+</li>
+<li>
+<p><a href="https://github.com/kevquirk/simple.css">Simple.css</a> is a classless CSS template that lets you make good looking websites quickly. Now all you need to do is add a few gradients, upgrade to Deno 1.18 for the Web Cryptography API, get your recursive type checks going with TypeScript 4.6, throw in a few Monads (sounds right), and migrate to Remix — along with its requisite distributed server, distributed database, Redis cache, and Docker Compose File. Then, you’ll finally have a <em>simple</em>, modern web site for your personal blog. Was that so hard?</p>
+</li>
+<li>
+<p><a href="https://dioxuslabs.com/blog/introducing-dioxus/">Dioxus</a> is a new Rust framework for building UI’s that’s heavily inspired by React. Because there are only three guarantees in life: Death, Taxes, and Rust. Salad Fingers tried to warn us.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Swimming in Gravy","date":"2022-01-24","description":"This issue, we've got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real -- but at this point we're too afraid to ask.","featuredImage":"https://bytes.dev/images/content/hitme.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got a breakdown of the Remix vs. Next.js battle royale, new TypeScript updates, and lots of programming buzzwords that we think are real — but at this point we’re too afraid to ask. Welcome to #84.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/hitme.png\" alt=\"Napolean Dynamite Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eCome down here and see what happens if you try and hit me.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eRemix vs Next.js — The Showdown\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eLet’s get ready to rumble…\u003c/strong\u003e Remix threw down the gauntlet last week with a \u003ca href=\"https://remix.run/blog/remix-vs-next\"\u003e6,700 word essay\u003c/a\u003e on why they’re better than Next.js. It’s well-written but super long, so we made this \u003ca href=\"https://video.twimg.com/ext_tw_video/1424050741778403333/pu/vid/360x360/2AdfLnYANcS80PQk.mp4?tag=12\"\u003e13-second video summary\u003c/a\u003e for you.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHow We Got Here:\u003c/strong\u003e Remix is a React meta-framework that’s SSR-only and was created by the folks behind React Router. It’s “edge-first,” able to deploy anywhere, and has gotten \u003ca href=\"https://twitter.com/jaffathecake/status/1483706092215586816?s=20\"\u003elots of hype\u003c/a\u003e since it launched v1 in November.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBut how is that different from Next.js?\u003c/strong\u003e Turns out, the Remix team was tired of literally everyone asking that question, so the article uses lots of nuanced measurements to directly compare a Next.js app and a Remix app. From there, they shared the following scientific conclusions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eRemix is faster\u003c/li\u003e\n\u003cli\u003eNext.js is slower\u003c/li\u003e\n\u003cli\u003eRemix’s dad could beat up your dad\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.youtube.com/watch?v=W-TGdhurBdU\"\u003eHOW?\u003c/a\u003e\u003c/strong\u003e The Remix app server-rendered every single page, instead of using SSG. They could do this faster than Next.js because they cache their data “at the edge” with a Redis database and also run their servers “at the edge.” (Not everyone agrees on what “the edge” \u003ca href=\"https://twitter.com/crim_codes/status/1484594510483054592?s=20\"\u003eactually means\u003c/a\u003e, but just imagine servers close to users.)\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBut at what cost?\u003c/strong\u003e Is “best-in-class performance” really worth it if you have to run a distributed server \u003cem\u003eand\u003c/em\u003e a distributed database \u003cem\u003eand\u003c/em\u003e a Redis cache? That Remix example even included a \u003ca href=\"https://github.com/jacob-ebey/remix-ecommerce/blob/main/docker-compose.yml\"\u003eDocker Compose file\u003c/a\u003e — and now I’ve got Egghead pushing \u003ca href=\"https://twitter.com/eggheadio/status/1484548808742563841?s=20\"\u003eDocker courses for Remix devs\u003c/a\u003e on my timeline. At least we all got our Master’s Degrees in Distributed Systems, right? \u003cspan role=\"img\" aria-label=\"skull\"\u003e💀\u003c/span\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRemix \u003cem\u003eis\u003c/em\u003e on to something, though\u003c/strong\u003e — hosting sites closer to users does provide a better experience, and Vercel knows it too. Soon, Vercel will follow Remix over the edge by providing \u003ca href=\"https://twitter.com/leeerob/status/1484340768290471936\"\u003eedge-rendered sites\u003c/a\u003e, thanks to their new Edge Functions feature (AKA two Cloudflare Workers in a \u003ca href=\"https://www.youtube.com/watch?v=D1RgdMLbx3M\"\u003etrench coat\u003c/a\u003e). All the speed and flexibility of edge-rendering \u003cem\u003ewithout\u003c/em\u003e all the extra infrastructure sounds pretty nice right now.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e When frameworks compete, \u003ca href=\"https://twitter.com/leeerob/status/1465702417513680897\"\u003edevelopers win\u003c/a\u003e. When frameworks have raised mountains of VC cash, they tend to compete a little harder. Personally, I’m still just waiting for \u003ca href=\"https://twitter.com/mjackson/status/1459656714362310658?s=20\"\u003ethis livestream\u003c/a\u003e to happen.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/raygun.png\" alt=\"Raygun Spiderman meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe only pair programmer I’ll allow [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://raygun.com/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=homepage\"\u003eRaygun\u003c/a\u003e gives you X-ray vision\u003c/h2\u003e\n\u003cp\u003e…for your code. Now stop looking at me like that.\u003c/p\u003e\n\u003cp\u003eRaygun is a \u003ca href=\"https://raygun.com/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=homepage\"\u003esuper powerful tool\u003c/a\u003e that makes it easy to get all the diagnostics you care about for your team’s web and mobile apps. When there’s an issue, it shows you exactly what’s going on, who’s being impacted, and exactly how to fix the root cause – down to the specific line of code itself.\u003c/p\u003e\n\u003cp\u003eThis \u003ca href=\"https://raygun.com/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=homepage\"\u003eX-Ray Code Vision\u003c/a\u003e lets you quickly prioritize fixing the issues that have the biggest impact on your users, so that you can quickly return to watching \u003cem\u003eSpider-Man 3\u003c/em\u003e starring Tobey Maguire (aka the greatest film of the 21st century).\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raygun.com/pricing?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=pricing\"\u003eStart a 14-day free trial\u003c/a\u003e of Raygun and give your team a tool that’ll genuinely make their lives easier. It only takes a few lines of code, and their simple \u003ca href=\"https://raygun.com/pricing?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=pricing\"\u003eusage-based plans\u003c/a\u003e start at $4 a month – a small price to get your users to love you, your team to love you, and your stepdad to finally respect you.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raygun.com/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=homepage\"\u003eTry it out.\u003c/a\u003e Thank me later.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/daddyboy.png\" alt=\"TypeScript Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003ebetter type inference with indexed access types\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eTypeScript 4.6\u003c/h2\u003e\n\u003cp\u003eTypeScript just announced its v4.6 beta — but unlike our last story, they didn’t even write a blog post calling out one of their rivals by name (boring). Hopefully they’ll fire up the hot take machine soon and write that scorching “TypeScript vs. Flow” blog post we’ve all been waiting for (since 2014).\u003c/p\u003e\n\u003cp\u003eIn the mean time, there are \u003cem\u003ea lot\u003c/em\u003e of \u003ca href=\"https://devblogs.microsoft.com/typescript/announcing-typescript-4-6-beta/\"\u003enew features and improvements\u003c/a\u003e in TypeScript 4.6. Will you notice most of them? Probably not, but here’s the highlights:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eTypeScript now warns you about more errors, like duplicate \u003ccode\u003econst\u003c/code\u003e statements or using a static \u003ccode\u003eimport\u003c/code\u003e inside a function.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you’re writing extended classes, you can now write code \u003cem\u003ebefore\u003c/em\u003e calling \u003ccode\u003esuper()\u003c/code\u003e. Previously, you couldn’t include any code before \u003ccode\u003esuper()\u003c/code\u003e, since you needed to call \u003ccode\u003esuper()\u003c/code\u003e before accessing \u003ccode\u003ethis\u003c/code\u003e. We warned you this would be dry but here you are, still reading - good on you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTypeScript has better performance when doing recursive type checks, like with types that appear to be infinitely nested inside themselves.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThere’s better type inference and type checking when working with indexed access types and dependent parameters. We don’t know what that means either but hey I’m sure it’s great.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e It’s another solid release for TypeScript — but Zuck just told me that Flow already had all these exact same features years ago. I guess it’s time for him and Satya to take a page out of the \u003cem\u003eRemix vs. Next.js\u003c/em\u003e playbook and settle this once and for all… by writing long blog posts and subtweeting each other while pretending they’re on the same team.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eThere’s a new \u003ca href=\"https://developer.chrome.com/docs/devtools/recorder/\"\u003eChrome DevTools feature\u003c/a\u003e that lets you record, replay, and measure user flows. I can’t tell if this feature will replace 50% of a product manager’s work, or result in 50% more product managers getting hired. Probably both.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKyle Simpson (AKA Getify AKA Mr. LinkedIn) wrote an \u003ca href=\"https://github.com/getify/monio/blob/master/MONADS.md#fp--monads\"\u003eExpansive Intro to Monads\u003c/a\u003e. After reading it, you’ll probably still have some questions, like \u003cem\u003eWhat are Monads?\u003c/em\u003e and \u003cem\u003eIs that even a real word?\u003c/em\u003e But I’m pretty sure that’s the point — \u003cem\u003eno one\u003c/em\u003e knows what it means, but it’s provocative. It gets the people going.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tinybase.org/\"\u003eTinyBase\u003c/a\u003e is a new, “smarter way” to structure your application state with a more database-like approach. If this thing catches on they may even get their own “Remix vs TinyBase” hit piece.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://deno.com/blog/v1.18\"\u003eDeno 1.18\u003c/a\u003e was just released, and it comes with a fancy new Web Cryptography API. If you’re confused about what a \u003cem\u003eWeb Cryptography API\u003c/em\u003e is, please re-read the last sentence of Cool Bit #2 for an explanation.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOrta Theroux (from the TypeScript team) created 4 helpful-looking \u003ca href=\"https://www.typescriptlang.org/cheatsheets\"\u003eTypeScript cheat sheets\u003c/a\u003e. But if the professor catches you using them on the midterm, you DID NOT get them from me, ok? I need this class to graduate.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/kevquirk/simple.css\"\u003eSimple.css\u003c/a\u003e is a classless CSS template that lets you make good looking websites quickly. Now all you need to do is add a few gradients, upgrade to Deno 1.18 for the Web Cryptography API, get your recursive type checks going with TypeScript 4.6, throw in a few Monads (sounds right), and migrate to Remix — along with its requisite distributed server, distributed database, Redis cache, and Docker Compose File. Then, you’ll finally have a \u003cem\u003esimple\u003c/em\u003e, modern web site for your personal blog. Was that so hard?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://dioxuslabs.com/blog/introducing-dioxus/\"\u003eDioxus\u003c/a\u003e is a new Rust framework for building UI’s that’s heavily inspired by React. Because there are only three guarantees in life: Death, Taxes, and Rust. Salad Fingers tried to warn us.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"84"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"84"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

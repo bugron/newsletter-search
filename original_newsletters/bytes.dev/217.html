@@ -1,0 +1,318 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #217 - Ride the Lightning CSS</title><link rel="canonical" href="https://bytes.dev/archives/217"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism."/><meta property="og:url" content="https://bytes.dev/archives/217"/><meta property="og:title" content="Bytes #217 - Ride the Lightning CSS"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/lightning.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #217 - Ride the Lightning CSS"/><meta property="twitter:description" content="Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism."/><meta property="twitter:image" content="https://bytes.dev/images/content/lightning.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Ride the Lightning CSS</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->217<!-- -->.</span><span class="mr-6 font-bold">August 28, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/217">#217</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/lightning.jpg" alt="Christ the Redeemer statue getting struck by lightning" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Devon Govett opening up his laptop<!-- --> </p></div><h3>Ride the Lightning CSS</h3><p>Almost a year ago, Devon Govett and the Parcel team rebranded Parcel CSS to <a href="https://lightningcss.dev/">Lightning CSS</a> after having a <em>Cars</em> movie marathon at Parcel HQ (probably).</p><p>Fast forward to today, and the “extremely fast CSS parser, transformer, bundler, and minifier” is already getting over 350k npm downloads per week.</p><p>And that number should continue to climb, since Tailwind recently <a href="https://youtu.be/CLkxRnRQtDE?t=2146">announced</a> that it’s integrating Lightning CSS into its next-generation engine called Oxide. That’ll help Tailwind become more of an all-in-one CSS processing tool, while making it faster and lighter. <em>I am speed.</em></p><p><strong>So what makes Lightning CSS so fast anyway?</strong> Rust, obviously.</p><p>Because Rust is a native systems programming language, it enables Lightning CSS to be up to 100x faster than comparable JavaScript-based tools (<a href="https://github.com/parcel-bundler/lightningcss#benchmarks">see benchmarks</a>). It can minify over 2.7 million lines of code per second on a single thread, and it produces a smaller output by removing unnecessary vendor prefixes, combining longhand properties into shorthand, and more.</p><p>Here are some other powerful features and optimizations Lightning McCSS brings to the table:</p><ul>
+<li>
+<p>Its browser-grade parser is built on the <code>cssparser</code> and <code>selectors</code> crates created by Mozilla. This lets it fully parse every CSS rule, property, and value like a browser would, leading to improved perf.</p>
+</li>
+<li>
+<p>Instead of treating property values as an untyped series of tokens, it exposes a specific value type for each property.</p>
+</li>
+<li>
+<p>It supports modern CSS features like CSS modules, custom media queries, CSS nesting, and logical properties — and it automatically converts newer features to more compatible syntax based on your browser targets.</p>
+</li>
+</ul><p>You can use Lightning CSS as a JavaScript or Rust library, and it can also be wrapped as a plugin in other build tools. Devon also just <a href="https://twitter.com/devongovett/status/1693326470410829934">announced</a> that it now works in Stackblitz, so you can play with it over there too.</p><p><strong>Bottom Line:</strong> I’m not sure if they typically award Piston Cups to the fastest CSS tools, but there’s a first time for everything.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/217" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F217" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Bytes%20breaks%20down%20if%20%40devongovett%20is%20an%20actual%20wizard%20or%20just%20a%20smart%20human.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F217" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABytes%20breaks%20down%20if%20%40devongovett%20is%20an%20actual%20wizard%20or%20just%20a%20smart%20human.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F217" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/convex-logo.png" alt="Convex logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/thriving.jpg" alt="Big guy sitting in a beautiful spring" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me when my entire backend is 100% type-safe by default<!-- --> </p></div><h3><a href="https://www.convex.dev/">Convex lets you use your frontend skills to build a powerful backend</a></h3><p><em>How?</em> By giving you a full cloud backend that can replace your database, server functions, and that nasty glue code. And it’s all 100% Type-safe <span role="img" aria-label="folded hands">🙏</span>.</p><p>It’s like if someone created <a href="https://www.convex.dev/convex-vs-firebase">Firebase</a> in the year 2023, and they didn’t hate themselves. Here’s what it gets you:</p><ul>
+<li>
+<p>A realtime relational DB that’s reactive by default and simple to work with.</p>
+</li>
+<li>
+<p>First-class React support with their React and Next.js client libraries (<a href="https://docs.convex.dev/client/react">see docs</a>).</p>
+</li>
+<li>
+<p>Easy-to-use server functions that manage dev and prod for you.</p>
+</li>
+<li>
+<p>Helpful built-in features like file storage, search, and auth.</p>
+</li>
+</ul><p>Convex is perfect if you’re a frontend dev who wants to use familiar tools to easily spin up a fullstack app that can scale to the moon.</p><p><a href="https://www.convex.dev/">Check out the free tier</a> — and feel the power of TypeScript.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/close-logo.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.lever.co/close.io/c097ae8c-f9ce-41db-a963-b93702459ff3?lever-origin=applied&amp;lever-source%5B%5D=BytesNewsletter">Frontend Engineering Manager (USA Only)</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">100% Remote</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">React</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Close.com is looking for an experienced full-time Frontend Engineering Manager to join our engineering team and build &amp; lead the 3rd Frontend team. Close is a 100% globally distributed team of 90 happy people, dedicated to building a product our customers love.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://configu.com/">Configu</a></h4><p><em>Say goodbye to outdated ENV files and embrace the power of configuration-as-code. Configu is <a href="https://github.com/configu/configu">open-source software</a> for streamlining, testing and automating application configurations across environments.</em></p></div></div>
+<p>How can we improve this code?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>The Next.js docs have a new section on <a href="https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations">Forms and Mutations with App Router</a>. “Forms and Mutations” was always my favorite Marcus Aurelius book. Life-changing stuff.</p>
+</li>
+<li>
+<p><a href="https://tryzero.com/?s=bytesnl">Zero</a> created an easy way to integrate 3rd-party API credentials into your project. Their SDK is available for TypeScript, Rust, Python, and Go. [sponsored]</p>
+</li>
+<li>
+<p>Alex Kladov wrote an article called <a href="https://matklad.github.io/2023/08/17/typescript-is-surprisingly-ok-for-compilers.html">TypeScript is Surprisingly OK for Compilers</a>. I’ve often been described as “surprisingly OK” by those meeting me for this first time, so this really hit home.</p>
+</li>
+<li>
+<p>Dominik Dorfmeister wrote an article about <a href="https://tkdodo.eu/blog/array-types-in-type-script">Array Types in TypeScript</a>.</p>
+</li>
+<li>
+<p><a href="https://www.electronjs.org/blog/electron-26-0">Electron 26.0</a> came out a couple weeks ago, and I can already feel my laptop getting hotter.</p>
+</li>
+<li>
+<p><a href="https://viewports.fyi/">Viewports.fyi</a> is a cool microsite that tries to answer the question, “How fragmented are viewport sizes?”</p>
+</li>
+<li>
+<p>TinyBase just released <a href="https://tinybase.org/guides/releases/">v4.1</a> with a new <code>ui-react-dom</code> module, which provides pre-built components for tabular display of your data in a web app.</p>
+</li>
+<li>
+<p>Dylan Beattie gave a great talk called, <a href="https://www.youtube.com/watch?v=mrGfahzt-4Q">Email vs Capitalism, or, Why We Can’t Have Nice Things</a>. After watching, you’ll know more about how email works than 99% of developers.</p>
+</li>
+<li>
+<p>Alexander Petros wrote an article called <a href="https://htmx.org/essays/no-build-step/">Why doesn’t htmx Have a Build Step</a>. It sounds like the perfect setup to a dad joke, but the punchline is just 2,000 words about why this library isn’t written in TypeScript.</p>
+</li>
+<li>
+<p>Lea Verou wrote about how <a href="https://lea.verou.me/blog/2023/04/private-fields-considered-harmful/">JS private class fields are considered harmful</a> and how she is “mourning the loss of encapsulation in her projects.” I’m currently mourning the loss of Bob Barker, who was always there for us on our sick days. <a href="https://twitter.com/BarstoolBigCat/status/1695476132114567339">RIP, king</a>.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://configu.com/">Configu</a></h4></div></div>
+<p>How can we improve this code?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Because <code>processOrder</code> doesn’t depend on the result of <code>updateAnalytics</code>, we can parallelize the two invocations.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>_<span class="token punctuation">,</span> order<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Ride the Lightning CSS","date":"2023-08-28","featuredImage":"/images/content/lightning.jpg","description":"Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Marcus Aurelius helps write the Next docs, htmx dad jokes with no punchlines, and emails vs. capitalism.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/217\"\u003e#217\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/lightning.jpg\" alt=\"Christ the Redeemer statue getting struck by lightning\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eDevon Govett opening up his laptop\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eRide the Lightning CSS\u003c/h3\u003e\u003cp\u003eAlmost a year ago, Devon Govett and the Parcel team rebranded Parcel CSS to \u003ca href=\"https://lightningcss.dev/\"\u003eLightning CSS\u003c/a\u003e after having a \u003cem\u003eCars\u003c/em\u003e movie marathon at Parcel HQ (probably).\u003c/p\u003e\u003cp\u003eFast forward to today, and the “extremely fast CSS parser, transformer, bundler, and minifier” is already getting over 350k npm downloads per week.\u003c/p\u003e\u003cp\u003eAnd that number should continue to climb, since Tailwind recently \u003ca href=\"https://youtu.be/CLkxRnRQtDE?t=2146\"\u003eannounced\u003c/a\u003e that it’s integrating Lightning CSS into its next-generation engine called Oxide. That’ll help Tailwind become more of an all-in-one CSS processing tool, while making it faster and lighter. \u003cem\u003eI am speed.\u003c/em\u003e\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eSo what makes Lightning CSS so fast anyway?\u003c/strong\u003e Rust, obviously.\u003c/p\u003e\u003cp\u003eBecause Rust is a native systems programming language, it enables Lightning CSS to be up to 100x faster than comparable JavaScript-based tools (\u003ca href=\"https://github.com/parcel-bundler/lightningcss#benchmarks\"\u003esee benchmarks\u003c/a\u003e). It can minify over 2.7 million lines of code per second on a single thread, and it produces a smaller output by removing unnecessary vendor prefixes, combining longhand properties into shorthand, and more.\u003c/p\u003e\u003cp\u003eHere are some other powerful features and optimizations Lightning McCSS brings to the table:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eIts browser-grade parser is built on the \u003ccode\u003ecssparser\u003c/code\u003e and \u003ccode\u003eselectors\u003c/code\u003e crates created by Mozilla. This lets it fully parse every CSS rule, property, and value like a browser would, leading to improved perf.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstead of treating property values as an untyped series of tokens, it exposes a specific value type for each property.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt supports modern CSS features like CSS modules, custom media queries, CSS nesting, and logical properties — and it automatically converts newer features to more compatible syntax based on your browser targets.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eYou can use Lightning CSS as a JavaScript or Rust library, and it can also be wrapped as a plugin in other build tools. Devon also just \u003ca href=\"https://twitter.com/devongovett/status/1693326470410829934\"\u003eannounced\u003c/a\u003e that it now works in Stackblitz, so you can play with it over there too.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e I’m not sure if they typically award Piston Cups to the fastest CSS tools, but there’s a first time for everything.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/217\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F217\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Bytes%20breaks%20down%20if%20%40devongovett%20is%20an%20actual%20wizard%20or%20just%20a%20smart%20human.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F217\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABytes%20breaks%20down%20if%20%40devongovett%20is%20an%20actual%20wizard%20or%20just%20a%20smart%20human.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F217\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/convex-logo.png\" alt=\"Convex logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/thriving.jpg\" alt=\"Big guy sitting in a beautiful spring\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe when my entire backend is 100% type-safe by default\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.convex.dev/\"\u003eConvex lets you use your frontend skills to build a powerful backend\u003c/a\u003e\u003c/h3\u003e\u003cp\u003e\u003cem\u003eHow?\u003c/em\u003e By giving you a full cloud backend that can replace your database, server functions, and that nasty glue code. And it’s all 100% Type-safe \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eIt’s like if someone created \u003ca href=\"https://www.convex.dev/convex-vs-firebase\"\u003eFirebase\u003c/a\u003e in the year 2023, and they didn’t hate themselves. Here’s what it gets you:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eA realtime relational DB that’s reactive by default and simple to work with.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFirst-class React support with their React and Next.js client libraries (\u003ca href=\"https://docs.convex.dev/client/react\"\u003esee docs\u003c/a\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEasy-to-use server functions that manage dev and prod for you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHelpful built-in features like file storage, search, and auth.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eConvex is perfect if you’re a frontend dev who wants to use familiar tools to easily spin up a fullstack app that can scale to the moon.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.convex.dev/\"\u003eCheck out the free tier\u003c/a\u003e — and feel the power of TypeScript.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/close-logo.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.lever.co/close.io/c097ae8c-f9ce-41db-a963-b93702459ff3?lever-origin=applied\u0026amp;lever-source%5B%5D=BytesNewsletter\"\u003eFrontend Engineering Manager (USA Only)\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e100% Remote\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eReact\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eClose.com is looking for an experienced full-time Frontend Engineering Manager to join our engineering team and build \u0026amp; lead the 3rd Frontend team. Close is a 100% globally distributed team of 90 happy people, dedicated to building a product our customers love.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://configu.com/\"\u003eConfigu\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eSay goodbye to outdated ENV files and embrace the power of configuration-as-code. Configu is \u003ca href=\"https://github.com/configu/configu\"\u003eopen-source software\u003c/a\u003e for streamlining, testing and automating application configurations across environments.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eHow can we improve this code?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eThe Next.js docs have a new section on \u003ca href=\"https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations\"\u003eForms and Mutations with App Router\u003c/a\u003e. “Forms and Mutations” was always my favorite Marcus Aurelius book. Life-changing stuff.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tryzero.com/?s=bytesnl\"\u003eZero\u003c/a\u003e created an easy way to integrate 3rd-party API credentials into your project. Their SDK is available for TypeScript, Rust, Python, and Go. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex Kladov wrote an article called \u003ca href=\"https://matklad.github.io/2023/08/17/typescript-is-surprisingly-ok-for-compilers.html\"\u003eTypeScript is Surprisingly OK for Compilers\u003c/a\u003e. I’ve often been described as “surprisingly OK” by those meeting me for this first time, so this really hit home.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDominik Dorfmeister wrote an article about \u003ca href=\"https://tkdodo.eu/blog/array-types-in-type-script\"\u003eArray Types in TypeScript\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.electronjs.org/blog/electron-26-0\"\u003eElectron 26.0\u003c/a\u003e came out a couple weeks ago, and I can already feel my laptop getting hotter.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://viewports.fyi/\"\u003eViewports.fyi\u003c/a\u003e is a cool microsite that tries to answer the question, “How fragmented are viewport sizes?”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTinyBase just released \u003ca href=\"https://tinybase.org/guides/releases/\"\u003ev4.1\u003c/a\u003e with a new \u003ccode\u003eui-react-dom\u003c/code\u003e module, which provides pre-built components for tabular display of your data in a web app.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDylan Beattie gave a great talk called, \u003ca href=\"https://www.youtube.com/watch?v=mrGfahzt-4Q\"\u003eEmail vs Capitalism, or, Why We Can’t Have Nice Things\u003c/a\u003e. After watching, you’ll know more about how email works than 99% of developers.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlexander Petros wrote an article called \u003ca href=\"https://htmx.org/essays/no-build-step/\"\u003eWhy doesn’t htmx Have a Build Step\u003c/a\u003e. It sounds like the perfect setup to a dad joke, but the punchline is just 2,000 words about why this library isn’t written in TypeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLea Verou wrote about how \u003ca href=\"https://lea.verou.me/blog/2023/04/private-fields-considered-harmful/\"\u003eJS private class fields are considered harmful\u003c/a\u003e and how she is “mourning the loss of encapsulation in her projects.” I’m currently mourning the loss of Bob Barker, who was always there for us on our sick days. \u003ca href=\"https://twitter.com/BarstoolBigCat/status/1695476132114567339\"\u003eRIP, king\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://configu.com/\"\u003eConfigu\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eHow can we improve this code?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBecause \u003ccode\u003eprocessOrder\u003c/code\u003e doesn’t depend on the result of \u003ccode\u003eupdateAnalytics\u003c/code\u003e, we can parallelize the two invocations.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e_\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e Promise\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eall\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"217"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"217"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #177 - Playing Uno and writing CSS</title><link rel="canonical" href="https://bytes.dev/archives/177"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta&#x27;s OSS learnings from _Paul Blart: Mall Cop_."/><meta property="og:url" content="https://bytes.dev/archives/177"/><meta property="og:title" content="Bytes #177 - Playing Uno and writing CSS"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/uno-kid.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta&#x27;s OSS learnings from _Paul Blart: Mall Cop_."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #177 - Playing Uno and writing CSS"/><meta property="twitter:description" content="The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta&#x27;s OSS learnings from _Paul Blart: Mall Cop_."/><meta property="twitter:image" content="https://bytes.dev/images/content/uno-kid.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Playing Uno and writing CSS</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->177<!-- -->.</span><span class="mr-6 font-bold">April 10, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>We just released <a href="https://react.gg/visualized">React, Visualized</a>. It’s a free, gentle introduction to React – but visualized.</p>
+<p>To <del>increase exposure to <a href="https://react.gg">react.gg</a> so we can make more money</del> celebrate the launch, we’re giving away AirPods Pro to 3 of you who <a href="https://twitter.com/tylermcginnis/status/1645492728011317248">RT this tweet</a> 🫶. We’ll announce the winners next week. GLHF.</p>
+<p><strong>Today’s issue:</strong> The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta’s OSS learnings from <em>Paul Blart: Mall Cop</em>.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/177">#177</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/uno-kid.jpg" alt="Kid with one uno card left about to get wrecked by lots of draw-4 cards" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">You before you check your app in Safari<!-- --> </p></div><h3>The draw-4 wildcard of Atomic CSS</h3><p>Playing Uno and writing CSS have both taught me some valuable life lessons — mostly that happiness is fleeting and pain is inescapable.</p><p>So when I saw all the buzz around a fast-growing Atomic CSS engine called <a href="https://unocss.dev/">UnoCSS</a>, I knew I had to look into it (and hopefully process some unresolved trauma along the way).</p><p><strong>Quick background:</strong> UnoCSS was created by Anthony Fu, a <em>prolific</em> OSS author who has helped create and maintain projects like Vite, Vue, Nuxt, and <a href="https://antfu.me/projects">lots more</a>. The idea for Uno was planted a few years ago, when Anthony was creating Vitesse, a popular Vite starter template that originally used Tailwind.</p><p>Back then, Tailwind followed the traditional Atomic CSS model — it provided you with all of the CSS utilities you could possibly need, then used PurgeCSS to scan your bundle and remove what you didn’t use. The problem is, this approach can be pretty slow (especially in development) — which is the worst possible insult you can give to a Vite dev.</p><p>In 2021, Tailwind addressed this problem by introducing an on-demand JIT engine, which pre-scans your source code and only generates the utilities you need. But because Tailwind’s API and plugin system were still designed for “traditional” Atomic CSS, Anthony felt like there was an opportunity to <a href="https://antfu.me/posts/reimagine-atomic-css">reimagine Atomic CSS</a> from the ground up. So he did.</p><p><strong>Most of what makes UnoCSS unique</strong> comes from the fact that it’s a slightly lower level <em>engine</em>, not a framework. Here’s what that gets you:</p><ul>
+<li>
+<p><strong>More flexibility</strong> — It has first-class integrations with various build tools and can be used in lots of different places.</p>
+</li>
+<li>
+<p><strong>Easy to customize</strong> — It’s less opinionated and has no core utilities; all functionality come from <a href="https://unocss.dev/presets/uno">presets</a>.</p>
+</li>
+<li>
+<p><strong>Better performance</strong> — No parsing, no AST, and no scanning make it 5x faster than Tailwind JIT.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> This strategy of “go one layer down the stack and make it faster/more flexible from there” has worked out great for Vite. Will it work for UnoCSS too? Early returns have been <a href="https://npmtrends.com/@unocss/core-vs-windicss">looking good</a>.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/177" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F177" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20broke%20down%20UnoCSS.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F177" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20broke%20down%20UnoCSS.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F177" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/dynaboard-logo.png" alt="dynaboard logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/nacho-libre.jpg" alt="Nacho Libre stretching" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Powerful, yet flexible<!-- --> </p></div><h3><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q22023">Dynaboard</a> helps you build legit apps 10x faster</h3><p>What’s the #1 hardest thing about starting a new web dev project?</p><p><strong>Actually getting started.</strong> We’re all terrified of a blank canvas (or empty text editor) — and it’s easy to waste hours <del>procrastinating</del> “researching,” instead of just building the damn thing.</p><p>Thankfully, there’s Dynaboard. It’s a web app builder that combines the convenience of a drag and drop editor with the flexibility of a code-first UI framework. And it’s <em>surprisingly</em> powerful. Here’s how it works:</p><ul>
+<li>
+<p>Start fast by forking one of their <a href="https://dynaboard.com/docs#dive-into-a-template?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q22023">app templates</a>, or use their customizable component libraries — without worrying about frameworks, boilerplate, or dependencies.</p>
+</li>
+<li>
+<p>Add custom code wherever you want, on both the client <em>and</em> the server. Dynaboard is powered by Wasm and supports all ES2020 syntax to give you max flexibility.</p>
+</li>
+<li>
+<p>Build and edit with your whole team in real time with their <a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q22023">multiplayer mode</a>.</p>
+</li>
+</ul><p><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q22023">Check out their free tier</a> — and build any web app 10x faster, no matter how complex.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/close-logo.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2">Senior or Staff Front-end Engineer</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">100% Remote</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">React</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Close.com is looking for an experienced React developer to help design and implement major user-facing features. Close is a 100% globally distributed team of 70 happy people, dedicated to building a product our customers love.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug">Airplane</a></h4><p><em>Their powerful, <a href="https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug">code-first platform</a> for building custom internal tools will help you transform scripts, queries, and APIs into UIs and workflows for your team in minutes <span role="img" aria-label="exploding head">🤯</span>.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Tyler'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">created</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> copiedUser <span class="token operator">=</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://react.gg/visualized">React, Visualized</a> is a free, gentle introduction to React – but visualized.</p>
+</li>
+<li>
+<p>CarbonQA provides <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=apr10">high-quality QA services for dev teams</a>, so you’ll never have to do it yourself again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://engineering.fb.com/2023/04/06/open-source/buck2-open-source-large-scale-build-system/">Buck2</a> is a new, large-scale build system from Meta that can complete builds twice as fast as Buck1. Much like <em>Paul Blart: Mall Cop 2</em>, this was a sequel that nobody asked for, but I’m still intrigued.</p>
+</li>
+<li>
+<p><a href="https://github.com/unjs/magicast">Magicast</a> lets you programmatically modify JavaScript and TypeScript source code with a simple and familiar syntax. This is yet another Anthony Fu project, and now that I’ve pointed him out, you’re going to see him everywhere. There’s no going back.</p>
+</li>
+<li>
+<p>Simon Willison wrote a refreshingly optimistic article about AI called, <a href="https://simonwillison.net/2023/Mar/27/ai-enhanced-development/">AI-enhanced development makes me more ambitious with my projects</a>.</p>
+</li>
+<li>
+<p>There’s lots of discussion going on in this <a href="https://github.com/angular/angular/discussions/49685">RFC about Angular Signals</a>. I did not predict Angular becoming the most talked about JavaScript framework of 2023, but here we are.</p>
+</li>
+<li>
+<p><a href="https://twitter.com/jarredsumner/status/1642821108402630657">Server components are coming to Bun v0.6.0</a>.</p>
+</li>
+<li>
+<p><a href="https://developer.chrome.com/blog/webgpu-release/">Chrome 113 will ship WebGPU</a>, which enables high-performance 3D graphics and data-parallel computation. This is going to take my Paul Blart fan-fic blog to the next level.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug">Airplane</a> –&nbsp;Developer infrastructure for internal tools</h4></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Tyler'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">32</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">created</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> copiedUser <span class="token operator">=</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+</code></pre>
+<p>A deep copy of an object is a copy whose properties do no share the same references as those of the source object from which the copy was made. One approach for deep copying in JavaScript is using <code>JSON.stringify</code> and <code>JSON.parse</code>.</p>
+<p>This kind of works in our case, but it will convert <code>created</code> to a string. To prevent that, you can use <code>window.structuredClone</code> instead (assuming browser support).</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> window<span class="token punctuation">.</span><span class="token function">structuredClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Playing Uno and writing CSS","date":"2023-04-10","featuredImage":"/images/content/uno-kid.jpg","description":"The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta's OSS learnings from _Paul Blart: Mall Cop_.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eWe just released \u003ca href=\"https://react.gg/visualized\"\u003eReact, Visualized\u003c/a\u003e. It’s a free, gentle introduction to React – but visualized.\u003c/p\u003e\n\u003cp\u003eTo \u003cdel\u003eincrease exposure to \u003ca href=\"https://react.gg\"\u003ereact.gg\u003c/a\u003e so we can make more money\u003c/del\u003e celebrate the launch, we’re giving away AirPods Pro to 3 of you who \u003ca href=\"https://twitter.com/tylermcginnis/status/1645492728011317248\"\u003eRT this tweet\u003c/a\u003e 🫶. We’ll announce the winners next week. GLHF.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e The Vite-ification of Atomic CSS, slightly less AI doomerism, and Meta’s OSS learnings from \u003cem\u003ePaul Blart: Mall Cop\u003c/em\u003e.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/177\"\u003e#177\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/uno-kid.jpg\" alt=\"Kid with one uno card left about to get wrecked by lots of draw-4 cards\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eYou before you check your app in Safari\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eThe draw-4 wildcard of Atomic CSS\u003c/h3\u003e\u003cp\u003ePlaying Uno and writing CSS have both taught me some valuable life lessons — mostly that happiness is fleeting and pain is inescapable.\u003c/p\u003e\u003cp\u003eSo when I saw all the buzz around a fast-growing Atomic CSS engine called \u003ca href=\"https://unocss.dev/\"\u003eUnoCSS\u003c/a\u003e, I knew I had to look into it (and hopefully process some unresolved trauma along the way).\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eQuick background:\u003c/strong\u003e UnoCSS was created by Anthony Fu, a \u003cem\u003eprolific\u003c/em\u003e OSS author who has helped create and maintain projects like Vite, Vue, Nuxt, and \u003ca href=\"https://antfu.me/projects\"\u003elots more\u003c/a\u003e. The idea for Uno was planted a few years ago, when Anthony was creating Vitesse, a popular Vite starter template that originally used Tailwind.\u003c/p\u003e\u003cp\u003eBack then, Tailwind followed the traditional Atomic CSS model — it provided you with all of the CSS utilities you could possibly need, then used PurgeCSS to scan your bundle and remove what you didn’t use. The problem is, this approach can be pretty slow (especially in development) — which is the worst possible insult you can give to a Vite dev.\u003c/p\u003e\u003cp\u003eIn 2021, Tailwind addressed this problem by introducing an on-demand JIT engine, which pre-scans your source code and only generates the utilities you need. But because Tailwind’s API and plugin system were still designed for “traditional” Atomic CSS, Anthony felt like there was an opportunity to \u003ca href=\"https://antfu.me/posts/reimagine-atomic-css\"\u003ereimagine Atomic CSS\u003c/a\u003e from the ground up. So he did.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eMost of what makes UnoCSS unique\u003c/strong\u003e comes from the fact that it’s a slightly lower level \u003cem\u003eengine\u003c/em\u003e, not a framework. Here’s what that gets you:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMore flexibility\u003c/strong\u003e — It has first-class integrations with various build tools and can be used in lots of different places.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEasy to customize\u003c/strong\u003e — It’s less opinionated and has no core utilities; all functionality come from \u003ca href=\"https://unocss.dev/presets/uno\"\u003epresets\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBetter performance\u003c/strong\u003e — No parsing, no AST, and no scanning make it 5x faster than Tailwind JIT.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e This strategy of “go one layer down the stack and make it faster/more flexible from there” has worked out great for Vite. Will it work for UnoCSS too? Early returns have been \u003ca href=\"https://npmtrends.com/@unocss/core-vs-windicss\"\u003elooking good\u003c/a\u003e.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/177\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F177\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20broke%20down%20UnoCSS.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F177\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20broke%20down%20UnoCSS.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F177\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/dynaboard-logo.png\" alt=\"dynaboard logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/nacho-libre.jpg\" alt=\"Nacho Libre stretching\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003ePowerful, yet flexible\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q22023\"\u003eDynaboard\u003c/a\u003e helps you build legit apps 10x faster\u003c/h3\u003e\u003cp\u003eWhat’s the #1 hardest thing about starting a new web dev project?\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eActually getting started.\u003c/strong\u003e We’re all terrified of a blank canvas (or empty text editor) — and it’s easy to waste hours \u003cdel\u003eprocrastinating\u003c/del\u003e “researching,” instead of just building the damn thing.\u003c/p\u003e\u003cp\u003eThankfully, there’s Dynaboard. It’s a web app builder that combines the convenience of a drag and drop editor with the flexibility of a code-first UI framework. And it’s \u003cem\u003esurprisingly\u003c/em\u003e powerful. Here’s how it works:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eStart fast by forking one of their \u003ca href=\"https://dynaboard.com/docs#dive-into-a-template?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q22023\"\u003eapp templates\u003c/a\u003e, or use their customizable component libraries — without worrying about frameworks, boilerplate, or dependencies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdd custom code wherever you want, on both the client \u003cem\u003eand\u003c/em\u003e the server. Dynaboard is powered by Wasm and supports all ES2020 syntax to give you max flexibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBuild and edit with your whole team in real time with their \u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q22023\"\u003emultiplayer mode\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q22023\"\u003eCheck out their free tier\u003c/a\u003e — and build any web app 10x faster, no matter how complex.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/close-logo.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2\"\u003eSenior or Staff Front-end Engineer\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e100% Remote\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eReact\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eClose.com is looking for an experienced React developer to help design and implement major user-facing features. Close is a 100% globally distributed team of 70 happy people, dedicated to building a product our customers love.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug\"\u003eAirplane\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir powerful, \u003ca href=\"https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug\"\u003ecode-first platform\u003c/a\u003e for building custom internal tools will help you transform scripts, queries, and APIs into UIs and workflows for your team in minutes \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003edeepCopy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eobj\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token constant\"\u003eJSON\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eparse\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token constant\"\u003eJSON\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003estringify\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eobj\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e32\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ecreated\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eDate\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e copiedUser \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003edeepCopy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euser\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://react.gg/visualized\"\u003eReact, Visualized\u003c/a\u003e is a free, gentle introduction to React – but visualized.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA provides \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=apr10\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e, so you’ll never have to do it yourself again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://engineering.fb.com/2023/04/06/open-source/buck2-open-source-large-scale-build-system/\"\u003eBuck2\u003c/a\u003e is a new, large-scale build system from Meta that can complete builds twice as fast as Buck1. Much like \u003cem\u003ePaul Blart: Mall Cop 2\u003c/em\u003e, this was a sequel that nobody asked for, but I’m still intrigued.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/unjs/magicast\"\u003eMagicast\u003c/a\u003e lets you programmatically modify JavaScript and TypeScript source code with a simple and familiar syntax. This is yet another Anthony Fu project, and now that I’ve pointed him out, you’re going to see him everywhere. There’s no going back.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSimon Willison wrote a refreshingly optimistic article about AI called, \u003ca href=\"https://simonwillison.net/2023/Mar/27/ai-enhanced-development/\"\u003eAI-enhanced development makes me more ambitious with my projects\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThere’s lots of discussion going on in this \u003ca href=\"https://github.com/angular/angular/discussions/49685\"\u003eRFC about Angular Signals\u003c/a\u003e. I did not predict Angular becoming the most talked about JavaScript framework of 2023, but here we are.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/jarredsumner/status/1642821108402630657\"\u003eServer components are coming to Bun v0.6.0\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://developer.chrome.com/blog/webgpu-release/\"\u003eChrome 113 will ship WebGPU\u003c/a\u003e, which enables high-performance 3D graphics and data-parallel computation. This is going to take my Paul Blart fan-fic blog to the next level.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.airplane.dev/?utm_source=bytesapr2023_spotthebug\"\u003eAirplane\u003c/a\u003e –\u0026nbsp;Developer infrastructure for internal tools\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003edeepCopy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eobj\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token constant\"\u003eJSON\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eparse\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token constant\"\u003eJSON\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003estringify\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eobj\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e32\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ecreated\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eDate\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e copiedUser \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003edeepCopy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euser\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA deep copy of an object is a copy whose properties do no share the same references as those of the source object from which the copy was made. One approach for deep copying in JavaScript is using \u003ccode\u003eJSON.stringify\u003c/code\u003e and \u003ccode\u003eJSON.parse\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThis kind of works in our case, but it will convert \u003ccode\u003ecreated\u003c/code\u003e to a string. To prevent that, you can use \u003ccode\u003ewindow.structuredClone\u003c/code\u003e instead (assuming browser support).\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003edeepCopy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eobj\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e window\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003estructuredClone\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eobj\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"177"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"177"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

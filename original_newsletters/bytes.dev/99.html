@@ -1,0 +1,378 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #99 - Why Web Components Lost</title><link rel="canonical" href="https://bytes.dev/archives/99"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald&#x27;s good side."/><meta property="og:url" content="https://bytes.dev/archives/99"/><meta property="og:title" content="Bytes #99 - Why Web Components Lost"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/turtles.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald&#x27;s good side."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #99 - Why Web Components Lost"/><meta property="twitter:description" content="This issue, we&#x27;ve got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald&#x27;s good side."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/turtles.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Why Web Components Lost</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->99<!-- -->.</span><span class="mr-6 font-bold">May 9, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald’s good side.</p>
+<p>Welcome to #99.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/turtles.png" alt="Turtles on Turtles">
+</p><p class="image-alt">React hooks are causing problems which can only be solved by another React hook which is causing problems which can only be solved by another React hook which is causing problems which can only be solved by another React hook.</p><p></p>
+<h2>React Hooks is turtles all the way down</h2>
+<p>Using React hooks is kinda like cutting your own hair. Seems easy enough, but in reality you’re a screw up away from a buzzcut and an unhappy spouse (couldn’t be me…). For years now React developers have struggled with the hooks API, specifically with <code>useEffect</code>. Up until now, to avoid issues with <code>useEffect</code>, you’ve probably had to <a href="https://twitter.com/DavidWells/status/1521986578276515841?s=20&amp;t=UL7AgmWld4nVzlckghNKgw">write code you aren’t proud of</a>.</p>
+<p>Fortunately, the React core team just <a href="https://github.com/reactjs/rfcs/pull/220">posted a RFC</a> (request for comments) for a new hook to solve your problems… or confuse you even more… or both (jury’s still out).</p>
+<p>We don’t have space to go into all the details, (that’s what the RFC is for), but here’s the tl;dr. The new hook is called <code>useEvent</code>. It provides a “stable identity” function, that always runs with the latest props/state without needing the dependency array. It’s like <code>useCallback</code> but also <em>not</em> like <code>useCallback</code>. So where does <code>useEffect</code> come in? Well, it’s like <code>useEffect</code> but also <em>not</em> like <code>useEffect</code>.</p>
+<p>If that’s confusing, here’s a <a href="https://twitter.com/Huxpro/status/1522273995801776129">great tweet</a> that should help.</p>
+<p>The React core team is still collecting feedback on the API, so there’s a small chance the name or something else important will change. But we’re confident it will turn out great (given that design by committee typically produces great results <span role="img" aria-label="slightly smiling face">🙂</span>).</p>
+<p><strong>The bottom line:</strong> Some hooks are confusing. And so more, less confusing hooks will help with the confusing hooks. Don’t worry if you’re confused - <a href="https://twitter.com/schickling/status/1523378971458498560?s=21&amp;t=mHNQl9wFvCYNCvdsxBU-AA">you’re not alone</a>.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/fusionsoft.png" alt="Skeleton admiring some silk">
+</p><p class="image-alt">“You set this up in 5 minutes? Incredible.” [sponsored]</p><p></p>
+<h2>FusionAuth made my job fun again</h2>
+<p>I got into this industry for one reason — my burning passion for building complex authentication solutions.</p>
+<p>Ok, that’s a lie.</p>
+<p>Call me old fashioned, but I’m just a little more interested in building features that users <em>*actually*</em> care about — instead of worrying about crap like SSO, MFA, user management, and all the security headaches that come along for the ride.</p>
+<p>That’s why we’re huge fans of <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a>.</p>
+<p>They handle all of the messy auth and security stuff for you, and make it super easy to integrate with your app in <a href="https://fusionauth.io/docs/v1/tech/5-minute-setup-guide?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">5 minutes or less</a> (no matter how weird your tech stack is).</p>
+<p>They’re also way more flexible than most other auth tools — you can deploy anywhere, you can self-host, and you can easily customize whatever you want with their straightforward APIs and webhooks.</p>
+<p><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Check it out</a> — and never worry about hand rolling auth again.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/snakes.png" alt="Samuel L. Jackson holding a snake.. on a plane">
+</p><p class="image-alt">I’ve had it with these mother-fricking snakes in my mother-fricking HTML</p><p></p>
+<h2>Python in the browser?</h2>
+<p>We knew this day would come eventually: Python is coming for the web. This is not a drill.</p>
+<p><strong>Wtf?</strong> The Anaconda team just announced <a href="https://engineering.anaconda.com/">PyScript</a> — a brand new framework that lets you run Python in the browser and build web apps using Python and “special HTML tags”, which we all know and <del>love</del> <em>mostly ignore</em> as web components.</p>
+<p><strong>Why tho?</strong> Because just like <a href="https://mythus.fandom.com/wiki/J%C3%B6rmungandr">Jörmungandr</a>, the giant snake child of Loki in Norse Mythology that wraps itself around the entire world, Python is coming for us all.</p>
+<p>In a more literal (and less apocalyptic) sense, the PyScript team says they created it to “give users a first-class programming language that is less weird, more expressive, and easier to learn than Javascript.” Ouch <span role="img" aria-label="pensive face">😔</span></p>
+<p>Besides the subtweeting, here’s what else is going on inside PyScript:</p>
+<ul>
+<li>
+<p>A clean-and-simple API and HTML elements with custom components that are “opinionated and predictable.”</p>
+</li>
+<li>
+<p>A tech stack built on WebAssembly, Emscripten (no we didn’t make that word up), and <a href="https://pyodide.org/en/stable/">Pyodide</a> that tries to “strip away most of the complexity of the client/server modern web” by enabling drop-in content, external file hosting, and app hosting that doesn’t rely on server-side configuration.</p>
+</li>
+<li>
+<p>A simple way to run popular Python packages and the scientific stack in the browser.</p>
+</li>
+<li>
+<p>Bi-directional communication between Python and JavaScript objects and namespaces, so that everyone can play nice together.</p>
+</li>
+</ul>
+<p><strong>The bottom line:</strong> You can keep your fancy new “simplified web platform.” I’ll be over here executing arbitrary code from NPM while I argue on Twitter about a UI library being too low level.</p>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://spring-lamprey-84b.notion.site/Frontend-React-Typescript-Developer-be5af2ab031f4550851fdf9468c26ba5">Yeti Labs is looking for Frontend (React + Typescript) developers</a></h3>
+<p>Yeti Labs is a human-centered frontend studio designing and building web apps for DeFi protocols. We love UI animations, innovative UXs, best practices, reusing our code, improving our workflow and learning new things. Come join our crew as we solve interesting challenges while having fun.</p>
+<h3><a href="https://www.ycombinator.com/companies/loops/jobs/yUbFitU-full-stack-engineer">Loops is looking for founding full-stack Next.js engineers</a></h3>
+<p>Most email platforms are showing their age — heck, this email was sent via a platform that is 9 years old now! Loops is a modern and beautiful alternative for SaaS companies. Our stack is Next.js, Postgres, and Tailwind. We just wrapped YC and our seed funding raise led by Craft Ventures. Come join our core engineering team!</p>
+<hr>
+<h2><span role="img" aria-label="memo">📝</span> QUIZ TIME — Sponsored by <a href="https://retool.com/use-case/react-component-library">Retool</a></h2>
+<p><em>Retool’s brand new React component library makes it super easy to build any internal tool you can think of. We use Retool daily and we <span role="img" aria-label="red heart">❤️</span> it.</em></p>
+<p>Given this HTML and CSS, what color is the background of the page?</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">.cool</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> goldenrod <span class="token important">!important</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token atrule"><span class="token rule">@keyframes</span> color</span> <span class="token punctuation">{</span>
+        <span class="token selector">to</span> <span class="token punctuation">{</span>
+          <span class="token property">background</span><span class="token punctuation">:</span> rebeccaPurple<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> color 0s linear<span class="token punctuation">;</span>
+        <span class="token property">animation-fill-mode</span><span class="token punctuation">:</span> forwards<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cool<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    😎
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>We made a totally non-controversial video about <a href="https://www.youtube.com/watch?v=fKqgdT-KLrM">Why Web Components Lost</a>. It’s similar to Severus Snape in The Deathly Hallows Part II, but - you know, without the redemption arc.</p>
+</li>
+<li>
+<p><a href="https://unlayer.com/embed">Unlayer</a> created this drag-and-drop email editor, page builder and popup builder that you can easily embed in your SaaS app. [sponsored]</p>
+</li>
+<li>
+<p>William Kennedy wrote a <a href="https://williamkennedy.ninja/javascript/2022/05/03/in-defence-of-the-single-page-application/">passionate defense of single page applications</a>. It’s a little wordy, but it makes some great points.</p>
+</li>
+<li>
+<p>Jack Franklin (from the Chrome team) wrote an article called, <a href="https://www.jackfranklin.co.uk/blog/working-with-react-and-the-web-platform/">Why I Don’t miss React</a> — which reminds me of when I wrote a blog post called “Why I don’t miss my Ex.” It helped me heal too, Jack.</p>
+</li>
+<li>
+<p><a href="https://component-party.dev/">Component Party</a> lets you compare the syntax for similar components in React, Vue, Svelte, and Angular. Created by some guy named <a href="https://youtu.be/wxb_X12HZWQ?t=32">Rod</a>.</p>
+</li>
+<li>
+<p>Ryan Dahl wrote an article about how <a href="https://tinyclouds.org/javascript_containers">JavaScript Containers</a> could become a viable alternative to Linux Containers. Rumor has it that if you read it three times out loud, Linus Torvalds will personally show up to your house and verbally abuse you.</p>
+</li>
+<li>
+<p>Lerna lives! Last Monday, we wrote about how Lerna had declared that it’s no longer actively maintained, and then on Friday they announced that <a href="https://github.com/lerna/lerna/issues/3121">Nrwl would be taking over stewardship of the Lerna project</a>. We don’t want to take 100% of the credit for saving it, but we also definitely do.</p>
+</li>
+<li>
+<p>Marc-André Giroux wrote about how <a href="https://xuorig.medium.com/graphql-is-a-trap-e83ca380aa8f">GraphQL is <em>not</em> a trap</a> — in response to a tweet thread that tried to make the opposite argument last week. Watching him dissect each tweet like a cross-examining trial lawyer felt like a watching the deposition scenes in <em>The Social Network</em> mixed with the Amber Heard—Johnny Depp trial, mixed with… GraphQL.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="memo">📝</span> QUIZ TIME Solution — Sponsored by <a href="https://retool.com/use-case/react-component-library">Retool</a></h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">.cool</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> goldenrod <span class="token important">!important</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token atrule"><span class="token rule">@keyframes</span> color</span> <span class="token punctuation">{</span>
+        <span class="token selector">to</span> <span class="token punctuation">{</span>
+          <span class="token property">background</span><span class="token punctuation">:</span> rebeccaPurple<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> color 0s linear<span class="token punctuation">;</span>
+        <span class="token property">animation-fill-mode</span><span class="token punctuation">:</span> forwards<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cool<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    😎
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<hr>
+<p>The <code>!important</code> overrides any other background colors on the element, but the <code>animation</code> keyframe overrides the <code>background</code> property, even with <code>!important</code>.  That means the background color is actually <code>rebeccaPurple</code>.</p>
+<p>The bug is using <code>!important</code> in <a href="https://twitter.com/stevenpemberton/status/1505839184287870981">the first place</a>, and using the <code>animation</code> keyframes hack to override it. These are signs your CSS is difficult to maintain and will likely give you problems in the future. A better solution is <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">using appropriate classes and specificity rules</a> to override the background color without resorting to hacks.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Why Web Components Lost","date":"2022-05-09","description":"This issue, we've got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald's good side.","featuredImage":"https://bytes.dev/images/content/turtles.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got React hook turtles all the way down, Jörmungandr trying to take down JavaScript, and a surefire way to get on Linus Torvald’s good side.\u003c/p\u003e\n\u003cp\u003eWelcome to #99.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/turtles.png\" alt=\"Turtles on Turtles\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eReact hooks are causing problems which can only be solved by another React hook which is causing problems which can only be solved by another React hook which is causing problems which can only be solved by another React hook.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eReact Hooks is turtles all the way down\u003c/h2\u003e\n\u003cp\u003eUsing React hooks is kinda like cutting your own hair. Seems easy enough, but in reality you’re a screw up away from a buzzcut and an unhappy spouse (couldn’t be me…). For years now React developers have struggled with the hooks API, specifically with \u003ccode\u003euseEffect\u003c/code\u003e. Up until now, to avoid issues with \u003ccode\u003euseEffect\u003c/code\u003e, you’ve probably had to \u003ca href=\"https://twitter.com/DavidWells/status/1521986578276515841?s=20\u0026amp;t=UL7AgmWld4nVzlckghNKgw\"\u003ewrite code you aren’t proud of\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eFortunately, the React core team just \u003ca href=\"https://github.com/reactjs/rfcs/pull/220\"\u003eposted a RFC\u003c/a\u003e (request for comments) for a new hook to solve your problems… or confuse you even more… or both (jury’s still out).\u003c/p\u003e\n\u003cp\u003eWe don’t have space to go into all the details, (that’s what the RFC is for), but here’s the tl;dr. The new hook is called \u003ccode\u003euseEvent\u003c/code\u003e. It provides a “stable identity” function, that always runs with the latest props/state without needing the dependency array. It’s like \u003ccode\u003euseCallback\u003c/code\u003e but also \u003cem\u003enot\u003c/em\u003e like \u003ccode\u003euseCallback\u003c/code\u003e. So where does \u003ccode\u003euseEffect\u003c/code\u003e come in? Well, it’s like \u003ccode\u003euseEffect\u003c/code\u003e but also \u003cem\u003enot\u003c/em\u003e like \u003ccode\u003euseEffect\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eIf that’s confusing, here’s a \u003ca href=\"https://twitter.com/Huxpro/status/1522273995801776129\"\u003egreat tweet\u003c/a\u003e that should help.\u003c/p\u003e\n\u003cp\u003eThe React core team is still collecting feedback on the API, so there’s a small chance the name or something else important will change. But we’re confident it will turn out great (given that design by committee typically produces great results \u003cspan role=\"img\" aria-label=\"slightly smiling face\"\u003e🙂\u003c/span\u003e).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe bottom line:\u003c/strong\u003e Some hooks are confusing. And so more, less confusing hooks will help with the confusing hooks. Don’t worry if you’re confused - \u003ca href=\"https://twitter.com/schickling/status/1523378971458498560?s=21\u0026amp;t=mHNQl9wFvCYNCvdsxBU-AA\"\u003eyou’re not alone\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/fusionsoft.png\" alt=\"Skeleton admiring some silk\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e“You set this up in 5 minutes? Incredible.” [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eFusionAuth made my job fun again\u003c/h2\u003e\n\u003cp\u003eI got into this industry for one reason — my burning passion for building complex authentication solutions.\u003c/p\u003e\n\u003cp\u003eOk, that’s a lie.\u003c/p\u003e\n\u003cp\u003eCall me old fashioned, but I’m just a little more interested in building features that users \u003cem\u003e*actually*\u003c/em\u003e care about — instead of worrying about crap like SSO, MFA, user management, and all the security headaches that come along for the ride.\u003c/p\u003e\n\u003cp\u003eThat’s why we’re huge fans of \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThey handle all of the messy auth and security stuff for you, and make it super easy to integrate with your app in \u003ca href=\"https://fusionauth.io/docs/v1/tech/5-minute-setup-guide?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003e5 minutes or less\u003c/a\u003e (no matter how weird your tech stack is).\u003c/p\u003e\n\u003cp\u003eThey’re also way more flexible than most other auth tools — you can deploy anywhere, you can self-host, and you can easily customize whatever you want with their straightforward APIs and webhooks.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eCheck it out\u003c/a\u003e — and never worry about hand rolling auth again.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/snakes.png\" alt=\"Samuel L. Jackson holding a snake.. on a plane\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eI’ve had it with these mother-fricking snakes in my mother-fricking HTML\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003ePython in the browser?\u003c/h2\u003e\n\u003cp\u003eWe knew this day would come eventually: Python is coming for the web. This is not a drill.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWtf?\u003c/strong\u003e The Anaconda team just announced \u003ca href=\"https://engineering.anaconda.com/\"\u003ePyScript\u003c/a\u003e — a brand new framework that lets you run Python in the browser and build web apps using Python and “special HTML tags”, which we all know and \u003cdel\u003elove\u003c/del\u003e \u003cem\u003emostly ignore\u003c/em\u003e as web components.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy tho?\u003c/strong\u003e Because just like \u003ca href=\"https://mythus.fandom.com/wiki/J%C3%B6rmungandr\"\u003eJörmungandr\u003c/a\u003e, the giant snake child of Loki in Norse Mythology that wraps itself around the entire world, Python is coming for us all.\u003c/p\u003e\n\u003cp\u003eIn a more literal (and less apocalyptic) sense, the PyScript team says they created it to “give users a first-class programming language that is less weird, more expressive, and easier to learn than Javascript.” Ouch \u003cspan role=\"img\" aria-label=\"pensive face\"\u003e😔\u003c/span\u003e\u003c/p\u003e\n\u003cp\u003eBesides the subtweeting, here’s what else is going on inside PyScript:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eA clean-and-simple API and HTML elements with custom components that are “opinionated and predictable.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA tech stack built on WebAssembly, Emscripten (no we didn’t make that word up), and \u003ca href=\"https://pyodide.org/en/stable/\"\u003ePyodide\u003c/a\u003e that tries to “strip away most of the complexity of the client/server modern web” by enabling drop-in content, external file hosting, and app hosting that doesn’t rely on server-side configuration.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA simple way to run popular Python packages and the scientific stack in the browser.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBi-directional communication between Python and JavaScript objects and namespaces, so that everyone can play nice together.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eThe bottom line:\u003c/strong\u003e You can keep your fancy new “simplified web platform.” I’ll be over here executing arbitrary code from NPM while I argue on Twitter about a UI library being too low level.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://spring-lamprey-84b.notion.site/Frontend-React-Typescript-Developer-be5af2ab031f4550851fdf9468c26ba5\"\u003eYeti Labs is looking for Frontend (React + Typescript) developers\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eYeti Labs is a human-centered frontend studio designing and building web apps for DeFi protocols. We love UI animations, innovative UXs, best practices, reusing our code, improving our workflow and learning new things. Come join our crew as we solve interesting challenges while having fun.\u003c/p\u003e\n\u003ch3\u003e\u003ca href=\"https://www.ycombinator.com/companies/loops/jobs/yUbFitU-full-stack-engineer\"\u003eLoops is looking for founding full-stack Next.js engineers\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eMost email platforms are showing their age — heck, this email was sent via a platform that is 9 years old now! Loops is a modern and beautiful alternative for SaaS companies. Our stack is Next.js, Postgres, and Tailwind. We just wrapped YC and our seed funding raise led by Craft Ventures. Come join our core engineering team!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"memo\"\u003e📝\u003c/span\u003e QUIZ TIME — Sponsored by \u003ca href=\"https://retool.com/use-case/react-component-library\"\u003eRetool\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eRetool’s brand new React component library makes it super easy to build any internal tool you can think of. We use Retool daily and we \u003cspan role=\"img\" aria-label=\"red heart\"\u003e❤️\u003c/span\u003e it.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eGiven this HTML and CSS, what color is the background of the page?\u003c/p\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token style\"\u003e\u003cspan class=\"token language-css\"\u003e\n      \u003cspan class=\"token selector\"\u003e.cool\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e red\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token selector\"\u003ebody\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003emargin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e0\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e goldenrod \u003cspan class=\"token important\"\u003e!important\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token atrule\"\u003e\u003cspan class=\"token rule\"\u003e@keyframes\u003c/span\u003e color\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token selector\"\u003eto\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n          \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e rebeccaPurple\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token selector\"\u003ebody\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eanimation\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e color 0s linear\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eanimation-fill-mode\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e forwards\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    \u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ebody\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eclass\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ecool\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    😎\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ebody\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eWe made a totally non-controversial video about \u003ca href=\"https://www.youtube.com/watch?v=fKqgdT-KLrM\"\u003eWhy Web Components Lost\u003c/a\u003e. It’s similar to Severus Snape in The Deathly Hallows Part II, but - you know, without the redemption arc.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://unlayer.com/embed\"\u003eUnlayer\u003c/a\u003e created this drag-and-drop email editor, page builder and popup builder that you can easily embed in your SaaS app. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWilliam Kennedy wrote a \u003ca href=\"https://williamkennedy.ninja/javascript/2022/05/03/in-defence-of-the-single-page-application/\"\u003epassionate defense of single page applications\u003c/a\u003e. It’s a little wordy, but it makes some great points.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJack Franklin (from the Chrome team) wrote an article called, \u003ca href=\"https://www.jackfranklin.co.uk/blog/working-with-react-and-the-web-platform/\"\u003eWhy I Don’t miss React\u003c/a\u003e — which reminds me of when I wrote a blog post called “Why I don’t miss my Ex.” It helped me heal too, Jack.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://component-party.dev/\"\u003eComponent Party\u003c/a\u003e lets you compare the syntax for similar components in React, Vue, Svelte, and Angular. Created by some guy named \u003ca href=\"https://youtu.be/wxb_X12HZWQ?t=32\"\u003eRod\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Dahl wrote an article about how \u003ca href=\"https://tinyclouds.org/javascript_containers\"\u003eJavaScript Containers\u003c/a\u003e could become a viable alternative to Linux Containers. Rumor has it that if you read it three times out loud, Linus Torvalds will personally show up to your house and verbally abuse you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLerna lives! Last Monday, we wrote about how Lerna had declared that it’s no longer actively maintained, and then on Friday they announced that \u003ca href=\"https://github.com/lerna/lerna/issues/3121\"\u003eNrwl would be taking over stewardship of the Lerna project\u003c/a\u003e. We don’t want to take 100% of the credit for saving it, but we also definitely do.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarc-André Giroux wrote about how \u003ca href=\"https://xuorig.medium.com/graphql-is-a-trap-e83ca380aa8f\"\u003eGraphQL is \u003cem\u003enot\u003c/em\u003e a trap\u003c/a\u003e — in response to a tweet thread that tried to make the opposite argument last week. Watching him dissect each tweet like a cross-examining trial lawyer felt like a watching the deposition scenes in \u003cem\u003eThe Social Network\u003c/em\u003e mixed with the Amber Heard—Johnny Depp trial, mixed with… GraphQL.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"memo\"\u003e📝\u003c/span\u003e QUIZ TIME Solution — Sponsored by \u003ca href=\"https://retool.com/use-case/react-component-library\"\u003eRetool\u003c/a\u003e\u003c/h2\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token style\"\u003e\u003cspan class=\"token language-css\"\u003e\n      \u003cspan class=\"token selector\"\u003e.cool\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e red\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token selector\"\u003ebody\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003emargin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e0\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e goldenrod \u003cspan class=\"token important\"\u003e!important\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token atrule\"\u003e\u003cspan class=\"token rule\"\u003e@keyframes\u003c/span\u003e color\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token selector\"\u003eto\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n          \u003cspan class=\"token property\"\u003ebackground\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e rebeccaPurple\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token selector\"\u003ebody\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eanimation\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e color 0s linear\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eanimation-fill-mode\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e forwards\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    \u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ebody\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eclass\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ecool\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    😎\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ebody\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003cp\u003eThe \u003ccode\u003e!important\u003c/code\u003e overrides any other background colors on the element, but the \u003ccode\u003eanimation\u003c/code\u003e keyframe overrides the \u003ccode\u003ebackground\u003c/code\u003e property, even with \u003ccode\u003e!important\u003c/code\u003e.  That means the background color is actually \u003ccode\u003erebeccaPurple\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe bug is using \u003ccode\u003e!important\u003c/code\u003e in \u003ca href=\"https://twitter.com/stevenpemberton/status/1505839184287870981\"\u003ethe first place\u003c/a\u003e, and using the \u003ccode\u003eanimation\u003c/code\u003e keyframes hack to override it. These are signs your CSS is difficult to maintain and will likely give you problems in the future. A better solution is \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\"\u003eusing appropriate classes and specificity rules\u003c/a\u003e to override the background color without resorting to hacks.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"99"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"99"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

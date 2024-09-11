@@ -1,0 +1,335 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #15 - React in the streets, D3 in the sheets</title><link rel="canonical" href="https://bytes.dev/archives/15"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes."/><meta property="og:url" content="https://bytes.dev/archives/15"/><meta property="og:title" content="Bytes #15 - React in the streets, D3 in the sheets"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/visx.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #15 - React in the streets, D3 in the sheets"/><meta property="twitter:description" content="Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/visx.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">React in the streets, D3 in the sheets</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->15<!-- -->.</span><span class="mr-6 font-bold">September 28, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Got a real spicy one for you today. Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes.</p>
+<h2><a href="https://github.com/airbnb/visx/issues/802">Airbnb releases visx 1.0</a></h2>
+<p><img src="https://bytes.dev/images/content/visx.png" alt="Visx">
+</p><p class="image-alt">Visualizing a future where we can stay in Airbnbs again</p><p></p>
+<p><strong>Tony Robbins taught us to visualize success…</strong> Last week, Airbnb officially released visx 1.0, a collection of reusable, low-level visualization components that combine the powers of React and D3 (the JavaScript library, not, sadly, the Mighty Ducks).</p>
+<p>Airbnb has been using visx internally for over two years to “unify our <em>visualization stack</em> across the company.” By “visualization stack”, they definitely mean “all of our random charts and graphs”, but that shouldn’t stop you from listing yourself as a <em>full-stack visualization engineer</em> once you’ve played around with visx a few times.</p>
+<p><strong>Why tho?</strong> The main sales pitch for visx is that it’s low-level enough to be powerful but high-level enough to, well, be useful. The way it does this is by leveraging React for the UI layer and D3 for the under the hood mathy stuff. Said differently - React in the streets, D3 in the sheets.</p>
+<p>The library itself features 30 separate packages of React visualization primitives and offers 3 main advantages compared to other visualization libraries:</p>
+<ol>
+<li>
+<p><strong>Smaller bundles:</strong> because visx is split into multiple packages.</p>
+</li>
+<li>
+<p><strong>BYOL:</strong> Like your boyfriend around Dinner time, visx is intentionally unopinionated. Use any animation library, state management solution, or CSS-in-JS tools you want - visx DGAF.</p>
+</li>
+<li>
+<p><strong>Not a charting library:</strong> visx wants to teach you how to fish, not catch a fish for you. It’s designed to be built on top of.</p>
+</li>
+</ol>
+<h3>The bottom line</h3>
+<p>Are data visualizations the hottest thing to work on? Not really. But are they important? Also not really.</p>
+<p>But the marketing and biz dev people at your company love them. And those <del>nerds</del> esteemed colleagues will probably force you to help them create some visualizations in the future (if they haven’t already). visx seems like a great way to help you pump those out faster, easier, and with greater design consistency.</p>
+<p>Plus, there’s always a chance that the product you’re working on could require some sort of visualizations (i.e. tooltips, gradients, patterns, etc.). visx can help with that too. So, thanks Airbnb.</p>
+<p>No word yet on if Airbnb is planning on charging their usual 3% service fee on top of an overinflated cleaning fee for usage of visx, but we’ll keep you update.</p>
+<hr>
+<h2><a href="https://github.com/elderjs/elderjs">Elder.js 1.0 - a new Svelte framework</a></h2>
+<p><img src="https://bytes.dev/images/content/elders.jpg" alt="Very nice elderly couple">
+</p><p class="image-alt">Whoever Svelte it, dealt it dear</p><p></p>
+<p><strong>Respect your generators…</strong> Elder.js 1.0 is a new, opinionated Svelte framework and static site generator that is very SEO-focused. It was created by <a href="https://twitter.com/nickreese">Nick Reese</a> in order to try and solve some of the unique challenges that come with building flagship SEO sites with 10-100k+ pages, like his site <a href="https://elderguide.com/">elderguide.com</a>.</p>
+<p><strong>Quick Svelte review:</strong> Svelte is a <del>JavaScript library</del> way of life that was first released ~4 years ago. It compiles all your code to vanilla JS at build time with less dependencies and no virtual DOM, and its syntax is known for being pretty simple and readable.</p>
+<p><strong>So, what’s unique about Elder.js?</strong></p>
+<ul>
+<li>
+<p><strong>Partial hydration:</strong> It hydrates just the parts of the client that need to be interactive, allowing you to significantly reduce your payloads and still maintain full control over component lazy-loading, preloading, and eager-loading.</p>
+</li>
+<li>
+<p><strong>Hooks, shortcodes, and plugins:</strong> You can customize the framework with hooks that are designed to be “modular, sharable, and easily bundled in to Elder.js plugins for common use cases.”</p>
+</li>
+<li>
+<p><strong>Straightforward data flow:</strong> Associating a <code>data</code> function in your <code>route.js</code> gives you complete control over how you fetch, prepare, and manipulate data before sending it to your Svelte template.</p>
+</li>
+</ul>
+<p>These features (plus its tiny bundle sizes) should make a Elder.js a faster and simpler alternative to Sapper (the default Svelte framework) for a lot of use cases. Sapper is still probably the way to go if you’re building a full-fledged Svelte app, but Elder.js seems pretty awesome for content-heavy Svelte sites.</p>
+<h2>The bottom line</h2>
+<p>We’re super interested in who will lead Elder.js’s $10 million seed round. That’s how this works, right?</p>
+<hr>
+<h2>JS Quiz - Answer Below</h2>
+<p>Why does this code work?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Alex'</span><span class="token punctuation">,</span> <span class="token string">'AB'</span><span class="token punctuation">,</span> <span class="token string">'Mikenzi'</span><span class="token punctuation">]</span>
+friends<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'push'</span><span class="token punctuation">)</span> <span class="token comment">// false</span>
+</code></pre>
+<p>Specifically, why does <code>friends.hasOwnProperty('push')</code> work even though <code>friends</code> doesn’t have a <code>hasOwnProperty</code> property and neither does <code>Array.prototype</code>?</p>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p><a href="https://vimejs.com/">Vime is an open-source media player that’s customizable, extensible, and framework-agnostic.</a></p>
+</li>
+<li>
+<p>The React Core Team wrote about the <a href="https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html">new JSX transform in React 17</a>. Speaking of React 17, <a href="https://twitter.com/swyx/status/1309839955187834881?s=20">Happy 3rd Birthday React 16</a> <span role="img" aria-label="grinning face with sweat">😅</span>.</p>
+</li>
+<li>
+<p>Nathan wrote an in-depth post about <a href="https://www.loginradius.com/engineering/blog/understanding-react-rendering/">how to understand React rendering.</a></p>
+</li>
+<li>
+<p><a href="https://github.com/balazsbotond/urlcat">Urlcat is a cool JavaScript library that helps you build URLs faster and avoid common mistakes.</a> Is it cooler than the live-action <em>CATS</em> movie tho? Only one of those has CGId buttholes, so you tell us. (<a href="https://www.google.com/search?q=is+buttholes+one+word&amp;oq=is+buttholes+one+word&amp;aqs=chrome..69i57.2839j0j1&amp;sourceid=chrome&amp;ie=UTF-8">My search history</a> is getting real weird writing this newsletter.)</p>
+</li>
+<li>
+<p>Everyone’s favorite Googler Addy Osmani wrote about <a href="https://addyosmani.com/blog/visualize-data-structures-vscode/">visualizing data structures using the VSCode Debug Visualizer</a>.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/andybalaam/smolpxl">Smolpxl is a JavaScript library for creating retro, pixelated games.</a> There’s some strong <em>Miniclip-in-2006</em> vibes in this one.</p>
+</li>
+<li>
+<p>Lea Verou wrote a great article about <a href="https://lea.verou.me/2020/09/the-failed-promise-of-web-components/">the failed promise of Web Components.</a> “The failed promise” sounds like a mix between a T-Swift song and one of my middle school journal entries, but sometimes web development requires <strong>strong language,</strong> ok?</p>
+</li>
+<li>
+<p><a href="https://github.com/naver/billboard.js/releases/tag/2.1.0">Billboard.js released v2.1</a> because I guess this is now <em>Chart Library Week 2020.</em></p>
+</li>
+</ol>
+<hr>
+<h2>JS Quiz - Answer</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Alex'</span><span class="token punctuation">,</span> <span class="token string">'AB'</span><span class="token punctuation">,</span> <span class="token string">'Mikenzi'</span><span class="token punctuation">]</span>
+friends<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'push'</span><span class="token punctuation">)</span> <span class="token comment">// false</span>
+</code></pre>
+<p>As mentioned earlier, if you look at <code>Array.prototype</code>, it doesn’t have a <code>hasOwnProperty</code> method. How then, does the <code>friends</code> array have access to <code>hasOwnProperty</code>?</p>
+<p>The reason is because the <code>Array</code> class extends the <code>Object</code> class. So when the JavaScript interpreter sees that <code>friends</code> doesn’t have a <code>hasOwnProperty</code> property, it checks if <code>Array.prototype</code> does. When <code>Array.prototype</code> doesn’t, it checks if <code>Object.prototype</code> does, it does, then it invokes it.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Alex'</span><span class="token punctuation">,</span> <span class="token string">'AB'</span><span class="token punctuation">,</span> <span class="token string">'Mikenzi'</span><span class="token punctuation">]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+<span class="token comment">/*
+   constructor: ƒ Object()
+   hasOwnProperty: ƒ hasOwnProperty()
+   isPrototypeOf: ƒ isPrototypeOf()
+   propertyIsEnumerable: ƒ propertyIsEnumerable()
+   toLocaleString: ƒ toLocaleString()
+   toString: ƒ toString()
+   valueOf: ƒ valueOf()
+*/</span>
+
+friends <span class="token keyword">instanceof</span> <span class="token class-name">Array</span> <span class="token comment">// true</span>
+friends <span class="token keyword">instanceof</span> <span class="token class-name">Object</span> <span class="token comment">// true</span>
+
+friends<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'push'</span><span class="token punctuation">)</span> <span class="token comment">// false</span>
+</code></pre>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"React in the streets, D3 in the sheets","date":"2020-09-28","description":"Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes.","featuredImage":"https://bytes.dev/images/content/visx.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eGot a real spicy one for you today. Airbnb releases visx, Elder.js is a new Svelte framework, and CGId buttholes.\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/airbnb/visx/issues/802\"\u003eAirbnb releases visx 1.0\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/visx.png\" alt=\"Visx\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eVisualizing a future where we can stay in Airbnbs again\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTony Robbins taught us to visualize success…\u003c/strong\u003e Last week, Airbnb officially released visx 1.0, a collection of reusable, low-level visualization components that combine the powers of React and D3 (the JavaScript library, not, sadly, the Mighty Ducks).\u003c/p\u003e\n\u003cp\u003eAirbnb has been using visx internally for over two years to “unify our \u003cem\u003evisualization stack\u003c/em\u003e across the company.” By “visualization stack”, they definitely mean “all of our random charts and graphs”, but that shouldn’t stop you from listing yourself as a \u003cem\u003efull-stack visualization engineer\u003c/em\u003e once you’ve played around with visx a few times.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy tho?\u003c/strong\u003e The main sales pitch for visx is that it’s low-level enough to be powerful but high-level enough to, well, be useful. The way it does this is by leveraging React for the UI layer and D3 for the under the hood mathy stuff. Said differently - React in the streets, D3 in the sheets.\u003c/p\u003e\n\u003cp\u003eThe library itself features 30 separate packages of React visualization primitives and offers 3 main advantages compared to other visualization libraries:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSmaller bundles:\u003c/strong\u003e because visx is split into multiple packages.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBYOL:\u003c/strong\u003e Like your boyfriend around Dinner time, visx is intentionally unopinionated. Use any animation library, state management solution, or CSS-in-JS tools you want - visx DGAF.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNot a charting library:\u003c/strong\u003e visx wants to teach you how to fish, not catch a fish for you. It’s designed to be built on top of.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eAre data visualizations the hottest thing to work on? Not really. But are they important? Also not really.\u003c/p\u003e\n\u003cp\u003eBut the marketing and biz dev people at your company love them. And those \u003cdel\u003enerds\u003c/del\u003e esteemed colleagues will probably force you to help them create some visualizations in the future (if they haven’t already). visx seems like a great way to help you pump those out faster, easier, and with greater design consistency.\u003c/p\u003e\n\u003cp\u003ePlus, there’s always a chance that the product you’re working on could require some sort of visualizations (i.e. tooltips, gradients, patterns, etc.). visx can help with that too. So, thanks Airbnb.\u003c/p\u003e\n\u003cp\u003eNo word yet on if Airbnb is planning on charging their usual 3% service fee on top of an overinflated cleaning fee for usage of visx, but we’ll keep you update.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/elderjs/elderjs\"\u003eElder.js 1.0 - a new Svelte framework\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/elders.jpg\" alt=\"Very nice elderly couple\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWhoever Svelte it, dealt it dear\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRespect your generators…\u003c/strong\u003e Elder.js 1.0 is a new, opinionated Svelte framework and static site generator that is very SEO-focused. It was created by \u003ca href=\"https://twitter.com/nickreese\"\u003eNick Reese\u003c/a\u003e in order to try and solve some of the unique challenges that come with building flagship SEO sites with 10-100k+ pages, like his site \u003ca href=\"https://elderguide.com/\"\u003eelderguide.com\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick Svelte review:\u003c/strong\u003e Svelte is a \u003cdel\u003eJavaScript library\u003c/del\u003e way of life that was first released ~4 years ago. It compiles all your code to vanilla JS at build time with less dependencies and no virtual DOM, and its syntax is known for being pretty simple and readable.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSo, what’s unique about Elder.js?\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePartial hydration:\u003c/strong\u003e It hydrates just the parts of the client that need to be interactive, allowing you to significantly reduce your payloads and still maintain full control over component lazy-loading, preloading, and eager-loading.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHooks, shortcodes, and plugins:\u003c/strong\u003e You can customize the framework with hooks that are designed to be “modular, sharable, and easily bundled in to Elder.js plugins for common use cases.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eStraightforward data flow:\u003c/strong\u003e Associating a \u003ccode\u003edata\u003c/code\u003e function in your \u003ccode\u003eroute.js\u003c/code\u003e gives you complete control over how you fetch, prepare, and manipulate data before sending it to your Svelte template.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThese features (plus its tiny bundle sizes) should make a Elder.js a faster and simpler alternative to Sapper (the default Svelte framework) for a lot of use cases. Sapper is still probably the way to go if you’re building a full-fledged Svelte app, but Elder.js seems pretty awesome for content-heavy Svelte sites.\u003c/p\u003e\n\u003ch2\u003eThe bottom line\u003c/h2\u003e\n\u003cp\u003eWe’re super interested in who will lead Elder.js’s $10 million seed round. That’s how this works, right?\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer Below\u003c/h2\u003e\n\u003cp\u003eWhy does this code work?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e friends \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Alex'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'AB'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Mikenzi'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\nfriends\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ehasOwnProperty\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'push'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// false\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSpecifically, why does \u003ccode\u003efriends.hasOwnProperty('push')\u003c/code\u003e work even though \u003ccode\u003efriends\u003c/code\u003e doesn’t have a \u003ccode\u003ehasOwnProperty\u003c/code\u003e property and neither does \u003ccode\u003eArray.prototype\u003c/code\u003e?\u003c/p\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://vimejs.com/\"\u003eVime is an open-source media player that’s customizable, extensible, and framework-agnostic.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe React Core Team wrote about the \u003ca href=\"https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html\"\u003enew JSX transform in React 17\u003c/a\u003e. Speaking of React 17, \u003ca href=\"https://twitter.com/swyx/status/1309839955187834881?s=20\"\u003eHappy 3rd Birthday React 16\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"grinning face with sweat\"\u003e😅\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNathan wrote an in-depth post about \u003ca href=\"https://www.loginradius.com/engineering/blog/understanding-react-rendering/\"\u003ehow to understand React rendering.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/balazsbotond/urlcat\"\u003eUrlcat is a cool JavaScript library that helps you build URLs faster and avoid common mistakes.\u003c/a\u003e Is it cooler than the live-action \u003cem\u003eCATS\u003c/em\u003e movie tho? Only one of those has CGId buttholes, so you tell us. (\u003ca href=\"https://www.google.com/search?q=is+buttholes+one+word\u0026amp;oq=is+buttholes+one+word\u0026amp;aqs=chrome..69i57.2839j0j1\u0026amp;sourceid=chrome\u0026amp;ie=UTF-8\"\u003eMy search history\u003c/a\u003e is getting real weird writing this newsletter.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEveryone’s favorite Googler Addy Osmani wrote about \u003ca href=\"https://addyosmani.com/blog/visualize-data-structures-vscode/\"\u003evisualizing data structures using the VSCode Debug Visualizer\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://gitlab.com/andybalaam/smolpxl\"\u003eSmolpxl is a JavaScript library for creating retro, pixelated games.\u003c/a\u003e There’s some strong \u003cem\u003eMiniclip-in-2006\u003c/em\u003e vibes in this one.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLea Verou wrote a great article about \u003ca href=\"https://lea.verou.me/2020/09/the-failed-promise-of-web-components/\"\u003ethe failed promise of Web Components.\u003c/a\u003e “The failed promise” sounds like a mix between a T-Swift song and one of my middle school journal entries, but sometimes web development requires \u003cstrong\u003estrong language,\u003c/strong\u003e ok?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/naver/billboard.js/releases/tag/2.1.0\"\u003eBillboard.js released v2.1\u003c/a\u003e because I guess this is now \u003cem\u003eChart Library Week 2020.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e friends \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Alex'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'AB'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Mikenzi'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\nfriends\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ehasOwnProperty\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'push'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// false\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAs mentioned earlier, if you look at \u003ccode\u003eArray.prototype\u003c/code\u003e, it doesn’t have a \u003ccode\u003ehasOwnProperty\u003c/code\u003e method. How then, does the \u003ccode\u003efriends\u003c/code\u003e array have access to \u003ccode\u003ehasOwnProperty\u003c/code\u003e?\u003c/p\u003e\n\u003cp\u003eThe reason is because the \u003ccode\u003eArray\u003c/code\u003e class extends the \u003ccode\u003eObject\u003c/code\u003e class. So when the JavaScript interpreter sees that \u003ccode\u003efriends\u003c/code\u003e doesn’t have a \u003ccode\u003ehasOwnProperty\u003c/code\u003e property, it checks if \u003ccode\u003eArray.prototype\u003c/code\u003e does. When \u003ccode\u003eArray.prototype\u003c/code\u003e doesn’t, it checks if \u003ccode\u003eObject.prototype\u003c/code\u003e does, it does, then it invokes it.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e friends \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Alex'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'AB'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Mikenzi'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token class-name\"\u003eObject\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e/*\n   constructor: ƒ Object()\n   hasOwnProperty: ƒ hasOwnProperty()\n   isPrototypeOf: ƒ isPrototypeOf()\n   propertyIsEnumerable: ƒ propertyIsEnumerable()\n   toLocaleString: ƒ toLocaleString()\n   toString: ƒ toString()\n   valueOf: ƒ valueOf()\n*/\u003c/span\u003e\n\nfriends \u003cspan class=\"token keyword\"\u003einstanceof\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eArray\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// true\u003c/span\u003e\nfriends \u003cspan class=\"token keyword\"\u003einstanceof\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eObject\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// true\u003c/span\u003e\n\nfriends\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ehasOwnProperty\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'push'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// false\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"15"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"15"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

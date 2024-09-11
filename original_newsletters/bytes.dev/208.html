@@ -1,0 +1,311 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #208 - Animorphs and View Transitions</title><link rel="canonical" href="https://bytes.dev/archives/208"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="A new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components."/><meta property="og:url" content="https://bytes.dev/archives/208"/><meta property="og:title" content="Bytes #208 - Animorphs and View Transitions"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/animorphs.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="A new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #208 - Animorphs and View Transitions"/><meta property="twitter:description" content="A new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components."/><meta property="twitter:image" content="https://bytes.dev/images/content/animorphs.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Animorphs and View Transitions</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->208<!-- -->.</span><span class="mr-6 font-bold">July 27, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>A new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/208">#208</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/animorphs.jpg" alt="A pit bull transforming into the singer, Pit Bull" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Live demo of the view transitions API.<!-- --> </p></div><h3>Can view transitions trick you into using less JavaScript?</h3><p>Astro is betting yes, which is why they just introduced experimental support for the <a href="https://astro.build/blog/astro-290/">View Transitions browser API</a>. And they’re not alone. Nuxt shipped experimental support <a href="https://nuxt.com/blog/v3-4">earlier this year</a>, and SvelteKit is <a href="https://github.com/geoffrich/sveltekit-view-transitions">working on it</a> too.</p><p>So what does this API actually do, and how could it change the way we build for the web? Let’s dive in.</p><p><strong>What it does:</strong> View transitions let you update the DOM in a single step, while generating a CSS-controlled animated transition between the two states.</p><p>That means you can create silky smooth animations between HTML pages <em>without</em> needing to use client-side routing (<a href="https://live-transitions.pages.dev/">see demo</a>). And you can do element transitions to reorder multiple elements on the page <em>without</em> needing to use JavaScript (<a href="https://www.youtube.com/shorts/Qwgc_pJ2OOw">see demo</a>).</p><p><strong>How it works (Astro example):</strong></p><ul>
+<li>
+<p>For page transitions, you simply add the <code>&lt;ViewTransitions /&gt;</code> component to your common <code>&lt;head&gt;</code> or shared layout component, and Astro creates default animations between the old page and the new page (with fallback behavior for currently unsupported, non-Chromium browsers).</p>
+</li>
+<li>
+<p>You can create various element transitions using <code>transition:animate</code> with Astro’s built-in animations or with any CSS animation properties you want.</p>
+</li>
+<li>
+<p>Behind the scenes, the browser uses the View Transition API to take an image of the before and after states of the DOM elements that you’re transitioning. Then it goes full <em>Animorphs</em>, by hot swapping the old image with the new one and animating the changes with a crossfade. Check out MDN’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">breakdown</a> for all the dirty details.</p>
+</li>
+</ul><p><strong>What it means:</strong> MPAs just got a lot better. With view transitions, users won’t see a full-page refresh every time they navigate. Instead, they’ll get the same smooth transitions and animations you typically get with SPAs and mobile apps — without a ton of extra JavaScript.</p><p>And unlike some browser APIs, view transitions seem super simple and intuitive to work with. So we should start seeing them all over, once the API is supported by all vendors.</p><p><strong>Bottom Line:</strong> As the web platform continues to get more powerful, we might not need as much JavaScript as we used to for building sophisticated web apps.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/208" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F208" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20on%20how%20the%20view%20transitions%20API%20works%20and%20what%20it%20means%20for%20the%20future%20of%20web%20dev.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F208" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20on%20how%20the%20view%20transitions%20API%20works%20and%20what%20it%20means%20for%20the%20future%20of%20web%20dev.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F208" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/coderpad-logo.png" alt="coderpad-logo.png"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/elmo-tackle.jpg" alt="A life-size Elmo tackling a guy in a wrestling ring" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Your best candidate getting taken out by an irrelevant algorithm interview.<!-- --> </p></div><h3><a href="https://coderpad.io/platform/coding-interviews/?utm_medium=3pmedia&amp;utm_source=UIDevBytes&amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27">​​Interview developers in a realistic IDE with CoderPad</a></h3><p>Have you ever had to reverse-sort a binary tree at your job? Probably not.</p><p>That’s why 4,000 engineering teams (including Netflix, Lyft, and Spotify) have ditched the algorithm interview questions and are using CoderPad’s collaborative IDE to actually code with candidates (<a href="https://app.coderpad.io/sandbox?utm_medium=3pmedia&amp;utm_source=UIDevBytes&amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27">See the Sandbox</a>.)</p><p>With a familiar, fully customizable IDE that supports 40+ languages and frameworks (React, Angular, Node, etc), you can:</p><ul>
+<li>create interview questions unique to your business</li>
+<li>add packages with npm install</li>
+<li><a href="https://coderpad.io/platform/coding-interviews/?utm_medium=3pmedia&amp;utm_source=UIDevBytes&amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27">drag and drop a repo</a> for quick &amp; easy interview setup</li>
+<li>watch code playback after the interview</li>
+</ul><p>It’s a great way to pair program with candidates to see if their working and communication style would be a good fit for your team.</p><p><a href="https://coderpad.io/?utm_medium=3pmedia&amp;utm_source=UIDevBytes&amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27">Try it for free</a> – and code together before you work together.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=072723-bytes-newsletter">Secureframe</a></h4><p><em>Get SOC 2 compliant in <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=072723-bytes-newsletter">weeks instead of months</a>, so you can start selling to big enterprises ASAP. Book a free, personalized demo to learn how.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">shouldAlert</span><span class="token punctuation">(</span><span class="token parameter">durationInWarehouse<span class="token punctuation">,</span> temperature</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token constant">CRITICAL_TEMPERATURE</span> <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token comment">// °C</span>
+  <span class="token keyword">const</span> <span class="token constant">SECONDARY_TEMPERATURE</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token comment">// °C</span>
+  <span class="token keyword">const</span> <span class="token constant">CRITICAL_DURATION</span> <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span> <span class="token comment">// Days</span>
+
+  <span class="token keyword">return</span> temperature <span class="token operator">&gt;</span> <span class="token constant">CRITICAL_TEMPERATURE</span> 
+    <span class="token operator">&amp;&amp;</span> durationInWarehouse <span class="token operator">&gt;</span> <span class="token constant">CRITICAL_DURATION</span> 
+      <span class="token operator">||</span> temperature <span class="token operator">&gt;</span> <span class="token constant">SECONDARY_TEMPERATURE</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Daniel Roe wrote <a href="https://roe.dev/blog/nuxt-server-components">A guide to Nuxt Server Components</a>, which TIL have apparently been around for longer than React Server Components. Unless Daniel is lying to me, which he explicitly promised he would never do again.</p>
+</li>
+<li>
+<p><a href="https://github.com/fabian-hiller/valibot">Valibot</a> is a new schema library for validating structural data. It’s comparable to libraries like Zod and Yup, but its big innovation is “the modular design of its API and an optimization of the source code for compression.”</p>
+</li>
+<li>
+<p>Snyk is hosting a <a href="https://go.snyk.io/capture-the-flag-101-workshop.html?utm_campaign=ctf-101_08-2023&amp;utm_medium=paid-email&amp;utm_source=bytes-advertiser&amp;utm_content=capture-the-flag-101-workshop">Capture the Flag 101 Workshop</a> on August 3 at 11am EDT. Solve your first CTF challenge and level up your security skills with live support in this hands-on workshop. <em>(I pray this turns out better than the last time I played CTF at Boy Scout Camp <span role="img" aria-label="crossed fingers">🤞</span>)</em> [sponsored]</p>
+</li>
+<li>
+<p>Jordan Brennan wrote about <a href="https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology">A new CSS methodology for the Web Components era</a>. It’s called TAC, which stands for “Tag, Attributes, Classes” — and <em>not</em> “Troglodytes Against Capitalism,” which was the name of my first black metal band.</p>
+</li>
+<li>
+<p>Another day, another terrifying story about npm security. This one’s about how a social engineering campaign targeting tech employees is <a href="https://socket.dev/blog/social-engineering-campaign-npm-malware">spreading through npm malware</a>. Stay safe out there.</p>
+</li>
+<li>
+<p><a href="https://www.kuma-ui.com/">Kuma</a> is a headless, zero-runtime UI component library with a cute polar bear logo.</p>
+</li>
+<li>
+<p>Remix is now <a href="https://shopify.engineering/shopifys-platform-is-the-web-platform">the recommended way to build Shopify Admin apps</a>. Sometimes it’s funny to think about how indie hackers building Shopify and WordPress apps make more money than 90% of VC-backed devtool startups.</p>
+</li>
+<li>
+<p><a href="https://dopt.com?utm_source=bytes">Dopt</a> makes it easy to build seamless product onboarding and education in minutes. Their visual builder lets you map out flows, and their <a href="https://dopt.com?utm_source=bytes">SDKs &amp; APIs</a> make it easy to develop them using your own components or Dopt’s React components (like checklists &amp; tours). [sponsored]</p>
+</li>
+<li>
+<p><a href="https://github.com/ThousandBirdsInc/chidori">Chidori</a> is a new, reactive runtime for building durable AI agents. Travis Fischer <a href="https://twitter.com/transitive_bs/status/1683910978755502080">tweeted</a> that LangChain is like jQuery and Chidori is like React, but that somehow feels disrespectful to both jQuery and React.</p>
+</li>
+<li>
+<p>In <a href="https://cpu.land/">Putting the “You” in CPU</a>, Lexi Mattick blurs the line between “article series” and “full-on ebook” to dive super deep into what exactly happens when you run a program on your computer. Get ready to clear the rest of your afternoon.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=072723-bytes-newsletter">Secureframe</a></h4></div></div>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">shouldAlert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true (should be false)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">shouldAlert</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">shouldAlert</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre>
+<p>In JavaScript, the <code>&amp;&amp;</code> operator has higher precedence than the <code>||</code> operator. This means that in a statement with both these operators, the parts with <code>&amp;&amp;`` will be evaluated first. To fix the issue, we need to add parentheses around the </code>||` part of the statement.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">shouldAlert</span><span class="token punctuation">(</span><span class="token parameter">durationInWarehouse<span class="token punctuation">,</span> temperature</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token constant">CRITICAL_TEMPERATURE</span> <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token comment">// °C</span>
+  <span class="token keyword">const</span> <span class="token constant">SECONDARY_TEMPERATURE</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span> <span class="token comment">// °C</span>
+  <span class="token keyword">const</span> <span class="token constant">CRITICAL_DURATION</span> <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span> <span class="token comment">// Days</span>
+
+  <span class="token keyword">return</span> temperature <span class="token operator">&gt;</span> <span class="token constant">CRITICAL_TEMPERATURE</span> 
+    <span class="token operator">||</span> <span class="token punctuation">(</span>
+      durationInWarehouse <span class="token operator">&gt;</span> <span class="token constant">CRITICAL_DURATION</span> 
+        <span class="token operator">&amp;&amp;</span> temperature <span class="token operator">&gt;</span> <span class="token constant">SECONDARY_TEMPERATURE</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Or you can just avoid ternaries all together and spare your teammates and your future self pain by using a proper if/else statement <span role="img" aria-label="upside-down face">🙃</span>.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Animorphs and View Transitions","date":"2023-07-27","featuredImage":"/images/content/animorphs.jpg","description":"A new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eA new CSS methodology for the 21st century, more npm security panic, and the long lost truth about Nuxt Server Components.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/208\"\u003e#208\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/animorphs.jpg\" alt=\"A pit bull transforming into the singer, Pit Bull\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eLive demo of the view transitions API.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eCan view transitions trick you into using less JavaScript?\u003c/h3\u003e\u003cp\u003eAstro is betting yes, which is why they just introduced experimental support for the \u003ca href=\"https://astro.build/blog/astro-290/\"\u003eView Transitions browser API\u003c/a\u003e. And they’re not alone. Nuxt shipped experimental support \u003ca href=\"https://nuxt.com/blog/v3-4\"\u003eearlier this year\u003c/a\u003e, and SvelteKit is \u003ca href=\"https://github.com/geoffrich/sveltekit-view-transitions\"\u003eworking on it\u003c/a\u003e too.\u003c/p\u003e\u003cp\u003eSo what does this API actually do, and how could it change the way we build for the web? Let’s dive in.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWhat it does:\u003c/strong\u003e View transitions let you update the DOM in a single step, while generating a CSS-controlled animated transition between the two states.\u003c/p\u003e\u003cp\u003eThat means you can create silky smooth animations between HTML pages \u003cem\u003ewithout\u003c/em\u003e needing to use client-side routing (\u003ca href=\"https://live-transitions.pages.dev/\"\u003esee demo\u003c/a\u003e). And you can do element transitions to reorder multiple elements on the page \u003cem\u003ewithout\u003c/em\u003e needing to use JavaScript (\u003ca href=\"https://www.youtube.com/shorts/Qwgc_pJ2OOw\"\u003esee demo\u003c/a\u003e).\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHow it works (Astro example):\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFor page transitions, you simply add the \u003ccode\u003e\u0026lt;ViewTransitions /\u0026gt;\u003c/code\u003e component to your common \u003ccode\u003e\u0026lt;head\u0026gt;\u003c/code\u003e or shared layout component, and Astro creates default animations between the old page and the new page (with fallback behavior for currently unsupported, non-Chromium browsers).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can create various element transitions using \u003ccode\u003etransition:animate\u003c/code\u003e with Astro’s built-in animations or with any CSS animation properties you want.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBehind the scenes, the browser uses the View Transition API to take an image of the before and after states of the DOM elements that you’re transitioning. Then it goes full \u003cem\u003eAnimorphs\u003c/em\u003e, by hot swapping the old image with the new one and animating the changes with a crossfade. Check out MDN’s \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process\"\u003ebreakdown\u003c/a\u003e for all the dirty details.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eWhat it means:\u003c/strong\u003e MPAs just got a lot better. With view transitions, users won’t see a full-page refresh every time they navigate. Instead, they’ll get the same smooth transitions and animations you typically get with SPAs and mobile apps — without a ton of extra JavaScript.\u003c/p\u003e\u003cp\u003eAnd unlike some browser APIs, view transitions seem super simple and intuitive to work with. So we should start seeing them all over, once the API is supported by all vendors.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e As the web platform continues to get more powerful, we might not need as much JavaScript as we used to for building sophisticated web apps.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/208\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F208\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20on%20how%20the%20view%20transitions%20API%20works%20and%20what%20it%20means%20for%20the%20future%20of%20web%20dev.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F208\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20on%20how%20the%20view%20transitions%20API%20works%20and%20what%20it%20means%20for%20the%20future%20of%20web%20dev.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F208\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/coderpad-logo.png\" alt=\"coderpad-logo.png\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/elmo-tackle.jpg\" alt=\"A life-size Elmo tackling a guy in a wrestling ring\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eYour best candidate getting taken out by an irrelevant algorithm interview.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://coderpad.io/platform/coding-interviews/?utm_medium=3pmedia\u0026amp;utm_source=UIDevBytes\u0026amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27\"\u003e​​Interview developers in a realistic IDE with CoderPad\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eHave you ever had to reverse-sort a binary tree at your job? Probably not.\u003c/p\u003e\u003cp\u003eThat’s why 4,000 engineering teams (including Netflix, Lyft, and Spotify) have ditched the algorithm interview questions and are using CoderPad’s collaborative IDE to actually code with candidates (\u003ca href=\"https://app.coderpad.io/sandbox?utm_medium=3pmedia\u0026amp;utm_source=UIDevBytes\u0026amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27\"\u003eSee the Sandbox\u003c/a\u003e.)\u003c/p\u003e\u003cp\u003eWith a familiar, fully customizable IDE that supports 40+ languages and frameworks (React, Angular, Node, etc), you can:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003ecreate interview questions unique to your business\u003c/li\u003e\n\u003cli\u003eadd packages with npm install\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://coderpad.io/platform/coding-interviews/?utm_medium=3pmedia\u0026amp;utm_source=UIDevBytes\u0026amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27\"\u003edrag and drop a repo\u003c/a\u003e for quick \u0026amp; easy interview setup\u003c/li\u003e\n\u003cli\u003ewatch code playback after the interview\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eIt’s a great way to pair program with candidates to see if their working and communication style would be a good fit for your team.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://coderpad.io/?utm_medium=3pmedia\u0026amp;utm_source=UIDevBytes\u0026amp;utm_campaign=23-Q3-3PMedia-UIDevBytes-ACQ-All-Global-NewsletterJuly27\"\u003eTry it for free\u003c/a\u003e – and code together before you work together.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=072723-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eGet SOC 2 compliant in \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=072723-bytes-newsletter\"\u003eweeks instead of months\u003c/a\u003e, so you can start selling to big enterprises ASAP. Book a free, personalized demo to learn how.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eshouldAlert\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003edurationInWarehouse\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e temperature\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_TEMPERATURE\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e30\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// °C\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eSECONDARY_TEMPERATURE\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e25\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// °C\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_DURATION\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// Days\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e temperature \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_TEMPERATURE\u003c/span\u003e \n    \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e durationInWarehouse \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_DURATION\u003c/span\u003e \n      \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e temperature \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eSECONDARY_TEMPERATURE\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eDaniel Roe wrote \u003ca href=\"https://roe.dev/blog/nuxt-server-components\"\u003eA guide to Nuxt Server Components\u003c/a\u003e, which TIL have apparently been around for longer than React Server Components. Unless Daniel is lying to me, which he explicitly promised he would never do again.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/fabian-hiller/valibot\"\u003eValibot\u003c/a\u003e is a new schema library for validating structural data. It’s comparable to libraries like Zod and Yup, but its big innovation is “the modular design of its API and an optimization of the source code for compression.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSnyk is hosting a \u003ca href=\"https://go.snyk.io/capture-the-flag-101-workshop.html?utm_campaign=ctf-101_08-2023\u0026amp;utm_medium=paid-email\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=capture-the-flag-101-workshop\"\u003eCapture the Flag 101 Workshop\u003c/a\u003e on August 3 at 11am EDT. Solve your first CTF challenge and level up your security skills with live support in this hands-on workshop. \u003cem\u003e(I pray this turns out better than the last time I played CTF at Boy Scout Camp \u003cspan role=\"img\" aria-label=\"crossed fingers\"\u003e🤞\u003c/span\u003e)\u003c/em\u003e [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJordan Brennan wrote about \u003ca href=\"https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology\"\u003eA new CSS methodology for the Web Components era\u003c/a\u003e. It’s called TAC, which stands for “Tag, Attributes, Classes” — and \u003cem\u003enot\u003c/em\u003e “Troglodytes Against Capitalism,” which was the name of my first black metal band.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAnother day, another terrifying story about npm security. This one’s about how a social engineering campaign targeting tech employees is \u003ca href=\"https://socket.dev/blog/social-engineering-campaign-npm-malware\"\u003espreading through npm malware\u003c/a\u003e. Stay safe out there.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.kuma-ui.com/\"\u003eKuma\u003c/a\u003e is a headless, zero-runtime UI component library with a cute polar bear logo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRemix is now \u003ca href=\"https://shopify.engineering/shopifys-platform-is-the-web-platform\"\u003ethe recommended way to build Shopify Admin apps\u003c/a\u003e. Sometimes it’s funny to think about how indie hackers building Shopify and WordPress apps make more money than 90% of VC-backed devtool startups.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://dopt.com?utm_source=bytes\"\u003eDopt\u003c/a\u003e makes it easy to build seamless product onboarding and education in minutes. Their visual builder lets you map out flows, and their \u003ca href=\"https://dopt.com?utm_source=bytes\"\u003eSDKs \u0026amp; APIs\u003c/a\u003e make it easy to develop them using your own components or Dopt’s React components (like checklists \u0026amp; tours). [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ThousandBirdsInc/chidori\"\u003eChidori\u003c/a\u003e is a new, reactive runtime for building durable AI agents. Travis Fischer \u003ca href=\"https://twitter.com/transitive_bs/status/1683910978755502080\"\u003etweeted\u003c/a\u003e that LangChain is like jQuery and Chidori is like React, but that somehow feels disrespectful to both jQuery and React.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn \u003ca href=\"https://cpu.land/\"\u003ePutting the “You” in CPU\u003c/a\u003e, Lexi Mattick blurs the line between “article series” and “full-on ebook” to dive super deep into what exactly happens when you run a program on your computer. Get ready to clear the rest of your afternoon.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=072723-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003eshouldAlert\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// true (should be false)\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003eshouldAlert\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e8\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// true\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003eshouldAlert\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e8\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e32\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// true\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn JavaScript, the \u003ccode\u003e\u0026amp;\u0026amp;\u003c/code\u003e operator has higher precedence than the \u003ccode\u003e||\u003c/code\u003e operator. This means that in a statement with both these operators, the parts with \u003ccode\u003e\u0026amp;\u0026amp;`` will be evaluated first. To fix the issue, we need to add parentheses around the \u003c/code\u003e||` part of the statement.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eshouldAlert\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003edurationInWarehouse\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e temperature\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_TEMPERATURE\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e30\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// °C\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eSECONDARY_TEMPERATURE\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e25\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// °C\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_DURATION\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// Days\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e temperature \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_TEMPERATURE\u003c/span\u003e \n    \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n      durationInWarehouse \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eCRITICAL_DURATION\u003c/span\u003e \n        \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e temperature \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token constant\"\u003eSECONDARY_TEMPERATURE\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr you can just avoid ternaries all together and spare your teammates and your future self pain by using a proper if/else statement \u003cspan role=\"img\" aria-label=\"upside-down face\"\u003e🙃\u003c/span\u003e.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"208"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"208"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

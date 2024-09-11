@@ -1,0 +1,336 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #269 - Artificially Intelligent React Server Components</title><link rel="canonical" href="https://bytes.dev/archives/269"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common."/><meta property="og:url" content="https://bytes.dev/archives/269"/><meta property="og:title" content="Bytes #269 - Artificially Intelligent React Server Components"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/guy-fieri-emoji.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #269 - Artificially Intelligent React Server Components"/><meta property="twitter:description" content="Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common."/><meta property="twitter:image" content="https://bytes.dev/images/content/guy-fieri-emoji.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Artificially Intelligent React Server Components</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->269<!-- -->.</span><span class="mr-6 font-bold">March 7, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/269">#269</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/guy-fieri-emoji.jpg" alt="A Guy Fieri emoji doing the chef's kiss action" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you use AI to trick your users into building their own UI components<!-- --> </p></div><h3>A new AI use case for RSC</h3><p>We’ve seen lots of startups “pivot to AI” in the hopes of catching a ride on the next VC-backed hype train — but Vercel feels different.</p><p>They’ve launched some genuinely innovative projects, starting with <a href="https://vercel.com/blog/announcing-v0-generative-ui">v0</a>, a “Midjourney for React” tool that lets you use natural language to generate copy-and-paste React + shadcn/ui components.</p><p>And they just took things to another level by releasing the <a href="https://vercel.com/blog/ai-sdk-3-generative-ui">Vercel AI SDK 3.0</a> — which combines v0’s Generative UI tech with Vercel’s other favorite child, React Server Components.</p><p>This combo allows you to build rich, component-based UIs for LLMs with <em>real-time</em> data, instead of being restricted to more limited, plain-text responses, like most chatbots.</p><p>For example, if you ask ChatGPT to “Show me Lebron’s stats,” it will just spit out boilerplate about how it can’t help you because it doesn’t have access to real-time data.</p><p>But with the Vercel AI SDK, you could (in theory) build a chatbot that does the following when a user asks it that same question:</p><ul>
+<li>
+<p>The LLM converts the user’s plain-text input into structured data that you can call an API with, like the <a href="https://www.postman.com/sportradar-media-apis/workspace/sportradar-media-apis/collection/17203961-89640c6c-af84-43c1-abd7-caf50d30a08c">Sportradar NBA API</a>.</p>
+</li>
+<li>
+<p>If your LLM supports <a href="https://platform.openai.com/docs/assistants/tools/function-calling">OpenAI-compatible Functions</a>, you can use the <code>render</code> method to map specific calls to React Server Components.</p>
+</li>
+<li>
+<p>This allows your app to serve the user interactive UI components showing Lebron’s points, rebounds, and assists, with additional components displaying his shooting percentages and other stats.</p>
+</li>
+<li>
+<p>These components are auto-generated by v0 and <a href="https://sdk.vercel.ai/docs/concepts/streaming">streamed</a> directly to the user, meaning that parts of the response are transmitted as soon as they become available.</p>
+</li>
+</ul><p>If you prefer a live demo to my hypothetical written one, you can play around with Vercel’s <a href="https://sdk.vercel.ai/demo">financial assistant demo</a>. It told me to buy Bitcoin a month ago, so you’ll be in good hands.</p><p><strong>Bottom Line:</strong> This magic relies on RSC, so you can only utilize it if you’re using Next.js (for now). I’m sure Vercel isn’t exactly heartbroken by that, but if you can’t use AI to pump your own bag, are you even an AI company?</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20breaks%20down%20how%20Vercel%20AI%20SDK%20uses%20RSC%20to%20let%20your%20users%20build%20their%20own%20UI%20components%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20breaks%20down%20how%20Vercel%20AI%20SDK%20uses%20RSC%20to%20let%20your%20users%20build%20their%20own%20UI%20components%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/postman-logo.png" alt="Postman logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/dw-glasses.jpg" alt="DW from Arthur standing outside a fence looking sad" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When that tech conference FOMO hits<!-- --> </p></div><h3><a href="https://www.postman.com/postcon/speakers/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march72024&amp;utm_content=primary-placement">POST/CON 24 speaker lineup just dropped</a> <span role="img" aria-label="eyes">👀</span></h3><p>The biggest API conference of the year is happening in SF on April 30-May 1, and the speaker lineup looks incredible.</p><p>POST/CON 24 promises a great mix of <a href="https://www.postman.com/postcon/speakers/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march72024&amp;utm_content=primary-placement">high-level talks from tech executives</a> and hands-on training from some of the best developers in the world – so it should be easy to convince your boss to send you.</p><p>You can <a href="https://www.postman.com/postcon/speakers/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march72024&amp;utm_content=primary-placement">see the full lineup here</a> — but here’s a quick list of 3 talks we’re looking forward to:</p><ul>
+<li>
+<p>“The API Security and Scalability Panel” with the Postman CTO, Heroku CTO, and Southwest Airlines Lead DevOps Engineer</p>
+</li>
+<li>
+<p>“Developer Marketing with Public APIs” with the VP of DevRel at APIMatic</p>
+</li>
+<li>
+<p>“Navigating GraphQL Adoption in the Real World” with the Principal Engineer at Intuit</p>
+</li>
+</ul><p><a href="https://postcon.postman.com/event/5bb77b40-684b-4b79-bb8f-f1420897ee6e/regProcessStep1?utm_campaign=q1-newsletter-sponsorships&amp;utm_content=primary-placement&amp;utm_medium=email&amp;utm_source=bytes&amp;utm_term=march72024">Get 30% off your ticket</a> if you sign up before March 26.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js&amp;utm_medium=em-pa&amp;utm_source=bytes-advertiser&amp;utm_content=blog_preventing-server-side-request-forgery-node-js">Snyk</a></h4><p><em>Attackers can exploit SSRF vulnerabilities in Node apps to steal credit card and social security numbers. You can avoid all that with this free guide on <a href="https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js&amp;utm_medium=em-pa&amp;utm_source=bytes-advertiser&amp;utm_content=blog_preventing-server-side-request-forgery-node-js">Preventing server-side request forgery</a>.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Queue</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Joe Savona from the React team tweeted that <a href="https://twitter.com/en_JS/status/1760433969118769654">React Compiler won’t be included in React 19</a>. I haven’t felt this big of a letdown since I learned that my local movie theater ran out of Dune commemorative popcorn buckets.</p>
+</li>
+<li>
+<p>Multiple wrote this quick guide on <a href="https://docs.multiple.dev/quick-start-guide">How to load test any API in under 10 minutes</a>. If you just thought, “Hmm, I wonder if anyone on my team has ever load tested our API,” consider this your sign from the universe to try it out. [sponsored]</p>
+</li>
+<li>
+<p>Nolan Lawson gave a great talk on <a href="https://nolanlawson.com/2023/01/17/my-talk-on-css-runtime-performance/">CSS runtime performance</a> back in Dec 2022, after months of researching two questions: 1) What’s the fastest way to implement scoped styles? 2) Does using shadow DOM improve style performance?</p>
+</li>
+<li>
+<p>A new PR in the React repo calls for <a href="https://github.com/facebook/react/pull/28491">adding a new React hook called <code>useActionState</code></a> to replace and improve the <code>useFormState</code> hook.</p>
+</li>
+<li>
+<p>Talha Naqvi wrote an in-depth post about <a href="https://shopify.engineering/improving-shopify-app-s-performance">How their team improved the Shopify App’s Performance</a>. Hopefully this helps increase the conversion rate for my Shopify store that sells handmade origami sculptures of Ellen DeGeneres.</p>
+</li>
+<li>
+<p><a href="https://gleam.run/news/gleam-version-1/">Gleam just released v1.0</a> of their “friendly language for building type-safe systems that scale.” It seems mostly meant for the Erlang virtual machine, but it can also run on JavaScript runtimes.</p>
+</li>
+<li>
+<p><a href="https://sentry.io/events/launch-week/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=general-fy25q1-launchweek&amp;utm_content=newsletter-launchweek-tunein">Sentry Launch Week</a> is happening from March 18-22, and they’re announcing new products, new features, and a bunch of other cool stuff. You can get a sneak peek (and win free swag) if you sign up for their <a href="https://sentry.io/events/launch-week/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=general-fy25q1-launchweek&amp;utm_content=newsletter-launchweek-tunein">launch week email list</a>. It’s a win-win. [sponsored]</p>
+</li>
+<li>
+<p>Vishwas Gopinath wrote about <a href="https://www.builder.io/blog/why-react-server-components">Why React Server Components are breaking builds to win tomorrow</a>. “Breaking builds to win tomorrow” was also the name of my favorite Christian rock song from 2004.</p>
+</li>
+<li>
+<p>Ryan Mulligan wrote about <a href="https://ryanmulligan.dev/blog/scroll-triggered-animations-style-queries/">CSS scroll-triggered animations with style queries</a>.</p>
+</li>
+<li>
+<p>Adam Wathan wrote about <a href="https://tailwindcss.com/blog/tailwindcss-v4-alpha">Open-sourcing our progress on Tailwind CSS v4.0</a>, which just released its first public alpha. I’m also planning to “open-source my progress” on this box of Girl Scout Cookies that I’ve been eating since 9 am — because people have a right to know that I just ingested 980 calories worth of Tagalongs.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js&amp;utm_medium=em-pa&amp;utm_source=bytes-advertiser&amp;utm_content=blog_preventing-server-side-request-forgery-node-js">Snyk</a></h4></div></div>
+<p>Since this is a queue (aka: first in, first out), the <code>peek</code> method should return the first element in the list, not the last.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Queue</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Artificially Intelligent React Server Components","date":"2024-03-07","featuredImage":"/images/content/guy-fieri-emoji.jpg","description":"Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Improving the performance of my origami Shopify shop, breaking builds to win souls, and one thing that React and the Dune popcorn bucket have in common.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/269\"\u003e#269\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/guy-fieri-emoji.jpg\" alt=\"A Guy Fieri emoji doing the chef's kiss action\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you use AI to trick your users into building their own UI components\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eA new AI use case for RSC\u003c/h3\u003e\u003cp\u003eWe’ve seen lots of startups “pivot to AI” in the hopes of catching a ride on the next VC-backed hype train — but Vercel feels different.\u003c/p\u003e\u003cp\u003eThey’ve launched some genuinely innovative projects, starting with \u003ca href=\"https://vercel.com/blog/announcing-v0-generative-ui\"\u003ev0\u003c/a\u003e, a “Midjourney for React” tool that lets you use natural language to generate copy-and-paste React + shadcn/ui components.\u003c/p\u003e\u003cp\u003eAnd they just took things to another level by releasing the \u003ca href=\"https://vercel.com/blog/ai-sdk-3-generative-ui\"\u003eVercel AI SDK 3.0\u003c/a\u003e — which combines v0’s Generative UI tech with Vercel’s other favorite child, React Server Components.\u003c/p\u003e\u003cp\u003eThis combo allows you to build rich, component-based UIs for LLMs with \u003cem\u003ereal-time\u003c/em\u003e data, instead of being restricted to more limited, plain-text responses, like most chatbots.\u003c/p\u003e\u003cp\u003eFor example, if you ask ChatGPT to “Show me Lebron’s stats,” it will just spit out boilerplate about how it can’t help you because it doesn’t have access to real-time data.\u003c/p\u003e\u003cp\u003eBut with the Vercel AI SDK, you could (in theory) build a chatbot that does the following when a user asks it that same question:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eThe LLM converts the user’s plain-text input into structured data that you can call an API with, like the \u003ca href=\"https://www.postman.com/sportradar-media-apis/workspace/sportradar-media-apis/collection/17203961-89640c6c-af84-43c1-abd7-caf50d30a08c\"\u003eSportradar NBA API\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf your LLM supports \u003ca href=\"https://platform.openai.com/docs/assistants/tools/function-calling\"\u003eOpenAI-compatible Functions\u003c/a\u003e, you can use the \u003ccode\u003erender\u003c/code\u003e method to map specific calls to React Server Components.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis allows your app to serve the user interactive UI components showing Lebron’s points, rebounds, and assists, with additional components displaying his shooting percentages and other stats.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThese components are auto-generated by v0 and \u003ca href=\"https://sdk.vercel.ai/docs/concepts/streaming\"\u003estreamed\u003c/a\u003e directly to the user, meaning that parts of the response are transmitted as soon as they become available.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eIf you prefer a live demo to my hypothetical written one, you can play around with Vercel’s \u003ca href=\"https://sdk.vercel.ai/demo\"\u003efinancial assistant demo\u003c/a\u003e. It told me to buy Bitcoin a month ago, so you’ll be in good hands.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e This magic relies on RSC, so you can only utilize it if you’re using Next.js (for now). I’m sure Vercel isn’t exactly heartbroken by that, but if you can’t use AI to pump your own bag, are you even an AI company?\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20breaks%20down%20how%20Vercel%20AI%20SDK%20uses%20RSC%20to%20let%20your%20users%20build%20their%20own%20UI%20components%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20breaks%20down%20how%20Vercel%20AI%20SDK%20uses%20RSC%20to%20let%20your%20users%20build%20their%20own%20UI%20components%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/postman-logo.png\" alt=\"Postman logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/dw-glasses.jpg\" alt=\"DW from Arthur standing outside a fence looking sad\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen that tech conference FOMO hits\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.postman.com/postcon/speakers/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march72024\u0026amp;utm_content=primary-placement\"\u003ePOST/CON 24 speaker lineup just dropped\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"eyes\"\u003e👀\u003c/span\u003e\u003c/h3\u003e\u003cp\u003eThe biggest API conference of the year is happening in SF on April 30-May 1, and the speaker lineup looks incredible.\u003c/p\u003e\u003cp\u003ePOST/CON 24 promises a great mix of \u003ca href=\"https://www.postman.com/postcon/speakers/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march72024\u0026amp;utm_content=primary-placement\"\u003ehigh-level talks from tech executives\u003c/a\u003e and hands-on training from some of the best developers in the world – so it should be easy to convince your boss to send you.\u003c/p\u003e\u003cp\u003eYou can \u003ca href=\"https://www.postman.com/postcon/speakers/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march72024\u0026amp;utm_content=primary-placement\"\u003esee the full lineup here\u003c/a\u003e — but here’s a quick list of 3 talks we’re looking forward to:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e“The API Security and Scalability Panel” with the Postman CTO, Heroku CTO, and Southwest Airlines Lead DevOps Engineer\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e“Developer Marketing with Public APIs” with the VP of DevRel at APIMatic\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e“Navigating GraphQL Adoption in the Real World” with the Principal Engineer at Intuit\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://postcon.postman.com/event/5bb77b40-684b-4b79-bb8f-f1420897ee6e/regProcessStep1?utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_content=primary-placement\u0026amp;utm_medium=email\u0026amp;utm_source=bytes\u0026amp;utm_term=march72024\"\u003eGet 30% off your ticket\u003c/a\u003e if you sign up before March 26.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js\u0026amp;utm_medium=em-pa\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=blog_preventing-server-side-request-forgery-node-js\"\u003eSnyk\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eAttackers can exploit SSRF vulnerabilities in Node apps to steal credit card and social security numbers. You can avoid all that with this free guide on \u003ca href=\"https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js\u0026amp;utm_medium=em-pa\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=blog_preventing-server-side-request-forgery-node-js\"\u003ePreventing server-side request forgery\u003c/a\u003e.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eQueue\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eenqueue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003epush\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003evalue\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003edequeue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token operator\"\u003e--\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eshift\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003epeek\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eJoe Savona from the React team tweeted that \u003ca href=\"https://twitter.com/en_JS/status/1760433969118769654\"\u003eReact Compiler won’t be included in React 19\u003c/a\u003e. I haven’t felt this big of a letdown since I learned that my local movie theater ran out of Dune commemorative popcorn buckets.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMultiple wrote this quick guide on \u003ca href=\"https://docs.multiple.dev/quick-start-guide\"\u003eHow to load test any API in under 10 minutes\u003c/a\u003e. If you just thought, “Hmm, I wonder if anyone on my team has ever load tested our API,” consider this your sign from the universe to try it out. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNolan Lawson gave a great talk on \u003ca href=\"https://nolanlawson.com/2023/01/17/my-talk-on-css-runtime-performance/\"\u003eCSS runtime performance\u003c/a\u003e back in Dec 2022, after months of researching two questions: 1) What’s the fastest way to implement scoped styles? 2) Does using shadow DOM improve style performance?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA new PR in the React repo calls for \u003ca href=\"https://github.com/facebook/react/pull/28491\"\u003eadding a new React hook called \u003ccode\u003euseActionState\u003c/code\u003e\u003c/a\u003e to replace and improve the \u003ccode\u003euseFormState\u003c/code\u003e hook.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTalha Naqvi wrote an in-depth post about \u003ca href=\"https://shopify.engineering/improving-shopify-app-s-performance\"\u003eHow their team improved the Shopify App’s Performance\u003c/a\u003e. Hopefully this helps increase the conversion rate for my Shopify store that sells handmade origami sculptures of Ellen DeGeneres.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://gleam.run/news/gleam-version-1/\"\u003eGleam just released v1.0\u003c/a\u003e of their “friendly language for building type-safe systems that scale.” It seems mostly meant for the Erlang virtual machine, but it can also run on JavaScript runtimes.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://sentry.io/events/launch-week/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=general-fy25q1-launchweek\u0026amp;utm_content=newsletter-launchweek-tunein\"\u003eSentry Launch Week\u003c/a\u003e is happening from March 18-22, and they’re announcing new products, new features, and a bunch of other cool stuff. You can get a sneak peek (and win free swag) if you sign up for their \u003ca href=\"https://sentry.io/events/launch-week/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=general-fy25q1-launchweek\u0026amp;utm_content=newsletter-launchweek-tunein\"\u003elaunch week email list\u003c/a\u003e. It’s a win-win. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVishwas Gopinath wrote about \u003ca href=\"https://www.builder.io/blog/why-react-server-components\"\u003eWhy React Server Components are breaking builds to win tomorrow\u003c/a\u003e. “Breaking builds to win tomorrow” was also the name of my favorite Christian rock song from 2004.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Mulligan wrote about \u003ca href=\"https://ryanmulligan.dev/blog/scroll-triggered-animations-style-queries/\"\u003eCSS scroll-triggered animations with style queries\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdam Wathan wrote about \u003ca href=\"https://tailwindcss.com/blog/tailwindcss-v4-alpha\"\u003eOpen-sourcing our progress on Tailwind CSS v4.0\u003c/a\u003e, which just released its first public alpha. I’m also planning to “open-source my progress” on this box of Girl Scout Cookies that I’ve been eating since 9 am — because people have a right to know that I just ingested 980 calories worth of Tagalongs.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://snyk.io/blog/preventing-server-side-request-forgery-node-js/?utm_campaign=dm_pp-bytes-advertiser_240307_blog_preventing-server-side-request-forgery-node-js\u0026amp;utm_medium=em-pa\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=blog_preventing-server-side-request-forgery-node-js\"\u003eSnyk\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eSince this is a queue (aka: first in, first out), the \u003ccode\u003epeek\u003c/code\u003e method should return the first element in the list, not the last.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eQueue\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eenqueue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003epush\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003evalue\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003edequeue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token operator\"\u003e--\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eshift\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003epeek\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"269"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"269"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

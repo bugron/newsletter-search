@@ -1,0 +1,318 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #306 - React Native makes it official</title><link rel="canonical" href="https://bytes.dev/archives/306"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way."/><meta property="og:url" content="https://bytes.dev/archives/306"/><meta property="og:title" content="Bytes #306 - React Native makes it official"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/hulk-hogan-head.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #306 - React Native makes it official"/><meta property="twitter:description" content="Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way."/><meta property="twitter:image" content="https://bytes.dev/images/content/hulk-hogan-head.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> React Native makes it official</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->306<!-- -->.</span><span class="mr-6 font-bold">July 15, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/306">#306</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/hulk-hogan-head.jpg" alt="Hulk Hogan sitting in a hot tub with a shrunken head" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Looks like we're all Expo developers now, brother<!-- --> </p></div><h3>React Native makes it official</h3><p>The React Native team just <a href="https://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps">declared</a> that using the Expo framework is now the officially recommended way to build new React Native apps.</p><p>That’s not exactly shocking news, but it might feel a little strange if you haven’t worked with React Native recently. <em>Why should you need to use a whole different framework to build RN apps?</em></p><p>According to the React Native team, it’s because “you’re either using a framework, or you’re building your own framework.”</p><p>First of all, that’s a bar. And it’s the same sentiment that the React team expressed when they made a <a href="https://react.dev/learn/start-a-new-react-project#can-i-use-react-without-a-framework">similar recommendation</a> earlier this year for React developers.</p><p>Let’s take a closer look at some of the key things Expo saves RN developers from having to build themselves, courtesy of <a href="https://youtu.be/0ckOUBiuxVY?t=3899">Kadi Kraman’s talk</a> at React Conf:</p><ul>
+<li>
+<p><strong>Access to native capabilities</strong> – The Expo SDK acts as an “extended standard library” for RN with 70+ native libraries, and the Expo Modules API makes it a lot simpler to build additional native modules.</p>
+</li>
+<li>
+<p><strong>Simple navigation</strong> – The Expo Router gives you file system-based routing for RN, so you can build for Android, iOS, and the web from a single codebase.</p>
+</li>
+<li>
+<p><strong>Native code management</strong> – Expo’s Continuous Native Generation provides a much smoother experience for maintaining native code in your project.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> You might have good reasons for choosing to build this framework-like functionality from scratch for your React Native app. Maybe you’re a large org that requires a custom-built solution with a deep integration – or maybe you’re a solo dev who’s trying to avoid all his weird cousins at a family reunion in southern Florida right now, so you’re inventing new problems for yourself to solve in the hopes that it will make the next 5 days pass faster haha wouldn’t that be crazy?</p><p>But for 99% of RN devs, Expo is clearly the best option now. And it’s cool to see the React Native team officially recognize that.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/306" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F306" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Why%20we%20need%20another%20framework%20with%20our%20React%20Native%20framework.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F306" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20we%20need%20another%20framework%20with%20our%20React%20Native%20framework.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F306" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/zero-logo.png" alt="Zero logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/gandalf-secret.jpg" alt="Gandalf looking frantic" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you realize your API secrets might not be so secret anymore<!-- --> </p></div><h3><a href="https://tryzero.com/?s=bytes">Manage all your API credentials with Zero</a></h3><p>Manually managing your team’s API keys can feel like a full-time job (from hell).</p><p>You need to rotate them for security, allow developers to access them quickly, make sure they don’t get accidentally exposed – or just put them all in a <code>.env</code> file and hope it never gets pushed <span role="img" aria-label="woozy face">🥴</span>.</p><p>That’s why smart teams use Zero. It gives you everything you need to securely and intuitively manage your API credentials from one platform:</p><ul>
+<li>
+<p><a href="https://tryzero.com/?s=bytes">Multi-platform SDKs</a> for TypeScript, Rust, and more to easily fetch your API secrets</p>
+</li>
+<li>
+<p>A fast, Rust-based CLI</p>
+</li>
+<li>
+<p>A centralized platform to see the usage stats of all your different API keys in one place, and rotate them without changing your application code</p>
+</li>
+<li>
+<p>A quick-and-easy way to securely share secrets with team members via limited-time passcodes</p>
+</li>
+</ul><p><a href="https://tryzero.com/#pricing">Check out the free tier</a> and never waste time worrying about API keys again.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://apryse.com/capabilities/annotation?utm_source=bytes.dev&amp;utm_medium=newsletter&amp;utm_campaign=jul1524">Apryse</a></h4><p><em>Their <a href="https://apryse.com/capabilities/annotation?utm_source=bytes.dev&amp;utm_medium=newsletter&amp;utm_campaign=jul1524">PDF annotation</a> library lets you easily give your users the ability to mark up PDFs with sticky notes, comments, file attachments, drawings, and lots more.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">0.5</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">0.3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">0.6</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">items<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> items<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    items<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price <span class="token operator">-=</span> items<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price <span class="token operator">*</span> discount<span class="token punctuation">;</span>
+    items<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price <span class="token operator">=</span> items<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> items<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> discountedItems <span class="token operator">=</span> <span class="token function">applyDiscount</span><span class="token punctuation">(</span>items<span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> totalPrice <span class="token operator">=</span> discountedItems<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">sum<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> sum <span class="token operator">+</span> item<span class="token punctuation">.</span>price<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://tinybase.org/guides/releases/#v5-0">Tinybase just launched v5.0</a> of its reactive data store. They named this release “The One You Can Sync” because it adds new data sync functionality and because they’ll be there for you when the rain starts to pour.</p>
+</li>
+<li>
+<p>Kevin Schiener wrote about <a href="https://schiener.io/2024-07-07/react-closures-compiler">How the React compiler won’t save you from sneaky memory leaks</a>.</p>
+</li>
+<li>
+<p>Join <a href="https://go.snyk.io/240725_ai-live-hack.html?utm_campaign=dm_pp-bytes-advertiser-240715-wbn_240725_ai-live-hack&amp;utm_medium=em-pa&amp;utm_source=bytes-advertiser&amp;utm_content=wbn_240725_ai-live-hack">Snyk’s Live Hack Workshop</a> to learn how to proactively identify security weaknesses in your AI generated code. Get live support in the hands-on lab as you build a demo app with AI-assisted coding tools, then exploit and remediate vulnerabilities <span role="img" aria-label="robot">🤖</span> 🛠 [sponsored]</p>
+</li>
+<li>
+<p><a href="https://effect.website/blog/effect-3.5">Effect 3.5</a> just came out with better support for <code>Error.cause</code> and a bunch of other features to help you crank your Type safety up to level 11.</p>
+</li>
+<li>
+<p>kurtextrem wrote about <a href="https://kurtextrem.de/posts/improve-inp">How to improve INP with yield patterns</a>.</p>
+</li>
+<li>
+<p><a href="https://jsben.ch/BQhED">jsben.ch</a> is a performance benchmarking playground for JavaScript that’s been around for a while, but has been making the rounds again lately – just like this video of my middle school band <a href="https://www.youtube.com/watch?v=JSKpsKMTxA8">struggling</a> to cover a Weezer song.</p>
+</li>
+<li>
+<p><a href="deno.com/blog/v1.45">Deno 1.45</a> just added support for workspaces and monorepos, and folks are hyped.</p>
+</li>
+<li>
+<p>CarbonQA gives your dev team <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=jul15">high-quality QA services that scale</a>. Their US-based testers work directly with your tools and break your app repeatedly, so you never have to waste eng time on QA testing again. [sponsored]</p>
+</li>
+<li>
+<p>Salma Alam Naylor wrote about <a href="https://blog.sentry.io/how-to-hack-your-google-lighthouse-scores-in-2024/">How to hack your Google Lighthouse scores in 2024</a>. Maybe Willem Dafoe’s character in <em>The Lighthouse</em> wouldn’t have gone so crazy if he had just read this blog post.</p>
+</li>
+<li>
+<p>Daishi Kato wrote about <a href="https://blog.axlight.com/posts/how-zustand-was-born/">How Zustand was born</a>. There’s nothing more powerful than a parent’s love for their baby.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://apryse.com/capabilities/annotation?utm_source=bytes.dev&amp;utm_medium=newsletter&amp;utm_campaign=jul1524">Apryse</a></h4></div></div>
+<p>The bug is in the <code>applyDiscount</code> function.</p>
+<p>After applying the discount, we use <code>toFixed(2)</code> to round the price to two decimal places. However, <code>toFixed()</code> returns a string, not a number. This means that when we later try to calculate the total price using <code>reduce()</code>, we’re actually performing string concatenation instead of number addition.</p>
+<p>There are a bunch of ways to fix this. The simplest (if you’re confident in your data), is to use <code>Number</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">applyDiscount</span><span class="token punctuation">(</span><span class="token parameter">items<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> items<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token operator">...</span>item<span class="token punctuation">,</span>
+    <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>price <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> discount<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: React Native makes it official","date":"2024-07-15","featuredImage":"/images/content/hulk-hogan-head.jpg","description":"Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Turning your type safety up to 11, rediscovering old tools, and the data store that never told you life was gonna be this way.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/306\"\u003e#306\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/hulk-hogan-head.jpg\" alt=\"Hulk Hogan sitting in a hot tub with a shrunken head\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eLooks like we're all Expo developers now, brother\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eReact Native makes it official\u003c/h3\u003e\u003cp\u003eThe React Native team just \u003ca href=\"https://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps\"\u003edeclared\u003c/a\u003e that using the Expo framework is now the officially recommended way to build new React Native apps.\u003c/p\u003e\u003cp\u003eThat’s not exactly shocking news, but it might feel a little strange if you haven’t worked with React Native recently. \u003cem\u003eWhy should you need to use a whole different framework to build RN apps?\u003c/em\u003e\u003c/p\u003e\u003cp\u003eAccording to the React Native team, it’s because “you’re either using a framework, or you’re building your own framework.”\u003c/p\u003e\u003cp\u003eFirst of all, that’s a bar. And it’s the same sentiment that the React team expressed when they made a \u003ca href=\"https://react.dev/learn/start-a-new-react-project#can-i-use-react-without-a-framework\"\u003esimilar recommendation\u003c/a\u003e earlier this year for React developers.\u003c/p\u003e\u003cp\u003eLet’s take a closer look at some of the key things Expo saves RN developers from having to build themselves, courtesy of \u003ca href=\"https://youtu.be/0ckOUBiuxVY?t=3899\"\u003eKadi Kraman’s talk\u003c/a\u003e at React Conf:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAccess to native capabilities\u003c/strong\u003e – The Expo SDK acts as an “extended standard library” for RN with 70+ native libraries, and the Expo Modules API makes it a lot simpler to build additional native modules.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSimple navigation\u003c/strong\u003e – The Expo Router gives you file system-based routing for RN, so you can build for Android, iOS, and the web from a single codebase.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNative code management\u003c/strong\u003e – Expo’s Continuous Native Generation provides a much smoother experience for maintaining native code in your project.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e You might have good reasons for choosing to build this framework-like functionality from scratch for your React Native app. Maybe you’re a large org that requires a custom-built solution with a deep integration – or maybe you’re a solo dev who’s trying to avoid all his weird cousins at a family reunion in southern Florida right now, so you’re inventing new problems for yourself to solve in the hopes that it will make the next 5 days pass faster haha wouldn’t that be crazy?\u003c/p\u003e\u003cp\u003eBut for 99% of RN devs, Expo is clearly the best option now. And it’s cool to see the React Native team officially recognize that.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/306\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F306\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Why%20we%20need%20another%20framework%20with%20our%20React%20Native%20framework.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F306\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20we%20need%20another%20framework%20with%20our%20React%20Native%20framework.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F306\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/zero-logo.png\" alt=\"Zero logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/gandalf-secret.jpg\" alt=\"Gandalf looking frantic\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you realize your API secrets might not be so secret anymore\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://tryzero.com/?s=bytes\"\u003eManage all your API credentials with Zero\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eManually managing your team’s API keys can feel like a full-time job (from hell).\u003c/p\u003e\u003cp\u003eYou need to rotate them for security, allow developers to access them quickly, make sure they don’t get accidentally exposed – or just put them all in a \u003ccode\u003e.env\u003c/code\u003e file and hope it never gets pushed \u003cspan role=\"img\" aria-label=\"woozy face\"\u003e🥴\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eThat’s why smart teams use Zero. It gives you everything you need to securely and intuitively manage your API credentials from one platform:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tryzero.com/?s=bytes\"\u003eMulti-platform SDKs\u003c/a\u003e for TypeScript, Rust, and more to easily fetch your API secrets\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA fast, Rust-based CLI\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA centralized platform to see the usage stats of all your different API keys in one place, and rotate them without changing your application code\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA quick-and-easy way to securely share secrets with team members via limited-time passcodes\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://tryzero.com/#pricing\"\u003eCheck out the free tier\u003c/a\u003e and never waste time worrying about API keys again.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://apryse.com/capabilities/annotation?utm_source=bytes.dev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=jul1524\"\u003eApryse\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir \u003ca href=\"https://apryse.com/capabilities/annotation?utm_source=bytes.dev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=jul1524\"\u003ePDF annotation\u003c/a\u003e library lets you easily give your users the ability to mark up PDFs with sticky notes, comments, file attachments, drawings, and lots more.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e items \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eid\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Apple'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.5\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eid\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Banana'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.3\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eid\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Orange'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.6\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eapplyDiscount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eitems\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e items\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    items\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e-=\u003c/span\u003e items\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e discount\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    items\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e items\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoFixed\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e items\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e discountedItems \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003eapplyDiscount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eitems\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e totalPrice \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e discountedItems\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003esum\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e item\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e sum \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e item\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tinybase.org/guides/releases/#v5-0\"\u003eTinybase just launched v5.0\u003c/a\u003e of its reactive data store. They named this release “The One You Can Sync” because it adds new data sync functionality and because they’ll be there for you when the rain starts to pour.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKevin Schiener wrote about \u003ca href=\"https://schiener.io/2024-07-07/react-closures-compiler\"\u003eHow the React compiler won’t save you from sneaky memory leaks\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJoin \u003ca href=\"https://go.snyk.io/240725_ai-live-hack.html?utm_campaign=dm_pp-bytes-advertiser-240715-wbn_240725_ai-live-hack\u0026amp;utm_medium=em-pa\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=wbn_240725_ai-live-hack\"\u003eSnyk’s Live Hack Workshop\u003c/a\u003e to learn how to proactively identify security weaknesses in your AI generated code. Get live support in the hands-on lab as you build a demo app with AI-assisted coding tools, then exploit and remediate vulnerabilities \u003cspan role=\"img\" aria-label=\"robot\"\u003e🤖\u003c/span\u003e 🛠 [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://effect.website/blog/effect-3.5\"\u003eEffect 3.5\u003c/a\u003e just came out with better support for \u003ccode\u003eError.cause\u003c/code\u003e and a bunch of other features to help you crank your Type safety up to level 11.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ekurtextrem wrote about \u003ca href=\"https://kurtextrem.de/posts/improve-inp\"\u003eHow to improve INP with yield patterns\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://jsben.ch/BQhED\"\u003ejsben.ch\u003c/a\u003e is a performance benchmarking playground for JavaScript that’s been around for a while, but has been making the rounds again lately – just like this video of my middle school band \u003ca href=\"https://www.youtube.com/watch?v=JSKpsKMTxA8\"\u003estruggling\u003c/a\u003e to cover a Weezer song.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"deno.com/blog/v1.45\"\u003eDeno 1.45\u003c/a\u003e just added support for workspaces and monorepos, and folks are hyped.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA gives your dev team \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=jul15\"\u003ehigh-quality QA services that scale\u003c/a\u003e. Their US-based testers work directly with your tools and break your app repeatedly, so you never have to waste eng time on QA testing again. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSalma Alam Naylor wrote about \u003ca href=\"https://blog.sentry.io/how-to-hack-your-google-lighthouse-scores-in-2024/\"\u003eHow to hack your Google Lighthouse scores in 2024\u003c/a\u003e. Maybe Willem Dafoe’s character in \u003cem\u003eThe Lighthouse\u003c/em\u003e wouldn’t have gone so crazy if he had just read this blog post.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDaishi Kato wrote about \u003ca href=\"https://blog.axlight.com/posts/how-zustand-was-born/\"\u003eHow Zustand was born\u003c/a\u003e. There’s nothing more powerful than a parent’s love for their baby.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://apryse.com/capabilities/annotation?utm_source=bytes.dev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=jul1524\"\u003eApryse\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eThe bug is in the \u003ccode\u003eapplyDiscount\u003c/code\u003e function.\u003c/p\u003e\n\u003cp\u003eAfter applying the discount, we use \u003ccode\u003etoFixed(2)\u003c/code\u003e to round the price to two decimal places. However, \u003ccode\u003etoFixed()\u003c/code\u003e returns a string, not a number. This means that when we later try to calculate the total price using \u003ccode\u003ereduce()\u003c/code\u003e, we’re actually performing string concatenation instead of number addition.\u003c/p\u003e\n\u003cp\u003eThere are a bunch of ways to fix this. The simplest (if you’re confident in your data), is to use \u003ccode\u003eNumber\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eapplyDiscount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eitems\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e items\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003emap\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eitem\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e...\u003c/span\u003eitem\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token function\"\u003eNumber\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eitem\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e discount\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoFixed\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"306"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"306"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

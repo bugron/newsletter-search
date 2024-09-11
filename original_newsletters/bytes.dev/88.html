@@ -1,0 +1,350 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #88 - Async JavaScript, Furbies, Denny&#x27;s, and Skeletor</title><link rel="canonical" href="https://bytes.dev/archives/88"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got graphs on graphs, Safari&#x27;s new love, and righteous anger for the Nickelodeon Kids&#x27; Choice Awards."/><meta property="og:url" content="https://bytes.dev/archives/88"/><meta property="og:title" content="Bytes #88 - Async JavaScript, Furbies, Denny&#x27;s, and Skeletor"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/graphs.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got graphs on graphs, Safari&#x27;s new love, and righteous anger for the Nickelodeon Kids&#x27; Choice Awards."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #88 - Async JavaScript, Furbies, Denny&#x27;s, and Skeletor"/><meta property="twitter:description" content="This issue, we&#x27;ve got graphs on graphs, Safari&#x27;s new love, and righteous anger for the Nickelodeon Kids&#x27; Choice Awards."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/graphs.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Async JavaScript, Furbies, Denny&#x27;s, and Skeletor</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->88<!-- -->.</span><span class="mr-6 font-bold">February 21, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Zuck is now referring to all 45,000 Meta employees as <a href="https://www.marketwatch.com/story/zuckerberg-tells-facebook-employees-they-are-now-metamates-11644959008">Metamates</a>, which inspired us to come up with an equally <em>fun-and-not-creepy-at-all</em> nickname for all 71,000 of you.</p>
+<p>This week, we’ve got graphs on graphs, Safari’s new love, and righteous anger for the Nickelodeon Kids’ Choice Awards.</p>
+<p>Welcome to #88, <strong>#BytesBabies.</strong></p>
+<hr>
+<p><img src="https://bytes.dev/images/content/graphs.png" alt="Nickleback Graph Meme Inception">
+</p><p class="image-alt">Welcome to hell</p><p></p>
+<h2>Graph. Graph. Graph. Graph.</h2>
+<p>Both Apollo and Netlify made announcements this week involving the word “Graph.” At this point, “Graph” seems to be more of a vibe than an actual technical term. Our working theory is that everyone has caught on to the fact that all it takes to raise your next round of funding is the right combination of words like “Federation”, “Composable”, “Extensible”, “Decoupled”, and “Streamlined”.</p>
+<p>But despite the buzzword copy-pasta, you have to give Netlify props for how fast they’ve incorporated “One Graph” (which they acquired in November) into their product. The freshly minted <em>Netlify Graph</em> service offers one-click integrations with third-party APIs and automatically hooks them up to a (managed) GraphQL endpoint.</p>
+<blockquote>
+<p>Netlify Graph enables developers to seamlessly integrate third-party APIs and services into their web applications without writing API-specific code. Instead of connecting different APIs and SDKs with brittle code, you can now abstract all that behind a convenient GraphQL interface.</p>
+</blockquote>
+<p>With Netlify Graph you can:</p>
+<ul>
+<li>Connect to 3rd party API’s like Stripe, GitHub, Contentful and more</li>
+<li>Manage auth / permissions across APIs</li>
+<li>Explore the data across services in one place</li>
+<li>Use a nice UI to build and test queries for your data</li>
+<li>Generate Serverless functions to access the data in your app</li>
+</ul>
+<p><strong>Bottom Line:</strong> Even though it’s been 7 years and no one still really knows what “Jamstack” means, Netlify is finding new ways to bring more <del>buzzwords</del> <em>one-click goodness</em> into your workflow.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/pain.png" alt="Jeopary contestant answers what is pain meme">
+</p><p class="image-alt">Building notifications from scratch [sponsored]</p><p></p>
+<h2><a href="https://www.courier.com/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier’s</a> new API saved me from my PM</h2>
+<p>You know that one person on your team who <em>loves</em> building complex notification systems?</p>
+<p>Of course you don’t.</p>
+<p>That’s because notifications have become a special kind of hell with tons of different platforms to worry about — email, SMS, chat, web and mobile push, Slack and more.</p>
+<p>That’s what makes <a href="https://www.courier.com/docs/reference/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier’s simple API</a> so powerful. It’s a one-stop shop for <em>all</em> notification platforms — so you can use the same API call to send your users an email, an SMS, a Slack message, or a push notification.</p>
+<p>And their new <a href="https://www.courier.com/docs/elemental/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier Elemental</a> update gives you a JSON-based syntax to easily customize the design and content for each platform you send messages to.</p>
+<p>This makes designing the actual notifications a <em>lot</em> less tedious, and it lets you create more <a href="https://www.courier.com/docs/elemental/elements/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">dynamic notifications</a> like magic login links and location based alerts.</p>
+<p>So tell your PM to go as crazy as they want with notifications, because Courier’s got your back.</p>
+<p><a href="https://app.courier.com/signup?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Check it out</a> and get 10,000 free sends a month.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/timmy.png" alt="Tim Cook as a Spartan">
+</p><p class="image-alt">I am a benevolent god</p><p></p>
+<h2>Safari <span role="img" aria-label="red heart">❤️</span> mobile web</h2>
+<p>On Valentine’s Day, Safari expressed their undying love for robust web applications by releasing their <a href="https://webkit.org/blog/12257/the-file-system-access-api-with-origin-private-file-system/">conservative approach</a> to supporting the <a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API">File System Access API</a> — which lets you build web apps with the ability to create, open, read, and write files directly.</p>
+<p>That might not sound like huge news, but if you know much about Safari, Apple, or Mr. Timmy Tim (Cook, not Chalamet this time), you’ll also know that this is a big shift — since historically, they’ve shown approximately zero love for the idea of robust web applications (especially mobile web apps).</p>
+<p><strong>Why tho?</strong> <del>User privacy.</del> Money (obviously). As you probably know, Apple makes fat stacks of cash from its 30% cut on all in-app purchases. (They’ve easily made $100k from my mom’s Candy Crush upgrades alone.) And since Apple makes <em>zero</em> dollars when you buy something in a Safari web browser, it’s pretty easy to understand why they’ve been slower than Chrome when it comes to adopting certain APIs.</p>
+<p><strong>bUt wHaT aBOut pRIvACy?</strong> People often point to privacy concerns as the legitimate reason for Safari’s hesitation to support “native APIs.” But isn’t this is the same company that downloaded the worst U2 album of all time onto every iPhone in the world without our consent? So yeah, not sure I buy that line of reasoning.</p>
+<p><strong>Why support this API now?</strong> We don’t know for sure, but it could be a response to a few different forces — increased <a href="https://www.axios.com/app-store-crackdown-senate-apple-google-3b1a7028-0037-42e1-a116-f9e653ded82c.html">regulatory scrutiny</a> on the App-Store’s “anti-competitive” business model, Chrome’s continued popularity growth, the fact that users <a href="https://austinknight.com/writing/the-data-behind-why-apps-fail">aren’t really downloading new apps</a>, and most importantly… developers consistently begging the WebKit team to let them build cool stuff.</p>
+<p><strong>Bottom Line:</strong> Thanks Tim. You’ll always have a monopoly on my heart.</p>
+<hr>
+<h2>Spot the Bug — Sponsored by <a href="https://www.mergify.com/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=Bytes">Mergify</a></h2>
+<p><em>Teams at Amazon and Mozilla use Mergify to prioritize, queue, and automatically merge their PR’s. You’ll probably like it too. Check out their <a href="https://www.mergify.com/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=Bytes">Startup Program</a> to get 12 months free.</em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> useRef<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Modal<span class="token punctuation">,</span> ModalHeader<span class="token punctuation">,</span> ModalBody<span class="token punctuation">,</span> ModalFooter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../components/Modal'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">InputModal</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>isOpen<span class="token punctuation">,</span> close<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> inputRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      inputRef<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">[</span>isOpen<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>Modal isOpen<span class="token operator">=</span><span class="token punctuation">{</span>isOpen<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ModalHeader<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>h3<span class="token operator">&gt;</span>What is your name<span class="token operator">?</span><span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ModalHeader<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ModalBody<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>input name<span class="token operator">=</span><span class="token string">"name"</span> ref<span class="token operator">=</span><span class="token punctuation">{</span>inputRef<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ModalBody<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ModalFooter<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>Close<span class="token operator">&lt;</span><span class="token operator">/</span>Button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ModalFooter<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Modal<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Have you ever wanted to see Async JavaScript patterns, Furbies, Denny’s, and Skeletor in the same video? Well I have FANTASTIC news for you. Our newest video, <a href="https://www.youtube.com/watch?v=rivBfgaEyWQ">The Story of Asynchronous JavaScript</a>, covers all that and more.</p>
+</li>
+<li>
+<p><a href="https://nextjs.org/blog/next-12-1">Next.js 12.1</a> was just released with on-demand ISR (Incremental Static Regeneration) — which was <a href="https://twitter.com/leeerob/status/1493775264869863429">apparently</a> one of their most requested features. I find that hard to believe, since I’ve personally mailed Guillermo dozens of letters specifically asking for “more graphs,” but it’s fine.</p>
+</li>
+<li>
+<p>Did you know that only 1 out of 100 users report bugs? Make sure you’re not flying blind with this <a href="https://raygun.com/learn/the-complete-guide-to-error-monitoring-and-crash-reporting?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=blog">complete guide to error monitoring.</a> It’s got everything you need from workflow best practices, key metrics, and how to choose the right tools for your team. [sponsored]</p>
+</li>
+<li>
+<p>James Long wrote a cool article on <a href="https://jlongster.com/exploring-model-based-testing">Exploring model-based testing for UIs</a> — which is a nice companion piece to the article I’m working on, <em>Exploring spray-and-pray-based non-testing for UIs.</em></p>
+</li>
+<li>
+<p><a href="https://gatsbyconf.com/">GatsbyConf</a> is starting on March 2nd, and we’ve been promised that it’ll be packed with more fireworks than a gender-reveal party gone horribly wrong (one of my favorite YouTube niches).</p>
+</li>
+<li>
+<p>Nanda Syahrasyad wrote some interesting learnings he had about tokenizers while <a href="https://www.nan.fyi/tokenizer">rebuilding Babel from scratch over the weekend</a>. I have many questions for Nanda, but I’m mostly curious about how long it’ll take him to 1) become the lead Babel maintainer, and 2) decide to rewrite everything in Rust.</p>
+</li>
+<li>
+<p><a href="https://expressjs.com/en/5x/api.html">Express.js released its v5 beta</a>, a mere seven years after releasing its first v5 alpha. So at least React is following some historical precedent with its own release cadence.</p>
+</li>
+<li>
+<p>A lot of you had opinions about a JavaScript survey that came out last week, but I just hope you all come with that same energy if Tom Holland and Zendaya don’t win the Nickelodeon Kids’ Choice award for Best On-Screen Kiss this year.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug — Solution</h2>
+<p>React treats the ref as a “box” that can hold a mutable value in it’s <code>.current</code> property, including DOM elements. Since React needs a way to update the ref’s value without completely overriding it, the ref itself is an object with a mutable <code>.current</code> property that can be changed any time without changing the object reference.</p>
+<p>The bug happens when we try to <code>.focus()</code> the <code>inputRef</code>. The input DOM element is stored in the <code>.current</code> property, so the correct way to focus the input is to call <code>inputRef.current.focus()</code>.</p>
+<p>Here’s the solution -</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">InputModal</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>isOpen<span class="token punctuation">,</span> close<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> inputRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      inputRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">[</span>isOpen<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// ...</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Refs can store more than just DOM elements - they can store any value a component needs to hold on to without causing a re-render whenever the value changes.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: Async JavaScript, Furbies, Denny's, and Skeletor","date":"2022-02-21","description":"This issue, we've got graphs on graphs, Safari's new love, and righteous anger for the Nickelodeon Kids' Choice Awards.","featuredImage":"https://bytes.dev/images/content/graphs.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eZuck is now referring to all 45,000 Meta employees as \u003ca href=\"https://www.marketwatch.com/story/zuckerberg-tells-facebook-employees-they-are-now-metamates-11644959008\"\u003eMetamates\u003c/a\u003e, which inspired us to come up with an equally \u003cem\u003efun-and-not-creepy-at-all\u003c/em\u003e nickname for all 71,000 of you.\u003c/p\u003e\n\u003cp\u003eThis week, we’ve got graphs on graphs, Safari’s new love, and righteous anger for the Nickelodeon Kids’ Choice Awards.\u003c/p\u003e\n\u003cp\u003eWelcome to #88, \u003cstrong\u003e#BytesBabies.\u003c/strong\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/graphs.png\" alt=\"Nickleback Graph Meme Inception\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWelcome to hell\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eGraph. Graph. Graph. Graph.\u003c/h2\u003e\n\u003cp\u003eBoth Apollo and Netlify made announcements this week involving the word “Graph.” At this point, “Graph” seems to be more of a vibe than an actual technical term. Our working theory is that everyone has caught on to the fact that all it takes to raise your next round of funding is the right combination of words like “Federation”, “Composable”, “Extensible”, “Decoupled”, and “Streamlined”.\u003c/p\u003e\n\u003cp\u003eBut despite the buzzword copy-pasta, you have to give Netlify props for how fast they’ve incorporated “One Graph” (which they acquired in November) into their product. The freshly minted \u003cem\u003eNetlify Graph\u003c/em\u003e service offers one-click integrations with third-party APIs and automatically hooks them up to a (managed) GraphQL endpoint.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNetlify Graph enables developers to seamlessly integrate third-party APIs and services into their web applications without writing API-specific code. Instead of connecting different APIs and SDKs with brittle code, you can now abstract all that behind a convenient GraphQL interface.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eWith Netlify Graph you can:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eConnect to 3rd party API’s like Stripe, GitHub, Contentful and more\u003c/li\u003e\n\u003cli\u003eManage auth / permissions across APIs\u003c/li\u003e\n\u003cli\u003eExplore the data across services in one place\u003c/li\u003e\n\u003cli\u003eUse a nice UI to build and test queries for your data\u003c/li\u003e\n\u003cli\u003eGenerate Serverless functions to access the data in your app\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Even though it’s been 7 years and no one still really knows what “Jamstack” means, Netlify is finding new ways to bring more \u003cdel\u003ebuzzwords\u003c/del\u003e \u003cem\u003eone-click goodness\u003c/em\u003e into your workflow.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/pain.png\" alt=\"Jeopary contestant answers what is pain meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eBuilding notifications from scratch [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://www.courier.com/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier’s\u003c/a\u003e new API saved me from my PM\u003c/h2\u003e\n\u003cp\u003eYou know that one person on your team who \u003cem\u003eloves\u003c/em\u003e building complex notification systems?\u003c/p\u003e\n\u003cp\u003eOf course you don’t.\u003c/p\u003e\n\u003cp\u003eThat’s because notifications have become a special kind of hell with tons of different platforms to worry about — email, SMS, chat, web and mobile push, Slack and more.\u003c/p\u003e\n\u003cp\u003eThat’s what makes \u003ca href=\"https://www.courier.com/docs/reference/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier’s simple API\u003c/a\u003e so powerful. It’s a one-stop shop for \u003cem\u003eall\u003c/em\u003e notification platforms — so you can use the same API call to send your users an email, an SMS, a Slack message, or a push notification.\u003c/p\u003e\n\u003cp\u003eAnd their new \u003ca href=\"https://www.courier.com/docs/elemental/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier Elemental\u003c/a\u003e update gives you a JSON-based syntax to easily customize the design and content for each platform you send messages to.\u003c/p\u003e\n\u003cp\u003eThis makes designing the actual notifications a \u003cem\u003elot\u003c/em\u003e less tedious, and it lets you create more \u003ca href=\"https://www.courier.com/docs/elemental/elements/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003edynamic notifications\u003c/a\u003e like magic login links and location based alerts.\u003c/p\u003e\n\u003cp\u003eSo tell your PM to go as crazy as they want with notifications, because Courier’s got your back.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://app.courier.com/signup?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCheck it out\u003c/a\u003e and get 10,000 free sends a month.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/timmy.png\" alt=\"Tim Cook as a Spartan\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eI am a benevolent god\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eSafari \u003cspan role=\"img\" aria-label=\"red heart\"\u003e❤️\u003c/span\u003e mobile web\u003c/h2\u003e\n\u003cp\u003eOn Valentine’s Day, Safari expressed their undying love for robust web applications by releasing their \u003ca href=\"https://webkit.org/blog/12257/the-file-system-access-api-with-origin-private-file-system/\"\u003econservative approach\u003c/a\u003e to supporting the \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API\"\u003eFile System Access API\u003c/a\u003e — which lets you build web apps with the ability to create, open, read, and write files directly.\u003c/p\u003e\n\u003cp\u003eThat might not sound like huge news, but if you know much about Safari, Apple, or Mr. Timmy Tim (Cook, not Chalamet this time), you’ll also know that this is a big shift — since historically, they’ve shown approximately zero love for the idea of robust web applications (especially mobile web apps).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy tho?\u003c/strong\u003e \u003cdel\u003eUser privacy.\u003c/del\u003e Money (obviously). As you probably know, Apple makes fat stacks of cash from its 30% cut on all in-app purchases. (They’ve easily made $100k from my mom’s Candy Crush upgrades alone.) And since Apple makes \u003cem\u003ezero\u003c/em\u003e dollars when you buy something in a Safari web browser, it’s pretty easy to understand why they’ve been slower than Chrome when it comes to adopting certain APIs.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ebUt wHaT aBOut pRIvACy?\u003c/strong\u003e People often point to privacy concerns as the legitimate reason for Safari’s hesitation to support “native APIs.” But isn’t this is the same company that downloaded the worst U2 album of all time onto every iPhone in the world without our consent? So yeah, not sure I buy that line of reasoning.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy support this API now?\u003c/strong\u003e We don’t know for sure, but it could be a response to a few different forces — increased \u003ca href=\"https://www.axios.com/app-store-crackdown-senate-apple-google-3b1a7028-0037-42e1-a116-f9e653ded82c.html\"\u003eregulatory scrutiny\u003c/a\u003e on the App-Store’s “anti-competitive” business model, Chrome’s continued popularity growth, the fact that users \u003ca href=\"https://austinknight.com/writing/the-data-behind-why-apps-fail\"\u003earen’t really downloading new apps\u003c/a\u003e, and most importantly… developers consistently begging the WebKit team to let them build cool stuff.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Thanks Tim. You’ll always have a monopoly on my heart.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug — Sponsored by \u003ca href=\"https://www.mergify.com/?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=Bytes\"\u003eMergify\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eTeams at Amazon and Mozilla use Mergify to prioritize, queue, and automatically merge their PR’s. You’ll probably like it too. Check out their \u003ca href=\"https://www.mergify.com/?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=Bytes\"\u003eStartup Program\u003c/a\u003e to get 12 months free.\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e useRef\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e useEffect \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"token string\"\u003e'react'\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003eimport\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eModal\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e ModalHeader\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e ModalBody\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e ModalFooter\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"token string\"\u003e'../components/Modal'\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"token keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eInputModal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e close\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e inputRef \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003euseRef\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003enull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003euseEffect\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      inputRef\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efocus\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eModal isOpen\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eModalHeader\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eh3\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003eWhat is your name\u003cspan class=\"token operator\"\u003e?\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eh3\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eModalHeader\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eModalBody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003einput name\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"name\"\u003c/span\u003e ref\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003einputRef\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eModalBody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eModalFooter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eButton onClick\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token function\"\u003eclose\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003eClose\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eButton\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eModalFooter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eModal\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eHave you ever wanted to see Async JavaScript patterns, Furbies, Denny’s, and Skeletor in the same video? Well I have FANTASTIC news for you. Our newest video, \u003ca href=\"https://www.youtube.com/watch?v=rivBfgaEyWQ\"\u003eThe Story of Asynchronous JavaScript\u003c/a\u003e, covers all that and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://nextjs.org/blog/next-12-1\"\u003eNext.js 12.1\u003c/a\u003e was just released with on-demand ISR (Incremental Static Regeneration) — which was \u003ca href=\"https://twitter.com/leeerob/status/1493775264869863429\"\u003eapparently\u003c/a\u003e one of their most requested features. I find that hard to believe, since I’ve personally mailed Guillermo dozens of letters specifically asking for “more graphs,” but it’s fine.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDid you know that only 1 out of 100 users report bugs? Make sure you’re not flying blind with this \u003ca href=\"https://raygun.com/learn/the-complete-guide-to-error-monitoring-and-crash-reporting?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=blog\"\u003ecomplete guide to error monitoring.\u003c/a\u003e It’s got everything you need from workflow best practices, key metrics, and how to choose the right tools for your team. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJames Long wrote a cool article on \u003ca href=\"https://jlongster.com/exploring-model-based-testing\"\u003eExploring model-based testing for UIs\u003c/a\u003e — which is a nice companion piece to the article I’m working on, \u003cem\u003eExploring spray-and-pray-based non-testing for UIs.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://gatsbyconf.com/\"\u003eGatsbyConf\u003c/a\u003e is starting on March 2nd, and we’ve been promised that it’ll be packed with more fireworks than a gender-reveal party gone horribly wrong (one of my favorite YouTube niches).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNanda Syahrasyad wrote some interesting learnings he had about tokenizers while \u003ca href=\"https://www.nan.fyi/tokenizer\"\u003erebuilding Babel from scratch over the weekend\u003c/a\u003e. I have many questions for Nanda, but I’m mostly curious about how long it’ll take him to 1) become the lead Babel maintainer, and 2) decide to rewrite everything in Rust.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://expressjs.com/en/5x/api.html\"\u003eExpress.js released its v5 beta\u003c/a\u003e, a mere seven years after releasing its first v5 alpha. So at least React is following some historical precedent with its own release cadence.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA lot of you had opinions about a JavaScript survey that came out last week, but I just hope you all come with that same energy if Tom Holland and Zendaya don’t win the Nickelodeon Kids’ Choice award for Best On-Screen Kiss this year.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug — Solution\u003c/h2\u003e\n\u003cp\u003eReact treats the ref as a “box” that can hold a mutable value in it’s \u003ccode\u003e.current\u003c/code\u003e property, including DOM elements. Since React needs a way to update the ref’s value without completely overriding it, the ref itself is an object with a mutable \u003ccode\u003e.current\u003c/code\u003e property that can be changed any time without changing the object reference.\u003c/p\u003e\n\u003cp\u003eThe bug happens when we try to \u003ccode\u003e.focus()\u003c/code\u003e the \u003ccode\u003einputRef\u003c/code\u003e. The input DOM element is stored in the \u003ccode\u003e.current\u003c/code\u003e property, so the correct way to focus the input is to call \u003ccode\u003einputRef.current.focus()\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eHere’s the solution -\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eexport\u003c/span\u003e \u003cspan class=\"token keyword\"\u003edefault\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eInputModal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e close\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e inputRef \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003euseRef\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003enull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003euseEffect\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      inputRef\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ecurrent\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efocus\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003eisOpen\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token comment\"\u003e// ...\u003c/span\u003e\n\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eRefs can store more than just DOM elements - they can store any value a component needs to hold on to without causing a re-render whenever the value changes.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"88"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"88"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

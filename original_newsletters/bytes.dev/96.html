@@ -1,0 +1,343 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #96 - making FTP cool again</title><link rel="canonical" href="https://bytes.dev/archives/96"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got a comeback role for Macaulay Culkin, generic-*looking* functions, and TypeScript Mother Goose."/><meta property="og:url" content="https://bytes.dev/archives/96"/><meta property="og:title" content="Bytes #96 - making FTP cool again"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/richy.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got a comeback role for Macaulay Culkin, generic-*looking* functions, and TypeScript Mother Goose."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #96 - making FTP cool again"/><meta property="twitter:description" content="This issue, we&#x27;ve got a comeback role for Macaulay Culkin, generic-*looking* functions, and TypeScript Mother Goose."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/richy.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> making FTP cool again</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->96<!-- -->.</span><span class="mr-6 font-bold">April 18, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got a comeback role for Macaulay Culkin, generic-<em>looking</em> functions, and TypeScript Mother Goose.</p>
+<p>Welcome to #96</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/richy.png" alt="Richy Rich Meme">
+</p><p class="image-alt">Richie Rich-text back in the lab</p><p></p>
+<h2>Lexical</h2>
+<p>If you’ve ever had to build a rich text editing experience before, you know that there’s only <a href="https://youtu.be/Ud4HuAzHEUc?t=7">one word</a> to describe it. That’s probably why Facebook abandoned <a href="https://draftjs.org/">Draft.js</a> (along with all their users under the age of 40).</p>
+<p>But last week, Dominic Gannaway (a former React Core Team member) changed the game when he open sourced a new-and-improved rich text editor framework called <a href="https://lexical.dev/">Lexical</a>.</p>
+<p>If you’ve never experienced the pain of building this yourself, it might not sound like a big deal — so let me paint you a picture.</p>
+<p>When dealing with rich text, managing selection state is a nightmare. You have to translate the selection back and forth between the text string, and the html it represents, all while keeping track of the history of changes. Previous frameworks like Draft provide a solution for this, but it’s slow, it doesn’t work on mobile, and you have to use Immutable.js (lol).</p>
+<p>So what makes Lexical different? The biggest thing is that Dominic (aka <em>Richie Rich-text</em>) made sure it doesn’t have any <del>baggage</del> dependencies, which unlocks some cool features:</p>
+<ol>
+<li>
+<p><strong>Speed:</strong> Lexical is <a href="https://news.ycombinator.com/item?id=31020205">up to 70% faster</a> than Draft and is only 22kb over the wire, which means you’ll have plenty of bytes left to waste on state management libraries.</p>
+</li>
+<li>
+<p><strong>Framework agnostic:</strong> It works with (or without) the JavaScript framework of your choice. It already comes with bindings for React out of the box, and bindings for other popular frameworks are in the works.</p>
+</li>
+<li>
+<p><strong>Accessibility:</strong> Unlike many rich text editors, Lexical follows all of the WCAG best practices and is compatible with screen readers and other assistive technologies.</p>
+</li>
+<li>
+<p><strong>Plugins:</strong> You can easily extend the core functionality to add @ mentions, #hashtags, undo/redo — all the goodies that will <a href="https://twitter.com/HoodComedyEnt/status/1513228276675891202">get your PM excited</a>.</p>
+</li>
+</ol>
+<p><strong>Bottom Line:</strong> A rich text editor framework that <em>*actually*</em> works? Now we just gotta figure out how to get Macaulay Culkin to play Dominic in the Lexical movie.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/esm.png" alt="Sleepover Meme">
+</p><p class="image-alt">Me at my first sleepover (in 2015)</p><p></p>
+<h2>TypeScript 4.7 coming in hot</h2>
+<p>We get it — TypeScript is amazing and <a href="https://www.youtube.com/watch?v=EUlM3wx546o">it’s taking over the world.</a></p>
+<p>But the last few releases have been <del>boring AF</del> more focused on incremental improvements than exciting new features. Thankfully, last week’s <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-7-beta/">v4.7 beta release</a> is coming in hot with some long-requested new features and functionality that should actually make our lives easier.</p>
+<p>Here’s the 3 most interesting things you should know about TS 4.7:</p>
+<ul>
+<li>
+<p><strong>Better support for Legacy Modules</strong> — Ageism in tech is a serious issue, so it’s good to see TypeScript looking out for the elderly modules. 4.7 makes it much nicer to import legacy CommonJS files into the more modern ES Modules. It also added support for <code>.cjs</code> and <code>.mjs</code> file extensions as well as the <code>type</code> and <code>exports</code> properties in package.json.</p>
+</li>
+<li>
+<p><strong>Big improvements in two key areas</strong> — How TypeScript analyzes computed object properties and how TS handles inference problems when a function is defined in an object. There’s <em>a lot</em> going on under the hood to make both of these things happen, but all you need to know is that TypeScript should yell at you less now.</p>
+</li>
+<li>
+<p><strong>Enhanced generics functionality</strong> lets you pass generic type parameters to functions without <em>calling</em> the function itself, allowing you to create a more narrowly typed function from an existing generic function (not to be confused with this <a href="https://external-preview.redd.it/wD2iKtXEeF5IyrjDJeVacYbth-4-5yFG2a09Fp0aCJE.jpg?auto=webp&amp;s=da2d9848dec538d37db3f4c349df3fd566f76737">generic-looking function</a>).</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> You know how hard it is to make these TypeScript updates enjoyable to read? It’s the IRS of the JavaScript ecosystem. Boring, mostly just yells at you, but necessary to make things function consistently (I’m told).</p>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://synapsestudios.com/careers/javascript-api-engineer/">Synapse Studios is looking for Senior JavaScript Engineers in the US</a></h3>
+<p>Synapse is a software consultancy (Node/React) with a focus on engineering excellence and tightly knit, low-ego teams. We believe devs want to feel productive, challenged, and supported and build our culture around those concepts. Come join our growing crew as we solve interesting challenges in healthcare, fitness, IoT, retail and more, for a variety of clients, at scale.</p>
+<h3><a href="https://spring-lamprey-84b.notion.site/Frontend-React-Typescript-Developer-be5af2ab031f4550851fdf9468c26ba5">Yeti Labs is looking for Frontend (React + Typescript) developers</a></h3>
+<p>Yeti Labs is a human-centered frontend studio designing and building web apps for DeFi protocols. We love UI animations, innovative UXs, best practices, reusing our code, improving our workflow and learning new things. Come join our crew as we solve interesting challenges while having fun.</p>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug — Sponsored by <a href="https://retool.com/?utm_source=sponsor&amp;utm_medium=newsletter&amp;utm_campaign=bytes">Retool</a></h2>
+<p><em>Retool is the best way to build internal tools and dashboards. We use it, and it’s easily saved us 45+ engineering hours.</em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">todoReducer</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"ADD_TODO"</span><span class="token operator">:</span>
+      <span class="token keyword">const</span> todos <span class="token operator">=</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> todos<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>payload<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"REMOVE_TODO"</span><span class="token operator">:</span>
+      <span class="token keyword">const</span> todos <span class="token operator">=</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newTodos <span class="token operator">=</span> todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=&gt;</span> todo<span class="token punctuation">.</span>id <span class="token operator">!==</span> action<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> newTodos <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Huy wrote an article on <a href="https://www.huy.rocks/everyday/04-01-2022-typescript-how-the-compiler-compiles">How the TypeScript compiler compiles</a>. Hopefully his next article will be called, <em>“How many types could the TypeScript type if the script types were strictly typed?”</em> — so he can earn the official title of TypeScript Mother Goose.</p>
+</li>
+<li>
+<p><a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=ql&amp;utm_campaign=apr4">CarbonQA</a> provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]</p>
+</li>
+<li>
+<p>Gergely Orosz wrote a deep dive on <a href="https://newsletter.pragmaticengineer.com/p/scoop-atlassian">the longest Atlassian outage of all time</a>. But why say Jira’s down when you could say atlassian shrugged? (<a href="https://twitter.com/paularambles/status/1514268251349569538">src</a> because we’re not that funny.)</p>
+</li>
+<li>
+<p>Mark Erikson didn’t sleep for two weeks so that <a href="https://github.com/reduxjs/react-redux/releases/tag/v8.0.0">the official React bindings for Redux</a> could be completely rewritten in TypeScript, have a newly modernized build output, and be compatible with React 18. Thanks Mark.</p>
+</li>
+<li>
+<p><a href="https://github.com/ehmicky/wild-wild-path">Wild Wild Path</a> lets you access object property paths with wildcards and regex. It’s even crazier than it sounds, much like Will Smith’s 1999 film, <a href="https://www.youtube.com/watch?v=_zXKtfKnfT8">Wild Wild West</a> — a movie so bad that if you say its name three times into your bathroom mirror, Will Smith shows up and slaps you in the face.</p>
+</li>
+<li>
+<p>Jakub Roztočil wrote about <a href="https://httpie.io/blog/stardust">How he lost 54k GitHub stars overnight</a> — which sounds like the title for the nerdiest possible remake of “How to Lose a Guy in 10 Days.”</p>
+</li>
+<li>
+<p><a href="https://app.netlify.com/drop">Netlify Drop</a> is making FTP cool again with a slick drag and drop way to upload a folder of files to get your website online. It’s just as easy as uploading a photo album to MySpace — but instead of a bunch of low-quality bathroom mirror selfies with the flash on, it’s just a bunch of JavaScript files for your over-engineered personal blog. How we have fallen.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug Solution — Sponsored by <a href="https://retool.com/?utm_source=sponsor&amp;utm_medium=newsletter&amp;utm_campaign=bytes">Retool</a></h2>
+<p>The <code>todos</code> variable is being re-declared within the same block. Variables declared with <code>const</code> and <code>let</code> are block-scoped, meaning they don’t exist outside of the block they were called in. Blocks are created with <code>{}</code> brackets around <code>if/else</code> statements, loops, and functions.</p>
+<p>There are many solutions, including changing the variable name in the different cases or removing the variable altogether. We can also wrap each of our cases in a block to isolate the variables.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">todoReducer</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"ADD_TODO"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> todos <span class="token operator">=</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> todos<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>payload<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">case</span> <span class="token string">"REMOVE_TODO"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> todos <span class="token operator">=</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newTodos <span class="token operator">=</span> todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">todo</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> todo<span class="token punctuation">.</span>id <span class="token operator">!==</span> action<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> newTodos <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: making FTP cool again","date":"2022-04-18","description":"This issue, we've got a comeback role for Macaulay Culkin, generic-*looking* functions, and TypeScript Mother Goose.","featuredImage":"https://bytes.dev/images/content/richy.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got a comeback role for Macaulay Culkin, generic-\u003cem\u003elooking\u003c/em\u003e functions, and TypeScript Mother Goose.\u003c/p\u003e\n\u003cp\u003eWelcome to #96\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/richy.png\" alt=\"Richy Rich Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eRichie Rich-text back in the lab\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eLexical\u003c/h2\u003e\n\u003cp\u003eIf you’ve ever had to build a rich text editing experience before, you know that there’s only \u003ca href=\"https://youtu.be/Ud4HuAzHEUc?t=7\"\u003eone word\u003c/a\u003e to describe it. That’s probably why Facebook abandoned \u003ca href=\"https://draftjs.org/\"\u003eDraft.js\u003c/a\u003e (along with all their users under the age of 40).\u003c/p\u003e\n\u003cp\u003eBut last week, Dominic Gannaway (a former React Core Team member) changed the game when he open sourced a new-and-improved rich text editor framework called \u003ca href=\"https://lexical.dev/\"\u003eLexical\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIf you’ve never experienced the pain of building this yourself, it might not sound like a big deal — so let me paint you a picture.\u003c/p\u003e\n\u003cp\u003eWhen dealing with rich text, managing selection state is a nightmare. You have to translate the selection back and forth between the text string, and the html it represents, all while keeping track of the history of changes. Previous frameworks like Draft provide a solution for this, but it’s slow, it doesn’t work on mobile, and you have to use Immutable.js (lol).\u003c/p\u003e\n\u003cp\u003eSo what makes Lexical different? The biggest thing is that Dominic (aka \u003cem\u003eRichie Rich-text\u003c/em\u003e) made sure it doesn’t have any \u003cdel\u003ebaggage\u003c/del\u003e dependencies, which unlocks some cool features:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSpeed:\u003c/strong\u003e Lexical is \u003ca href=\"https://news.ycombinator.com/item?id=31020205\"\u003eup to 70% faster\u003c/a\u003e than Draft and is only 22kb over the wire, which means you’ll have plenty of bytes left to waste on state management libraries.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFramework agnostic:\u003c/strong\u003e It works with (or without) the JavaScript framework of your choice. It already comes with bindings for React out of the box, and bindings for other popular frameworks are in the works.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAccessibility:\u003c/strong\u003e Unlike many rich text editors, Lexical follows all of the WCAG best practices and is compatible with screen readers and other assistive technologies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePlugins:\u003c/strong\u003e You can easily extend the core functionality to add @ mentions, #hashtags, undo/redo — all the goodies that will \u003ca href=\"https://twitter.com/HoodComedyEnt/status/1513228276675891202\"\u003eget your PM excited\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e A rich text editor framework that \u003cem\u003e*actually*\u003c/em\u003e works? Now we just gotta figure out how to get Macaulay Culkin to play Dominic in the Lexical movie.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/esm.png\" alt=\"Sleepover Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eMe at my first sleepover (in 2015)\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eTypeScript 4.7 coming in hot\u003c/h2\u003e\n\u003cp\u003eWe get it — TypeScript is amazing and \u003ca href=\"https://www.youtube.com/watch?v=EUlM3wx546o\"\u003eit’s taking over the world.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eBut the last few releases have been \u003cdel\u003eboring AF\u003c/del\u003e more focused on incremental improvements than exciting new features. Thankfully, last week’s \u003ca href=\"https://devblogs.microsoft.com/typescript/announcing-typescript-4-7-beta/\"\u003ev4.7 beta release\u003c/a\u003e is coming in hot with some long-requested new features and functionality that should actually make our lives easier.\u003c/p\u003e\n\u003cp\u003eHere’s the 3 most interesting things you should know about TS 4.7:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBetter support for Legacy Modules\u003c/strong\u003e — Ageism in tech is a serious issue, so it’s good to see TypeScript looking out for the elderly modules. 4.7 makes it much nicer to import legacy CommonJS files into the more modern ES Modules. It also added support for \u003ccode\u003e.cjs\u003c/code\u003e and \u003ccode\u003e.mjs\u003c/code\u003e file extensions as well as the \u003ccode\u003etype\u003c/code\u003e and \u003ccode\u003eexports\u003c/code\u003e properties in package.json.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBig improvements in two key areas\u003c/strong\u003e — How TypeScript analyzes computed object properties and how TS handles inference problems when a function is defined in an object. There’s \u003cem\u003ea lot\u003c/em\u003e going on under the hood to make both of these things happen, but all you need to know is that TypeScript should yell at you less now.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEnhanced generics functionality\u003c/strong\u003e lets you pass generic type parameters to functions without \u003cem\u003ecalling\u003c/em\u003e the function itself, allowing you to create a more narrowly typed function from an existing generic function (not to be confused with this \u003ca href=\"https://external-preview.redd.it/wD2iKtXEeF5IyrjDJeVacYbth-4-5yFG2a09Fp0aCJE.jpg?auto=webp\u0026amp;s=da2d9848dec538d37db3f4c349df3fd566f76737\"\u003egeneric-looking function\u003c/a\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e You know how hard it is to make these TypeScript updates enjoyable to read? It’s the IRS of the JavaScript ecosystem. Boring, mostly just yells at you, but necessary to make things function consistently (I’m told).\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://synapsestudios.com/careers/javascript-api-engineer/\"\u003eSynapse Studios is looking for Senior JavaScript Engineers in the US\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eSynapse is a software consultancy (Node/React) with a focus on engineering excellence and tightly knit, low-ego teams. We believe devs want to feel productive, challenged, and supported and build our culture around those concepts. Come join our growing crew as we solve interesting challenges in healthcare, fitness, IoT, retail and more, for a variety of clients, at scale.\u003c/p\u003e\n\u003ch3\u003e\u003ca href=\"https://spring-lamprey-84b.notion.site/Frontend-React-Typescript-Developer-be5af2ab031f4550851fdf9468c26ba5\"\u003eYeti Labs is looking for Frontend (React + Typescript) developers\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eYeti Labs is a human-centered frontend studio designing and building web apps for DeFi protocols. We love UI animations, innovative UXs, best practices, reusing our code, improving our workflow and learning new things. Come join our crew as we solve interesting challenges while having fun.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug — Sponsored by \u003ca href=\"https://retool.com/?utm_source=sponsor\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eRetool\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eRetool is the best way to build internal tools and dashboards. We use it, and it’s easily saved us 45+ engineering hours.\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003etodoReducer\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e action\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eswitch\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eaction\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ecase\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"ADD_TODO\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e todos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etodos\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token operator\"\u003e...\u003c/span\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003etodos\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e todos\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003econcat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eaction\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003epayload\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ecase\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"REMOVE_TODO\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e todos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etodos\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e newTodos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e todos\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efilter\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etodo\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e todo\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e!==\u003c/span\u003e action\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token operator\"\u003e...\u003c/span\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003etodos\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e newTodos \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003edefault\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eHuy wrote an article on \u003ca href=\"https://www.huy.rocks/everyday/04-01-2022-typescript-how-the-compiler-compiles\"\u003eHow the TypeScript compiler compiles\u003c/a\u003e. Hopefully his next article will be called, \u003cem\u003e“How many types could the TypeScript type if the script types were strictly typed?”\u003c/em\u003e — so he can earn the official title of TypeScript Mother Goose.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=ql\u0026amp;utm_campaign=apr4\"\u003eCarbonQA\u003c/a\u003e provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGergely Orosz wrote a deep dive on \u003ca href=\"https://newsletter.pragmaticengineer.com/p/scoop-atlassian\"\u003ethe longest Atlassian outage of all time\u003c/a\u003e. But why say Jira’s down when you could say atlassian shrugged? (\u003ca href=\"https://twitter.com/paularambles/status/1514268251349569538\"\u003esrc\u003c/a\u003e because we’re not that funny.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMark Erikson didn’t sleep for two weeks so that \u003ca href=\"https://github.com/reduxjs/react-redux/releases/tag/v8.0.0\"\u003ethe official React bindings for Redux\u003c/a\u003e could be completely rewritten in TypeScript, have a newly modernized build output, and be compatible with React 18. Thanks Mark.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ehmicky/wild-wild-path\"\u003eWild Wild Path\u003c/a\u003e lets you access object property paths with wildcards and regex. It’s even crazier than it sounds, much like Will Smith’s 1999 film, \u003ca href=\"https://www.youtube.com/watch?v=_zXKtfKnfT8\"\u003eWild Wild West\u003c/a\u003e — a movie so bad that if you say its name three times into your bathroom mirror, Will Smith shows up and slaps you in the face.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJakub Roztočil wrote about \u003ca href=\"https://httpie.io/blog/stardust\"\u003eHow he lost 54k GitHub stars overnight\u003c/a\u003e — which sounds like the title for the nerdiest possible remake of “How to Lose a Guy in 10 Days.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://app.netlify.com/drop\"\u003eNetlify Drop\u003c/a\u003e is making FTP cool again with a slick drag and drop way to upload a folder of files to get your website online. It’s just as easy as uploading a photo album to MySpace — but instead of a bunch of low-quality bathroom mirror selfies with the flash on, it’s just a bunch of JavaScript files for your over-engineered personal blog. How we have fallen.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug Solution — Sponsored by \u003ca href=\"https://retool.com/?utm_source=sponsor\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eRetool\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe \u003ccode\u003etodos\u003c/code\u003e variable is being re-declared within the same block. Variables declared with \u003ccode\u003econst\u003c/code\u003e and \u003ccode\u003elet\u003c/code\u003e are block-scoped, meaning they don’t exist outside of the block they were called in. Blocks are created with \u003ccode\u003e{}\u003c/code\u003e brackets around \u003ccode\u003eif/else\u003c/code\u003e statements, loops, and functions.\u003c/p\u003e\n\u003cp\u003eThere are many solutions, including changing the variable name in the different cases or removing the variable altogether. We can also wrap each of our cases in a block to isolate the variables.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003etodoReducer\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e action\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eswitch\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eaction\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ecase\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"ADD_TODO\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e todos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etodos\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token operator\"\u003e...\u003c/span\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003etodos\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e todos\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003econcat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eaction\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003epayload\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ecase\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"REMOVE_TODO\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e todos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etodos\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e newTodos \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e todos\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efilter\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etodo\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e todo\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e!==\u003c/span\u003e action\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token operator\"\u003e...\u003c/span\u003estate\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003etodos\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e newTodos \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003edefault\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e state\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"96"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"96"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

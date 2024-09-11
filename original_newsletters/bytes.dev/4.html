@@ -1,0 +1,358 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #4 - React and Rust, sitting in a tree, R-E-N-DER-I-N-G</title><link rel="canonical" href="https://bytes.dev/archives/4"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="An &#x27;extremely fast&#x27; JavaScript bundler has entered the game, we take a look at why you might want to take a look at Rust, and Google is taking over the world via...Flutter?"/><meta property="og:url" content="https://bytes.dev/archives/4"/><meta property="og:title" content="Bytes #4 - React and Rust, sitting in a tree, R-E-N-DER-I-N-G"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/esbuild-webpack.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="An &#x27;extremely fast&#x27; JavaScript bundler has entered the game, we take a look at why you might want to take a look at Rust, and Google is taking over the world via...Flutter?"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #4 - React and Rust, sitting in a tree, R-E-N-DER-I-N-G"/><meta property="twitter:description" content="An &#x27;extremely fast&#x27; JavaScript bundler has entered the game, we take a look at why you might want to take a look at Rust, and Google is taking over the world via...Flutter?"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/esbuild-webpack.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">React and Rust, sitting in a tree, R-E-N-DER-I-N-G</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->4<!-- -->.</span><span class="mr-6 font-bold">July 13, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>An “extremely fast” JavaScript bundler has entered the game, <em>we</em> take a look at why <em>you</em> might want to take a look at Rust, and Google is taking over the world via…Flutter?</p>
+<h2><a href="https://github.com/evanw/esbuild">esbuild - An extremely fast JavaScript bundler and minifier</a></h2>
+<p><img src="https://bytes.dev/images/content/esbuild-webpack.png" alt="Sully falling">
+</p><p class="image-alt">You’ve been #1 for too long, Webpack.</p><p></p>
+<p><strong>Coming in hot…</strong> <a href="https://twitter.com/evanwallace">Evan Wallace</a> (CTO and co-founder of Figma) recently released an early version of esbuild – a JavaScript bundler and minifier that aims to be “orders of magnitude” faster than existing bundlers.</p>
+<p>It turns out that by “orders of magnitude”, Evan means “100x faster than everyone else” (his words, not ours) — at least in these two benchmarks:</p>
+<p><img src="https://bytes.dev/images/content/esbuild.png" alt="esbuild benchmarks"></p>
+<blockquote>
+<p>We reached out for comment to know if “orders of magnitude” is faster or slower than “blazing fast” and “lightning fast”. The author did not immediately respond to our requests for comment.</p>
+</blockquote>
+<p><strong>What makes it so fast?</strong></p>
+<p>Let’s go straight to <a href="https://github.com/evanw/esbuild/blob/master/README.md">the README</a> for this one:</p>
+<ul>
+<li>It’s written in Go, a language that compiles to native code</li>
+<li>Parsing, printing, and source map generation are all fully parallelized</li>
+<li>Everything is done in very few passes without expensive data transformations</li>
+<li>Code is written with speed in mind, and tries to avoid unnecessary allocations</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>Evan explicitly stated that he’s not trying to compete with the entire JavaScript ecosystem on this side project. Instead, he wanted to build a tool that would work well for a few specific use cases and raise the JavaScript community’s expectations of what a “fast” JavaScript build tool looks like.</p>
+<p>Regardless, we’re firmly on team “whatever tool allows us to use Webpack less”.</p>
+<hr>
+<h2>Find yourself someone who loves you like Rust devs love Rust</h2>
+<p><img src="https://bytes.dev/images/content/rustyspoon.png" alt="Rusty salad fingers">
+</p><p class="image-alt">The feeling of Rust against my salad fingers</p><p></p>
+<p><strong>Rewriting React?</strong> Last week, the React Core Team was asked if there were any plans to rewrite React in Rust during a <a href="https://www.twitch.tv/videos/667925289?t=00h39m06s">livestream with Cassidy Williams</a>.</p>
+<p>After a few seconds of nervous laughter from the entire team, Andrew Clark said, “if we do rewrite in Rust, we will do it in such a way that you will not notice it.”</p>
+<p>That got us thinking a little more about Rust, aka the #1 “most loved” programming language in the Stack Overflow survey for the last 5 years in a row.</p>
+<h3>Why so much Rust love?</h3>
+<ul>
+<li>
+<p><strong>Performance:</strong> It’s is a low-level systems language with similar syntax to C++ but is significantly faster and safer. It has no garbage collector, no runtime, and is highly memory efficient.</p>
+</li>
+<li>
+<p><strong>Reliability:</strong> It’s statically typed which (amongst <em>many</em> other things) allows you to move bugs from run time to compile time.</p>
+</li>
+<li>
+<p><strong>Community:</strong> The community has created a large number of helpful dev tools and is well-known for providing useful resources and guidance to help people learn the language.</p>
+</li>
+</ul>
+<h3>Rust for Web Dev</h3>
+<p>Since Rust can now compile down to Web Assembly, we’ve seen a lot more opportunities to use it in the web dev space. Just this week, Nicolo wrote about <a href="https://nicolodavis.com/blog/typescript-to-rust/">moving from TypeScript to Rust / Web Assembly</a>, and Shesh wrote a series of posts to <a href="http://www.sheshbabu.com/posts/rust-for-javascript-developers-functions-and-control-flow/">help JavaScript developers learn Rust</a>. Also in this <a href="https://www.youtube.com/watch?v=ohuTy8MmbLc">video from last year</a>, Sean Grove gives a pretty convincing Rust sales pitch to a room full of React developers (back when in-person conferences were still a thing).</p>
+<h3>The Bottom Line</h3>
+<p>Clearly Rust is a great language. However, there have been a lot of great languages that never reached mainstream adoption for building web apps (<span role="img" aria-label="waving hand">👋</span> Elm, Reason). Will Rust thrive or leave you needing a tetanus shot? (Get it? Cause its name is Rust? Ok I’m done).</p>
+<hr>
+<h2><a href="https://ubuntu.com/blog/canonical-enables-linux-desktop-app-support-with-flutter">Google wants you to build Flutter apps for Linux now</a></h2>
+<p><img src="https://bytes.dev/images/content/napoleon.png" alt="Napoleon Dynamite flutter">
+</p><p class="image-alt">The OG Flutter</p><p></p>
+<p><strong>Match made in OSS heaven?</strong> Last week Google announced that they’re partnering with Canonical (the company who created Ubuntu) to bring Linux support to Flutter. Developers will also be able to deploy Flutter apps to the Snap Store (the Linux App Store).</p>
+<p><strong>How did Flutter get here?</strong> Google launched Flutter in December of 2018 as a way to justify to shareholders the amount of time and resources they put into building Dart. That’s a joke, I think.</p>
+<p>Flutter allows developers to build native-feeling, cross-platform mobile apps with the same codebase. Over 80,000 Flutter apps have been added to the Google Play Store since then.</p>
+<p>In May 2019, <a href="https://venturebeat.com/2019/05/07/google-expands-flutter-mobile-app-sdk-to-the-web-desktop-and-embedded-devices/">Google expanded the Flutter mobile app SDK</a> to include the web, desktop, and embedded devices. This allowed Flutter devs to start building UIs for everything from Window’s apps to smart fridges.</p>
+<p>Late last year, Google execs began talking about their vision for <a href="https://www.blog.google/products/hardware/made-by-google-2019">“ambient computing”</a> – AKA computing that is “in the background, anywhere you need it” and takes place across a wide array of devices (desktop, phones, wearable, IoT devices).</p>
+<p>Execs also talked up the big role that Flutter would play in providing a “portable framework” for building UIs on any platform. Flutter already runs on Google Nest Hub Max and Google Assistant.</p>
+<p><strong>Enter Canonical:</strong> The Flutter-Canonical partnership is a big step towards Google’s vision for Flutter to power all platforms and usher in the brave new world of “ambient computing”, whatever the hell that means. With Linux support, Flutter devs will of course be able to build desktop apps for Linux. But they will also be able to build for the many, many platforms and systems built on Linux. And that’s what gets Google and the Flutter fans hyped.</p>
+<p>In return, Ubuntu (and Linux generally) will be able to make itself a more attractive platform for Flutter developers to build on, which means more and better apps for the millions of Linux users out there. It’s one of those rare deals that actually feels like a win-win.</p>
+<p><strong>An Interesting Wrinkle</strong></p>
+<p>Red Hat was the largest independent Linux company before they were acquired by IBM last year for $34 Billion (with a capital B). Canonical is now the largest independent Linux company and rumors about a potential IPO or (more likely) acquisition have been swirling for years.</p>
+<p>Could this partnership be laying the groundwork for another blockbuster Linux acquisition by big tech? Stay tuned.</p>
+<p>(And please give us beta access to your Flutter-Linux smart toaster app.)</p>
+<hr>
+<h3>Spot the Bug - Answer Below</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">calcPrice</span> <span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tax <span class="token operator">=</span> tax <span class="token operator">||</span> <span class="token number">0.05</span>
+  discount <span class="token operator">=</span> discount <span class="token operator">||</span> <span class="token number">0</span>
+
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Bryan Clark wrote about recently finishing <a href="https://engineering.khanacademy.org/posts/react-native-at-khan.htm">Khan Academy’s full transition to React Native</a> (on mobile), which began back in 2017 <span role="img" aria-label="flushed face">😳</span>.</p>
+</li>
+<li>
+<p><a href="https://perf-track.web.app/">Perf Track</a> is a sleek dashboard for tracking web performance at scale for popular frameworks and technologies. Maybe it will help you finally win that never-ending performance argument you’ve been having. Maybe.</p>
+</li>
+<li>
+<p>Nick made some good-looking <a href="https://shareon.js.org/">social share buttons</a> that are lightweight, customizable, and don’t insert pesky tracking code.</p>
+</li>
+<li>
+<p>Ever wondered about the algorithm that makes <code>Ctrl-F</code> / <code>Command-F</code> open up the search bar in Chrome so quickly? <a href="https://dev.to/akhilpokle/the-algorithm-behind-ctrl-f-3hgh">Akhil wrote about it.</a> It’s almost as cool as <a href="https://bytes.dev/images/content/kirkland.jpg">the algorithm on the window at Kirkland</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/jaxcore/bumblebee">Bumblebee is a JavaScript voice app framework</a> that lets you write your own voice assistants in NodeJS or on the web. <em>“Alexa, what is a JavaScript?”</em></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=hBKZnaIMm4M">This short video from the Google Chrome Developers’ YouTube channel</a> goes over how to implement structured data with JavaScript to improve your site’s SEO and appease our gracious search engine overlords.</p>
+</li>
+<li>
+<p>Jesse wrote about how <a href="https://jesseduffield.com/array-functions-and-the-rule-of-least-power/">the Rule of Least Power applies to array functions</a> and included a guide that he created while cleaning up his work’s codebase.</p>
+</li>
+<li>
+<p>VS Code came out with a <a href="https://code.visualstudio.com/updates/v1_47#_new-javascript-debugger">cool new JavaScript debugger</a> in their latest release that should save some future headaches.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug - Explanation</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">calcPrice</span> <span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tax <span class="token operator">=</span> tax <span class="token operator">||</span> <span class="token number">0.05</span>
+  discount <span class="token operator">=</span> discount <span class="token operator">||</span> <span class="token number">0</span>
+
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">calcPrice</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">.1</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The || operator checks for falsy values and <code>0</code> is a falsy value. To fix this, instead of checking for a falsy value, you can check for <code>undefined</code> or just use ES6’s Default Parameters.</p>
+<h2>Spot the Bug - Solution(s)</h2>
+<pre class="language-js"><code class="language-js"><span class="token comment">// es5</span>
+<span class="token keyword">function</span> <span class="token function">calcPrice</span> <span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tax <span class="token operator">=</span> <span class="token keyword">typeof</span> tax <span class="token operator">===</span> <span class="token string">'undefined'</span>
+    <span class="token operator">?</span> <span class="token number">0.05</span>
+    <span class="token operator">:</span> tax
+  discount <span class="token operator">=</span> <span class="token keyword">typeof</span> discount <span class="token operator">===</span> <span class="token string">'undefined'</span>
+    <span class="token operator">?</span> <span class="token number">0</span>
+    <span class="token operator">:</span> discount
+
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>or using ES6’s default parameters</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">calcPrice</span> <span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">,</span> discount <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"React and Rust, sitting in a tree, R-E-N-DER-I-N-G","date":"2020-07-13","description":"An 'extremely fast' JavaScript bundler has entered the game, we take a look at why you might want to take a look at Rust, and Google is taking over the world via...Flutter?","featuredImage":"https://bytes.dev/images/content/esbuild-webpack.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eAn “extremely fast” JavaScript bundler has entered the game, \u003cem\u003ewe\u003c/em\u003e take a look at why \u003cem\u003eyou\u003c/em\u003e might want to take a look at Rust, and Google is taking over the world via…Flutter?\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/evanw/esbuild\"\u003eesbuild - An extremely fast JavaScript bundler and minifier\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/esbuild-webpack.png\" alt=\"Sully falling\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eYou’ve been #1 for too long, Webpack.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eComing in hot…\u003c/strong\u003e \u003ca href=\"https://twitter.com/evanwallace\"\u003eEvan Wallace\u003c/a\u003e (CTO and co-founder of Figma) recently released an early version of esbuild – a JavaScript bundler and minifier that aims to be “orders of magnitude” faster than existing bundlers.\u003c/p\u003e\n\u003cp\u003eIt turns out that by “orders of magnitude”, Evan means “100x faster than everyone else” (his words, not ours) — at least in these two benchmarks:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/esbuild.png\" alt=\"esbuild benchmarks\"\u003e\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eWe reached out for comment to know if “orders of magnitude” is faster or slower than “blazing fast” and “lightning fast”. The author did not immediately respond to our requests for comment.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003cstrong\u003eWhat makes it so fast?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eLet’s go straight to \u003ca href=\"https://github.com/evanw/esbuild/blob/master/README.md\"\u003ethe README\u003c/a\u003e for this one:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIt’s written in Go, a language that compiles to native code\u003c/li\u003e\n\u003cli\u003eParsing, printing, and source map generation are all fully parallelized\u003c/li\u003e\n\u003cli\u003eEverything is done in very few passes without expensive data transformations\u003c/li\u003e\n\u003cli\u003eCode is written with speed in mind, and tries to avoid unnecessary allocations\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eEvan explicitly stated that he’s not trying to compete with the entire JavaScript ecosystem on this side project. Instead, he wanted to build a tool that would work well for a few specific use cases and raise the JavaScript community’s expectations of what a “fast” JavaScript build tool looks like.\u003c/p\u003e\n\u003cp\u003eRegardless, we’re firmly on team “whatever tool allows us to use Webpack less”.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eFind yourself someone who loves you like Rust devs love Rust\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/rustyspoon.png\" alt=\"Rusty salad fingers\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe feeling of Rust against my salad fingers\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRewriting React?\u003c/strong\u003e Last week, the React Core Team was asked if there were any plans to rewrite React in Rust during a \u003ca href=\"https://www.twitch.tv/videos/667925289?t=00h39m06s\"\u003elivestream with Cassidy Williams\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAfter a few seconds of nervous laughter from the entire team, Andrew Clark said, “if we do rewrite in Rust, we will do it in such a way that you will not notice it.”\u003c/p\u003e\n\u003cp\u003eThat got us thinking a little more about Rust, aka the #1 “most loved” programming language in the Stack Overflow survey for the last 5 years in a row.\u003c/p\u003e\n\u003ch3\u003eWhy so much Rust love?\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePerformance:\u003c/strong\u003e It’s is a low-level systems language with similar syntax to C++ but is significantly faster and safer. It has no garbage collector, no runtime, and is highly memory efficient.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReliability:\u003c/strong\u003e It’s statically typed which (amongst \u003cem\u003emany\u003c/em\u003e other things) allows you to move bugs from run time to compile time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCommunity:\u003c/strong\u003e The community has created a large number of helpful dev tools and is well-known for providing useful resources and guidance to help people learn the language.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eRust for Web Dev\u003c/h3\u003e\n\u003cp\u003eSince Rust can now compile down to Web Assembly, we’ve seen a lot more opportunities to use it in the web dev space. Just this week, Nicolo wrote about \u003ca href=\"https://nicolodavis.com/blog/typescript-to-rust/\"\u003emoving from TypeScript to Rust / Web Assembly\u003c/a\u003e, and Shesh wrote a series of posts to \u003ca href=\"http://www.sheshbabu.com/posts/rust-for-javascript-developers-functions-and-control-flow/\"\u003ehelp JavaScript developers learn Rust\u003c/a\u003e. Also in this \u003ca href=\"https://www.youtube.com/watch?v=ohuTy8MmbLc\"\u003evideo from last year\u003c/a\u003e, Sean Grove gives a pretty convincing Rust sales pitch to a room full of React developers (back when in-person conferences were still a thing).\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eClearly Rust is a great language. However, there have been a lot of great languages that never reached mainstream adoption for building web apps (\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Elm, Reason). Will Rust thrive or leave you needing a tetanus shot? (Get it? Cause its name is Rust? Ok I’m done).\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://ubuntu.com/blog/canonical-enables-linux-desktop-app-support-with-flutter\"\u003eGoogle wants you to build Flutter apps for Linux now\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/napoleon.png\" alt=\"Napoleon Dynamite flutter\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe OG Flutter\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eMatch made in OSS heaven?\u003c/strong\u003e Last week Google announced that they’re partnering with Canonical (the company who created Ubuntu) to bring Linux support to Flutter. Developers will also be able to deploy Flutter apps to the Snap Store (the Linux App Store).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHow did Flutter get here?\u003c/strong\u003e Google launched Flutter in December of 2018 as a way to justify to shareholders the amount of time and resources they put into building Dart. That’s a joke, I think.\u003c/p\u003e\n\u003cp\u003eFlutter allows developers to build native-feeling, cross-platform mobile apps with the same codebase. Over 80,000 Flutter apps have been added to the Google Play Store since then.\u003c/p\u003e\n\u003cp\u003eIn May 2019, \u003ca href=\"https://venturebeat.com/2019/05/07/google-expands-flutter-mobile-app-sdk-to-the-web-desktop-and-embedded-devices/\"\u003eGoogle expanded the Flutter mobile app SDK\u003c/a\u003e to include the web, desktop, and embedded devices. This allowed Flutter devs to start building UIs for everything from Window’s apps to smart fridges.\u003c/p\u003e\n\u003cp\u003eLate last year, Google execs began talking about their vision for \u003ca href=\"https://www.blog.google/products/hardware/made-by-google-2019\"\u003e“ambient computing”\u003c/a\u003e – AKA computing that is “in the background, anywhere you need it” and takes place across a wide array of devices (desktop, phones, wearable, IoT devices).\u003c/p\u003e\n\u003cp\u003eExecs also talked up the big role that Flutter would play in providing a “portable framework” for building UIs on any platform. Flutter already runs on Google Nest Hub Max and Google Assistant.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eEnter Canonical:\u003c/strong\u003e The Flutter-Canonical partnership is a big step towards Google’s vision for Flutter to power all platforms and usher in the brave new world of “ambient computing”, whatever the hell that means. With Linux support, Flutter devs will of course be able to build desktop apps for Linux. But they will also be able to build for the many, many platforms and systems built on Linux. And that’s what gets Google and the Flutter fans hyped.\u003c/p\u003e\n\u003cp\u003eIn return, Ubuntu (and Linux generally) will be able to make itself a more attractive platform for Flutter developers to build on, which means more and better apps for the millions of Linux users out there. It’s one of those rare deals that actually feels like a win-win.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAn Interesting Wrinkle\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eRed Hat was the largest independent Linux company before they were acquired by IBM last year for $34 Billion (with a capital B). Canonical is now the largest independent Linux company and rumors about a potential IPO or (more likely) acquisition have been swirling for years.\u003c/p\u003e\n\u003cp\u003eCould this partnership be laying the groundwork for another blockbuster Linux acquisition by big tech? Stay tuned.\u003c/p\u003e\n\u003cp\u003e(And please give us beta access to your Flutter-Linux smart toaster app.)\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003eSpot the Bug - Answer Below\u003c/h3\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\n  discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBryan Clark wrote about recently finishing \u003ca href=\"https://engineering.khanacademy.org/posts/react-native-at-khan.htm\"\u003eKhan Academy’s full transition to React Native\u003c/a\u003e (on mobile), which began back in 2017 \u003cspan role=\"img\" aria-label=\"flushed face\"\u003e😳\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://perf-track.web.app/\"\u003ePerf Track\u003c/a\u003e is a sleek dashboard for tracking web performance at scale for popular frameworks and technologies. Maybe it will help you finally win that never-ending performance argument you’ve been having. Maybe.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNick made some good-looking \u003ca href=\"https://shareon.js.org/\"\u003esocial share buttons\u003c/a\u003e that are lightweight, customizable, and don’t insert pesky tracking code.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEver wondered about the algorithm that makes \u003ccode\u003eCtrl-F\u003c/code\u003e / \u003ccode\u003eCommand-F\u003c/code\u003e open up the search bar in Chrome so quickly? \u003ca href=\"https://dev.to/akhilpokle/the-algorithm-behind-ctrl-f-3hgh\"\u003eAkhil wrote about it.\u003c/a\u003e It’s almost as cool as \u003ca href=\"https://bytes.dev/images/content/kirkland.jpg\"\u003ethe algorithm on the window at Kirkland\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/jaxcore/bumblebee\"\u003eBumblebee is a JavaScript voice app framework\u003c/a\u003e that lets you write your own voice assistants in NodeJS or on the web. \u003cem\u003e“Alexa, what is a JavaScript?”\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=hBKZnaIMm4M\"\u003eThis short video from the Google Chrome Developers’ YouTube channel\u003c/a\u003e goes over how to implement structured data with JavaScript to improve your site’s SEO and appease our gracious search engine overlords.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJesse wrote about how \u003ca href=\"https://jesseduffield.com/array-functions-and-the-rule-of-least-power/\"\u003ethe Rule of Least Power applies to array functions\u003c/a\u003e and included a guide that he created while cleaning up his work’s codebase.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVS Code came out with a \u003ca href=\"https://code.visualstudio.com/updates/v1_47#_new-javascript-debugger\"\u003ecool new JavaScript debugger\u003c/a\u003e in their latest release that should save some future headaches.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Explanation\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\n  discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e.1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe || operator checks for falsy values and \u003ccode\u003e0\u003c/code\u003e is a falsy value. To fix this, instead of checking for a falsy value, you can check for \u003ccode\u003eundefined\u003c/code\u003e or just use ES6’s Default Parameters.\u003c/p\u003e\n\u003ch2\u003eSpot the Bug - Solution(s)\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token comment\"\u003e// es5\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003etypeof\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token string\"\u003e'undefined'\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e?\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e:\u003c/span\u003e tax\n  discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003etypeof\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token string\"\u003e'undefined'\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e?\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e:\u003c/span\u003e discount\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor using ES6’s default parameters\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"4"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"4"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

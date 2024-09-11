@@ -1,0 +1,295 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #281 - Putting the &quot;p&quot; in npm</title><link rel="canonical" href="https://bytes.dev/archives/281"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Jay-Z hates CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome&#x27;s ashes."/><meta property="og:url" content="https://bytes.dev/archives/281"/><meta property="og:title" content="Bytes #281 - Putting the &quot;p&quot; in npm"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/sonic-nic-cage.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Jay-Z hates CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome&#x27;s ashes."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #281 - Putting the &quot;p&quot; in npm"/><meta property="twitter:description" content="Jay-Z hates CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome&#x27;s ashes."/><meta property="twitter:image" content="https://bytes.dev/images/content/sonic-nic-cage.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Putting the &quot;p&quot; in npm</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->281<!-- -->.</span><span class="mr-6 font-bold">April 18, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><span role="img" aria-label="spiral calendar">🗓️</span> Mark your calendars because we (finally) have an official launch date for our new React Query course, <a href="https://query.gg/">query.gg</a>. It’ll be live on May 22nd.</p>
+<p>Sign up for the email list if you want to get a sneak preview of the course and a big launch-day discount.</p>
+<p><strong>Today’s issue:</strong> Jay-Z refuses to use CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome’s ashes.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/281">#281</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/sonic-nic-cage.jpg" alt="Nic Cage's face photoshopped onto Sonic the Hedgehog" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The p stands for performance<!-- --> </p></div><h3>Putting the “p” in npm</h3><p>Pnpm just released <a href="https://github.com/pnpm/pnpm/releases/tag/v9.0.0">v9.0</a> on Tuesday with an improved lockfile format, better resolution of peer dependencies, and some minor improvements you probably won’t notice.</p><p>But do you know what’s impossible <em>not</em> to notice? Pnpm’s explosive growth.</p><p>Their weekly downloads are up 3x since we wrote about them a year ago, after growing by 5x the year before. For you math majors keeping score at home, that’s a 15x jump <em>in two years</em> – putting them at 11 million weekly downloads, which is more than double what Yarn gets.</p><p>So what’s unique about pnpm, and what’s driving its insane growth? Let’s dive in.</p><p><strong>Quick background:</strong> Back in 2017, Zoltan Kochan released v1 of pnpm, which TIL stands for “performant npm.” I always thought it stood for “pneumonia npm”, because my lungs would fill up with fluid whenever I used it – but it turns out that was just because my old office had a bunch of asbestos <span role="img" aria-label="upside-down face">🙃</span>.</p><p>But “performant npm” is a great name, because that’s exactly what it is – a faster, more efficient replacement for npm that comes with better monorepo support and mostly feels like you’re just using npm. Here’s how it works:</p><ul>
+<li>
+<p>With Yarn and npm, if you have 100 projects using a dependency on your machine, you’ll have 100 copies of that dependency saved on your disk. They resolve those dependencies by using hoisting to flatten their <code>node_modules</code>. This eats up a lot of disk space and can cause slow installs (as you’ve probably experienced).</p>
+</li>
+<li>
+<p>Pnpm’s key insight was to use a content-addressable store instead, which stores each of your dependencies only once in a global store on your home folder. If you need different versions of the package, only the files that differ get added to the store (instead of the entire package).</p>
+</li>
+<li>
+<p>They do this via a <a href="https://pnpm.io/symlinked-node-modules-structure">non-flat <code>node_modules</code> directory</a>, which creates a nested structure of dependencies, where every package and file inside the folder is hard linked to the store – saving you time and disk space <span role="img" aria-label="handshake">🤝</span>.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> So far, Pnpm 9.0 looks like <a href="https://x.com/cpojer/status/1780510838459342974">exactly what you want</a> from a major release – solid improvements with minimal breaking changes, while being easy to upgrade to. Who knows if it’ll ever seriously challenge npm for the package manager throne, but it’s clearly hit that sweet spot of “easy to adopt” and “noticeably better for certain use cases.”</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/281" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F281" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Why%20has%20%40pnpmjs%20grown%2015x%20in%20the%20past%202%20years%3F%20%40bytesdotdev%20investigates.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F281" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20has%20%40pnpmjs%20grown%2015x%20in%20the%20past%202%20years%3F%20%40bytesdotdev%20investigates.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F281" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/sonar-logo.png" alt="Sonar logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/pillsbury-boy.jpg" alt="The Pillsbury Dough Boy with an awkward look on his face" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When your manager asks who downloaded the package that led to a SQL injection.<!-- --> </p></div><h3><a href="https://www.sonarsource.com/solutions/security/?utm_medium=paid&amp;utm_source=bytes&amp;utm_campaign=sq-deepersast&amp;utm_content=newsletter-main-sponsorship-240418-x&amp;utm_term=ww-psp-x&amp;s_category=Paid&amp;s_source=Paid%20Other&amp;s_origin=bytes">Catch vulnerabilities before they strike with Sonar’s deeper SAST</a></h3><p>You know how you have that bad habit of blindly installing external packages as long as they have at least 50 downloads a week? Yeah, turns out that’s not great for your app’s security.</p><p>Thankfully, Sonar is here to <del>enable your bad habits</del> keep you safe.</p><p>Here’s how it works:</p><ul>
+<li>
+<p>Sonar traces data flow in and out of your app’s dependencies to uncover deeply concealed vulnerabilities that other SAST tools can’t detect (<a href="https://www.sonarsource.com/blog/deeper-sast-javascript/?utm_medium=paid&amp;utm_source=bytes&amp;utm_campaign=sq-deepersast&amp;utm_content=newsletter-main-sponsorship-240418-x&amp;utm_term=ww-psp-x&amp;s_category=Paid&amp;s_source=Paid%20Other&amp;s_origin=bytes">see source code</a> for JavaScript example).</p>
+</li>
+<li>
+<p>Their security engine runs <a href="https://www.sonarsource.com/blog/deeper-sast-uncovers-hidden-security-vulnerabilities/?utm_medium=paid&amp;utm_source=bytes&amp;utm_campaign=sq-deepersast&amp;utm_content=newsletter-main-sponsorship-240418-x&amp;utm_term=ww-psp-x&amp;s_category=Paid&amp;s_source=Paid%20Other&amp;s_origin=bytes">comprehensive code analysis</a> on all interactions between your code and your dependencies’ code to check for tainted data.</p>
+</li>
+<li>
+<p>The engine flags and guides you to fix all bugs and security vulnerabilities, <em>before</em> anything goes wrong.</p>
+</li>
+</ul><p><a href="https://www.sonarsource.com/lp/solutions/security/?utm_medium=paid&amp;utm_source=bytes&amp;utm_campaign=sq-deepersast&amp;utm_content=newsletter-main-sponsorship-240418-x&amp;utm_term=ww-psp-x&amp;s_category=Paid&amp;s_source=Paid%20Other&amp;s_origin=bytes">Check out the free trial</a> to try it out for yourself.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/tip.png" alt="Tip logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Tip</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.withcoherence.com/?utm_medium=advertising&amp;utm_source=bytes&amp;utm_campaign=newsletter%204.18.24">Coherence</a></h4><p><em>Their <a href="https://www.withcoherence.com/?utm_medium=advertising&amp;utm_source=bytes&amp;utm_campaign=newsletter%204.18.24">platform-as-a-service</a> gives you automated environments and pipelines to harness the power of AWS or GCP in the simplest possible way. It’s like Vercel or Heroku, but more flexible and with no vendor lock in.</em></p></div></div>
+<p>Did you know that Chrome DevTools has some magical shortcuts powered by the <code>$</code>? Here are some of the most useful ones:</p>
+<p><code>$()</code> - is an alias for <code>document.querySelector()</code>. It allows you to select the first element that matches a given CSS selector. For example, <code>$('div')</code> would return the first div element on the page.</p>
+<p><code>$$()</code> - is an alias for <code>document.querySelectorAll()</code>. It returns an array of all elements that match a given CSS selector. For example, <code>$$('div')</code> would return all div elements on the page.</p>
+<p><code>$0, $1, $2, ... $n</code> - are references to the elements you have recently selected in the Elements panel. <code>$0</code> represents the most recently selected element, $1 represents the second most recent, and so on.</p>
+<p><code>$_</code> - represents the value of the most recently evaluated expression in the console.</p>
+<p><code>$x()</code> - allows you to query the DOM using XPath expressions. For example, <code>$x("//div")</code> would return all div elements on the page.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Paul Henschel wrote about <a href="https://vercel.com/blog/building-an-interactive-3d-event-badge-with-react-three-fiber">Building an interactive 3D event badge with React Three Fiber</a> for the Vercel Ship conference website. By the end of the post, you too will be capable of building a digital cat toy for human developers to play with for hours.</p>
+</li>
+<li>
+<p>Yorick Peterse wrote this very detailed article on <a href="https://yorickpeterse.com/articles/how-to-write-a-code-formatter/">How to write your own code formatter</a>.</p>
+</li>
+<li>
+<p>Volksowl gives you <a href="https://www.volksowl.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=bytes_pre_beta_launch">detailed feedback on your CV from a community of senior software engineers</a> to help you land a job in tech. Join the beta if you want to connect with senior-level developers and learn how to take your career to the next level. [sponsored]</p>
+</li>
+<li>
+<p>Jason “Jay-Z” Zimdars wrote on the 37signals blog about <a href="https://dev.37signals.com/modern-css-patterns-and-techniques-in-campfire/">How they built their new Campfire product</a> using modern CSS features, vanilla CSS, and no frameworks or preprocessors. Why you gotta flex so hard on us like that, Jay-Z?</p>
+</li>
+<li>
+<p>The React team added this new <a href="https://react.dev/reference/react/useTransition"><code>useTransition</code> guide</a> to the React docs.</p>
+</li>
+<li>
+<p>Andy Bell wrote this <a href="https://piccalil.li/blog/a-primer-on-the-cascade-and-specificity/">Primer on the cascade and specificity</a> to help you feel more confident with the fundamentals.</p>
+</li>
+<li>
+<p><a href="https://biomejs.dev/blog/biome-v1-7/">Biome v1.7</a> comes with an easy way to migrate from ESLint and Prettier, new linter rules, and it just hit 1 million monthly npm downloads. Rome fell, but Biome is rising from the ashes.</p>
+</li>
+<li>
+<p>CarbonQA gives you <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=apr18">high-quality QA services for dev teams</a> with your own dedicated team of US-based testers, so you never have to waste engineering hours on QA testing again <span role="img" aria-label="folded hands">🙏</span>. [sponsored]</p>
+</li>
+<li>
+<p>Jo Franchetti wrote this helpful <a href="https://deno.com/blog/intro-to-tsconfig">Intro to TSConfig for JavaScript Developers</a> on the Deno blog.</p>
+</li>
+<li>
+<p>April 24th is officially <a href="https://js-naked-day.org/">JS Naked Day</a>, where folks are removing all JavaScript from their websites for 24 hours to promote <a href="https://www.w3.org/2001/tag/doc/leastPower.html">The rule of least power</a>. You should probably still wear clothes though, unless you work from a windowless home like me and do all your best thinking in the nude.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Putting the \"p\" in npm","date":"2024-04-18","featuredImage":"/images/content/sonic-nic-cage.jpg","description":"Jay-Z hates CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome's ashes.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cspan role=\"img\" aria-label=\"spiral calendar\"\u003e🗓️\u003c/span\u003e Mark your calendars because we (finally) have an official launch date for our new React Query course, \u003ca href=\"https://query.gg/\"\u003equery.gg\u003c/a\u003e. It’ll be live on May 22nd.\u003c/p\u003e\n\u003cp\u003eSign up for the email list if you want to get a sneak preview of the course and a big launch-day discount.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Jay-Z refuses to use CSS preprocessors, learning how to build digital cat toys, and Biome rising from Rome’s ashes.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/281\"\u003e#281\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/sonic-nic-cage.jpg\" alt=\"Nic Cage's face photoshopped onto Sonic the Hedgehog\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe p stands for performance\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003ePutting the “p” in npm\u003c/h3\u003e\u003cp\u003ePnpm just released \u003ca href=\"https://github.com/pnpm/pnpm/releases/tag/v9.0.0\"\u003ev9.0\u003c/a\u003e on Tuesday with an improved lockfile format, better resolution of peer dependencies, and some minor improvements you probably won’t notice.\u003c/p\u003e\u003cp\u003eBut do you know what’s impossible \u003cem\u003enot\u003c/em\u003e to notice? Pnpm’s explosive growth.\u003c/p\u003e\u003cp\u003eTheir weekly downloads are up 3x since we wrote about them a year ago, after growing by 5x the year before. For you math majors keeping score at home, that’s a 15x jump \u003cem\u003ein two years\u003c/em\u003e – putting them at 11 million weekly downloads, which is more than double what Yarn gets.\u003c/p\u003e\u003cp\u003eSo what’s unique about pnpm, and what’s driving its insane growth? Let’s dive in.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eQuick background:\u003c/strong\u003e Back in 2017, Zoltan Kochan released v1 of pnpm, which TIL stands for “performant npm.” I always thought it stood for “pneumonia npm”, because my lungs would fill up with fluid whenever I used it – but it turns out that was just because my old office had a bunch of asbestos \u003cspan role=\"img\" aria-label=\"upside-down face\"\u003e🙃\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eBut “performant npm” is a great name, because that’s exactly what it is – a faster, more efficient replacement for npm that comes with better monorepo support and mostly feels like you’re just using npm. Here’s how it works:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eWith Yarn and npm, if you have 100 projects using a dependency on your machine, you’ll have 100 copies of that dependency saved on your disk. They resolve those dependencies by using hoisting to flatten their \u003ccode\u003enode_modules\u003c/code\u003e. This eats up a lot of disk space and can cause slow installs (as you’ve probably experienced).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePnpm’s key insight was to use a content-addressable store instead, which stores each of your dependencies only once in a global store on your home folder. If you need different versions of the package, only the files that differ get added to the store (instead of the entire package).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey do this via a \u003ca href=\"https://pnpm.io/symlinked-node-modules-structure\"\u003enon-flat \u003ccode\u003enode_modules\u003c/code\u003e directory\u003c/a\u003e, which creates a nested structure of dependencies, where every package and file inside the folder is hard linked to the store – saving you time and disk space \u003cspan role=\"img\" aria-label=\"handshake\"\u003e🤝\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e So far, Pnpm 9.0 looks like \u003ca href=\"https://x.com/cpojer/status/1780510838459342974\"\u003eexactly what you want\u003c/a\u003e from a major release – solid improvements with minimal breaking changes, while being easy to upgrade to. Who knows if it’ll ever seriously challenge npm for the package manager throne, but it’s clearly hit that sweet spot of “easy to adopt” and “noticeably better for certain use cases.”\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/281\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F281\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Why%20has%20%40pnpmjs%20grown%2015x%20in%20the%20past%202%20years%3F%20%40bytesdotdev%20investigates.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F281\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20has%20%40pnpmjs%20grown%2015x%20in%20the%20past%202%20years%3F%20%40bytesdotdev%20investigates.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F281\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/sonar-logo.png\" alt=\"Sonar logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/pillsbury-boy.jpg\" alt=\"The Pillsbury Dough Boy with an awkward look on his face\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen your manager asks who downloaded the package that led to a SQL injection.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.sonarsource.com/solutions/security/?utm_medium=paid\u0026amp;utm_source=bytes\u0026amp;utm_campaign=sq-deepersast\u0026amp;utm_content=newsletter-main-sponsorship-240418-x\u0026amp;utm_term=ww-psp-x\u0026amp;s_category=Paid\u0026amp;s_source=Paid%20Other\u0026amp;s_origin=bytes\"\u003eCatch vulnerabilities before they strike with Sonar’s deeper SAST\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eYou know how you have that bad habit of blindly installing external packages as long as they have at least 50 downloads a week? Yeah, turns out that’s not great for your app’s security.\u003c/p\u003e\u003cp\u003eThankfully, Sonar is here to \u003cdel\u003eenable your bad habits\u003c/del\u003e keep you safe.\u003c/p\u003e\u003cp\u003eHere’s how it works:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eSonar traces data flow in and out of your app’s dependencies to uncover deeply concealed vulnerabilities that other SAST tools can’t detect (\u003ca href=\"https://www.sonarsource.com/blog/deeper-sast-javascript/?utm_medium=paid\u0026amp;utm_source=bytes\u0026amp;utm_campaign=sq-deepersast\u0026amp;utm_content=newsletter-main-sponsorship-240418-x\u0026amp;utm_term=ww-psp-x\u0026amp;s_category=Paid\u0026amp;s_source=Paid%20Other\u0026amp;s_origin=bytes\"\u003esee source code\u003c/a\u003e for JavaScript example).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTheir security engine runs \u003ca href=\"https://www.sonarsource.com/blog/deeper-sast-uncovers-hidden-security-vulnerabilities/?utm_medium=paid\u0026amp;utm_source=bytes\u0026amp;utm_campaign=sq-deepersast\u0026amp;utm_content=newsletter-main-sponsorship-240418-x\u0026amp;utm_term=ww-psp-x\u0026amp;s_category=Paid\u0026amp;s_source=Paid%20Other\u0026amp;s_origin=bytes\"\u003ecomprehensive code analysis\u003c/a\u003e on all interactions between your code and your dependencies’ code to check for tainted data.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe engine flags and guides you to fix all bugs and security vulnerabilities, \u003cem\u003ebefore\u003c/em\u003e anything goes wrong.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://www.sonarsource.com/lp/solutions/security/?utm_medium=paid\u0026amp;utm_source=bytes\u0026amp;utm_campaign=sq-deepersast\u0026amp;utm_content=newsletter-main-sponsorship-240418-x\u0026amp;utm_term=ww-psp-x\u0026amp;s_category=Paid\u0026amp;s_source=Paid%20Other\u0026amp;s_origin=bytes\"\u003eCheck out the free trial\u003c/a\u003e to try it out for yourself.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/tip.png\" alt=\"Tip logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Tip\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.withcoherence.com/?utm_medium=advertising\u0026amp;utm_source=bytes\u0026amp;utm_campaign=newsletter%204.18.24\"\u003eCoherence\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir \u003ca href=\"https://www.withcoherence.com/?utm_medium=advertising\u0026amp;utm_source=bytes\u0026amp;utm_campaign=newsletter%204.18.24\"\u003eplatform-as-a-service\u003c/a\u003e gives you automated environments and pipelines to harness the power of AWS or GCP in the simplest possible way. It’s like Vercel or Heroku, but more flexible and with no vendor lock in.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eDid you know that Chrome DevTools has some magical shortcuts powered by the \u003ccode\u003e$\u003c/code\u003e? Here are some of the most useful ones:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$()\u003c/code\u003e - is an alias for \u003ccode\u003edocument.querySelector()\u003c/code\u003e. It allows you to select the first element that matches a given CSS selector. For example, \u003ccode\u003e$('div')\u003c/code\u003e would return the first div element on the page.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$$()\u003c/code\u003e - is an alias for \u003ccode\u003edocument.querySelectorAll()\u003c/code\u003e. It returns an array of all elements that match a given CSS selector. For example, \u003ccode\u003e$$('div')\u003c/code\u003e would return all div elements on the page.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$0, $1, $2, ... $n\u003c/code\u003e - are references to the elements you have recently selected in the Elements panel. \u003ccode\u003e$0\u003c/code\u003e represents the most recently selected element, $1 represents the second most recent, and so on.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$_\u003c/code\u003e - represents the value of the most recently evaluated expression in the console.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$x()\u003c/code\u003e - allows you to query the DOM using XPath expressions. For example, \u003ccode\u003e$x(\"//div\")\u003c/code\u003e would return all div elements on the page.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003ePaul Henschel wrote about \u003ca href=\"https://vercel.com/blog/building-an-interactive-3d-event-badge-with-react-three-fiber\"\u003eBuilding an interactive 3D event badge with React Three Fiber\u003c/a\u003e for the Vercel Ship conference website. By the end of the post, you too will be capable of building a digital cat toy for human developers to play with for hours.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYorick Peterse wrote this very detailed article on \u003ca href=\"https://yorickpeterse.com/articles/how-to-write-a-code-formatter/\"\u003eHow to write your own code formatter\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVolksowl gives you \u003ca href=\"https://www.volksowl.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=bytes_pre_beta_launch\"\u003edetailed feedback on your CV from a community of senior software engineers\u003c/a\u003e to help you land a job in tech. Join the beta if you want to connect with senior-level developers and learn how to take your career to the next level. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJason “Jay-Z” Zimdars wrote on the 37signals blog about \u003ca href=\"https://dev.37signals.com/modern-css-patterns-and-techniques-in-campfire/\"\u003eHow they built their new Campfire product\u003c/a\u003e using modern CSS features, vanilla CSS, and no frameworks or preprocessors. Why you gotta flex so hard on us like that, Jay-Z?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe React team added this new \u003ca href=\"https://react.dev/reference/react/useTransition\"\u003e\u003ccode\u003euseTransition\u003c/code\u003e guide\u003c/a\u003e to the React docs.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAndy Bell wrote this \u003ca href=\"https://piccalil.li/blog/a-primer-on-the-cascade-and-specificity/\"\u003ePrimer on the cascade and specificity\u003c/a\u003e to help you feel more confident with the fundamentals.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://biomejs.dev/blog/biome-v1-7/\"\u003eBiome v1.7\u003c/a\u003e comes with an easy way to migrate from ESLint and Prettier, new linter rules, and it just hit 1 million monthly npm downloads. Rome fell, but Biome is rising from the ashes.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA gives you \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=apr18\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e with your own dedicated team of US-based testers, so you never have to waste engineering hours on QA testing again \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJo Franchetti wrote this helpful \u003ca href=\"https://deno.com/blog/intro-to-tsconfig\"\u003eIntro to TSConfig for JavaScript Developers\u003c/a\u003e on the Deno blog.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eApril 24th is officially \u003ca href=\"https://js-naked-day.org/\"\u003eJS Naked Day\u003c/a\u003e, where folks are removing all JavaScript from their websites for 24 hours to promote \u003ca href=\"https://www.w3.org/2001/tag/doc/leastPower.html\"\u003eThe rule of least power\u003c/a\u003e. You should probably still wear clothes though, unless you work from a windowless home like me and do all your best thinking in the nude.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"281"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"281"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #205 - One style guide to rule them all</title><link rel="canonical" href="https://bytes.dev/archives/205"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Deep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa."/><meta property="og:url" content="https://bytes.dev/archives/205"/><meta property="og:title" content="Bytes #205 - One style guide to rule them all"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/joker-lego.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Deep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #205 - One style guide to rule them all"/><meta property="twitter:description" content="Deep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa."/><meta property="twitter:image" content="https://bytes.dev/images/content/joker-lego.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> One style guide to rule them all</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->205<!-- -->.</span><span class="mr-6 font-bold">July 17, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Deep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/205">#205</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/joker-lego.jpg" alt="Lego Joker putting on makeup." width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Pretty is as pretty does.<!-- --> </p></div><h3>One style guide to rule them all</h3><p>Earlier this month, everyone’s favorite code formatter launched <a href="https://prettier.io/blog/2023/07/05/3.0.0.html">v3.0</a> — a new major release that includes a migration to ES Modules for all Prettier source code, improved plugin support, and a few relatively painless breaking changes.</p><p>And while this wasn’t the most exciting major release ever, it did get us thinking more about Prettier’s roots and <em>why</em> it became the ubiquitous and (mostly) beloved tool it is today. Let’s dive in.</p><p><strong>In March 2017,</strong> James Long stood on stage at React Conf and talked about <a href="https://www.youtube.com/watch?v=hkfBvpEfWdA">the mental burden of manually formatting your code</a>. Not only was manual formatting super tedious for individual developers, but it caused thousands of engineering hours to be wasted on creating and enforcing unique style guides with the <em>death-by-a-thousand-nits</em> method <span role="img" aria-label="skull and crossbones">☠️</span>.</p><p>James talked about how he couldn’t take it anymore, so he built his own solution — a “prettier” style guide that was fully automatic and <em>highly</em> opinionated (it came with zero configuration options). This was a pretty radical idea, because do you know who else was “highly opinionated” about code formatting back in the mid 2010s? Every single developer on the planet.</p><p>But it turns out that Prettier was just what the doctor ordered. For most teams, the unique benefits of a high-quality, automatic formatter outweighed the sacrifices of not having all of your code formatted 100% the way you’d like. And this forced consistency ended up becoming a big plus, because it eventually helped create a kind of common style guide for the entire JS ecosystem — which made it much easier to work across teams and change jobs.</p><p>Prettier caught on <em>fast</em>. Right after James ended his React Conf talk, Tom Occhino <a href="https://www.youtube.com/watch?v=hkfBvpEfWdA&amp;t=456s">invited him back on stage</a> to merge a PR that added Prettier to the React codebase. (Prettier had technically been released about 2 months earlier, so they had time to get it ready.) Fast forward to today, and it’s up to 30 million weekly npm downloads, with no sign of slowing down anytime soon.</p><p><strong>Bottom Line:</strong> Before Prettier, code formatting was like trying to coordinate a giant group order from Cheesecake Factory’s 500-item menu. Thankfully, Prettier rescued all of us from that <a href="https://twitter.com/MaxKriegerVG/status/931373170791198720">post-modern design hellscape</a> with its Omakase-like style guide — which became wildly popular, largely because it dared to be way more opinionated than any of its peers. Thanks James.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/205" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F205" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=A%20great%20look%20back%20at%20how%20%40PrettierCode%20saved%20us%20all%20from%20style%20guide%20hell.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F205" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AA%20great%20look%20back%20at%20how%20%40PrettierCode%20saved%20us%20all%20from%20style%20guide%20hell.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F205" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/dynaboard-logo.png" alt="dynaboard logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/tired-woody.jpg" alt="Woody looking bored and tired." width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">~/hello-world$ pnpm install... (1 of 47 packages)<!-- --> </p></div><h3><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=app_in_60_q32023_v0">Dynaboard can help you build a legit web app in 60 seconds</a></h3><p>Tired of spending hours hacking together libraries, fighting with boilerplate, and trying to connect to a data source every time you want to start a new project?</p><p>Of course you are. That’s why you should give Dynaboard a try. They’re on a mission to help you build a functioning web app in 60 seconds from any database or API with their AI-supercharged, low-code IDE.</p><p><em>How is that possible?</em> By giving you a bunch of powerful tools and getting TF out of your way.</p><p>It comes with 40+ customizable UI components, intelligent data integrations, real-time collaboration, and one-click deploys to prod — plus a little <a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=app_in_60_q32023_v0">WebAssembly magic</a> that lets you add custom code on both the client and the server <span role="img" aria-label="face screaming in fear">😱</span>.</p><p><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=app_in_60_q32023_v0">Try it for free</a> to see what you could build in 60 seconds.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=071723-bytes-newsletter">Secureframe</a></h4><p><em>You can get your app SOC 2 compliant in <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=071723-bytes-newsletter">weeks instead of months</a>, and start selling to big enterprises ASAP. Book a free, personalized demo to learn more.</em></p></div></div>
+<p>What will be logged to the console after the code is finished executing?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">first</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jordyn'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">second</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jake'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Tyler'</span>
+<span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Boa just released <a href="https://boajs.dev/posts/2023-07-08-boa-release-17/">v0.17</a> of its embeddable and experimental Javascript engine that’s written in Rust. They’re calling it one of their biggest releases yet - so to celebrate, I’ve chosen to write the rest of this issue wearing my fanciest feather boa and nothing else.</p>
+</li>
+<li>
+<p>AJ Stuyvenberg wrote an article called <a href="https://aaronstuyvenberg.com/posts/understanding-proactive-initialization">Understanding AWS Lambda Proactive Initialization</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/privatenumber/minification-benchmarks">JS minification benchmarks</a> is a helpful library for comparing the quality and speed of various JavaScript minifiers. May the most miniest minifier win.</p>
+</li>
+<li>
+<p><a href="https://get.bugherd.com/lp/bug-tracker-developers-new?utm_source=referral&amp;utm_medium=newsletter&amp;utm_campaign=bytes">BugHerd</a> is the best tool for getting contextual website feedback from your team and users. It automatically provides technical details about the user’s browser, OS, and more - so you can pinpoint the exact issue and resolve bugs quickly. [sponsored]</p>
+</li>
+<li>
+<p>Enrico Campidoglio gave an hour-long talk about <a href="https://www.youtube.com/watch?v=WtUCZYyv-_w">Git Hidden Gems</a> at NDC Oslo, which covers some deep Git magic. Once you learn it, you’ll only be interested in wearing cargo shorts, socks + Birkenstocks, and a ponytail.</p>
+</li>
+<li>
+<p>Giuseppe La Torre wrote this guide to <a href="https://www.breakp.dev/blog/build-your-own-faas/">Self-hosting Cloudflare Workers and JavaScript Functions on Fly and Everywhere</a>.</p>
+</li>
+<li>
+<p>The Sandworm team created <a href="https://blog.sandworm.dev/state-of-npm-2023-the-overview">The State of npm 2023</a> - which shares some interesting insights and trends about popular libraries and the friendly little package manager where they all live.</p>
+</li>
+<li>
+<p>Every time you click <a href="https://wiby.me/surprise/">this link</a> it sends you to a random Web 1.0 site. Enjoy doing nothing else for the rest of the day. I’m still not entirely sure how they built websites without 5MB of JavaScript.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=071723-bytes-newsletter">Secureframe</a></h4></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">first</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jordyn'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">second</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jake'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Tyler'</span>
+<span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+</code></pre>
+<p>We get <code>undefined</code>, <code>Jordyn</code>, <code>Jake</code>, then <code>Tyler</code>. What this shows us is that you can think of each new Execution Context as having its own unique variable environment. Even though there are other Execution Contexts that contain the variable name, the JavaScript engine will first look to the current Execution Context for that variable.</p>
+<p>For more info (and to see <a href="https://ui.dev/post-images/unique-scopes.gif">a cool GIF</a> on how the JS interpreter evaluates the code above that I would include here but honestly I’m not sure how different email clients support GIFs), visit <a href="https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript">The Ultimate Guide to Hoisting, Scopes, and Closures in JavaScript</a></p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: One style guide to rule them all","date":"2023-07-17","featuredImage":"/images/content/joker-lego.jpg","description":"Deep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eDeep Git magic, the miniest minifier, and a good reason to wear my fancy feather boa.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/205\"\u003e#205\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/joker-lego.jpg\" alt=\"Lego Joker putting on makeup.\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003ePretty is as pretty does.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eOne style guide to rule them all\u003c/h3\u003e\u003cp\u003eEarlier this month, everyone’s favorite code formatter launched \u003ca href=\"https://prettier.io/blog/2023/07/05/3.0.0.html\"\u003ev3.0\u003c/a\u003e — a new major release that includes a migration to ES Modules for all Prettier source code, improved plugin support, and a few relatively painless breaking changes.\u003c/p\u003e\u003cp\u003eAnd while this wasn’t the most exciting major release ever, it did get us thinking more about Prettier’s roots and \u003cem\u003ewhy\u003c/em\u003e it became the ubiquitous and (mostly) beloved tool it is today. Let’s dive in.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eIn March 2017,\u003c/strong\u003e James Long stood on stage at React Conf and talked about \u003ca href=\"https://www.youtube.com/watch?v=hkfBvpEfWdA\"\u003ethe mental burden of manually formatting your code\u003c/a\u003e. Not only was manual formatting super tedious for individual developers, but it caused thousands of engineering hours to be wasted on creating and enforcing unique style guides with the \u003cem\u003edeath-by-a-thousand-nits\u003c/em\u003e method \u003cspan role=\"img\" aria-label=\"skull and crossbones\"\u003e☠️\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eJames talked about how he couldn’t take it anymore, so he built his own solution — a “prettier” style guide that was fully automatic and \u003cem\u003ehighly\u003c/em\u003e opinionated (it came with zero configuration options). This was a pretty radical idea, because do you know who else was “highly opinionated” about code formatting back in the mid 2010s? Every single developer on the planet.\u003c/p\u003e\u003cp\u003eBut it turns out that Prettier was just what the doctor ordered. For most teams, the unique benefits of a high-quality, automatic formatter outweighed the sacrifices of not having all of your code formatted 100% the way you’d like. And this forced consistency ended up becoming a big plus, because it eventually helped create a kind of common style guide for the entire JS ecosystem — which made it much easier to work across teams and change jobs.\u003c/p\u003e\u003cp\u003ePrettier caught on \u003cem\u003efast\u003c/em\u003e. Right after James ended his React Conf talk, Tom Occhino \u003ca href=\"https://www.youtube.com/watch?v=hkfBvpEfWdA\u0026amp;t=456s\"\u003einvited him back on stage\u003c/a\u003e to merge a PR that added Prettier to the React codebase. (Prettier had technically been released about 2 months earlier, so they had time to get it ready.) Fast forward to today, and it’s up to 30 million weekly npm downloads, with no sign of slowing down anytime soon.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Before Prettier, code formatting was like trying to coordinate a giant group order from Cheesecake Factory’s 500-item menu. Thankfully, Prettier rescued all of us from that \u003ca href=\"https://twitter.com/MaxKriegerVG/status/931373170791198720\"\u003epost-modern design hellscape\u003c/a\u003e with its Omakase-like style guide — which became wildly popular, largely because it dared to be way more opinionated than any of its peers. Thanks James.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/205\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F205\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=A%20great%20look%20back%20at%20how%20%40PrettierCode%20saved%20us%20all%20from%20style%20guide%20hell.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F205\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AA%20great%20look%20back%20at%20how%20%40PrettierCode%20saved%20us%20all%20from%20style%20guide%20hell.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F205\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/dynaboard-logo.png\" alt=\"dynaboard logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/tired-woody.jpg\" alt=\"Woody looking bored and tired.\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003e~/hello-world$ pnpm install... (1 of 47 packages)\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=app_in_60_q32023_v0\"\u003eDynaboard can help you build a legit web app in 60 seconds\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eTired of spending hours hacking together libraries, fighting with boilerplate, and trying to connect to a data source every time you want to start a new project?\u003c/p\u003e\u003cp\u003eOf course you are. That’s why you should give Dynaboard a try. They’re on a mission to help you build a functioning web app in 60 seconds from any database or API with their AI-supercharged, low-code IDE.\u003c/p\u003e\u003cp\u003e\u003cem\u003eHow is that possible?\u003c/em\u003e By giving you a bunch of powerful tools and getting TF out of your way.\u003c/p\u003e\u003cp\u003eIt comes with 40+ customizable UI components, intelligent data integrations, real-time collaboration, and one-click deploys to prod — plus a little \u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=app_in_60_q32023_v0\"\u003eWebAssembly magic\u003c/a\u003e that lets you add custom code on both the client and the server \u003cspan role=\"img\" aria-label=\"face screaming in fear\"\u003e😱\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=app_in_60_q32023_v0\"\u003eTry it for free\u003c/a\u003e to see what you could build in 60 seconds.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=071723-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eYou can get your app SOC 2 compliant in \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=071723-bytes-newsletter\"\u003eweeks instead of months\u003c/a\u003e, and start selling to big enterprises ASAP. Book a free, personalized demo to learn more.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat will be logged to the console after the code is finished executing?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003efirst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jordyn'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esecond\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jake'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\n\u003cspan class=\"token function\"\u003efirst\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esecond\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBoa just released \u003ca href=\"https://boajs.dev/posts/2023-07-08-boa-release-17/\"\u003ev0.17\u003c/a\u003e of its embeddable and experimental Javascript engine that’s written in Rust. They’re calling it one of their biggest releases yet - so to celebrate, I’ve chosen to write the rest of this issue wearing my fanciest feather boa and nothing else.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAJ Stuyvenberg wrote an article called \u003ca href=\"https://aaronstuyvenberg.com/posts/understanding-proactive-initialization\"\u003eUnderstanding AWS Lambda Proactive Initialization\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/privatenumber/minification-benchmarks\"\u003eJS minification benchmarks\u003c/a\u003e is a helpful library for comparing the quality and speed of various JavaScript minifiers. May the most miniest minifier win.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://get.bugherd.com/lp/bug-tracker-developers-new?utm_source=referral\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eBugHerd\u003c/a\u003e is the best tool for getting contextual website feedback from your team and users. It automatically provides technical details about the user’s browser, OS, and more - so you can pinpoint the exact issue and resolve bugs quickly. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEnrico Campidoglio gave an hour-long talk about \u003ca href=\"https://www.youtube.com/watch?v=WtUCZYyv-_w\"\u003eGit Hidden Gems\u003c/a\u003e at NDC Oslo, which covers some deep Git magic. Once you learn it, you’ll only be interested in wearing cargo shorts, socks + Birkenstocks, and a ponytail.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGiuseppe La Torre wrote this guide to \u003ca href=\"https://www.breakp.dev/blog/build-your-own-faas/\"\u003eSelf-hosting Cloudflare Workers and JavaScript Functions on Fly and Everywhere\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Sandworm team created \u003ca href=\"https://blog.sandworm.dev/state-of-npm-2023-the-overview\"\u003eThe State of npm 2023\u003c/a\u003e - which shares some interesting insights and trends about popular libraries and the friendly little package manager where they all live.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEvery time you click \u003ca href=\"https://wiby.me/surprise/\"\u003ethis link\u003c/a\u003e it sends you to a random Web 1.0 site. Enjoy doing nothing else for the rest of the day. I’m still not entirely sure how they built websites without 5MB of JavaScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=071723-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003efirst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jordyn'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esecond\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jake'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\n\u003cspan class=\"token function\"\u003efirst\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esecond\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe get \u003ccode\u003eundefined\u003c/code\u003e, \u003ccode\u003eJordyn\u003c/code\u003e, \u003ccode\u003eJake\u003c/code\u003e, then \u003ccode\u003eTyler\u003c/code\u003e. What this shows us is that you can think of each new Execution Context as having its own unique variable environment. Even though there are other Execution Contexts that contain the variable name, the JavaScript engine will first look to the current Execution Context for that variable.\u003c/p\u003e\n\u003cp\u003eFor more info (and to see \u003ca href=\"https://ui.dev/post-images/unique-scopes.gif\"\u003ea cool GIF\u003c/a\u003e on how the JS interpreter evaluates the code above that I would include here but honestly I’m not sure how different email clients support GIFs), visit \u003ca href=\"https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript\"\u003eThe Ultimate Guide to Hoisting, Scopes, and Closures in JavaScript\u003c/a\u003e\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"205"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"205"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

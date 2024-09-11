@@ -1,0 +1,357 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #113 - another made up acronym to sound smart with your dev friends</title><link rel="canonical" href="https://bytes.dev/archives/113"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="In this issue, we&#x27;ve got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival."/><meta property="og:url" content="https://bytes.dev/archives/113"/><meta property="og:title" content="Bytes #113 - another made up acronym to sound smart with your dev friends"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/monkey.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="In this issue, we&#x27;ve got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #113 - another made up acronym to sound smart with your dev friends"/><meta property="twitter:description" content="In this issue, we&#x27;ve got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival."/><meta property="twitter:image" content="https://bytes.dev/images/content/monkey.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> another made up acronym to sound smart with your dev friends</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->113<!-- -->.</span><span class="mr-6 font-bold">August 15, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival. Welcome to #113.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/monkey.jpg" alt="Monkey drinking Powerade">
+</p><p class="image-alt">Framework early adopters drinking the Kool Aid.</p><p></p>
+<h2>Better late than never</h2>
+<p>Astro v1.0 was <a href="https://astro.build/blog/astro-1/">released this week</a>, which mean’s its officially ready for production (like that’s ever stopped you savages).</p>
+<p>The release was originally supposed to <a href="https://astro.build/blog/astro-1-beta-release/#:~:text=In%20addition%2C%20we%20are%20thrilled%20to%20announce%20that%20the%20official%20Astro%20v1.0.0%20release%20will%20be%20available%20on%20June%208%2C%202022.">come out on June 8</a>, but since we’re using the React team’s timeline, it’s technically still 3.5 years early. The big question is… was it worth the wait?</p>
+<p>It turns out, a LOT goes into a major release. The Astro team cut 73 beta releases and 8 release candidates leading up to v1 (basically the developer version of <code>astro_final_final_v3.psd</code> for you designers out there).</p>
+<p>There’s something to be said for taking the time to polish your APIs, fix bugs, update docs, and get your house in order before a major release. But this release also comes with a number of significant upgrades:</p>
+<ol>
+<li>
+<p>Image Optimization — v1 adds two new components, <code>&lt;Picture</code> and <code>&lt;Image /&gt;</code>, which are built on <a href="https://sharp.pixelplumbing.com/">sharp</a> and do built-in image optimization.</p>
+</li>
+<li>
+<p>MDX Migration — At the 11th hour the team swapped out their home grown Markdown solution for the more established and faster <code>MDX</code>. <a href="https://www.brycewray.com/posts/2022/07/astro-move-to-mdx/">Bryce felt good about it</a>.</p>
+</li>
+<li>
+<p>Vite 3.0 — Astro is now running on the latest and greatest Vite has to offer, improving things like bundle size, SSR support, and a faster local dev server.</p>
+</li>
+<li>
+<p>SSR Builds — No longer experimental, Astro supports SSR with adaptors for all your favorite FaaS providers so you can lean into that MPA Island Boy lifestyle.</p>
+</li>
+</ol>
+<p><strong>Bottom Line:</strong> It’s a great quality when a CEO can <a href="https://twitter.com/FredKSchott/status/1554187175146663936?s=20&amp;t=KN5hn_XO6Msl_L_nAokAZw">admit when they are wrong</a> (<span role="img" aria-label="waving hand">👋</span> Fred), but creating a bot to code for you while you are <del>procrastinating on a release</del> <em>CEOing</em> is next level. I see you <a href="https://github.com/fredkbot">fredkbot</a>.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/shower.jpg" alt="Guy pouring wine in a shower">
+</p><p class="image-alt">When you (kind of) get analytics working after 12 weeks of SQL hell [sponsored]</p><p></p>
+<h2><a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">PostHog</a> cracked the code</h2>
+<p>For centuries, product managers and philosophers have tried to solve <strong>The Analytics Dilemma:</strong> “The more engineering time you spend building product analytics, the less time you can spend on <em>*actually building*</em> your product.”</p>
+<p>But PostHog has finally cut the Gordian Knot and set us all free.</p>
+<p>They built an open source <a href="https://github.com/PostHog/posthog">(8,000 GH stars with 280+ contributors)</a> and fully-featured product analytics platform that you can self-host.</p>
+<p><strong>The best parts:</strong></p>
+<ol>
+<li>
+<p>You don’t have to write SQL <span role="img" aria-label="face vomiting">🤮</span></p>
+</li>
+<li>
+<p>You can build anything — heatmaps, user paths, session recordings, funnel analysis, feature flags, split tests in production, and lots more</p>
+</li>
+<li>
+<p>You get real-time analytics with their event pipelines and simple API</p>
+</li>
+</ol>
+<p>Hasura, SpaceX, and 10,000 other companies have built their entire data stack on PostHog.</p>
+<p>That’s because they’re smart enough to realize that engineers should spend their time making <em>the actual sausage,</em> not building random tools to try and figure out if the customer likes how it tastes.</p>
+<p><a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">Check it out.</a> Say goodbye to SQL.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/gatsby-hov.jpg" alt="Jay Z">
+</p><p class="image-alt">Allow me to re-introduce myself</p><p></p>
+<h2>Is Gatsby Back-sby?</h2>
+<p>Sometimes it’s easy to forget about Gatsby when other React frameworks are busy starting <a href="https://twitter.com/swyx/status/1557730698407989248?s=20&amp;t=4kkdL7M6Z18Nl9XzeNqVrw">flame wars</a> on Twitter, making the new React 18 features <a href="https://twitter.com/acdlite/status/1549853625673023488">actually usable</a>, and… doing whatever RedwoodJS does.</p>
+<p>But React’s OG SSG framework has been cooking up some big changes, which CEO Kyle Matthews (<span role="img" aria-label="waving hand">👋</span> Kyle) unveiled last week when he <a href="https://www.gatsbyjs.com/blog/re-introducing-gatsby-a-reactive-site-generator">re-introduced Gatsby</a> as a “Reactive Site Generator” (RSG). How does RSG compare to SSR/SSG/ISR/SPA/MPA/AT&amp;T/BBQ/HAGS?</p>
+<p><strong>The Notorious RSG:</strong> With “reactive builds”, each page declares its data dependencies through GraphQL, then Gatsby makes sure all invalidated pages get updated whenever the data changes. But now, they’ve ported that architecture to Gatsby Cloud (their custom CDN), which builds sites into an RSG service that can instantly react to data changes.</p>
+<p>Kyle refers to it as “hot reloading, but for your production website”, and it’s resulted in some solid perf gains (according to their benchmarks):</p>
+<ul>
+<li>
+<p>Gatsby Cloud can now publish changes in one second — 100x faster than the exact same Gatsby site building on a standard CI/CD service like Netlify or Vercel. <a href="https://twitter.com/GatsbyJS/status/1558194772237582336">(See demo)</a>.</p>
+</li>
+<li>
+<p>The median publish time for content updates for all Gatsby v4 sites on Gatsby Cloud is five seconds.</p>
+</li>
+<li>
+<p>RSG (is that gonna become a thing now?) is a lot faster than SSG, while beating or matching SSR caching techniques for real-time data updates.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> We’re here for the Gatsby 2022 Glow Up - just like we’ll be here when someone decides to run with <a href="https://bytes.dev/images/content/skeet.jpg">this glow up</a> of an old classic.</p>
+<hr>
+<h2>Quiz — Sponsored by <a href="https://appwrite.io/?utm_source=newsletter&amp;utm_medium=homepage&amp;utm_campaign=bytes">Appwrite</a></h2>
+<p><em>Their secure, open-source backend as a service gives you all the core CPIs you need to build any web or mobile app. Check it out.</em></p>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Ryan Dahl promised that three months from now, you’ll be able to <a href="https://deno.com/blog/changes">easily import npm packages into Deno</a> and their goal is to make Deno “the fastest JavaScript runtime”. The Deno vs Bun battle is shaping up to be <a href="https://youtu.be/dIOBITOXJyg?t=83">one for the ages</a>.</p>
+</li>
+<li>
+<p>The lovely Supabase team just kicked off their newest <a href="https://supabase.com/launch-week?utm_source=sponsor-bytes-next-time&amp;utm_medium=email&amp;utm_campaign=launch-week-5">Launch Week</a> this morning - which is like Coachella, but with more Postgres and less Billie Eilish.</p>
+</li>
+<li>
+<p>Retool offers <a href="https://retool.com/component-library?utm_source=sponsor&amp;utm_medium=newsletter&amp;utm_campaign=reactnewsletter">a component library and app-building framework</a> in one, powerful platform. Drag and drop 90+ UI components to build any interface—then connect your data, deploy the app, and share with your users. Ship in record time with easy-to-use settings, styles, and themes. [sponsored]</p>
+</li>
+<li>
+<p>Mahdi Yusuf wrote <a href="https://architecturenotes.co/redis/">a technical deep dive on all things Redis</a>. Which is convenient timing because I was just thinking about how my personal blog needed a Redis cache.</p>
+</li>
+<li>
+<p>Speaking of updates I could make to my blog which will allow me to continue procrastinating that blog post I wanted to write, <a href="https://sakofchit.github.io/system.css/">System.css</a> is a CSS library for building Apple-inspired UI’s from the ’80s and ’90s.</p>
+</li>
+<li>
+<p>Ryan Carniato wrote about <a href="https://dev.to/this-is-learning/the-javascript-paradox-2njj">The JavaScript Paradox</a> — which apparently is <em>not</em> about how my side project is considered simultaneously both dead and alive until I turn on my laptop.</p>
+</li>
+<li>
+<p>Cloudflare wrote about how their new project, <a href="https://blog.cloudflare.com/crawler-hints-how-cloudflare-is-reducing-the-environmental-impact-of-web-searches/">Crawler Hints</a> can help cut down on the estimated 53% of search crawler traffic that is wasted when bots revisit pages that haven’t changed since the previous visit. They’re hopeful that Google will use it, but they also called Google “the world’s most wasteful user of Internet resources” — so maybe they need to take a quick field trip to the Dale Carnegie <a href="https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People">school of persuasion</a> before the next blog post.</p>
+</li>
+<li>
+<p>Dominik wrote about <a href="https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs">Avoiding useEffect with callback refs</a>. Any tips for avoiding eye contact with the mascot for <a href="https://twitter.com/alangdon17/status/1551252071185276928">the Halifax Oyster Festival</a>, Dominik? I just want to enjoy my specialty Canadian oysters without having recurring nightmares for the rest of the year.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug Solution — Sponsored by <a href="https://appwrite.io/?utm_source=newsletter&amp;utm_medium=homepage&amp;utm_campaign=bytes">Appwrite</a></h2>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>First</code>, <code>Fourth</code>, <code>Third</code>, <code>Second</code>.</p>
+<p>To fully understand this one you need an understanding of JavaScript’s event loop. Specifically, the Call Stack, Task Queue, Web APIs (for <code>setTimeout</code>), and the Job Queue. You could watch <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">this video</a>, which is perhaps the most famous JS conference talk ever given. Or you could just, not do that and enjoy your Monday instead - no judgement here.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: another made up acronym to sound smart with your dev friends","date":"2022-08-15","featuredImage":"/images/content/monkey.jpg","description":"In this issue, we've got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival."},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got an Astro CEO bot, another made up acronym you can use to sound smart with your developer friends (NOT created by Vercel this time), and recurring nightmares from my visit to the Halifax Oyster Festival. Welcome to #113.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/monkey.jpg\" alt=\"Monkey drinking Powerade\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eFramework early adopters drinking the Kool Aid.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eBetter late than never\u003c/h2\u003e\n\u003cp\u003eAstro v1.0 was \u003ca href=\"https://astro.build/blog/astro-1/\"\u003ereleased this week\u003c/a\u003e, which mean’s its officially ready for production (like that’s ever stopped you savages).\u003c/p\u003e\n\u003cp\u003eThe release was originally supposed to \u003ca href=\"https://astro.build/blog/astro-1-beta-release/#:~:text=In%20addition%2C%20we%20are%20thrilled%20to%20announce%20that%20the%20official%20Astro%20v1.0.0%20release%20will%20be%20available%20on%20June%208%2C%202022.\"\u003ecome out on June 8\u003c/a\u003e, but since we’re using the React team’s timeline, it’s technically still 3.5 years early. The big question is… was it worth the wait?\u003c/p\u003e\n\u003cp\u003eIt turns out, a LOT goes into a major release. The Astro team cut 73 beta releases and 8 release candidates leading up to v1 (basically the developer version of \u003ccode\u003eastro_final_final_v3.psd\u003c/code\u003e for you designers out there).\u003c/p\u003e\n\u003cp\u003eThere’s something to be said for taking the time to polish your APIs, fix bugs, update docs, and get your house in order before a major release. But this release also comes with a number of significant upgrades:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eImage Optimization — v1 adds two new components, \u003ccode\u003e\u0026lt;Picture\u003c/code\u003e and \u003ccode\u003e\u0026lt;Image /\u0026gt;\u003c/code\u003e, which are built on \u003ca href=\"https://sharp.pixelplumbing.com/\"\u003esharp\u003c/a\u003e and do built-in image optimization.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMDX Migration — At the 11th hour the team swapped out their home grown Markdown solution for the more established and faster \u003ccode\u003eMDX\u003c/code\u003e. \u003ca href=\"https://www.brycewray.com/posts/2022/07/astro-move-to-mdx/\"\u003eBryce felt good about it\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVite 3.0 — Astro is now running on the latest and greatest Vite has to offer, improving things like bundle size, SSR support, and a faster local dev server.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSSR Builds — No longer experimental, Astro supports SSR with adaptors for all your favorite FaaS providers so you can lean into that MPA Island Boy lifestyle.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e It’s a great quality when a CEO can \u003ca href=\"https://twitter.com/FredKSchott/status/1554187175146663936?s=20\u0026amp;t=KN5hn_XO6Msl_L_nAokAZw\"\u003eadmit when they are wrong\u003c/a\u003e (\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Fred), but creating a bot to code for you while you are \u003cdel\u003eprocrastinating on a release\u003c/del\u003e \u003cem\u003eCEOing\u003c/em\u003e is next level. I see you \u003ca href=\"https://github.com/fredkbot\"\u003efredkbot\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/shower.jpg\" alt=\"Guy pouring wine in a shower\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWhen you (kind of) get analytics working after 12 weeks of SQL hell [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ePostHog\u003c/a\u003e cracked the code\u003c/h2\u003e\n\u003cp\u003eFor centuries, product managers and philosophers have tried to solve \u003cstrong\u003eThe Analytics Dilemma:\u003c/strong\u003e “The more engineering time you spend building product analytics, the less time you can spend on \u003cem\u003e*actually building*\u003c/em\u003e your product.”\u003c/p\u003e\n\u003cp\u003eBut PostHog has finally cut the Gordian Knot and set us all free.\u003c/p\u003e\n\u003cp\u003eThey built an open source \u003ca href=\"https://github.com/PostHog/posthog\"\u003e(8,000 GH stars with 280+ contributors)\u003c/a\u003e and fully-featured product analytics platform that you can self-host.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe best parts:\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eYou don’t have to write SQL \u003cspan role=\"img\" aria-label=\"face vomiting\"\u003e🤮\u003c/span\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can build anything — heatmaps, user paths, session recordings, funnel analysis, feature flags, split tests in production, and lots more\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou get real-time analytics with their event pipelines and simple API\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eHasura, SpaceX, and 10,000 other companies have built their entire data stack on PostHog.\u003c/p\u003e\n\u003cp\u003eThat’s because they’re smart enough to realize that engineers should spend their time making \u003cem\u003ethe actual sausage,\u003c/em\u003e not building random tools to try and figure out if the customer likes how it tastes.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eCheck it out.\u003c/a\u003e Say goodbye to SQL.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/gatsby-hov.jpg\" alt=\"Jay Z\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eAllow me to re-introduce myself\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eIs Gatsby Back-sby?\u003c/h2\u003e\n\u003cp\u003eSometimes it’s easy to forget about Gatsby when other React frameworks are busy starting \u003ca href=\"https://twitter.com/swyx/status/1557730698407989248?s=20\u0026amp;t=4kkdL7M6Z18Nl9XzeNqVrw\"\u003eflame wars\u003c/a\u003e on Twitter, making the new React 18 features \u003ca href=\"https://twitter.com/acdlite/status/1549853625673023488\"\u003eactually usable\u003c/a\u003e, and… doing whatever RedwoodJS does.\u003c/p\u003e\n\u003cp\u003eBut React’s OG SSG framework has been cooking up some big changes, which CEO Kyle Matthews (\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Kyle) unveiled last week when he \u003ca href=\"https://www.gatsbyjs.com/blog/re-introducing-gatsby-a-reactive-site-generator\"\u003ere-introduced Gatsby\u003c/a\u003e as a “Reactive Site Generator” (RSG). How does RSG compare to SSR/SSG/ISR/SPA/MPA/AT\u0026amp;T/BBQ/HAGS?\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe Notorious RSG:\u003c/strong\u003e With “reactive builds”, each page declares its data dependencies through GraphQL, then Gatsby makes sure all invalidated pages get updated whenever the data changes. But now, they’ve ported that architecture to Gatsby Cloud (their custom CDN), which builds sites into an RSG service that can instantly react to data changes.\u003c/p\u003e\n\u003cp\u003eKyle refers to it as “hot reloading, but for your production website”, and it’s resulted in some solid perf gains (according to their benchmarks):\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eGatsby Cloud can now publish changes in one second — 100x faster than the exact same Gatsby site building on a standard CI/CD service like Netlify or Vercel. \u003ca href=\"https://twitter.com/GatsbyJS/status/1558194772237582336\"\u003e(See demo)\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe median publish time for content updates for all Gatsby v4 sites on Gatsby Cloud is five seconds.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRSG (is that gonna become a thing now?) is a lot faster than SSG, while beating or matching SSR caching techniques for real-time data updates.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e We’re here for the Gatsby 2022 Glow Up - just like we’ll be here when someone decides to run with \u003ca href=\"https://bytes.dev/images/content/skeet.jpg\"\u003ethis glow up\u003c/a\u003e of an old classic.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eQuiz — Sponsored by \u003ca href=\"https://appwrite.io/?utm_source=newsletter\u0026amp;utm_medium=homepage\u0026amp;utm_campaign=bytes\"\u003eAppwrite\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eTheir secure, open-source backend as a service gives you all the core CPIs you need to build any web or mobile app. Check it out.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Dahl promised that three months from now, you’ll be able to \u003ca href=\"https://deno.com/blog/changes\"\u003eeasily import npm packages into Deno\u003c/a\u003e and their goal is to make Deno “the fastest JavaScript runtime”. The Deno vs Bun battle is shaping up to be \u003ca href=\"https://youtu.be/dIOBITOXJyg?t=83\"\u003eone for the ages\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe lovely Supabase team just kicked off their newest \u003ca href=\"https://supabase.com/launch-week?utm_source=sponsor-bytes-next-time\u0026amp;utm_medium=email\u0026amp;utm_campaign=launch-week-5\"\u003eLaunch Week\u003c/a\u003e this morning - which is like Coachella, but with more Postgres and less Billie Eilish.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRetool offers \u003ca href=\"https://retool.com/component-library?utm_source=sponsor\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=reactnewsletter\"\u003ea component library and app-building framework\u003c/a\u003e in one, powerful platform. Drag and drop 90+ UI components to build any interface—then connect your data, deploy the app, and share with your users. Ship in record time with easy-to-use settings, styles, and themes. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMahdi Yusuf wrote \u003ca href=\"https://architecturenotes.co/redis/\"\u003ea technical deep dive on all things Redis\u003c/a\u003e. Which is convenient timing because I was just thinking about how my personal blog needed a Redis cache.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSpeaking of updates I could make to my blog which will allow me to continue procrastinating that blog post I wanted to write, \u003ca href=\"https://sakofchit.github.io/system.css/\"\u003eSystem.css\u003c/a\u003e is a CSS library for building Apple-inspired UI’s from the ’80s and ’90s.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Carniato wrote about \u003ca href=\"https://dev.to/this-is-learning/the-javascript-paradox-2njj\"\u003eThe JavaScript Paradox\u003c/a\u003e — which apparently is \u003cem\u003enot\u003c/em\u003e about how my side project is considered simultaneously both dead and alive until I turn on my laptop.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCloudflare wrote about how their new project, \u003ca href=\"https://blog.cloudflare.com/crawler-hints-how-cloudflare-is-reducing-the-environmental-impact-of-web-searches/\"\u003eCrawler Hints\u003c/a\u003e can help cut down on the estimated 53% of search crawler traffic that is wasted when bots revisit pages that haven’t changed since the previous visit. They’re hopeful that Google will use it, but they also called Google “the world’s most wasteful user of Internet resources” — so maybe they need to take a quick field trip to the Dale Carnegie \u003ca href=\"https://en.wikipedia.org/wiki/How_to_Win_Friends_and_Influence_People\"\u003eschool of persuasion\u003c/a\u003e before the next blog post.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDominik wrote about \u003ca href=\"https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs\"\u003eAvoiding useEffect with callback refs\u003c/a\u003e. Any tips for avoiding eye contact with the mascot for \u003ca href=\"https://twitter.com/alangdon17/status/1551252071185276928\"\u003ethe Halifax Oyster Festival\u003c/a\u003e, Dominik? I just want to enjoy my specialty Canadian oysters without having recurring nightmares for the rest of the year.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug Solution — Sponsored by \u003ca href=\"https://appwrite.io/?utm_source=newsletter\u0026amp;utm_medium=homepage\u0026amp;utm_campaign=bytes\"\u003eAppwrite\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eFirst\u003c/code\u003e, \u003ccode\u003eFourth\u003c/code\u003e, \u003ccode\u003eThird\u003c/code\u003e, \u003ccode\u003eSecond\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo fully understand this one you need an understanding of JavaScript’s event loop. Specifically, the Call Stack, Task Queue, Web APIs (for \u003ccode\u003esetTimeout\u003c/code\u003e), and the Job Queue. You could watch \u003ca href=\"https://www.youtube.com/watch?v=8aGhZQkoFbQ\"\u003ethis video\u003c/a\u003e, which is perhaps the most famous JS conference talk ever given. Or you could just, not do that and enjoy your Monday instead - no judgement here.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"113"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"113"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

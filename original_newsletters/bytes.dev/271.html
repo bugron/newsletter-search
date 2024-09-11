@@ -1,0 +1,343 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #271 - Astro just launched a database</title><link rel="canonical" href="https://bytes.dev/archives/271"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps becoming piles of primordial ooze."/><meta property="og:url" content="https://bytes.dev/archives/271"/><meta property="og:title" content="Bytes #271 - Astro just launched a database"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/floppy-disk-man.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps becoming piles of primordial ooze."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #271 - Astro just launched a database"/><meta property="twitter:description" content="The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps becoming piles of primordial ooze."/><meta property="twitter:image" content="https://bytes.dev/images/content/floppy-disk-man.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Astro just launched a database</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->271<!-- -->.</span><span class="mr-6 font-bold">March 14, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps that become piles of primordial ooze.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/271">#271</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/floppy-disk-man.jpg" alt="Guy posing for a picture with a floppy disk" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Ben Holmes showing off the latest edition of Astro DB<!-- --> </p></div><h3>Astro just launched a database</h3><p>Yes, you read that correctly. And no, this isn’t an early April Fool’s joke.</p><p><a href="https://astro.build/db/">Astro DB</a> is a fast, fully managed SQL database designed exclusively for Astro sites. But before we dig into how it’s different from the 50 other database offerings out there, let’s take a closer look at why and how they built it.</p><p><strong>Why they did it:</strong> Since they first introduced their Islands architecture, Astro has always been focused on building content-driven websites. They doubled down on that use case when they launched <a href="https://astro.build/blog/introducing-content-collections/">Content Collections</a> last year to provide a “TypeScript for your Markdown” experience.</p><p>Developers loved it, but Astro didn’t want to stop there. They had their eyes set on the granddaddy of them all — WordPress. And one of the biggest drivers of WP’s popularity is its built-in database.</p><p>WordPress smartly understood that all content is data, so they gave users a simple way to manage all of their article content, pages, images, blocks, and plugins in one place. Astro wanted to do the same thing for their own users, but doing so meant they’d have to go beyond static repo data and step into the deep waters of database land.</p><p>The problem? Databases, historically, don’t have the best DX…</p><p><strong>How they built it:</strong> They started by trying to build SQLite into Astro itself, but ran into a few blockers, one of which was imagining what would happen when a JavaScript developer realized their C++ binary failed to compile.</p><p>This caused them to put the idea on hold for a while, until they discovered <a href="https://github.com/tursodatabase/libsql">libSQL</a> — a fork of SQLite created by the <a href="https://turso.tech/">Turso</a> team that offered a more modern, lightweight DB client for JavaScript/TypeScript.</p><p>Astro immediately fell in love with libSQL, because it worked everywhere without any extra dependencies or services. According to FKS (Astro’s co-creator), “libSQL allowed us to rethink the product in a way that makes the database a core part of the experience that is always there.”</p><p>And as we all know from our abstinence-based sex ed classes, when a framework and a database love each other very much, something beautiful like <a href="https://astro.build/db/">Astro DB</a> is born.</p><p><strong>So what does Astro DB actually give you?</strong></p><ul>
+<li>
+<p><strong>Automatically configured:</strong> As soon as you start up your dev server, you get a fully local libSQL database, along with the schema, the seed file, and a type-safe ORM (Drizzle). You don’t have to worry about configuration, provisioning, or setup at all.</p>
+</li>
+<li>
+<p><strong>Free tier that scales:</strong> Astro DB automatically scales up to meet demand, then scales back down to $0 when inactive. And because of Turso’s <a href="https://turso.tech/blog/give-each-of-your-users-their-own-sqlite-database-b74445f4">database per tenant model</a>, Astro DB can cheaply spin up hundreds of thousands of DB’s on demand — so you don’t need to worry about them rug-pulling their free tier.</p>
+</li>
+<li>
+<p><strong>Get started fast:</strong> You can create a new DB for your Astro project in 30 seconds, leaving you with plenty of time to worry about the existential dread of getting users.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> This is the first time we’ve seen Astro-the-company try to make money, but if they really can deliver a next-gen WordPress experience for developers, I think they may be onto something.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/271" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F271" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20did%20a%20deep%20dive%20on%20the%20brand%20new%20Astro%20DB.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F271" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20did%20a%20deep%20dive%20on%20the%20brand%20new%20Astro%20DB.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F271" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/sonar-logo.png" alt="Sonar logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/vader-skipping.jpg" alt="Darth Vader skipping in the countryside" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Tfw you know your code is squeaky clean<!-- --> </p></div><h3><a href="https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration">Learn how to implement static code analysis — in-depth webinar</a></h3><p>Your team probably already does some form of unit or end-to-end testing — but how do you check to see if your code is reliable, maintainable, and secure?</p><p>The answer is static code analysis, and Sonar is hosting a free <a href="https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration">in-depth webinar</a> on April 17th that will dive deep on the topic.</p><p><strong>Here’s what you’ll learn:</strong></p><ul>
+<li>
+<p>What static code analyzers do, and how they give you more power than static type checkers like TypeScript.</p>
+</li>
+<li>
+<p>How to <a href="https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration">go beyond your test runner</a> to get helpful insights about your code quality.</p>
+</li>
+<li>
+<p>How to ship new features faster with code that is always secure, maintainable, and reliable.</p>
+</li>
+</ul><p>Sound interesting? <a href="https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration">Sign up today</a> and learn how to reduce the chaos in your codebase — for free.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter&amp;utm_source=bytes&amp;utm_campaign=mar24_newsletter">FusionAuth</a></h4><p><em>They created this free whitepaper on <a href="https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter&amp;utm_source=bytes&amp;utm_campaign=mar24_newsletter">How to implement passkeys</a> into your app to improve user security, and why they’re better than traditional passwords.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">set</span> <span class="token function">name</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">set</span> <span class="token function">age</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">printAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="130" src="https://bytes.dev/images/content/ben-cool.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Ben's Bits</h2></div><p>Well, it sure has Ben a while. This list Byte-er be good!</p><ol>
+<li>
+<p>Mayank wrote about <a href="https://www.mayank.co/blog/declarative-shadow-dom-guide">what the shadow <del>realm</del> DOM really does</a>. I guess web components aren’t bad, just misunderstood?</p>
+</li>
+<li>
+<p>KRAZAM shared some <a href="https://www.youtube.com/watch?v=ia8Q51ouA_s">positive affirmations for site reliability engineers</a>. Going to thank my therapist for rejecting that DevOps offer next time.</p>
+</li>
+<li>
+<p>Tomek Sułkowski wrote about how <a href="https://blog.stackblitz.com/posts/webcontainers-starters-update/">StackBlitz updated all of their starters to run on WebContainers</a>. This lets you instantly spin up a working, shareable prototype project in React, Vite, Svelte, Qwik, and 60+ other technologies — no local config required. [sponsored]</p>
+</li>
+<li>
+<p>Van Neistat shares <a href="https://www.youtube.com/watch?v=Hm4mr7jzSpQ">7 principles to stop being late</a>. No, “T-Shirt sizing sessions” didn’t make the list.</p>
+</li>
+<li>
+<p>“I wonder if many web apps these days will become piles of primordial ooze over time.” Is that a terrible Slimer quote from the new Ghostbusters, or a hot take on the web dev industry? <a href="https://thecodist.com/i-am-happy-not-to-be-a-web-developer-anymore/">Click to find out.</a></p>
+</li>
+<li>
+<p>Alex Riviere drops his new hit single, <a href="https://alex.party/posts/2024-02-29-the-devrel-went-down-to-georgia">The DevRel went down to Georgia</a>. Makes me want to revive my old cover band, Florida Georgia Linebreak.</p>
+</li>
+<li>
+<p>Here’s what <a href="https://papereditor.app/dev">9 years of building an iOS markdown editor</a> looks like. No jokes, it’s the best deep dive on maintaining a project I’ve read.</p>
+</li>
+<li>
+<p>Callstack is hosting a free webinar on <a href="https://www.callstack.com/events/improving-performance-of-a-react-native-app-expensify-case-study">Improving performance of a React Native App</a> on March 20th. They’ll be walking through a case study on Expensify’s RN app, and show how they were able to identify and fix performance issues. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://storybook.js.org/blog/storybook-8/">Storybook 8</a> just came out with built-in visual testing, RSC support, 2-4x faster builds, and more.</p>
+</li>
+<li>
+<p>Elm creator, Evan Czaplicki spoke about <a href="https://www.youtube.com/watch?v=XZ3w_jec1v8">the economics of open source programming languages</a>. Wait, so you don’t need to build a database platform to make money? <span role="img" aria-label="grimacing face">😬</span></p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter&amp;utm_source=bytes&amp;utm_campaign=mar24_newsletter">FusionAuth</a></h4></div></div>
+<p>When the class assigns the name and age properties, it calls the setters, which in turn call themselves. This creates an infinite loop and will throw a “Maximum call stack size exceeded” error. To fix this, you should use different names for the properties and the setters.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">set</span> <span class="token function">name</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_name <span class="token operator">=</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">set</span> <span class="token function">age</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_age <span class="token operator">=</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">get</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">get</span> <span class="token function">age</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_age<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">printAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Astro just launched a database","date":"2024-03-14","featuredImage":"/images/content/floppy-disk-man.jpg","description":"The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps becoming piles of primordial ooze.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e The DevRel went down to Georgia, positive affirmations for site reliability engineers, and web apps that become piles of primordial ooze.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/271\"\u003e#271\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/floppy-disk-man.jpg\" alt=\"Guy posing for a picture with a floppy disk\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eBen Holmes showing off the latest edition of Astro DB\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eAstro just launched a database\u003c/h3\u003e\u003cp\u003eYes, you read that correctly. And no, this isn’t an early April Fool’s joke.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://astro.build/db/\"\u003eAstro DB\u003c/a\u003e is a fast, fully managed SQL database designed exclusively for Astro sites. But before we dig into how it’s different from the 50 other database offerings out there, let’s take a closer look at why and how they built it.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWhy they did it:\u003c/strong\u003e Since they first introduced their Islands architecture, Astro has always been focused on building content-driven websites. They doubled down on that use case when they launched \u003ca href=\"https://astro.build/blog/introducing-content-collections/\"\u003eContent Collections\u003c/a\u003e last year to provide a “TypeScript for your Markdown” experience.\u003c/p\u003e\u003cp\u003eDevelopers loved it, but Astro didn’t want to stop there. They had their eyes set on the granddaddy of them all — WordPress. And one of the biggest drivers of WP’s popularity is its built-in database.\u003c/p\u003e\u003cp\u003eWordPress smartly understood that all content is data, so they gave users a simple way to manage all of their article content, pages, images, blocks, and plugins in one place. Astro wanted to do the same thing for their own users, but doing so meant they’d have to go beyond static repo data and step into the deep waters of database land.\u003c/p\u003e\u003cp\u003eThe problem? Databases, historically, don’t have the best DX…\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHow they built it:\u003c/strong\u003e They started by trying to build SQLite into Astro itself, but ran into a few blockers, one of which was imagining what would happen when a JavaScript developer realized their C++ binary failed to compile.\u003c/p\u003e\u003cp\u003eThis caused them to put the idea on hold for a while, until they discovered \u003ca href=\"https://github.com/tursodatabase/libsql\"\u003elibSQL\u003c/a\u003e — a fork of SQLite created by the \u003ca href=\"https://turso.tech/\"\u003eTurso\u003c/a\u003e team that offered a more modern, lightweight DB client for JavaScript/TypeScript.\u003c/p\u003e\u003cp\u003eAstro immediately fell in love with libSQL, because it worked everywhere without any extra dependencies or services. According to FKS (Astro’s co-creator), “libSQL allowed us to rethink the product in a way that makes the database a core part of the experience that is always there.”\u003c/p\u003e\u003cp\u003eAnd as we all know from our abstinence-based sex ed classes, when a framework and a database love each other very much, something beautiful like \u003ca href=\"https://astro.build/db/\"\u003eAstro DB\u003c/a\u003e is born.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eSo what does Astro DB actually give you?\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAutomatically configured:\u003c/strong\u003e As soon as you start up your dev server, you get a fully local libSQL database, along with the schema, the seed file, and a type-safe ORM (Drizzle). You don’t have to worry about configuration, provisioning, or setup at all.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFree tier that scales:\u003c/strong\u003e Astro DB automatically scales up to meet demand, then scales back down to $0 when inactive. And because of Turso’s \u003ca href=\"https://turso.tech/blog/give-each-of-your-users-their-own-sqlite-database-b74445f4\"\u003edatabase per tenant model\u003c/a\u003e, Astro DB can cheaply spin up hundreds of thousands of DB’s on demand — so you don’t need to worry about them rug-pulling their free tier.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGet started fast:\u003c/strong\u003e You can create a new DB for your Astro project in 30 seconds, leaving you with plenty of time to worry about the existential dread of getting users.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e This is the first time we’ve seen Astro-the-company try to make money, but if they really can deliver a next-gen WordPress experience for developers, I think they may be onto something.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/271\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F271\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20did%20a%20deep%20dive%20on%20the%20brand%20new%20Astro%20DB.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F271\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20did%20a%20deep%20dive%20on%20the%20brand%20new%20Astro%20DB.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F271\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/sonar-logo.png\" alt=\"Sonar logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/vader-skipping.jpg\" alt=\"Darth Vader skipping in the countryside\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eTfw you know your code is squeaky clean\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration\"\u003eLearn how to implement static code analysis — in-depth webinar\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eYour team probably already does some form of unit or end-to-end testing — but how do you check to see if your code is reliable, maintainable, and secure?\u003c/p\u003e\u003cp\u003eThe answer is static code analysis, and Sonar is hosting a free \u003ca href=\"https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration\"\u003ein-depth webinar\u003c/a\u003e on April 17th that will dive deep on the topic.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s what you’ll learn:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eWhat static code analyzers do, and how they give you more power than static type checkers like TypeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHow to \u003ca href=\"https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration\"\u003ego beyond your test runner\u003c/a\u003e to get helpful insights about your code quality.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHow to ship new features faster with code that is always secure, maintainable, and reliable.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eSound interesting? \u003ca href=\"https://sonarsource.zoom.us/webinar/register/6417098884931/WN_5lyQNJByQOeTyU222LRSrQ#/registration\"\u003eSign up today\u003c/a\u003e and learn how to reduce the chaos in your codebase — for free.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter\u0026amp;utm_source=bytes\u0026amp;utm_campaign=mar24_newsletter\"\u003eFusionAuth\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey created this free whitepaper on \u003ca href=\"https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter\u0026amp;utm_source=bytes\u0026amp;utm_campaign=mar24_newsletter\"\u003eHow to implement passkeys\u003c/a\u003e into your app to improve user security, and why they’re better than traditional passwords.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePerson\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e age\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e age\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eset\u003c/span\u003e \u003cspan class=\"token function\"\u003ename\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e value\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eset\u003c/span\u003e \u003cspan class=\"token function\"\u003eage\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e value\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eprintName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eprintAge\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"130\" src=\"https://bytes.dev/images/content/ben-cool.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eBen's Bits\u003c/h2\u003e\u003c/div\u003e\u003cp\u003eWell, it sure has Ben a while. This list Byte-er be good!\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eMayank wrote about \u003ca href=\"https://www.mayank.co/blog/declarative-shadow-dom-guide\"\u003ewhat the shadow \u003cdel\u003erealm\u003c/del\u003e DOM really does\u003c/a\u003e. I guess web components aren’t bad, just misunderstood?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKRAZAM shared some \u003ca href=\"https://www.youtube.com/watch?v=ia8Q51ouA_s\"\u003epositive affirmations for site reliability engineers\u003c/a\u003e. Going to thank my therapist for rejecting that DevOps offer next time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTomek Sułkowski wrote about how \u003ca href=\"https://blog.stackblitz.com/posts/webcontainers-starters-update/\"\u003eStackBlitz updated all of their starters to run on WebContainers\u003c/a\u003e. This lets you instantly spin up a working, shareable prototype project in React, Vite, Svelte, Qwik, and 60+ other technologies — no local config required. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVan Neistat shares \u003ca href=\"https://www.youtube.com/watch?v=Hm4mr7jzSpQ\"\u003e7 principles to stop being late\u003c/a\u003e. No, “T-Shirt sizing sessions” didn’t make the list.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e“I wonder if many web apps these days will become piles of primordial ooze over time.” Is that a terrible Slimer quote from the new Ghostbusters, or a hot take on the web dev industry? \u003ca href=\"https://thecodist.com/i-am-happy-not-to-be-a-web-developer-anymore/\"\u003eClick to find out.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex Riviere drops his new hit single, \u003ca href=\"https://alex.party/posts/2024-02-29-the-devrel-went-down-to-georgia\"\u003eThe DevRel went down to Georgia\u003c/a\u003e. Makes me want to revive my old cover band, Florida Georgia Linebreak.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHere’s what \u003ca href=\"https://papereditor.app/dev\"\u003e9 years of building an iOS markdown editor\u003c/a\u003e looks like. No jokes, it’s the best deep dive on maintaining a project I’ve read.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCallstack is hosting a free webinar on \u003ca href=\"https://www.callstack.com/events/improving-performance-of-a-react-native-app-expensify-case-study\"\u003eImproving performance of a React Native App\u003c/a\u003e on March 20th. They’ll be walking through a case study on Expensify’s RN app, and show how they were able to identify and fix performance issues. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://storybook.js.org/blog/storybook-8/\"\u003eStorybook 8\u003c/a\u003e just came out with built-in visual testing, RSC support, 2-4x faster builds, and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eElm creator, Evan Czaplicki spoke about \u003ca href=\"https://www.youtube.com/watch?v=XZ3w_jec1v8\"\u003ethe economics of open source programming languages\u003c/a\u003e. Wait, so you don’t need to build a database platform to make money? \u003cspan role=\"img\" aria-label=\"grimacing face\"\u003e😬\u003c/span\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://fusionauth.io/tech-papers/why-passkeys-improve-user-security-how-to-implement-them?utm_medium=newsletter\u0026amp;utm_source=bytes\u0026amp;utm_campaign=mar24_newsletter\"\u003eFusionAuth\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhen the class assigns the name and age properties, it calls the setters, which in turn call themselves. This creates an infinite loop and will throw a “Maximum call stack size exceeded” error. To fix this, you should use different names for the properties and the setters.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePerson\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e age\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_age \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e age\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eset\u003c/span\u003e \u003cspan class=\"token function\"\u003ename\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e value\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eset\u003c/span\u003e \u003cspan class=\"token function\"\u003eage\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003evalue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_age \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e value\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eget\u003c/span\u003e \u003cspan class=\"token function\"\u003ename\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_name\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003eget\u003c/span\u003e \u003cspan class=\"token function\"\u003eage\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_age\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eprintName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_name\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token function\"\u003eprintAge\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_age\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"271"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"271"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

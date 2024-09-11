@@ -1,0 +1,303 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #55 - Kaboom goes the dynamite</title><link rel="canonical" href="https://bytes.dev/archives/55"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, hope you brought your umbrella – because it&#x27;s officially Framework Week, and we&#x27;re about to make the abstractions rain."/><meta property="og:url" content="https://bytes.dev/archives/55"/><meta property="og:title" content="Bytes #55 - Kaboom goes the dynamite"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/war.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, hope you brought your umbrella – because it&#x27;s officially Framework Week, and we&#x27;re about to make the abstractions rain."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #55 - Kaboom goes the dynamite"/><meta property="twitter:description" content="This issue, hope you brought your umbrella – because it&#x27;s officially Framework Week, and we&#x27;re about to make the abstractions rain."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/war.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Kaboom goes the dynamite</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->55<!-- -->.</span><span class="mr-6 font-bold">July 5, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Hope you brought your umbrella – because it’s officially <strong>Framework Week</strong>, and we’re about to make the abstractions rain. Welcome to #55.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/war.png" alt="Mark Zuckerberg">
+</p><p class="image-alt">Zuck off to fight in the framework wars</p><p></p>
+<h2>SolidJS –a new (but familiar) JavaScript framework</h2>
+<p>Last week, <a href="https://www.solidjs.com/">SolidJS</a> released v1.0 of their “declarative, efficient and flexible JavaScript library for building user interfaces.”</p>
+<p>If that sounds a little (or a lot) like React to you, buckle up because Solid also supports most React features like Fragments, Portals, Context, Concurrent Rendering, SSR &amp; Hydration, and more.</p>
+<p><a href="https://twitter.com/RyanCarniato">Ryan Carniato</a> (Solid’s creator) has said that his goal was to provide “all the flexibility of React and the simple mental model of Svelte.”</p>
+<p>Here’s a few ways the framework does that:</p>
+<ul>
+<li>
+<p><strong>No Virtual DOM</strong> –  Instead, every part of Solid (including its renderer) is built on the same foundation of composable “reactive primitives” that you’ll use to build your app – which also means that every part of Solid is extensible.</p>
+</li>
+<li>
+<p><strong>Expressive AF</strong> – Despite no VDOM, all Solid apps are built using JavaScript/TypeScript and JSX (your JSX elements are just real DOM nodes). And because the compiler optimizes only the JSX (and nothing else), you have the full language at your disposal.</p>
+</li>
+<li>
+<p><strong>Fast &amp; Furious</strong> – Solid’s “reactive primitives” approach gives it <em>Dom-Toretto-hitting-the-NOS-boosters</em> levels of speed. The framework tops pretty much every performance and memory utilization <a href="https://krausest.github.io/js-framework-benchmark/current.html">benchmark</a> that you’d ever care about (and many that you wouldn’t) .</p>
+</li>
+</ul>
+<p><strong>Want to see it in action?</strong> Check out this <a href="https://www.youtube.com/watch?v=P-AGz3U8lFY">25-minute video</a> where we demo’d how to build a color transformation tool and dad joke search app with SolidJS.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/ricky.png" alt="Ricky Bobby">
+</p><p class="image-alt">I wanna go fast</p><p></p>
+<h2>Qwik – A new HTML-first framework that wants to go fast</h2>
+<p>You can always tell something is <em>cool-and-edgy</em> when it intentionally misspells its own name – Boyz II Men, Linkin Park, Froot Loops.</p>
+<p>And now there’s <a href="https://github.com/builderio/qwik">Qwik</a> – a bleeding edge, HTML-first framework created by Miško Hevery (some dude who apparently created this other framework called Angular??).</p>
+<p>Qwik’s goal is to crush the <a href="https://web.dev/interactive/">time-to-interactive</a> metric by serving static pages to the user (so they’re fast), while still retaining all of their interactivity. It does this by storing all of your app info in the DOM/HTML and by “focusing on resumability of server-side-rendering of HTML, and fine-grained lazy-loading of code.”</p>
+<p>That’s a lot to break down, but here’s the qwik-and-dirty:</p>
+<ul>
+<li>
+<p><strong><a href="https://github.com/BuilderIO/qwik/blob/main/docs/MENTAL_MODEL.md#dom-centric">DOM-centric</a></strong> – Storing your app’s Qwik <code>Component</code>s, <code>Entity</code>s, and <code>Event</code>s in the DOM means that your app can be easily re-hydrated, because the Qwik framework has no runtime info that needs to be recreated on the client</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/BuilderIO/qwik/blob/main/docs/RESUMABLE.md#dom-centric-frameworks-are-resumable">Resumablility</a></strong> – Qwik serializes your app so that those components and entities can be sent over HTML and resumed later, enabling fast startup times regardless of app size</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/BuilderIO/qwik/blob/main/docs/LAZY_LOADING.md#fine-grained-lazy-loading">Xtreme Lazy-loading</a></strong> – Almost all Qwik APIs can be called asynchronously so that lazy-loading can be inserted when needed, which can drastically reduce the amount of code that needs to be downloaded and executed</p>
+</li>
+</ul>
+<p>Check out Qwik’s <a href="https://stackblitz.com/edit/qwik-todo-demo">live demo</a> to see it all in action, and be sure to tell all your friends to subscribe to <strong>Bytez</strong> – the <em>coolest-and-edgiest</em> newsletter on the Net.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>(<span role="img" aria-label="crown">👑</span>) Sarah Drasner created a <a href="https://marketplace.visualstudio.com/items?itemName=sdras.fortnite-vscode-theme">Fortnite VSCode theme</a> that’ll trick your brain into thinking you’re a kid playing a fun video game, instead of an adult working for a company whose idea of “fun” is everyone ringing a gong every time they sell something to another company.</p>
+</li>
+<li>
+<p>Surma wrote about <a href="https://www.smashingmagazine.com/2021/06/web-workers-2021/">The State of Web Workers in 2021</a> and how they can still be “a useful tool, despite their bad rep” (just like that bro in the stringer tank top who occasionally spots you at the gym).</p>
+</li>
+<li>
+<p><a href="https://principles.dev/">Principles.dev</a> is a community-created list of principles used in software engineering and team leadership. Pretty sure that Principle #1 is “Make sure all developers are properly educated on all <a href="https://twitter.com/jna_sh/status/1410178986978775040">Infinidash</a> features.”</p>
+</li>
+<li>
+<p>Ania Kubow made an awesome video on <a href="https://www.youtube.com/watch?v=2nucjefSr6I">coding Mario in JavaScript</a> using the Kaboom.js library – and Kaboom goes the dynamite.</p>
+</li>
+<li>
+<p><a href="https://tauri.studio/en/">Tauri</a> is a framework for building small, fast desktop apps with a web frontend. We’re still waiting on the framework for building large, slow apps –&nbsp;cowards.</p>
+</li>
+<li>
+<p>Henrik and Andre created <a href="https://yetanother.blog/2021-06-24-introducing-indiepen-a-privacy-friendly-tool-to-embed-html-css-js-code-examples/">IndiePen</a>, a privacy-friendly tool to embed HTML, CSS, and JS code examples that <em>doesn’t</em> embed cookies. Too bad I gave up on privacy a long time ago when I decided to download Numb Encore from Limewire on the family computer.</p>
+</li>
+<li>
+<p>The <a href="https://tldr.tech/?utm_source=bytes">TLDR Newsletter</a> is a free daily newsletter with links and TLDRs for the most interesting stories in tech, science, and coding. It’s covers a broader scope of topics than Bytes, but it’s a good way to stay informed on stuff beyond just the JavaScript ecosystem (if you’re into that sort of thing). [Sponsored]</p>
+</li>
+<li>
+<p>GitHub just announced <a href="https://copilot.github.com/">Copilot</a> – “your new AI pair programmer” that’s powered by OpenAI and trained on billions of lines of public code. Does anyone have opinions on this? We’ve been looking everywhere and can’t find any.</p>
+</li>
+</ol>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://jobs.lever.co/close.io/10a1e32b-1a59-48dc-b8f4-e6f0dfae4e20?lever-origin=applied&amp;lever-source%5B%5D=ReactNewsletter">2x Sr. Frontend Engineers - React | 100% Remote</a></h3>
+<p>Close.com is looking for two experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. They are a 100% globally distributed team of ~45 high-performing, happy people that are dedicated to building a product our customers love.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Kaboom goes the dynamite","date":"2021-07-05","description":"This issue, hope you brought your umbrella – because it's officially Framework Week, and we're about to make the abstractions rain.","featuredImage":"https://bytes.dev/images/content/war.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHope you brought your umbrella – because it’s officially \u003cstrong\u003eFramework Week\u003c/strong\u003e, and we’re about to make the abstractions rain. Welcome to #55.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/war.png\" alt=\"Mark Zuckerberg\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eZuck off to fight in the framework wars\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eSolidJS –a new (but familiar) JavaScript framework\u003c/h2\u003e\n\u003cp\u003eLast week, \u003ca href=\"https://www.solidjs.com/\"\u003eSolidJS\u003c/a\u003e released v1.0 of their “declarative, efficient and flexible JavaScript library for building user interfaces.”\u003c/p\u003e\n\u003cp\u003eIf that sounds a little (or a lot) like React to you, buckle up because Solid also supports most React features like Fragments, Portals, Context, Concurrent Rendering, SSR \u0026amp; Hydration, and more.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/RyanCarniato\"\u003eRyan Carniato\u003c/a\u003e (Solid’s creator) has said that his goal was to provide “all the flexibility of React and the simple mental model of Svelte.”\u003c/p\u003e\n\u003cp\u003eHere’s a few ways the framework does that:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNo Virtual DOM\u003c/strong\u003e –  Instead, every part of Solid (including its renderer) is built on the same foundation of composable “reactive primitives” that you’ll use to build your app – which also means that every part of Solid is extensible.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eExpressive AF\u003c/strong\u003e – Despite no VDOM, all Solid apps are built using JavaScript/TypeScript and JSX (your JSX elements are just real DOM nodes). And because the compiler optimizes only the JSX (and nothing else), you have the full language at your disposal.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast \u0026amp; Furious\u003c/strong\u003e – Solid’s “reactive primitives” approach gives it \u003cem\u003eDom-Toretto-hitting-the-NOS-boosters\u003c/em\u003e levels of speed. The framework tops pretty much every performance and memory utilization \u003ca href=\"https://krausest.github.io/js-framework-benchmark/current.html\"\u003ebenchmark\u003c/a\u003e that you’d ever care about (and many that you wouldn’t) .\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eWant to see it in action?\u003c/strong\u003e Check out this \u003ca href=\"https://www.youtube.com/watch?v=P-AGz3U8lFY\"\u003e25-minute video\u003c/a\u003e where we demo’d how to build a color transformation tool and dad joke search app with SolidJS.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/ricky.png\" alt=\"Ricky Bobby\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eI wanna go fast\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eQwik – A new HTML-first framework that wants to go fast\u003c/h2\u003e\n\u003cp\u003eYou can always tell something is \u003cem\u003ecool-and-edgy\u003c/em\u003e when it intentionally misspells its own name – Boyz II Men, Linkin Park, Froot Loops.\u003c/p\u003e\n\u003cp\u003eAnd now there’s \u003ca href=\"https://github.com/builderio/qwik\"\u003eQwik\u003c/a\u003e – a bleeding edge, HTML-first framework created by Miško Hevery (some dude who apparently created this other framework called Angular??).\u003c/p\u003e\n\u003cp\u003eQwik’s goal is to crush the \u003ca href=\"https://web.dev/interactive/\"\u003etime-to-interactive\u003c/a\u003e metric by serving static pages to the user (so they’re fast), while still retaining all of their interactivity. It does this by storing all of your app info in the DOM/HTML and by “focusing on resumability of server-side-rendering of HTML, and fine-grained lazy-loading of code.”\u003c/p\u003e\n\u003cp\u003eThat’s a lot to break down, but here’s the qwik-and-dirty:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/BuilderIO/qwik/blob/main/docs/MENTAL_MODEL.md#dom-centric\"\u003eDOM-centric\u003c/a\u003e\u003c/strong\u003e – Storing your app’s Qwik \u003ccode\u003eComponent\u003c/code\u003es, \u003ccode\u003eEntity\u003c/code\u003es, and \u003ccode\u003eEvent\u003c/code\u003es in the DOM means that your app can be easily re-hydrated, because the Qwik framework has no runtime info that needs to be recreated on the client\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/BuilderIO/qwik/blob/main/docs/RESUMABLE.md#dom-centric-frameworks-are-resumable\"\u003eResumablility\u003c/a\u003e\u003c/strong\u003e – Qwik serializes your app so that those components and entities can be sent over HTML and resumed later, enabling fast startup times regardless of app size\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/BuilderIO/qwik/blob/main/docs/LAZY_LOADING.md#fine-grained-lazy-loading\"\u003eXtreme Lazy-loading\u003c/a\u003e\u003c/strong\u003e – Almost all Qwik APIs can be called asynchronously so that lazy-loading can be inserted when needed, which can drastically reduce the amount of code that needs to be downloaded and executed\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCheck out Qwik’s \u003ca href=\"https://stackblitz.com/edit/qwik-todo-demo\"\u003elive demo\u003c/a\u003e to see it all in action, and be sure to tell all your friends to subscribe to \u003cstrong\u003eBytez\u003c/strong\u003e – the \u003cem\u003ecoolest-and-edgiest\u003c/em\u003e newsletter on the Net.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e(\u003cspan role=\"img\" aria-label=\"crown\"\u003e👑\u003c/span\u003e) Sarah Drasner created a \u003ca href=\"https://marketplace.visualstudio.com/items?itemName=sdras.fortnite-vscode-theme\"\u003eFortnite VSCode theme\u003c/a\u003e that’ll trick your brain into thinking you’re a kid playing a fun video game, instead of an adult working for a company whose idea of “fun” is everyone ringing a gong every time they sell something to another company.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSurma wrote about \u003ca href=\"https://www.smashingmagazine.com/2021/06/web-workers-2021/\"\u003eThe State of Web Workers in 2021\u003c/a\u003e and how they can still be “a useful tool, despite their bad rep” (just like that bro in the stringer tank top who occasionally spots you at the gym).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://principles.dev/\"\u003ePrinciples.dev\u003c/a\u003e is a community-created list of principles used in software engineering and team leadership. Pretty sure that Principle #1 is “Make sure all developers are properly educated on all \u003ca href=\"https://twitter.com/jna_sh/status/1410178986978775040\"\u003eInfinidash\u003c/a\u003e features.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAnia Kubow made an awesome video on \u003ca href=\"https://www.youtube.com/watch?v=2nucjefSr6I\"\u003ecoding Mario in JavaScript\u003c/a\u003e using the Kaboom.js library – and Kaboom goes the dynamite.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tauri.studio/en/\"\u003eTauri\u003c/a\u003e is a framework for building small, fast desktop apps with a web frontend. We’re still waiting on the framework for building large, slow apps –\u0026nbsp;cowards.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHenrik and Andre created \u003ca href=\"https://yetanother.blog/2021-06-24-introducing-indiepen-a-privacy-friendly-tool-to-embed-html-css-js-code-examples/\"\u003eIndiePen\u003c/a\u003e, a privacy-friendly tool to embed HTML, CSS, and JS code examples that \u003cem\u003edoesn’t\u003c/em\u003e embed cookies. Too bad I gave up on privacy a long time ago when I decided to download Numb Encore from Limewire on the family computer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ca href=\"https://tldr.tech/?utm_source=bytes\"\u003eTLDR Newsletter\u003c/a\u003e is a free daily newsletter with links and TLDRs for the most interesting stories in tech, science, and coding. It’s covers a broader scope of topics than Bytes, but it’s a good way to stay informed on stuff beyond just the JavaScript ecosystem (if you’re into that sort of thing). [Sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGitHub just announced \u003ca href=\"https://copilot.github.com/\"\u003eCopilot\u003c/a\u003e – “your new AI pair programmer” that’s powered by OpenAI and trained on billions of lines of public code. Does anyone have opinions on this? We’ve been looking everywhere and can’t find any.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://jobs.lever.co/close.io/10a1e32b-1a59-48dc-b8f4-e6f0dfae4e20?lever-origin=applied\u0026amp;lever-source%5B%5D=ReactNewsletter\"\u003e2x Sr. Frontend Engineers - React | 100% Remote\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eClose.com is looking for two experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. They are a 100% globally distributed team of ~45 high-performing, happy people that are dedicated to building a product our customers love.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"55"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"55"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

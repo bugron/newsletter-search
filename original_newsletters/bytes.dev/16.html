@@ -1,0 +1,377 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #16 - @decorators are sus</title><link rel="canonical" href="https://bytes.dev/archives/16"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="MobX 6 released, Elsa sets off an eternal winter, and profiting off the OSS community."/><meta property="og:url" content="https://bytes.dev/archives/16"/><meta property="og:title" content="Bytes #16 - @decorators are sus"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/mobx-decorators.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="MobX 6 released, Elsa sets off an eternal winter, and profiting off the OSS community."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #16 - @decorators are sus"/><meta property="twitter:description" content="MobX 6 released, Elsa sets off an eternal winter, and profiting off the OSS community."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/mobx-decorators.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">@decorators are sus</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->16<!-- -->.</span><span class="mr-6 font-bold">October 5, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>As you can (hopefully) tell, we try to keep self promotion on here to a minimum. With that said… we think we run the best developer IG account in the game and you should <a href="https://www.instagram.com/uidotdev_/">check it out</a>. Unfortunately, we’re not good looking enough to just take selfies with VSCode open in the background, so we’re forced to improvise.</p>
+<hr>
+<h2><a href="https://github.com/mobxjs/mobx/blob/mobx6/CHANGELOG.md">MobX 6 Released</a></h2>
+<p><img src="https://bytes.dev/images/content/mobx-decorators.jpg" alt="mobx killing decorators">
+</p><p class="image-alt">@decorators are sus</p><p></p>
+<p><strong>It’s been 5.5 years…</strong> The world was fascinated with Manitowoc County, we were all arguing over what color a dress was, and the first commit was made to MobX. Things were a lot different in 2015, but last week’s v6 release shows that MobX is still plugging away on its original vision of “simple, scalable state management.”</p>
+<p><a href="https://twitter.com/mweststrate">Michel Weststrate</a> (the Mob-Father himself) says that this release isn’t jam-packed with new features but is more of a “consolidation on the current state of affairs in JavaScript”.</p>
+<p>Here are the <strong>major highlights:</strong></p>
+<ul>
+<li>
+<p><strong><span role="img" aria-label="waving hand">👋</span> Bye bye Decorators (kind of):</strong> MobX was the first large JavaScript library (that I’m aware of please don’t email me) to lean into Decorators for its public API, now it’s singing Tom Petty and having a change of heart. That said, they are still supported, but with a totally different implementation that <em>actually works</em> with the current TypeScript and Babel implementations. This is arguably the biggest change in v6, since historically requiring the use of decorators has turned off a lot of devs.</p>
+</li>
+<li>
+<p><strong><code>makeAutoObservable</code>:</strong> This new convenience utility automates the annotation process by automatically picking the best annotation for every member of a class. This should be especially helpful, now that those annotations are no longer adjacent to the fields they are decorating (see above).</p>
+</li>
+<li>
+<p><strong>Support for more Browsers:</strong> MobX 5 required Proxy support,which made it unsuitable for IE and React Native. MobX 6 still does, but you can opt out of it if you need to support older engines.</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>v6 definitely seems geared towards making MobX more approachable for developers who haven’t used it before, while doubling down on features that its long-time users love. It’s a solid release from everyone’s favorite state management solution (**besides component state, context, Redux, and Recoil).</p>
+<p>** That’s a joke, MobX is great.</p>
+<hr>
+<h2><a href="https://github.com/elsaland/elsa">Elsa - A New Runtime with a Modern Twist</a></h2>
+<p><img src="https://bytes.dev/images/content/iceking.jpg" alt="Ice King">
+</p><p class="image-alt">The one true Elsa</p><p></p>
+<p><strong>You get a runtime! And <em>you</em> get a runtime!</strong> These new runtimes are popping up everywhere in 2020. Elsa is the latest one - it was released last week as a “minimal, fast, and secure” runtime for JavaScript and TypeScript that’s written in Go. <em>We’re still waiting for the bloated, slow, and insecure runtime to be released. No word yet.</em></p>
+<p>Here are the three main things that differentiate Elsa from <strong>The Anagrams™</strong> (AKA Node &amp; Deno):</p>
+<p><strong>1. Different engine:</strong> Instead of V8 (the JS engine, not the juice), Elsa uses QuickJS and ESBuild. QuickJS is a small and embeddable engine that claims a better startup time than V8, although it’s not nearly as full-featured. ESBuild is an extremely fast builder and minifier that’s also written in Go and was created by Evan Wallace, the CTO of Figma.</p>
+<p>This combo of QuickJS and ESBuild could potentially make Elsa an attractive option for CLI apps even if it does mean that it’s not the best option for other projects that require more runtime functionality.</p>
+<p><strong>2. Minimal but extendable:</strong> The Elsa team’s goal was to create a runtime that could “fullfil the bare minimum requirements” for basic projects but still be extendable via plugins. A few features that aren’t currently included, but could be added via extensions, include tools for formatting, linting, and analysis.</p>
+<p><strong>3. Not built by Ryan Dahl:</strong> At least we don’t <em>think</em> it is. But it turns out that the 3 Elsa creators are all Deno contributors as well, so who knows.</p>
+<p>Other noteworthy Elsa features include URL based imports, module caching, and the ability to easily bundle your script into a single file. Check out <a href="https://github.com/elsaland/elsa/blob/master/COMPARISON.md">the full comparison of Elsa, Deno, and Node.js for more.</a></p>
+<h3>The Bottom Line</h3>
+<p>This project is still in experimental mode, so your co-workers will think you’re extra smart if you deploy it to production.</p>
+<hr>
+<h2>JS (React) Quiz - Answer Below</h2>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Function Definition</span>
+<span class="token keyword">function</span> <span class="token function">add</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Function Invocation</span>
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Class Component Definition</span>
+<span class="token keyword">class</span> <span class="token class-name">Icon</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Function Component Definition</span>
+<span class="token keyword">function</span> <span class="token function">Icon</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// What is this called?</span>
+<span class="token operator">&lt;</span>Icon <span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p>Domenic wrote about how DigitalOcean’s Hacktoberfest is really a <a href="https://blog.domenic.me/hacktoberfest/">“corporate-sponsored DDOS attack against the open source maintainer community.”</a>. **We’re also open to ideas on how we can profit off of the open source maintainer community. DMs are open.</p>
+</li>
+<li>
+<p><a href="https://fullstackui.com/">Fullstack UI has a new, free UI design course</a> that looks really high quality.</p>
+</li>
+<li>
+<p><a href="https://github.com/prabhuignoto/react-chrono">react-chrono is a modern timeline component</a> that makes it easy to visually plot key dates and events. <em>(March 2020: Quarantine begins…  April 2020: Everyone starts making bread.)</em></p>
+</li>
+<li>
+<p>Ryan wrote about <a href="https://ryangjchandler.co.uk/articles/running-github-actions-for-certain-commit-messages">how you can configure your GitHub Action’s workflows</a> to only run when a certain phrase is present in the commit message. What could go wrong?</p>
+</li>
+<li>
+<p><a href="https://github.com/bytedance/IconPark">ByteDance (TikTok’s parent company) open-sourced IconPark</a> - a library of 1,200 high-quality icons and an interface for customizing them. It’s the coolest thing they’ve given us since the <a href="https://www.youtube.com/watch?v=wFRCQg4PKDM">Savage dance</a>.</p>
+</li>
+<li>
+<p>The Dropbox team wrote <a href="https://dropbox.tech/application/jquery-to-react--how-we-rewrote-the-hellosign-editor">an in-depth article about how they re-wrote the HelloSign Editor from JQuery to React</a>.</p>
+</li>
+<li>
+<p><a href="https://projects.verou.me/parsel/?selector=%23foo+%3E+.bar+%2B+div.k1.k2+%5Bid%3D%27baz%27%5D%3Ahello%282%29%3Anot%28%3Awhere%28%23yolo%29%29%3A%3Abefore"><span role="img" aria-label="snake">🐍</span> Parsel is a tiny, permissive CSS selector parser</a> created by Lea Verou that will maybe also teach you how to speak to snakes?</p>
+</li>
+<li>
+<p>Eran wrote <a href="https://www.perfecto.io/blog/cypress-testing">a nice guide to getting started with Cypress</a>. You know, in case you’re into that whole “testing” fad.</p>
+</li>
+</ol>
+<hr>
+<h2>One Question Interview</h2>
+<h3>What does building for the web look like 5 years from now?</h3>
+<img class="section-image-avatar" src="https://ui.dev/images/events/liz.jpg" alt="Liz Parody">
+<p>“I think there will definitely be more tools for no-code, more automation, and new major libraries, (5 years ago JQuery was super popular, today is React, I think the future will bring a new one). I also think we’ll see simpler routing, deployments and maintainability, as well as more serverless development. Lastly, we’ll continue to see a lot more mobile development.”</p>
+<ul>
+<li><a href="https://twitter.com/lizparody23">Liz Parody (Head of Developer Relations at NodeSource)</a></li>
+</ul>
+<p>Liz will be giving a <a href="https://ui.dev/events/">ui.dev Event</a> titled <strong>“Examining Observability in Node.js”</strong> this Thursday.</p>
+<hr>
+<h2>JS (React) Quiz - Answer</h2>
+<p>To get to the answer, let’s start by looking at the absolute fundamentals of React. What is React? It’s a library for building user interfaces. No matter how complex React or the React ecosystem seem to be, this is React at its core — building UIs. With this in mind, we arrive at our first definition, an “element”. Simply put, a React element describes what you want to see on the screen. Not so simply put, a React element is an object representation of a DOM node.</p>
+<p>In order to create a React element, we can use React’s <code>createElement</code> method.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> element <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+  <span class="token string">'div'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span><span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'login-btn'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">'Login'</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>When it’s rendered to the DOM (using <code>ReactDOM.render</code>), we’ll have a new DOM node that looks like this,</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>login-btn<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>Login<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>We’re closer, but there’s still one more pieces of knowledge we need to answer the question and that is how JSX works “under the hood”.</p>
+<p>Web browsers don’t understand JSX, they do, however, understand JavaScript™. During compilation (usually with Babel), JSX gets transformed into regular old JavaScript (or more specifically, <code>React.createElement</code> invocations which we just learned about).</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// JSX</span>
+<span class="token keyword">function</span> <span class="token function">Button</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> addFriend <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>addFriend<span class="token punctuation">}</span><span class="token operator">&gt;</span>Add Friend<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">User</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name<span class="token punctuation">,</span> addFriend <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button addFriend<span class="token operator">=</span><span class="token punctuation">{</span>addFriend<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// After Compilation</span>
+<span class="token keyword">function</span> <span class="token function">Button</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> addFriend <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+    <span class="token string">"button"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token literal-property property">onClick</span><span class="token operator">:</span> addFriend <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"Add Friend"</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name<span class="token punctuation">,</span> addFriend <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+    <span class="token string">"div"</span><span class="token punctuation">,</span>
+    <span class="token keyword">null</span><span class="token punctuation">,</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+      <span class="token string">"p"</span><span class="token punctuation">,</span>
+      <span class="token keyword">null</span><span class="token punctuation">,</span>
+      name
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>Button<span class="token punctuation">,</span> <span class="token punctuation">{</span> addFriend <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>So finally, what do we call this, <code>&lt;Icon/&gt;</code>? We call it “creating an element” because after the JSX is compiled, that’s exactly what’s happening.</p>
+<p>For a much more in-depth post on the topic, visit <a href="https://ui.dev/react-elements-vs-react-components">React Elements vs React Components</a></p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"@decorators are sus","date":"2020-10-05","description":"MobX 6 released, Elsa sets off an eternal winter, and profiting off the OSS community.","featuredImage":"https://bytes.dev/images/content/mobx-decorators.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eAs you can (hopefully) tell, we try to keep self promotion on here to a minimum. With that said… we think we run the best developer IG account in the game and you should \u003ca href=\"https://www.instagram.com/uidotdev_/\"\u003echeck it out\u003c/a\u003e. Unfortunately, we’re not good looking enough to just take selfies with VSCode open in the background, so we’re forced to improvise.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/mobxjs/mobx/blob/mobx6/CHANGELOG.md\"\u003eMobX 6 Released\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/mobx-decorators.jpg\" alt=\"mobx killing decorators\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e@decorators are sus\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIt’s been 5.5 years…\u003c/strong\u003e The world was fascinated with Manitowoc County, we were all arguing over what color a dress was, and the first commit was made to MobX. Things were a lot different in 2015, but last week’s v6 release shows that MobX is still plugging away on its original vision of “simple, scalable state management.”\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/mweststrate\"\u003eMichel Weststrate\u003c/a\u003e (the Mob-Father himself) says that this release isn’t jam-packed with new features but is more of a “consolidation on the current state of affairs in JavaScript”.\u003c/p\u003e\n\u003cp\u003eHere are the \u003cstrong\u003emajor highlights:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Bye bye Decorators (kind of):\u003c/strong\u003e MobX was the first large JavaScript library (that I’m aware of please don’t email me) to lean into Decorators for its public API, now it’s singing Tom Petty and having a change of heart. That said, they are still supported, but with a totally different implementation that \u003cem\u003eactually works\u003c/em\u003e with the current TypeScript and Babel implementations. This is arguably the biggest change in v6, since historically requiring the use of decorators has turned off a lot of devs.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ccode\u003emakeAutoObservable\u003c/code\u003e:\u003c/strong\u003e This new convenience utility automates the annotation process by automatically picking the best annotation for every member of a class. This should be especially helpful, now that those annotations are no longer adjacent to the fields they are decorating (see above).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSupport for more Browsers:\u003c/strong\u003e MobX 5 required Proxy support,which made it unsuitable for IE and React Native. MobX 6 still does, but you can opt out of it if you need to support older engines.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003ev6 definitely seems geared towards making MobX more approachable for developers who haven’t used it before, while doubling down on features that its long-time users love. It’s a solid release from everyone’s favorite state management solution (**besides component state, context, Redux, and Recoil).\u003c/p\u003e\n\u003cp\u003e** That’s a joke, MobX is great.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/elsaland/elsa\"\u003eElsa - A New Runtime with a Modern Twist\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/iceking.jpg\" alt=\"Ice King\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe one true Elsa\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eYou get a runtime! And \u003cem\u003eyou\u003c/em\u003e get a runtime!\u003c/strong\u003e These new runtimes are popping up everywhere in 2020. Elsa is the latest one - it was released last week as a “minimal, fast, and secure” runtime for JavaScript and TypeScript that’s written in Go. \u003cem\u003eWe’re still waiting for the bloated, slow, and insecure runtime to be released. No word yet.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eHere are the three main things that differentiate Elsa from \u003cstrong\u003eThe Anagrams™\u003c/strong\u003e (AKA Node \u0026amp; Deno):\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e1. Different engine:\u003c/strong\u003e Instead of V8 (the JS engine, not the juice), Elsa uses QuickJS and ESBuild. QuickJS is a small and embeddable engine that claims a better startup time than V8, although it’s not nearly as full-featured. ESBuild is an extremely fast builder and minifier that’s also written in Go and was created by Evan Wallace, the CTO of Figma.\u003c/p\u003e\n\u003cp\u003eThis combo of QuickJS and ESBuild could potentially make Elsa an attractive option for CLI apps even if it does mean that it’s not the best option for other projects that require more runtime functionality.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e2. Minimal but extendable:\u003c/strong\u003e The Elsa team’s goal was to create a runtime that could “fullfil the bare minimum requirements” for basic projects but still be extendable via plugins. A few features that aren’t currently included, but could be added via extensions, include tools for formatting, linting, and analysis.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e3. Not built by Ryan Dahl:\u003c/strong\u003e At least we don’t \u003cem\u003ethink\u003c/em\u003e it is. But it turns out that the 3 Elsa creators are all Deno contributors as well, so who knows.\u003c/p\u003e\n\u003cp\u003eOther noteworthy Elsa features include URL based imports, module caching, and the ability to easily bundle your script into a single file. Check out \u003ca href=\"https://github.com/elsaland/elsa/blob/master/COMPARISON.md\"\u003ethe full comparison of Elsa, Deno, and Node.js for more.\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eThis project is still in experimental mode, so your co-workers will think you’re extra smart if you deploy it to production.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS (React) Quiz - Answer Below\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token comment\"\u003e// Function Definition\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eadd\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ex\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e y\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e x \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e y\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Function Invocation\u003c/span\u003e\n\u003cspan class=\"token function\"\u003eadd\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Class Component Definition\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eIcon\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eextends\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eReact\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eComponent\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Function Component Definition\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eIcon\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// What is this called?\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eIcon \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eDomenic wrote about how DigitalOcean’s Hacktoberfest is really a \u003ca href=\"https://blog.domenic.me/hacktoberfest/\"\u003e“corporate-sponsored DDOS attack against the open source maintainer community.”\u003c/a\u003e. **We’re also open to ideas on how we can profit off of the open source maintainer community. DMs are open.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://fullstackui.com/\"\u003eFullstack UI has a new, free UI design course\u003c/a\u003e that looks really high quality.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/prabhuignoto/react-chrono\"\u003ereact-chrono is a modern timeline component\u003c/a\u003e that makes it easy to visually plot key dates and events. \u003cem\u003e(March 2020: Quarantine begins…  April 2020: Everyone starts making bread.)\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRyan wrote about \u003ca href=\"https://ryangjchandler.co.uk/articles/running-github-actions-for-certain-commit-messages\"\u003ehow you can configure your GitHub Action’s workflows\u003c/a\u003e to only run when a certain phrase is present in the commit message. What could go wrong?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/bytedance/IconPark\"\u003eByteDance (TikTok’s parent company) open-sourced IconPark\u003c/a\u003e - a library of 1,200 high-quality icons and an interface for customizing them. It’s the coolest thing they’ve given us since the \u003ca href=\"https://www.youtube.com/watch?v=wFRCQg4PKDM\"\u003eSavage dance\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Dropbox team wrote \u003ca href=\"https://dropbox.tech/application/jquery-to-react--how-we-rewrote-the-hellosign-editor\"\u003ean in-depth article about how they re-wrote the HelloSign Editor from JQuery to React\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://projects.verou.me/parsel/?selector=%23foo+%3E+.bar+%2B+div.k1.k2+%5Bid%3D%27baz%27%5D%3Ahello%282%29%3Anot%28%3Awhere%28%23yolo%29%29%3A%3Abefore\"\u003e\u003cspan role=\"img\" aria-label=\"snake\"\u003e🐍\u003c/span\u003e Parsel is a tiny, permissive CSS selector parser\u003c/a\u003e created by Lea Verou that will maybe also teach you how to speak to snakes?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEran wrote \u003ca href=\"https://www.perfecto.io/blog/cypress-testing\"\u003ea nice guide to getting started with Cypress\u003c/a\u003e. You know, in case you’re into that whole “testing” fad.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eOne Question Interview\u003c/h2\u003e\n\u003ch3\u003eWhat does building for the web look like 5 years from now?\u003c/h3\u003e\n\u003cimg class=\"section-image-avatar\" src=\"https://ui.dev/images/events/liz.jpg\" alt=\"Liz Parody\"\u003e\n\u003cp\u003e“I think there will definitely be more tools for no-code, more automation, and new major libraries, (5 years ago JQuery was super popular, today is React, I think the future will bring a new one). I also think we’ll see simpler routing, deployments and maintainability, as well as more serverless development. Lastly, we’ll continue to see a lot more mobile development.”\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://twitter.com/lizparody23\"\u003eLiz Parody (Head of Developer Relations at NodeSource)\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eLiz will be giving a \u003ca href=\"https://ui.dev/events/\"\u003eui.dev Event\u003c/a\u003e titled \u003cstrong\u003e“Examining Observability in Node.js”\u003c/strong\u003e this Thursday.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS (React) Quiz - Answer\u003c/h2\u003e\n\u003cp\u003eTo get to the answer, let’s start by looking at the absolute fundamentals of React. What is React? It’s a library for building user interfaces. No matter how complex React or the React ecosystem seem to be, this is React at its core — building UIs. With this in mind, we arrive at our first definition, an “element”. Simply put, a React element describes what you want to see on the screen. Not so simply put, a React element is an object representation of a DOM node.\u003c/p\u003e\n\u003cp\u003eIn order to create a React element, we can use React’s \u003ccode\u003ecreateElement\u003c/code\u003e method.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e element \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreateElement\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token string\"\u003e'div'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token literal-property property\"\u003eid\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'login-btn'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token string\"\u003e'Login'\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen it’s rendered to the DOM (using \u003ccode\u003eReactDOM.render\u003c/code\u003e), we’ll have a new DOM node that looks like this,\u003c/p\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ediv\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eid\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e'\u003c/span\u003elogin-btn\u003cspan class=\"token punctuation\"\u003e'\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003eLogin\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ediv\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe’re closer, but there’s still one more pieces of knowledge we need to answer the question and that is how JSX works “under the hood”.\u003c/p\u003e\n\u003cp\u003eWeb browsers don’t understand JSX, they do, however, understand JavaScript™. During compilation (usually with Babel), JSX gets transformed into regular old JavaScript (or more specifically, \u003ccode\u003eReact.createElement\u003c/code\u003e invocations which we just learned about).\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token comment\"\u003e// JSX\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eButton\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ebutton onClick\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eaddFriend\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003eAdd Friend\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ebutton\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eUser\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ediv\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ep\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ep\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eButton addFriend\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003eaddFriend\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ediv\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// After Compilation\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eButton\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreateElement\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"token string\"\u003e\"button\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eonClick\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token string\"\u003e\"Add Friend\"\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eUser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreateElement\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"token string\"\u003e\"div\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003enull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreateElement\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n      \u003cspan class=\"token string\"\u003e\"p\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003enull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n      name\n    \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreateElement\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eButton\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e addFriend \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSo finally, what do we call this, \u003ccode\u003e\u0026lt;Icon/\u0026gt;\u003c/code\u003e? We call it “creating an element” because after the JSX is compiled, that’s exactly what’s happening.\u003c/p\u003e\n\u003cp\u003eFor a much more in-depth post on the topic, visit \u003ca href=\"https://ui.dev/react-elements-vs-react-components\"\u003eReact Elements vs React Components\u003c/a\u003e\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"16"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"16"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

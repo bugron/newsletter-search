@@ -1,0 +1,326 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #97 - The Edge is just a spicy CDN</title><link rel="canonical" href="https://bytes.dev/archives/97"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;re experimenting with our runtime features, learning about The Edge™️, and (hopefully) avoiding accidental tax fraud."/><meta property="og:url" content="https://bytes.dev/archives/97"/><meta property="og:title" content="Bytes #97 - The Edge is just a spicy CDN"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/dew.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;re experimenting with our runtime features, learning about The Edge™️, and (hopefully) avoiding accidental tax fraud."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #97 - The Edge is just a spicy CDN"/><meta property="twitter:description" content="This issue, we&#x27;re experimenting with our runtime features, learning about The Edge™️, and (hopefully) avoiding accidental tax fraud."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/dew.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The Edge is just a spicy CDN</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->97<!-- -->.</span><span class="mr-6 font-bold">April 24, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’re experimenting with our runtime features, learning about The Edge<span role="img" aria-label="trade mark">™️</span>, and (hopefully) avoiding accidental tax fraud.</p>
+<p>Welcome to #97.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/dew.png" alt="Mountain Dew as a shower head meme">
+</p><p class="image-alt">Some experiments pay off</p><p></p>
+<h2>Node gets experimental</h2>
+<p>Node 18 was released last week, and it celebrated becoming a legal adult by doing what lots of us did on our 18th birthday: <del>vomiting tobacco and Flamin’ Hot Cheetos out our nose</del> <em><span role="img" aria-label="sparkles">✨</span>experimenting with stuff<span role="img" aria-label="sparkles">✨</span>.</em></p>
+<p>All of the big new features in Node 18 come with that spooky <code>(experimental)</code> flag, so make sure you know your limits when you’re trying them out. (I always recommend the <a href="https://www.youtube.com/watch?v=NXYMhClL4lU">buddy system.</a>)</p>
+<p><strong><span role="img" aria-label="microscope">🔬</span> Experiment #1: global <code>fetch</code> API</strong> — This provides a standard around fetching data via http requests that’s similar to the popular node-fetch library but is “as close to browser spec-compliant as possible.” The Node team has been working on this for literally 4 years, but it turns out that it’s still <a href="https://twitter.com/matteocollina/status/1517617719838973953">impossible to please everybody.</a></p>
+<p><strong><span role="img" aria-label="microscope">🔬</span> Experiment #2: Test runner module</strong> — This new, built-in test runner lets you create and run Node tests <em>without</em> a third-party library. This is great news for smaller libraries looking to minimize dependencies and developers who just want to use Jest less (so, everyone).</p>
+<p><strong><span role="img" aria-label="microscope">🔬</span> Experiment #3: Web Streams API</strong> — This implementation of 17 different APIs is <a href="https://twitter.com/tmcw/status/1515093531660062725?s=20&amp;t=ajoM7gmXyRrtt6gagKKWjw">a lot</a>. But the idea is that it allows you to use JavaScript to programmatically access streams of data and process them in a bunch of different ways.</p>
+<p><strong>The bottom line:</strong> We’re just happy to see Node being so productive despite the abandonment issues they must have been dealing with ever since <del>dad</del> Ryan Dahl left.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/pain.png" alt="jeopardy answer of what is pain ">
+</p><p class="image-alt">Building notifications from scratch. [sponsored]</p><p></p>
+<h2><a href="https://www.courier.com/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier’s</a> new API saved me from my PM</h2>
+<p>You know that one person on your team who <em>loves</em> building complex notification systems?</p>
+<p>Of course you don’t.</p>
+<p>That’s because notifications have become a special kind of hell with tons of different platforms to worry about — email, SMS, chat, web and mobile push, Slack and more.</p>
+<p>That’s what makes <a href="https://www.courier.com/docs/reference/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier’s simple API</a> so powerful. It’s a one-stop shop for <em>all</em> notification platforms — so you can use the same API call to send your users an email, an SMS, a Slack message, or a push notification.</p>
+<p>And their new <a href="https://www.courier.com/docs/elemental/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Courier Elemental</a> update gives you a JSON-based syntax to easily customize the design and content for each platform you send messages to.</p>
+<p>This makes designing the actual notifications a <em>lot</em> less tedious, and it lets you create more <a href="https://www.courier.com/docs/elemental/elements/?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">dynamic notifications</a> like magic login links and location based alerts.</p>
+<p>So tell your PM to go as crazy as they want with notifications, because Courier’s got your back.</p>
+<p><a href="https://app.courier.com/signup?utm_campaign=Courier%20Elemental&amp;utm_source=email&amp;utm_medium=bytes-newsletter&amp;utm_content=2-21-2022">Check it out</a> and get 10,000 free sends a month.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/sev.png" alt="Severance meme">
+</p><p class="image-alt">My innie trying to figure out wtf “the edge” is</p><p></p>
+<h2>Netlify and Deno are teaming up at The Edge<span role="img" aria-label="trade mark">™️</span></h2>
+<p>Netlify and Deno just announced <a href="https://www.netlify.com/blog/announcing-serverless-compute-with-edge-functions">that they’re partnering</a> to deliver Edge Functions — a new serverless compute offering. Given that developers reference the “the edge” more than my mother-in-law’s flat earth Facebook group, we should probably address what the big deal is.</p>
+<p>“The Edge”, otherwise known as a spicy Content Delivery Network (CDN), has been around for a while. CDNs provide the infrastructure to cache static content and deliver it from the closest server to the end user. Cloudflare changed the game when they released Workers in 2017, making it possible to run JavaScript at the edge.</p>
+<p>Since then, hosting providers have been aggressively pursuing their own “edge compute” offerings. Like Workers, Deno &amp; Netlify’s new offering is built on top of the V8 JavaScript engine and has a similar API to service workers in the browser. Here are some of the highlights:</p>
+<ol>
+<li>
+<p>Cheap — 24x less expensive than standard serverless functions (3 million/month for free).</p>
+</li>
+<li>
+<p>Fast — without the overhead of containers, edge functions can start faster and run closer to the user, reducing latency.</p>
+</li>
+<li>
+<p>Web APIs — Because they’re built on web standards, code can be moved from the client to the server without many of the previous tradeoffs.</p>
+</li>
+<li>
+<p>New paradigm — Edge rendering <a href="https://twitter.com/rauchg/status/1517644556023463936">can be nearly as fast</a> as serving static files, potentially changing the paradigm for how developers think about building applications.</p>
+</li>
+</ol>
+<p><strong>The Bottom Line:</strong> It’s hard to be more stoked about “the Edge” than I was in high school (closet U2 fan - terrible decision), but with companies like Cloudflare, Deno, and the rest of the homies working on it, “the Edge” definitely seems like the <a href="https://www.youtube.com/watch?v=F7IZZXQ89Oc">next big thing</a>.</p>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://synapsestudios.com/careers/javascript-api-engineer/">Synapse Studios is looking for Senior JavaScript Engineers in the US</a></h3>
+<p>Synapse is a software consultancy (Node/React) with a focus on engineering excellence and tightly knit, low-ego teams. We believe devs want to feel productive, challenged, and supported and build our culture around those concepts. Come join our growing crew as we solve interesting challenges in healthcare, fitness, IoT, retail and more, for a variety of clients, at scale.</p>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug — Sponsored by <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">PostHog</a></h2>
+<p><em>PostHog is an open-source product analytics suite you can self-host. Heatmaps, Recordings, Funnels <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">and more</a> — all in a platform where you can build your own TypeScript plugins!</em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">calcPrice</span><span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tax <span class="token operator">=</span> tax <span class="token operator">||</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+  discount <span class="token operator">=</span> discount <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> price <span class="token operator">-</span> price <span class="token operator">*</span> discount <span class="token operator">+</span> price <span class="token operator">*</span> tax<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p><a href="https://javascriptdb.com/">JSDB</a> is a new tool that lets you use JavaScript as your database. Because when everyone’s <del>super</del> <em>a backend developer</em>, <a href="https://www.youtube.com/watch?v=fmSO2cz2ozQ">no one will be</a> <span role="img" aria-label="smiling face with horns">😈</span></p>
+</li>
+<li>
+<p>Eleventy didn’t want to feel left out of EdgeWeek<span role="img" aria-label="trade mark">™️</span>, so they announced plans for <a href="https://www.11ty.dev/docs/plugins/edge/">Eleventy Edge</a> — a new plugin to run Eleventy in an Edge Function so you can easily add dynamic content to your sites.</p>
+</li>
+<li>
+<p><a href="https://theroadtoenterprise.com/books/react-the-road-to-enterprise?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits">React - The Road to Enterprise</a> is a new, advanced React book that’ll teach you industry-level techniques, best practices and concepts like advanced component and state management patterns, performance optimisation, scalable and maintainable architecture, testing, and much more. [sponsored]</p>
+</li>
+<li>
+<p>Óscar Otero created this <a href="https://oscarotero.com/deno/">Deno cheat sheet</a> for no other reason than to help you feel superior to your co-workers. You’re welcome.</p>
+</li>
+<li>
+<p>Marcin Wanago wrote this <a href="https://wanago.io/2018/08/27/testing-javascript-tutorial-types-of-tests-of-unit-testing-with-jest/#">10-part series</a> on JavaScript testing that covers a range of beginner and advanced topics. Thankfully, we can just use Node’s built-in test runner for everything now, so we’ll never have to read it.</p>
+</li>
+<li>
+<p>David East from the Firebase team made this <a href="https://www.youtube.com/watch?v=knk5Fjrpde0">30-minute crash course</a> that shows how to use Firestore and Firebase Auth together.</p>
+</li>
+<li>
+<p><a href="https://reasonable.work/colors/">Reasonable Colors</a> is an open-source color system for building nice color palettes. Now if only we could get someone to create some <em>Reasonable Tax Reform</em>, so that I could pay the US government what I owe without having stress dreams about being thrown in prison for committing accidental tax fraud.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug — Sponsored by <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">PostHog</a></h2>
+<p>The <code>||</code> operator checks for falsy values and <code>0</code> is a falsy value, which would accidentally apply the default tax rate. To fix this, instead of checking for a falsy value, you can use the nullish coalescing (<code>??</code>) operator.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">calcPrice</span><span class="token punctuation">(</span><span class="token parameter">price<span class="token punctuation">,</span> tax<span class="token punctuation">,</span> discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tax <span class="token operator">=</span> tax <span class="token operator">??</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+  discount <span class="token operator">=</span> discount <span class="token operator">??</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> price <span class="token operator">-</span> price <span class="token operator">*</span> discount <span class="token operator">+</span> price <span class="token operator">*</span> tax<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The nullish coalescing operator works because it returns its right-hand side operand when its left-hand side operand is <code>null</code> or <code>undefined</code> (NOT 0), and otherwise returns its left-hand side operand.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: The Edge is just a spicy CDN","date":"2022-04-24","description":"This issue, we're experimenting with our runtime features, learning about The Edge™️, and (hopefully) avoiding accidental tax fraud.","featuredImage":"https://bytes.dev/images/content/dew.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’re experimenting with our runtime features, learning about The Edge\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e, and (hopefully) avoiding accidental tax fraud.\u003c/p\u003e\n\u003cp\u003eWelcome to #97.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/dew.png\" alt=\"Mountain Dew as a shower head meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eSome experiments pay off\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eNode gets experimental\u003c/h2\u003e\n\u003cp\u003eNode 18 was released last week, and it celebrated becoming a legal adult by doing what lots of us did on our 18th birthday: \u003cdel\u003evomiting tobacco and Flamin’ Hot Cheetos out our nose\u003c/del\u003e \u003cem\u003e\u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003eexperimenting with stuff\u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003e.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eAll of the big new features in Node 18 come with that spooky \u003ccode\u003e(experimental)\u003c/code\u003e flag, so make sure you know your limits when you’re trying them out. (I always recommend the \u003ca href=\"https://www.youtube.com/watch?v=NXYMhClL4lU\"\u003ebuddy system.\u003c/a\u003e)\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Experiment #1: global \u003ccode\u003efetch\u003c/code\u003e API\u003c/strong\u003e — This provides a standard around fetching data via http requests that’s similar to the popular node-fetch library but is “as close to browser spec-compliant as possible.” The Node team has been working on this for literally 4 years, but it turns out that it’s still \u003ca href=\"https://twitter.com/matteocollina/status/1517617719838973953\"\u003eimpossible to please everybody.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Experiment #2: Test runner module\u003c/strong\u003e — This new, built-in test runner lets you create and run Node tests \u003cem\u003ewithout\u003c/em\u003e a third-party library. This is great news for smaller libraries looking to minimize dependencies and developers who just want to use Jest less (so, everyone).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Experiment #3: Web Streams API\u003c/strong\u003e — This implementation of 17 different APIs is \u003ca href=\"https://twitter.com/tmcw/status/1515093531660062725?s=20\u0026amp;t=ajoM7gmXyRrtt6gagKKWjw\"\u003ea lot\u003c/a\u003e. But the idea is that it allows you to use JavaScript to programmatically access streams of data and process them in a bunch of different ways.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe bottom line:\u003c/strong\u003e We’re just happy to see Node being so productive despite the abandonment issues they must have been dealing with ever since \u003cdel\u003edad\u003c/del\u003e Ryan Dahl left.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/pain.png\" alt=\"jeopardy answer of what is pain \"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eBuilding notifications from scratch. [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://www.courier.com/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier’s\u003c/a\u003e new API saved me from my PM\u003c/h2\u003e\n\u003cp\u003eYou know that one person on your team who \u003cem\u003eloves\u003c/em\u003e building complex notification systems?\u003c/p\u003e\n\u003cp\u003eOf course you don’t.\u003c/p\u003e\n\u003cp\u003eThat’s because notifications have become a special kind of hell with tons of different platforms to worry about — email, SMS, chat, web and mobile push, Slack and more.\u003c/p\u003e\n\u003cp\u003eThat’s what makes \u003ca href=\"https://www.courier.com/docs/reference/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier’s simple API\u003c/a\u003e so powerful. It’s a one-stop shop for \u003cem\u003eall\u003c/em\u003e notification platforms — so you can use the same API call to send your users an email, an SMS, a Slack message, or a push notification.\u003c/p\u003e\n\u003cp\u003eAnd their new \u003ca href=\"https://www.courier.com/docs/elemental/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCourier Elemental\u003c/a\u003e update gives you a JSON-based syntax to easily customize the design and content for each platform you send messages to.\u003c/p\u003e\n\u003cp\u003eThis makes designing the actual notifications a \u003cem\u003elot\u003c/em\u003e less tedious, and it lets you create more \u003ca href=\"https://www.courier.com/docs/elemental/elements/?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003edynamic notifications\u003c/a\u003e like magic login links and location based alerts.\u003c/p\u003e\n\u003cp\u003eSo tell your PM to go as crazy as they want with notifications, because Courier’s got your back.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://app.courier.com/signup?utm_campaign=Courier%20Elemental\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter\u0026amp;utm_content=2-21-2022\"\u003eCheck it out\u003c/a\u003e and get 10,000 free sends a month.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/sev.png\" alt=\"Severance meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eMy innie trying to figure out wtf “the edge” is\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eNetlify and Deno are teaming up at The Edge\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003eNetlify and Deno just announced \u003ca href=\"https://www.netlify.com/blog/announcing-serverless-compute-with-edge-functions\"\u003ethat they’re partnering\u003c/a\u003e to deliver Edge Functions — a new serverless compute offering. Given that developers reference the “the edge” more than my mother-in-law’s flat earth Facebook group, we should probably address what the big deal is.\u003c/p\u003e\n\u003cp\u003e“The Edge”, otherwise known as a spicy Content Delivery Network (CDN), has been around for a while. CDNs provide the infrastructure to cache static content and deliver it from the closest server to the end user. Cloudflare changed the game when they released Workers in 2017, making it possible to run JavaScript at the edge.\u003c/p\u003e\n\u003cp\u003eSince then, hosting providers have been aggressively pursuing their own “edge compute” offerings. Like Workers, Deno \u0026amp; Netlify’s new offering is built on top of the V8 JavaScript engine and has a similar API to service workers in the browser. Here are some of the highlights:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eCheap — 24x less expensive than standard serverless functions (3 million/month for free).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFast — without the overhead of containers, edge functions can start faster and run closer to the user, reducing latency.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWeb APIs — Because they’re built on web standards, code can be moved from the client to the server without many of the previous tradeoffs.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNew paradigm — Edge rendering \u003ca href=\"https://twitter.com/rauchg/status/1517644556023463936\"\u003ecan be nearly as fast\u003c/a\u003e as serving static files, potentially changing the paradigm for how developers think about building applications.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003eThe Bottom Line:\u003c/strong\u003e It’s hard to be more stoked about “the Edge” than I was in high school (closet U2 fan - terrible decision), but with companies like Cloudflare, Deno, and the rest of the homies working on it, “the Edge” definitely seems like the \u003ca href=\"https://www.youtube.com/watch?v=F7IZZXQ89Oc\"\u003enext big thing\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://synapsestudios.com/careers/javascript-api-engineer/\"\u003eSynapse Studios is looking for Senior JavaScript Engineers in the US\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eSynapse is a software consultancy (Node/React) with a focus on engineering excellence and tightly knit, low-ego teams. We believe devs want to feel productive, challenged, and supported and build our culture around those concepts. Come join our growing crew as we solve interesting challenges in healthcare, fitness, IoT, retail and more, for a variety of clients, at scale.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug — Sponsored by \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ePostHog\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003ePostHog is an open-source product analytics suite you can self-host. Heatmaps, Recordings, Funnels \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eand more\u003c/a\u003e — all in a platform where you can build your own TypeScript plugins!\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://javascriptdb.com/\"\u003eJSDB\u003c/a\u003e is a new tool that lets you use JavaScript as your database. Because when everyone’s \u003cdel\u003esuper\u003c/del\u003e \u003cem\u003ea backend developer\u003c/em\u003e, \u003ca href=\"https://www.youtube.com/watch?v=fmSO2cz2ozQ\"\u003eno one will be\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"smiling face with horns\"\u003e😈\u003c/span\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEleventy didn’t want to feel left out of EdgeWeek\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e, so they announced plans for \u003ca href=\"https://www.11ty.dev/docs/plugins/edge/\"\u003eEleventy Edge\u003c/a\u003e — a new plugin to run Eleventy in an Edge Function so you can easily add dynamic content to your sites.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://theroadtoenterprise.com/books/react-the-road-to-enterprise?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\"\u003eReact - The Road to Enterprise\u003c/a\u003e is a new, advanced React book that’ll teach you industry-level techniques, best practices and concepts like advanced component and state management patterns, performance optimisation, scalable and maintainable architecture, testing, and much more. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eÓscar Otero created this \u003ca href=\"https://oscarotero.com/deno/\"\u003eDeno cheat sheet\u003c/a\u003e for no other reason than to help you feel superior to your co-workers. You’re welcome.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarcin Wanago wrote this \u003ca href=\"https://wanago.io/2018/08/27/testing-javascript-tutorial-types-of-tests-of-unit-testing-with-jest/#\"\u003e10-part series\u003c/a\u003e on JavaScript testing that covers a range of beginner and advanced topics. Thankfully, we can just use Node’s built-in test runner for everything now, so we’ll never have to read it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDavid East from the Firebase team made this \u003ca href=\"https://www.youtube.com/watch?v=knk5Fjrpde0\"\u003e30-minute crash course\u003c/a\u003e that shows how to use Firestore and Firebase Auth together.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://reasonable.work/colors/\"\u003eReasonable Colors\u003c/a\u003e is an open-source color system for building nice color palettes. Now if only we could get someone to create some \u003cem\u003eReasonable Tax Reform\u003c/em\u003e, so that I could pay the US government what I owe without having stress dreams about being thrown in prison for committing accidental tax fraud.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug — Sponsored by \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ePostHog\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe \u003ccode\u003e||\u003c/code\u003e operator checks for falsy values and \u003ccode\u003e0\u003c/code\u003e is a falsy value, which would accidentally apply the default tax rate. To fix this, instead of checking for a falsy value, you can use the nullish coalescing (\u003ccode\u003e??\u003c/code\u003e) operator.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalcPrice\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprice\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e discount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  tax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e tax \u003cspan class=\"token operator\"\u003e??\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  discount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e??\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e discount \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e price \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e tax\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe nullish coalescing operator works because it returns its right-hand side operand when its left-hand side operand is \u003ccode\u003enull\u003c/code\u003e or \u003ccode\u003eundefined\u003c/code\u003e (NOT 0), and otherwise returns its left-hand side operand.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"97"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"97"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

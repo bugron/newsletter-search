@@ -1,0 +1,306 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #182 - Modern.js is a giant mystery meat enchilada</title><link rel="canonical" href="https://bytes.dev/archives/182"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster. "/><meta property="og:url" content="https://bytes.dev/archives/182"/><meta property="og:title" content="Bytes #182 - Modern.js is a giant mystery meat enchilada"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/mystery.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster. "/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #182 - Modern.js is a giant mystery meat enchilada"/><meta property="twitter:description" content="OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster. "/><meta property="twitter:image" content="https://bytes.dev/images/content/mystery.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Modern.js is a giant mystery meat enchilada</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->182<!-- -->.</span><span class="mr-6 font-bold">April 27, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Helllllo my friends.</p>
+<p>We just published <a href="https://twitter.com/tylermcginnis/status/1651620922766372869">The Interactive Guide to Rendering in React</a>. Check it out if that’s your kink.</p>
+<p><strong>Today’s issue:</strong> OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/182">#182</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/mystery.jpg" alt="An earthworm with a subtle smile" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">mfw im trying to learn about web engineering systems<!-- --> </p></div><h3>Modern.js is a giant mystery meat enchilada</h3><p>There’s no better reflection of modern life than scrolling TikTok: you’ll always get a mix of some highs, some lows, and some deeply unsettling ASMR videos. Another 90-minute poop well spent <span role="img" aria-label="check mark button">✅</span>.</p><p>So it makes sense that when the Web Infra team from TikTok’s parent company, ByteDance, created an open-source “web engineering system,” they chose to name it <a href="https://github.com/web-infra-dev/modern.js">Modern.js</a>. And it might be coming to a codebase near you.</p><p><strong>Wtf is a web engineering system?</strong> Great question. Turns out, that’s corp-speak for “a bunch of different OSS tools rolled into one giant mystery meat enchilada.” Modern.js comes with a React meta-framework, an npm module builder, a doc site builder, <em>and</em> a build engine. You can use all of these tools together or on their own separately.</p><p>The meta-framework forms the main foundation for the rest of the Modern.js ecosystem, so let’s take a closer look at it:</p><ul>
+<li>
+<p><strong>Similar features to Next.js</strong> — You get file-based routing, default TS support, and all the rendering options (SSR, SSG, CSR) out of the box. But there are some key differences too.</p>
+</li>
+<li>
+<p><strong>Reinventing the wheel(s)</strong> — It’s built on <a href="https://www.rspack.dev/">Rspack</a>, a Rust-based bundler that compiles 5-10x faster than Webpack and was also created by the Web Infra team. The framework also includes a custom-built <a href="https://github.com/web-infra-dev/reduck">state management library</a>, monorepo, <em>and</em> micro frontend solution, because why not?</p>
+</li>
+<li>
+<p><strong>Integrated BFF approach</strong> — <a href="https://samnewman.io/patterns/architectural/bff/#bff">Backend for Frontends</a> is the idea of having one backend for each user experience. Modern.js supports this in a few clever ways, like allowing you to <a href="https://modernjs.dev/en/guides/advanced-features/bff/function.html">define APIs by adding a function</a> inside the <code>api/</code> directory, which lets you import that API as a function into your page.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> As far as giant mystery enchiladas go, this one seems like it could actually be a net positive for my productivity.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/182" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F182" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20from%20%40bytesdotdev%20on%20everything%20that%20goes%20into%20the%20%40modern_js%20enchilada%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F182" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20from%20%40bytesdotdev%20on%20everything%20that%20goes%20into%20the%20%40modern_js%20enchilada%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F182" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/appwrite-logo.png" alt="appwrite logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/cats-fighting.jpg" alt="two cats fighting" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Developers fighting to get those private beta invites.<!-- --> </p></div><h3><a href="https://appwrite.io/cloud?utm_source=newsletter_ui.dev&amp;utm_medium=email&amp;utm_campaign=cloud_private_beta">Appwrite Cloud</a> finally hit private beta <span role="img" aria-label="eyes">👀</span></h3><p>And it looks like a gamechanger for the uber-popular, open-source backend server.</p><p><strong>Quick review:</strong> Appwrite is one of the most beloved OSS projects out there (over 30k GitHub stars <span role="img" aria-label="face screaming in fear">😱</span>), because it abstracts away the worst parts of building a backend with a set of simple REST APIs.</p><p>But it always required you to be self-hosted — until now. So let’s take a closer look at what Appwrite Cloud gives you, and see why devs are fighting to get those private beta invites:</p><ul>
+<li>
+<p><strong>Fully managed backend infrastructure</strong> – No more worrying about machine configuration, security, maintenance, etc.</p>
+</li>
+<li>
+<p><strong>Auto scaling</strong> – So your app can easily handle traffic spikes without tanking performance.</p>
+</li>
+<li>
+<p><strong>Built-in security</strong> – Advanced security features like DDoS protection, WAF rules, and lots more come standard.</p>
+</li>
+</ul><p><a href="https://appwrite.io/cloud?utm_source=newsletter_ui.dev&amp;utm_medium=email&amp;utm_campaign=cloud_private_beta">Apply for the private beta</a> to get early access. I promise it’s cooler than Bluesky Social.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.courier.com/?utm_campaign=ui.dev&amp;utm_source=email&amp;utm_medium=bytes-newsletter-4-27&amp;utm_content=homepage">Courier</a></h4><p><em>Courier’s simple API lets you manage all of your notification infrastructure (email, chat, in-app, SMS, push, etc.) in one place.</em></p></div></div>
+<p>How can you set a timeout for a fetch request?</p>
+<p>Answer below.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>If you’ve ever thought to yourself, “why tf is this rendering?” –&nbsp;<a href="https://ui.dev/why-react-renders?s=bytes">The Interactive Guide to Rendering in React</a> is probably for you.</p>
+</li>
+<li>
+<p>Aiden Bai created <a href="https://github.com/aidenybai/hundred#readme">Hundred</a> - a petite, toy version of Million.js, the trendy virtual DOM for React.</p>
+</li>
+<li>
+<p><a href="https://tryzero.com/?s=bytesnl">Zero</a> created a super easy way to <a href="https://tryzero.com/?s=bytesnl">integrate 3rd-party API credentials</a> into your project. Their SDK is available for TypeScript, Rust, Python and Go. [sponsored]</p>
+</li>
+<li>
+<p>Keith Grant wrote about how <a href="https://keithjgrant.com/posts/2023/04/scoped-css-is-back/">Scoped CSS is back</a>. Now I just need him to explain why flare-cut jeans are cool again.</p>
+</li>
+<li>
+<p>Yagiz Nizipli wrote about <a href="https://www.yagiz.co/reducing-the-cost-of-string-serialization-in-nodejs-core">Reducing the cost of string serialization in Node.js core</a>. Not enough mystery meat enchilada metaphors IMO but still good.</p>
+</li>
+<li>
+<p>Varun Vachhar wrote about how he and the Storybook team <a href="https://varun.ca/storybook-day/">built a cool 3D animation for Storybook Day</a>. For some reason, the other parents didn’t like it when I dressed up as Princess Fiona in Ogre form for Storybook Day at my son’s school.</p>
+</li>
+<li>
+<p><a href="https://github.com/mapbox/supercluster">Supercluster</a> is a fast geospatial point clustering library for browsers and Node. It was also my team’s nickname for our production codebase at my last job.</p>
+</li>
+<li>
+<p>Somehow, Jasper discovered that the Wii U game, <em>Mario vs. Donkey Kong: Tipping Stars</em> <a href="https://twitter.com/JasperRLZ/status/1648046875675856897">was written in HTML and JavaScript</a>. Unfortunately, that means every #UseThePlatform zealot is now morally obligated to boycott Nintendo.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.courier.com/?utm_campaign=ui.dev&amp;utm_source=email&amp;utm_medium=bytes-newsletter-4-27&amp;utm_content=homepage">Courier</a></h4></div></div>
+<p>How can you set a timeout for a fetch request?</p>
+<p>Since the fetch API does not have a built-in timeout option, you can use the <code>AbortController</code> and <code>Promise.race()</code> to implement a timeout. Using <code>Promise.race</code> is a nice trick because it allows you to abort a single request or multiple requests at the same time.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> abortController <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AbortController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> signal <span class="token operator">=</span> abortController<span class="token punctuation">.</span>signal<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> fetch1 <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://api.example.com/data-1"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> signal <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fetch2 <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://api.example.com/data-2"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> signal <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> timeout <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">_<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> timeoutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Request timed out"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    abortController<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Abort the fetch request</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeoutId<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// clear the timeout</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">[</span>fetch1<span class="token punctuation">,</span> fetch2<span class="token punctuation">,</span> timeout<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Modern.js is a giant mystery meat enchilada","date":"2023-04-27","featuredImage":"/images/content/mystery.jpg","description":"OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster. ","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHelllllo my friends.\u003c/p\u003e\n\u003cp\u003eWe just published \u003ca href=\"https://twitter.com/tylermcginnis/status/1651620922766372869\"\u003eThe Interactive Guide to Rendering in React\u003c/a\u003e. Check it out if that’s your kink.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e OSS libraries from TikTok, platform nerds boycotting Nintendo, and a giant supercluster.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/182\"\u003e#182\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/mystery.jpg\" alt=\"An earthworm with a subtle smile\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003emfw im trying to learn about web engineering systems\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eModern.js is a giant mystery meat enchilada\u003c/h3\u003e\u003cp\u003eThere’s no better reflection of modern life than scrolling TikTok: you’ll always get a mix of some highs, some lows, and some deeply unsettling ASMR videos. Another 90-minute poop well spent \u003cspan role=\"img\" aria-label=\"check mark button\"\u003e✅\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eSo it makes sense that when the Web Infra team from TikTok’s parent company, ByteDance, created an open-source “web engineering system,” they chose to name it \u003ca href=\"https://github.com/web-infra-dev/modern.js\"\u003eModern.js\u003c/a\u003e. And it might be coming to a codebase near you.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWtf is a web engineering system?\u003c/strong\u003e Great question. Turns out, that’s corp-speak for “a bunch of different OSS tools rolled into one giant mystery meat enchilada.” Modern.js comes with a React meta-framework, an npm module builder, a doc site builder, \u003cem\u003eand\u003c/em\u003e a build engine. You can use all of these tools together or on their own separately.\u003c/p\u003e\u003cp\u003eThe meta-framework forms the main foundation for the rest of the Modern.js ecosystem, so let’s take a closer look at it:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSimilar features to Next.js\u003c/strong\u003e — You get file-based routing, default TS support, and all the rendering options (SSR, SSG, CSR) out of the box. But there are some key differences too.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReinventing the wheel(s)\u003c/strong\u003e — It’s built on \u003ca href=\"https://www.rspack.dev/\"\u003eRspack\u003c/a\u003e, a Rust-based bundler that compiles 5-10x faster than Webpack and was also created by the Web Infra team. The framework also includes a custom-built \u003ca href=\"https://github.com/web-infra-dev/reduck\"\u003estate management library\u003c/a\u003e, monorepo, \u003cem\u003eand\u003c/em\u003e micro frontend solution, because why not?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eIntegrated BFF approach\u003c/strong\u003e — \u003ca href=\"https://samnewman.io/patterns/architectural/bff/#bff\"\u003eBackend for Frontends\u003c/a\u003e is the idea of having one backend for each user experience. Modern.js supports this in a few clever ways, like allowing you to \u003ca href=\"https://modernjs.dev/en/guides/advanced-features/bff/function.html\"\u003edefine APIs by adding a function\u003c/a\u003e inside the \u003ccode\u003eapi/\u003c/code\u003e directory, which lets you import that API as a function into your page.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e As far as giant mystery enchiladas go, this one seems like it could actually be a net positive for my productivity.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/182\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F182\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20from%20%40bytesdotdev%20on%20everything%20that%20goes%20into%20the%20%40modern_js%20enchilada%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F182\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20from%20%40bytesdotdev%20on%20everything%20that%20goes%20into%20the%20%40modern_js%20enchilada%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F182\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/appwrite-logo.png\" alt=\"appwrite logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/cats-fighting.jpg\" alt=\"two cats fighting\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eDevelopers fighting to get those private beta invites.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://appwrite.io/cloud?utm_source=newsletter_ui.dev\u0026amp;utm_medium=email\u0026amp;utm_campaign=cloud_private_beta\"\u003eAppwrite Cloud\u003c/a\u003e finally hit private beta \u003cspan role=\"img\" aria-label=\"eyes\"\u003e👀\u003c/span\u003e\u003c/h3\u003e\u003cp\u003eAnd it looks like a gamechanger for the uber-popular, open-source backend server.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eQuick review:\u003c/strong\u003e Appwrite is one of the most beloved OSS projects out there (over 30k GitHub stars \u003cspan role=\"img\" aria-label=\"face screaming in fear\"\u003e😱\u003c/span\u003e), because it abstracts away the worst parts of building a backend with a set of simple REST APIs.\u003c/p\u003e\u003cp\u003eBut it always required you to be self-hosted — until now. So let’s take a closer look at what Appwrite Cloud gives you, and see why devs are fighting to get those private beta invites:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFully managed backend infrastructure\u003c/strong\u003e – No more worrying about machine configuration, security, maintenance, etc.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAuto scaling\u003c/strong\u003e – So your app can easily handle traffic spikes without tanking performance.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBuilt-in security\u003c/strong\u003e – Advanced security features like DDoS protection, WAF rules, and lots more come standard.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://appwrite.io/cloud?utm_source=newsletter_ui.dev\u0026amp;utm_medium=email\u0026amp;utm_campaign=cloud_private_beta\"\u003eApply for the private beta\u003c/a\u003e to get early access. I promise it’s cooler than Bluesky Social.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.courier.com/?utm_campaign=ui.dev\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter-4-27\u0026amp;utm_content=homepage\"\u003eCourier\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eCourier’s simple API lets you manage all of your notification infrastructure (email, chat, in-app, SMS, push, etc.) in one place.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eHow can you set a timeout for a fetch request?\u003c/p\u003e\n\u003cp\u003eAnswer below.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIf you’ve ever thought to yourself, “why tf is this rendering?” –\u0026nbsp;\u003ca href=\"https://ui.dev/why-react-renders?s=bytes\"\u003eThe Interactive Guide to Rendering in React\u003c/a\u003e is probably for you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAiden Bai created \u003ca href=\"https://github.com/aidenybai/hundred#readme\"\u003eHundred\u003c/a\u003e - a petite, toy version of Million.js, the trendy virtual DOM for React.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tryzero.com/?s=bytesnl\"\u003eZero\u003c/a\u003e created a super easy way to \u003ca href=\"https://tryzero.com/?s=bytesnl\"\u003eintegrate 3rd-party API credentials\u003c/a\u003e into your project. Their SDK is available for TypeScript, Rust, Python and Go. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKeith Grant wrote about how \u003ca href=\"https://keithjgrant.com/posts/2023/04/scoped-css-is-back/\"\u003eScoped CSS is back\u003c/a\u003e. Now I just need him to explain why flare-cut jeans are cool again.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYagiz Nizipli wrote about \u003ca href=\"https://www.yagiz.co/reducing-the-cost-of-string-serialization-in-nodejs-core\"\u003eReducing the cost of string serialization in Node.js core\u003c/a\u003e. Not enough mystery meat enchilada metaphors IMO but still good.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVarun Vachhar wrote about how he and the Storybook team \u003ca href=\"https://varun.ca/storybook-day/\"\u003ebuilt a cool 3D animation for Storybook Day\u003c/a\u003e. For some reason, the other parents didn’t like it when I dressed up as Princess Fiona in Ogre form for Storybook Day at my son’s school.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/mapbox/supercluster\"\u003eSupercluster\u003c/a\u003e is a fast geospatial point clustering library for browsers and Node. It was also my team’s nickname for our production codebase at my last job.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSomehow, Jasper discovered that the Wii U game, \u003cem\u003eMario vs. Donkey Kong: Tipping Stars\u003c/em\u003e \u003ca href=\"https://twitter.com/JasperRLZ/status/1648046875675856897\"\u003ewas written in HTML and JavaScript\u003c/a\u003e. Unfortunately, that means every #UseThePlatform zealot is now morally obligated to boycott Nintendo.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.courier.com/?utm_campaign=ui.dev\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-newsletter-4-27\u0026amp;utm_content=homepage\"\u003eCourier\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eHow can you set a timeout for a fetch request?\u003c/p\u003e\n\u003cp\u003eSince the fetch API does not have a built-in timeout option, you can use the \u003ccode\u003eAbortController\u003c/code\u003e and \u003ccode\u003ePromise.race()\u003c/code\u003e to implement a timeout. Using \u003ccode\u003ePromise.race\u003c/code\u003e is a nice trick because it allows you to abort a single request or multiple requests at the same time.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e abortController \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAbortController\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e signal \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e abortController\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003esignal\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e fetch1 \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003efetch\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"https://api.example.com/data-1\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e signal \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e fetch2 \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003efetch\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"https://api.example.com/data-2\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e signal \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e timeout \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e_\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e reject\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e timeoutId \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003ereject\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eError\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Request timed out\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    abortController\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eabort\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// Abort the fetch request\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eclearTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003etimeoutId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// clear the timeout\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\nPromise\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003erace\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003efetch1\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fetch2\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e timeout\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eresponse\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eresponse\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecatch\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eerror\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eerror\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eerror\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"182"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"182"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

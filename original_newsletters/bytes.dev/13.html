@@ -1,0 +1,314 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #13 - The Fellowship of the Spec</title><link rel="canonical" href="https://bytes.dev/archives/13"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="TC39 is talking JavaScript decorators (again), Playwright releases a major, minor update, and Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&#x27;m radioactive, radioactive"/><meta property="og:url" content="https://bytes.dev/archives/13"/><meta property="og:title" content="Bytes #13 - The Fellowship of the Spec"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/beard.jpeg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="TC39 is talking JavaScript decorators (again), Playwright releases a major, minor update, and Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&#x27;m radioactive, radioactive"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #13 - The Fellowship of the Spec"/><meta property="twitter:description" content="TC39 is talking JavaScript decorators (again), Playwright releases a major, minor update, and Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&#x27;m radioactive, radioactive"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/beard.jpeg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">The Fellowship of the Spec</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->13<!-- -->.</span><span class="mr-6 font-bold">September 14, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><h2><a href="https://github.com/tc39/proposal-decorators/blob/simplified/README.md">TC39 is talking JavaScript decorators (again)</a></h2>
+<p><img src="https://bytes.dev/images/content/beard.jpeg" alt="Christmas beard">
+</p><p class="image-alt">Decorate all the things</p><p></p>
+<p><strong>Later this month,</strong> The Fellowship of the Spec (TC39) is set to discuss a new Stage 2 proposal for decorators for JavaScript classes. If you’re not familiar, Decorators are a proposal for extending JavaScript classes.</p>
+<p><strong>Wait, haven’t I heard this song before?</strong> You definitely have. The TC gang have been discussing different iterations of JavaScript decorators on and off for <em>5 years</em> now. Naturally, some developers got tired of waiting, so they went ahead and incorporated them into various JS frameworks and libraries (looking at you, MobX). Babel 7, TypeScript, and Angular all feature decorators that are based on previously-rejected TC39 proposals, everythingisfine.gif.</p>
+<p><strong>So what’s different this time?</strong> This latest proposal is simpler and more limited in scope than previous versions of decorators. According to the proposal’s README, these decorators will “always simply wrap what they are decorating, rather than performing other transformations.” In theory, this should make it easier to avoid overusing decorators and abstracting away too much of your codebase (a common complaint when using decorators in TypeScript and other frameworks).</p>
+<h3>The bottom line</h3>
+<p>It seems likely that some form of decorators will be added to the ECMAScript standard in the near future, if only to provide greater consistency throughout the JavaScript ecosystem. Some developers will hate that because they’ve had bad experiences with decorators in the past, and others will welcome it after years of <del>polyfilling</del> waiting. Regardless of which side you fall on, just <a href="https://www.youtube.com/watch?v=0la5DBtOVNI">remember this sage advice</a>.</p>
+<hr>
+<h2><a href="https://github.com/microsoft/playwright/releases/tag/v1.4.0">Playwright releases a major, minor update</a></h2>
+<p><img src="https://bytes.dev/images/content/skakespeare.jpg" alt="skakespeare">
+</p><p class="image-alt">Another playwright interested in headless execution</p><p></p>
+<p><strong>To test or not to test…</strong> that is (always) the question. Playwright released v1.4 last week, and despite no major breaking changes, this was a pretty big update for Microsoft’s popular Node.js testing library thanks to the addition of three new, highly-requested features. Here’s the breakdown:</p>
+<ol>
+<li>
+<p><strong>A new <code>playwright-cli</code>:</strong> Playwright’s new CLI lets you record user interactions to generate Playwright scripts, emulate devices and color schemes, generate page screenshots, open pages in Chromium, Firefox, and Safari and more. This should help you to more easily generate E2E test scripts as you click through.</p>
+</li>
+<li>
+<p><strong>Video screencasts:</strong> This experimental new feature allows you to record videos of your scripts to inspect headless executions on any browser and any platform in both headful and headless modes.</p>
+</li>
+<li>
+<p><strong>New client/server wire protocol:</strong> A new wire protocol for Python, C#, and other language bindings that will provide greater support for those wanting to use Playwright in non-Node environments.</p>
+</li>
+</ol>
+<h3>The bottom line</h3>
+<p>When some of the founding members of the Puppeteer team moved over to Microsoft last year and launched Playwright, it was easy to see the similarities between the two libraries. Some developers even dubbed Playwright the “cross-browser Puppeteer”, since that was Playwright’s only real distinguishing feature. But the new features and functionality in this latest release should help Playwright to differentiate itself among the many other testing and browser automation tools out there.</p>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p><a href="https://github.com/MananTank/radioactive-state">radioactive-state</a> is a new React state management library that is “deeply reactive” and high performing. <a href="https://www.youtube.com/watch?v=ZQxuw9d2d28&amp;feature=youtu.be&amp;t=127">Here’s a must-watch introduction on the library</a>.</p>
+</li>
+<li>
+<p>Jake Archibald wrote an <a href="https://jakearchibald.com/2020/avif-has-landed/">in-depth article</a> on the new AVIF image format that produces a high quality image at 1/4 the size of JPEG and 1/2 the size of WebP. AVIF will make a great addition to our “Pokemon or Image Format” game.</p>
+</li>
+<li>
+<p>Souparno made a beginner-friendly tutorial on <a href="https://dev.to/nitdgplug/learn-javascript-through-a-game-1beh">building a snake game from scratch in JavaScript</a>.</p>
+</li>
+<li>
+<p>Charles wrote about <a href="https://engineering.shopify.com/blogs/engineering/tophatting-react-native">tophatting in React Native at Shopify</a>. “Tophatting” refers to <del>saying “M’lday” while tipping your fedora</del> manually testing your coworker’s changes before approving their PR.</p>
+</li>
+<li>
+<p>Marko wrote a great guide to <a href="https://css-tricks.com/working-with-javascript-media-queries/">working with JavaScript media queries.</a></p>
+</li>
+<li>
+<p>Holly wrote about <a href="https://bighack.org/5-most-annoying-website-features-i-face-as-a-blind-screen-reader-user-accessibility/">the 5 most annoying website features she faces as a blind person every single day</a>. It’s a well-written reminder about the importance of accessibility and empathy for users.</p>
+</li>
+<li>
+<p>Stuart gave a <a href="https://www.youtube.com/watch?v=e1L2WgXu2JY">virtual conference talk on why you don’t need “all that JavaScript”</a>. As someone whose livelihood depends on that not being the case, I’ll have to say I disagree, Stu.</p>
+</li>
+<li>
+<p><a href="https://github.com/SoorajSNBlaze333/tooltip-sequence">Tooltip Sequence is a simple, step-by-step tooltip helper</a> you can use to walk users through the features on your web app. It would be great if someone could implement this on the IRS’s website.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="fire">🔥</span> Tip - Get the current URL in JavaScript</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getCurrentURL</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Example</span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">getCurrentURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+url <span class="token comment">// https://ui.dev/get-current-url-javascript/</span>
+</code></pre>
+<p>Simple enough. If you’re using JavaScript in the browser you can get the full current URL by using <code>window.location.href</code>. I think it’s also worth noting that <code>window.location</code> has a bunch of different properties on it that may be of use to you as well.</p>
+<p>Let’s assume this is the current URL we’re on</p>
+<pre><code>https://ui.dev/get-current-url-javascript/?comments=false
+</code></pre>
+<p>These are all the properties that <code>window.location</code> gives us.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span>
+  host<span class="token punctuation">,</span> hostname<span class="token punctuation">,</span> href<span class="token punctuation">,</span> origin<span class="token punctuation">,</span> pathname<span class="token punctuation">,</span> port<span class="token punctuation">,</span> protocol<span class="token punctuation">,</span> search
+<span class="token punctuation">}</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>location
+
+host <span class="token comment">// "ui.dev"</span>
+hostname <span class="token comment">// "ui"</span>
+href <span class="token comment">// "https://ui.dev/get-current-url-javascript/?comments=false"</span>
+origin <span class="token comment">// "https://ui.dev"</span>
+pathname <span class="token comment">// "/get-current-url-javascript/""</span>
+port <span class="token comment">// ""</span>
+protocol <span class="token comment">// "https:"</span>
+search <span class="token comment">// "?comments=false"</span>
+</code></pre>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"The Fellowship of the Spec","date":"2020-09-14","description":"TC39 is talking JavaScript decorators (again), Playwright releases a major, minor update, and Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I'm radioactive, radioactive","featuredImage":"https://bytes.dev/images/content/beard.jpeg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003ch2\u003e\u003ca href=\"https://github.com/tc39/proposal-decorators/blob/simplified/README.md\"\u003eTC39 is talking JavaScript decorators (again)\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/beard.jpeg\" alt=\"Christmas beard\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eDecorate all the things\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eLater this month,\u003c/strong\u003e The Fellowship of the Spec (TC39) is set to discuss a new Stage 2 proposal for decorators for JavaScript classes. If you’re not familiar, Decorators are a proposal for extending JavaScript classes.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWait, haven’t I heard this song before?\u003c/strong\u003e You definitely have. The TC gang have been discussing different iterations of JavaScript decorators on and off for \u003cem\u003e5 years\u003c/em\u003e now. Naturally, some developers got tired of waiting, so they went ahead and incorporated them into various JS frameworks and libraries (looking at you, MobX). Babel 7, TypeScript, and Angular all feature decorators that are based on previously-rejected TC39 proposals, everythingisfine.gif.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSo what’s different this time?\u003c/strong\u003e This latest proposal is simpler and more limited in scope than previous versions of decorators. According to the proposal’s README, these decorators will “always simply wrap what they are decorating, rather than performing other transformations.” In theory, this should make it easier to avoid overusing decorators and abstracting away too much of your codebase (a common complaint when using decorators in TypeScript and other frameworks).\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eIt seems likely that some form of decorators will be added to the ECMAScript standard in the near future, if only to provide greater consistency throughout the JavaScript ecosystem. Some developers will hate that because they’ve had bad experiences with decorators in the past, and others will welcome it after years of \u003cdel\u003epolyfilling\u003c/del\u003e waiting. Regardless of which side you fall on, just \u003ca href=\"https://www.youtube.com/watch?v=0la5DBtOVNI\"\u003eremember this sage advice\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/microsoft/playwright/releases/tag/v1.4.0\"\u003ePlaywright releases a major, minor update\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/skakespeare.jpg\" alt=\"skakespeare\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eAnother playwright interested in headless execution\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTo test or not to test…\u003c/strong\u003e that is (always) the question. Playwright released v1.4 last week, and despite no major breaking changes, this was a pretty big update for Microsoft’s popular Node.js testing library thanks to the addition of three new, highly-requested features. Here’s the breakdown:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eA new \u003ccode\u003eplaywright-cli\u003c/code\u003e:\u003c/strong\u003e Playwright’s new CLI lets you record user interactions to generate Playwright scripts, emulate devices and color schemes, generate page screenshots, open pages in Chromium, Firefox, and Safari and more. This should help you to more easily generate E2E test scripts as you click through.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eVideo screencasts:\u003c/strong\u003e This experimental new feature allows you to record videos of your scripts to inspect headless executions on any browser and any platform in both headful and headless modes.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew client/server wire protocol:\u003c/strong\u003e A new wire protocol for Python, C#, and other language bindings that will provide greater support for those wanting to use Playwright in non-Node environments.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eWhen some of the founding members of the Puppeteer team moved over to Microsoft last year and launched Playwright, it was easy to see the similarities between the two libraries. Some developers even dubbed Playwright the “cross-browser Puppeteer”, since that was Playwright’s only real distinguishing feature. But the new features and functionality in this latest release should help Playwright to differentiate itself among the many other testing and browser automation tools out there.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/MananTank/radioactive-state\"\u003eradioactive-state\u003c/a\u003e is a new React state management library that is “deeply reactive” and high performing. \u003ca href=\"https://www.youtube.com/watch?v=ZQxuw9d2d28\u0026amp;feature=youtu.be\u0026amp;t=127\"\u003eHere’s a must-watch introduction on the library\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJake Archibald wrote an \u003ca href=\"https://jakearchibald.com/2020/avif-has-landed/\"\u003ein-depth article\u003c/a\u003e on the new AVIF image format that produces a high quality image at 1/4 the size of JPEG and 1/2 the size of WebP. AVIF will make a great addition to our “Pokemon or Image Format” game.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSouparno made a beginner-friendly tutorial on \u003ca href=\"https://dev.to/nitdgplug/learn-javascript-through-a-game-1beh\"\u003ebuilding a snake game from scratch in JavaScript\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCharles wrote about \u003ca href=\"https://engineering.shopify.com/blogs/engineering/tophatting-react-native\"\u003etophatting in React Native at Shopify\u003c/a\u003e. “Tophatting” refers to \u003cdel\u003esaying “M’lday” while tipping your fedora\u003c/del\u003e manually testing your coworker’s changes before approving their PR.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarko wrote a great guide to \u003ca href=\"https://css-tricks.com/working-with-javascript-media-queries/\"\u003eworking with JavaScript media queries.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHolly wrote about \u003ca href=\"https://bighack.org/5-most-annoying-website-features-i-face-as-a-blind-screen-reader-user-accessibility/\"\u003ethe 5 most annoying website features she faces as a blind person every single day\u003c/a\u003e. It’s a well-written reminder about the importance of accessibility and empathy for users.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eStuart gave a \u003ca href=\"https://www.youtube.com/watch?v=e1L2WgXu2JY\"\u003evirtual conference talk on why you don’t need “all that JavaScript”\u003c/a\u003e. As someone whose livelihood depends on that not being the case, I’ll have to say I disagree, Stu.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/SoorajSNBlaze333/tooltip-sequence\"\u003eTooltip Sequence is a simple, step-by-step tooltip helper\u003c/a\u003e you can use to walk users through the features on your web app. It would be great if someone could implement this on the IRS’s website.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"fire\"\u003e🔥\u003c/span\u003e Tip - Get the current URL in JavaScript\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetCurrentURL\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e window\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elocation\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ehref\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Example\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e url \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003egetCurrentURL\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nurl \u003cspan class=\"token comment\"\u003e// https://ui.dev/get-current-url-javascript/\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSimple enough. If you’re using JavaScript in the browser you can get the full current URL by using \u003ccode\u003ewindow.location.href\u003c/code\u003e. I think it’s also worth noting that \u003ccode\u003ewindow.location\u003c/code\u003e has a bunch of different properties on it that may be of use to you as well.\u003c/p\u003e\n\u003cp\u003eLet’s assume this is the current URL we’re on\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ehttps://ui.dev/get-current-url-javascript/?comments=false\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThese are all the properties that \u003ccode\u003ewindow.location\u003c/code\u003e gives us.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  host\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e hostname\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e href\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e origin\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e pathname\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e port\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e protocol\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e search\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e window\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elocation\n\nhost \u003cspan class=\"token comment\"\u003e// \"ui.dev\"\u003c/span\u003e\nhostname \u003cspan class=\"token comment\"\u003e// \"ui\"\u003c/span\u003e\nhref \u003cspan class=\"token comment\"\u003e// \"https://ui.dev/get-current-url-javascript/?comments=false\"\u003c/span\u003e\norigin \u003cspan class=\"token comment\"\u003e// \"https://ui.dev\"\u003c/span\u003e\npathname \u003cspan class=\"token comment\"\u003e// \"/get-current-url-javascript/\"\"\u003c/span\u003e\nport \u003cspan class=\"token comment\"\u003e// \"\"\u003c/span\u003e\nprotocol \u003cspan class=\"token comment\"\u003e// \"https:\"\u003c/span\u003e\nsearch \u003cspan class=\"token comment\"\u003e// \"?comments=false\"\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"13"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"13"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

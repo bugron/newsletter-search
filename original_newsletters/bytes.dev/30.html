@@ -1,0 +1,349 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #30 - The hottest job on the planet</title><link rel="canonical" href="https://bytes.dev/archives/30"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Wasmer 1.0, the hottest job on the plant, and some LOOPs."/><meta property="og:url" content="https://bytes.dev/archives/30"/><meta property="og:title" content="Bytes #30 - The hottest job on the planet"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/container.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Wasmer 1.0, the hottest job on the plant, and some LOOPs."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #30 - The hottest job on the planet"/><meta property="twitter:description" content="Wasmer 1.0, the hottest job on the plant, and some LOOPs."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/container.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">The hottest job on the planet</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->30<!-- -->.</span><span class="mr-6 font-bold">January 11, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><h2><a href="https://medium.com/wasmer/wasmer-1-0-3f86ca18c043">Wasmer 1.0 Released</a></h2>
+<p><img src="https://bytes.dev/images/content/container.png" alt="Containers">
+</p><p class="image-alt">Some OG containerization</p><p></p>
+<p><strong>Wasmer, boss-mer…</strong> After two years of work, YC-backed Wasmer just released v1.0 of its runtime that promises to let you “run any code on any client.”</p>
+<p><strong>WTF is Wasmer?</strong> It’s a server-side WebAssembly runtime that enables lightweight containers that can run in any programming language. So you can use any of the tools and languages you love (like JavaScript, obvi), and then Wasmer will compile everything to WebAssembly.</p>
+<p>Let’s get into some of the new features which make Wasmer 1.0 even… awesome-r.</p>
+<ul>
+<li>
+<p><strong>Runs anywhere:</strong> Because Wasmer utilizes WebAssembly for all of the containerization, it’s able to create “universal binaries” that work on every platform (Linux, macOS, Windows, web browsers, and more) without needing modification.</p>
+</li>
+<li>
+<p><strong>Fast and safe:</strong> Wasmer runs at “near-native” speeds and automatically sandboxes applications, so you can execute untrusted code safely. And since WebAssembly provides such a lean execution environment, Wasmer containers can run in places where Docker containers are too heavy to work (like IoT devices at the edge).</p>
+</li>
+<li>
+<p><strong>Pluggable Infrastructure:</strong> Choose your own <del>adventure</del> compiler frameworks with out-of-the-box support for Singlepass, Cranelift, LLVM, and others.</p>
+</li>
+<li>
+<p><strong>N00b-friendly API:</strong> One of Wasmer 1.0’s main goals was to simplify its APIs so it would be easy to learn for developers who aren’t very familiar with the WebAssembly ecosystem (AKA most developers).</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>By now, you might be thinking, “but I’m a <em>web developer.</em> I haven’t had to think about binaries since my last job interview!”</p>
+<p>Fair point, but as <a href="https://www.youtube.com/watch?v=njt-Qzw0mVY">WebAssembly continues to make its way into the mainstream web-dev world,</a> we think it’ll be worth becoming familiar with tools like Wasmer.</p>
+<p>Plus, rumor has it that using WebAssembly just once will automatically jump you to the <strong>Mage Class</strong> of the HackerNews hierarchy, which unlocks special abilities like an unearned sense of superiority over your peers.</p>
+<hr>
+<h2>Job Listing — Come work at Parler!</h2>
+<p><img src="https://bytes.dev/images/content/fire.png" alt="Parler">
+</p><p class="image-alt">The hottest job on the planet.</p><p></p>
+<p>Come join the team behind the thriving social network that <em>everyone</em> is talking about! At Parler, you’ll get the chance to work on the tech behind one of the web’s great echo chambers. What we lack in diversity, we make up for with blind fervor.</p>
+<p>We’re looking for self-starters with <strong>8-12 years of experience</strong> to join our engineering team as junior software developers.</p>
+<p>Previous experience required in:</p>
+<ul>
+<li><del>Android development</del>, <del>iOS development</del>, Platform agnostic!</li>
+<li><del>Deploying to AWS</del> Setting up and maintaining in-house servers</li>
+<li>DNS</li>
+<li>CDNs</li>
+<li>Creating your own ISP</li>
+</ul>
+<p>We move fast and break everything!</p>
+<hr>
+<h2>JS Tip- Loops and Labels</h2>
+<p>JavaScript has at least 20 different ways to loop over things, including all of the array methods, like <code>forEach</code>, <code>map</code>, and <code>filter</code>; recursive functions; and <code>while</code>, and <code>for</code>.</p>
+<p>For array methods and recursive functions, you can end a loop early with a <code>return</code> statement, but if you were to use a return statement in a <code>while</code> or <code>for</code> loop, it would end the entire function, which is not ideal. Instead, if you want to jump to the next iteration of the loop, you can use the <code>continue</code> statement, like so.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Skip multiples of 2</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">continue</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 1, 3, 5, 7, 9</span>
+</code></pre>
+<p>The <code>break</code> statement lets you end the loop prematurely, without running any more iterations.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// End the loop when we get to a multiple of 3</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">break</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 1, 2</span>
+</code></pre>
+<p>These two statements work great for individual loops, but what if we needed to coordinate nested loops? If we just used <code>break</code> or <code>continue</code> inside the inner loop, it wouldn’t be able to stop or skip the outer loop.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> numberList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numberList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> iNum <span class="token operator">=</span> numberList<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> numberList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> jNum <span class="token operator">=</span> numberList<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>iNum <span class="token operator">*</span> jNum<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// This continues the inner loop if the number is even</span>
+      <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>iNum <span class="token operator">*</span> jNum<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 1,3,5,3,9,15,5,15,25</span>
+</code></pre>
+<p>To let us call <code>continue</code> or <code>break</code> on the outer loop from inside the inner loop, we need to apply a label to the outer loop. The label goes right before the <code>for</code> statement. Then, we can use the label with the <code>continue</code> statement. Notice how the results change once we add the label.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> numberList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token literal-property property">outerLoop</span><span class="token operator">:</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numberList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> iNum <span class="token operator">=</span> numberList<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> numberList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> jNum <span class="token operator">=</span> numberList<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>iNum <span class="token operator">*</span> jNum<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// This continues the inner loop if the number is even</span>
+      <span class="token keyword">continue</span> outerLoop
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>iNum <span class="token operator">*</span> jNum<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 1,3,5</span>
+</code></pre>
+<p>Next time you need to nest loops for some reason, you can use a label, <code>break</code>, and <code>continue</code> to have more control over the flow of your loops.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Just in case you haven’t gotten enough server content in this issue, Abhishek wrote <a href="https://iabhishek.dev/post/an-intro-to-server-sent-events">an in-depth intro to server sent events.</a></p>
+</li>
+<li>
+<p><a href="https://compiledcssinjs.com/">Compiled is a build time atomic CSS-in-JS library</a> that’s “baked and ready to go,” just like Grandma’s cookies (or your stoner friend who really wants Taco Bell rn).</p>
+</li>
+<li>
+<p><a href="https://github.com/timkendall/tql">TQL is type-safe GraphQL query builder</a> that’s still in pre-production, but looks pretty cool.</p>
+</li>
+<li>
+<p>Jesse wrote about <a href="https://thejunkland.com/blog/what-react-gets-wrong.html">the things React gets wrong</a> and imagines how they could be improved.</p>
+</li>
+<li>
+<p><a href="https://unclack.app/#/">Unclack is a new MacOS app</a> that mutes your microphone while you type during a Zoom call. That way, you can still feel cool for using an <del>19th-century typewriter</del> <em>ergonomic clacky keyboard,</em> without busting your co-workers eardrums during standup.</p>
+</li>
+<li>
+<p>Mike <a href="https://mikehelland.github.io/hubbles-law/modeling_expansion.htm">used JavaScript to model our expanding universe</a> with a single photon that passes a series of targets placed 200 million light-years apart. Writing that sentence <em>*almost*</em> made me wish I had paid more attention during all those PhysSci 101 lectures.</p>
+</li>
+<li>
+<p><a href="https://synergyjs.org">Synergy is yet another new <em>not-React™</em> Library</a>. It’s declarative and small and blazing fast and all things that mean good in computer science.</p>
+</li>
+</ol>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"The hottest job on the planet","date":"2021-01-11","description":"Wasmer 1.0, the hottest job on the plant, and some LOOPs.","featuredImage":"https://bytes.dev/images/content/container.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003ch2\u003e\u003ca href=\"https://medium.com/wasmer/wasmer-1-0-3f86ca18c043\"\u003eWasmer 1.0 Released\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/container.png\" alt=\"Containers\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eSome OG containerization\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWasmer, boss-mer…\u003c/strong\u003e After two years of work, YC-backed Wasmer just released v1.0 of its runtime that promises to let you “run any code on any client.”\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWTF is Wasmer?\u003c/strong\u003e It’s a server-side WebAssembly runtime that enables lightweight containers that can run in any programming language. So you can use any of the tools and languages you love (like JavaScript, obvi), and then Wasmer will compile everything to WebAssembly.\u003c/p\u003e\n\u003cp\u003eLet’s get into some of the new features which make Wasmer 1.0 even… awesome-r.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRuns anywhere:\u003c/strong\u003e Because Wasmer utilizes WebAssembly for all of the containerization, it’s able to create “universal binaries” that work on every platform (Linux, macOS, Windows, web browsers, and more) without needing modification.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast and safe:\u003c/strong\u003e Wasmer runs at “near-native” speeds and automatically sandboxes applications, so you can execute untrusted code safely. And since WebAssembly provides such a lean execution environment, Wasmer containers can run in places where Docker containers are too heavy to work (like IoT devices at the edge).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePluggable Infrastructure:\u003c/strong\u003e Choose your own \u003cdel\u003eadventure\u003c/del\u003e compiler frameworks with out-of-the-box support for Singlepass, Cranelift, LLVM, and others.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eN00b-friendly API:\u003c/strong\u003e One of Wasmer 1.0’s main goals was to simplify its APIs so it would be easy to learn for developers who aren’t very familiar with the WebAssembly ecosystem (AKA most developers).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eBy now, you might be thinking, “but I’m a \u003cem\u003eweb developer.\u003c/em\u003e I haven’t had to think about binaries since my last job interview!”\u003c/p\u003e\n\u003cp\u003eFair point, but as \u003ca href=\"https://www.youtube.com/watch?v=njt-Qzw0mVY\"\u003eWebAssembly continues to make its way into the mainstream web-dev world,\u003c/a\u003e we think it’ll be worth becoming familiar with tools like Wasmer.\u003c/p\u003e\n\u003cp\u003ePlus, rumor has it that using WebAssembly just once will automatically jump you to the \u003cstrong\u003eMage Class\u003c/strong\u003e of the HackerNews hierarchy, which unlocks special abilities like an unearned sense of superiority over your peers.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJob Listing — Come work at Parler!\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/fire.png\" alt=\"Parler\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe hottest job on the planet.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eCome join the team behind the thriving social network that \u003cem\u003eeveryone\u003c/em\u003e is talking about! At Parler, you’ll get the chance to work on the tech behind one of the web’s great echo chambers. What we lack in diversity, we make up for with blind fervor.\u003c/p\u003e\n\u003cp\u003eWe’re looking for self-starters with \u003cstrong\u003e8-12 years of experience\u003c/strong\u003e to join our engineering team as junior software developers.\u003c/p\u003e\n\u003cp\u003ePrevious experience required in:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cdel\u003eAndroid development\u003c/del\u003e, \u003cdel\u003eiOS development\u003c/del\u003e, Platform agnostic!\u003c/li\u003e\n\u003cli\u003e\u003cdel\u003eDeploying to AWS\u003c/del\u003e Setting up and maintaining in-house servers\u003c/li\u003e\n\u003cli\u003eDNS\u003c/li\u003e\n\u003cli\u003eCDNs\u003c/li\u003e\n\u003cli\u003eCreating your own ISP\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe move fast and break everything!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Tip- Loops and Labels\u003c/h2\u003e\n\u003cp\u003eJavaScript has at least 20 different ways to loop over things, including all of the array methods, like \u003ccode\u003eforEach\u003c/code\u003e, \u003ccode\u003emap\u003c/code\u003e, and \u003ccode\u003efilter\u003c/code\u003e; recursive functions; and \u003ccode\u003ewhile\u003c/code\u003e, and \u003ccode\u003efor\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFor array methods and recursive functions, you can end a loop early with a \u003ccode\u003ereturn\u003c/code\u003e statement, but if you were to use a return statement in a \u003ccode\u003ewhile\u003c/code\u003e or \u003ccode\u003efor\u003c/code\u003e loop, it would end the entire function, which is not ideal. Instead, if you want to jump to the next iteration of the loop, you can use the \u003ccode\u003econtinue\u003c/code\u003e statement, like so.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token comment\"\u003e// Skip multiples of 2\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e%\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econtinue\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 1, 3, 5, 7, 9\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u003ccode\u003ebreak\u003c/code\u003e statement lets you end the loop prematurely, without running any more iterations.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token comment\"\u003e// End the loop when we get to a multiple of 3\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e%\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ebreak\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 1, 2\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThese two statements work great for individual loops, but what if we needed to coordinate nested loops? If we just used \u003ccode\u003ebreak\u003c/code\u003e or \u003ccode\u003econtinue\u003c/code\u003e inside the inner loop, it wouldn’t be able to stop or skip the outer loop.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e numberList \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e iNum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e j \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e j \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e j\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e jNum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ej\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eiNum \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e jNum\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e%\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token comment\"\u003e// This continues the inner loop if the number is even\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econtinue\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eiNum \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e jNum\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 1,3,5,3,9,15,5,15,25\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo let us call \u003ccode\u003econtinue\u003c/code\u003e or \u003ccode\u003ebreak\u003c/code\u003e on the outer loop from inside the inner loop, we need to apply a label to the outer loop. The label goes right before the \u003ccode\u003efor\u003c/code\u003e statement. Then, we can use the label with the \u003ccode\u003econtinue\u003c/code\u003e statement. Notice how the results change once we add the label.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e numberList \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\u003cspan class=\"token literal-property property\"\u003eouterLoop\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e iNum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e j \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e j \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e j\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e jNum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e numberList\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ej\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eiNum \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e jNum\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e%\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token comment\"\u003e// This continues the inner loop if the number is even\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econtinue\u003c/span\u003e outerLoop\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eiNum \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e jNum\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 1,3,5\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNext time you need to nest loops for some reason, you can use a label, \u003ccode\u003ebreak\u003c/code\u003e, and \u003ccode\u003econtinue\u003c/code\u003e to have more control over the flow of your loops.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eJust in case you haven’t gotten enough server content in this issue, Abhishek wrote \u003ca href=\"https://iabhishek.dev/post/an-intro-to-server-sent-events\"\u003ean in-depth intro to server sent events.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://compiledcssinjs.com/\"\u003eCompiled is a build time atomic CSS-in-JS library\u003c/a\u003e that’s “baked and ready to go,” just like Grandma’s cookies (or your stoner friend who really wants Taco Bell rn).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/timkendall/tql\"\u003eTQL is type-safe GraphQL query builder\u003c/a\u003e that’s still in pre-production, but looks pretty cool.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJesse wrote about \u003ca href=\"https://thejunkland.com/blog/what-react-gets-wrong.html\"\u003ethe things React gets wrong\u003c/a\u003e and imagines how they could be improved.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://unclack.app/#/\"\u003eUnclack is a new MacOS app\u003c/a\u003e that mutes your microphone while you type during a Zoom call. That way, you can still feel cool for using an \u003cdel\u003e19th-century typewriter\u003c/del\u003e \u003cem\u003eergonomic clacky keyboard,\u003c/em\u003e without busting your co-workers eardrums during standup.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMike \u003ca href=\"https://mikehelland.github.io/hubbles-law/modeling_expansion.htm\"\u003eused JavaScript to model our expanding universe\u003c/a\u003e with a single photon that passes a series of targets placed 200 million light-years apart. Writing that sentence \u003cem\u003e*almost*\u003c/em\u003e made me wish I had paid more attention during all those PhysSci 101 lectures.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://synergyjs.org\"\u003eSynergy is yet another new \u003cem\u003enot-React™\u003c/em\u003e Library\u003c/a\u003e. It’s declarative and small and blazing fast and all things that mean good in computer science.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"30"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"30"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

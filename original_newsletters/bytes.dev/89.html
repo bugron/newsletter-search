@@ -1,0 +1,314 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #89 - To feel young again</title><link rel="canonical" href="https://bytes.dev/archives/89"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art."/><meta property="og:url" content="https://bytes.dev/archives/89"/><meta property="og:title" content="Bytes #89 - To feel young again"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/chance.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #89 - To feel young again"/><meta property="twitter:description" content="This issue, we&#x27;ve got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/chance.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> To feel young again</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->89<!-- -->.</span><span class="mr-6 font-bold">February 28, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art. Welcome to #89.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/chance.png" alt="Chance the Rapper Meme">
+</p><p class="image-alt">You don’t want no problems, want no problems with me</p><p></p>
+<h2>Trouble in the Vueniverse?</h2>
+<p>Vue has always been like the cool <a href="https://soundcloud.com/CHANCETHERAPPER">SoundCloud rapper</a> of the JavaScript ecosystem — it’s not quite as mainstream as some of its contemporaries, and it has a super passionate community of fans who love the fact that it isn’t backed by a giant mega-corp.</p>
+<p>But the last couple years have been difficult in Vue-Land, starting with the release of Vue 3 in September 2020.</p>
+<p>That’s because Vue 3 was all about scaling up. They completely re-wrote its virtual DOM, and introduced a new set of React Hooks-like <a href="https://vuejs.org/guide/extras/composition-api-faq.html">APIs</a> to “address the pain points of Vue usage in large scale applications.”</p>
+<p>But after 18 months, it’s clear that these big upgrades have caused some lingering fragmentation in the ecosystem — Nuxt 3 is still only in beta, and Vuetify (the most popular Vue component library) is only in alpha with its Vue 3 update. Other libraries have also <a href="https://www.lindsaykwardell.com/blog/coming-into-vue-whats-next-vue-3/">struggled with the migration</a>, thanks to the new major version.</p>
+<p>As you can imagine, this has made life a lot more inconvenient for Vue devs — they want to use Vue 3, but their favorite UI framework or component library might not be compatible.</p>
+<p>You could make the argument that this migration <em>might</em> have been less painful if Vue was backed by a big tech company with a nonstop money printer, but I’m also old enough to remember Angular.js, so who knows.</p>
+<p><strong>Bottom Line:</strong> Lots of indie artists struggle to make the jump into the mainstream, while still staying true to the OG fans who got them there. Vue is feeling those same growing pains right now — but the good news is that once the ecosystem <em>finally</em> catches up to Vue 3, they should be stronger than ever.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/cursed-cookie.png" alt="Cursed Cookie">
+</p><p class="image-alt">When you build your own chat app from scratch [sponsored]</p><p></p>
+<h2><a href="https://getstream.io/try-for-free/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial">Stream</a> is how smart developers build chat apps</h2>
+<p>Building a chat app from scratch in 2022 is like trying to make Pop-Tarts <a href="https://www.youtube.com/watch?v=jYqRiKu7gY0">from scratch</a> — overly complex and completely unnecessary thanks to glorious technology.</p>
+<p>That’s because most developers just <a href="https://getstream.io/try-for-free/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial.">use Stream</a> It’s the #1 chat-messaging and activity feed platform in the world — because it handles all of the mess that comes with building chat apps for you.</p>
+<p><strong>bUt WilL iT SCaLe?</strong> Don’t ask me, ask Match.com – they use Stream to let their 22 million members send each other heartfelt messages like, <em>“You up?”</em> every single <del>day</del> night. So next time you drunkenly message that person who ghosted you 7 months ago, you can thank (or curse) Stream for making it all possible.</p>
+<p>CodePen, Imgur, SoundCloud and a bunch of other companies have built apps with Stream too. Chances are, you’ve already used Stream as a user without even realizing it <span role="img" aria-label="exploding head">🤯</span>.</p>
+<p><a href="https://getstream.io/try-for-free/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial">Check out the free trial</a> and I guarantee you’ll be shocked by how straightforward (and flexible) the API is.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/neville.png" alt="Neville Glowup Meme">
+</p><p class="image-alt">Glow-up of the century</p><p></p>
+<h2>Happy Birthday Visual Studio <span role="img" aria-label="birthday cake">🎂</span></h2>
+<p>Visual Studio is about to <a href="https://visualstudio.microsoft.com/">turn 25</a>, and like many of us, it was a late bloomer.</p>
+<p>Back in 1997, it started out as a collection of three separate IDE’s for Visual Basic, Visual C++, and Visual FoxPro (no relation to Starfox, we checked). And they all came on separate CD’s, which you had to <em>buy from a store</em> <span role="img" aria-label="face vomiting">🤮</span>. In the ’90s, “stealing software” meant setting up a heist at your local Circuit City like Mark Wahlberg in <a href="https://youtu.be/thjtHfVkPAU?t=104">The Italian Job</a>. We call it the Dark Ages for a reason.</p>
+<p>In 2002, we got Visual Studio .NET edition, which came with a brand new programming language called C#. This fun little bonus feature was created by Anders Hejlsberg, who went on to create TypeScript a decade later <span role="img" aria-label="goat">🐐</span>.</p>
+<p>And so it went for the next ~18 years. Along the way, Visual Studio was able to ditch the CD’s, but the software itself remained pretty bloated and relatively unpopular. VS finally got its <span role="img" aria-label="sparkles">✨</span>glow-up<span role="img" aria-label="sparkles">✨</span> in 2015 when it came out with VS<em>Code</em> — the powerful text editor we all know and (mostly) love, with TypeScript as the key ingredient.</p>
+<p>Fast forward to today, and VSCode is used by over 70% of web developers and literally <a href="https://copilot.github.com/">writes our code</a> for us now. The Visual Studio IDE is still around too, but it’s mostly used by .NET developers to do whatever it is they do.</p>
+<p><strong>Bottom Line:</strong> None of this is that relevant to me personally, since I write all my code in the Apple Notes app right after I finish sketching it out on a whiteboard — but I guess it’s cool if you’re into debugging your code and stuff.</p>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug — Sponsored by <a href="https://unlayer.com/embed">Unlayer</a></h2>
+<p><em>Unlayer’s simple JavaScript SDK lets you embed a white-label email editor or page builder into your SaaS app in 5 minutes, instead of spending hours building it yourself (gross). <a href="https://unlayer.com/embed">Check it out.</a></em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">convertMilesToFeet</span><span class="token punctuation">(</span><span class="token parameter">miles</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> miles <span class="token operator">*</span> <span class="token number">5_280</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Johnny Simpson wrote about <a href="https://dev.to/smpnjn/future-javascript-records-and-tuples-14fk">Record and Tuples</a> — a Stage 2 proposal for JavaScript. “Records and Tuples” is also the name of Wes Bos’s performance art piece that he’ll be debuting at the MoMA later this year.</p>
+</li>
+<li>
+<p>Storybook lets you pinpoint visual bugs automatically. Chromatic runs visual tests, publishes component docs and gathers UI feedback in one shared workspace. That helps you ship UIs with less manual work. <a href="https://www.chromatic.com/?utm_source=ui_dev_bytes&amp;utm_medium=sponsorship&amp;utm_campaign=q1_2022">Learn more »</a> [sponsored]</p>
+</li>
+<li>
+<p>Nicholas Nethercote from the Rust team wrote about <a href="https://nnethercote.github.io/2022/02/25/how-to-speed-up-the-rust-compiler-in-2022.html">How to Speed Up the Rust Compiler in 2022</a>. But has he just considered rewriting the whole thing in Rust?</p>
+</li>
+<li>
+<p>Can you spot the bug in <a href="https://www.youtube.com/shorts/9hzZt39QScY">this code</a>?</p>
+</li>
+<li>
+<p>Jens Kuerschner created a nice JavaScript snippet that lets you create <a href="https://github.com/jekuer/add-to-calendar-button">beautiful add-to-calendar buttons</a>.</p>
+</li>
+<li>
+<p>Justin Schroeder created <a href="https://dev.to/justinschroeder/introducing-formkit-a-vue-3-form-building-framework-53ji">FormKit</a> — a “form building framework” for Vue 3 that he forked from a Vue 2 version of a similar library he created (Vue Formulate). Because sometimes it’s easier to fork your library than to try and migrate it <span role="img" aria-label="woozy face">🥴</span>.</p>
+</li>
+<li>
+<p>Jarrod Overson wrote a free e-book called <a href="https://github.com/vinodotdev/node-to-rust/#from-javascript-to-rust-ebook">From JavaScript to Rust</a> that’ll get you writing your own blog posts about how to speed up Rust’s compiler in no time.</p>
+</li>
+<li>
+<p><a href="https://github.com/parcel-bundler/parcel-css/releases/tag/v1.4.0">Parcel v1.4</a> was just released with Cascade Layers — not to be confused with <em>Cascada</em> Layers — which is what I call it when I blast “Every Time We Touch” on my Bose headphones at full volume in order to <a href="https://www.reddit.com/r/TikTokCringe/comments/jcij5k/everytime_we_touch_by_cascada_is_such_a_bop/">feel young again</a>.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug - Solution</h2>
+<p>OK fine. There actually isn’t a bug. You might think <code>5_280</code> is a typo, but it’s actually a feature of ES2021 called “numeric separators”. You can use it to more easily write numbers with separators.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Sticker Pack"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">10_00</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"The Creation of React T-shirt"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">30_00</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Expand Your Mind Crewneck"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">50_00</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: To feel young again","date":"2022-02-28","description":"This issue, we've got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art.","featuredImage":"https://bytes.dev/images/content/chance.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got Vue trying to make it as a SoundCloud rapper, a very special birthday celebration, and Wes Bos performance art. Welcome to #89.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/chance.png\" alt=\"Chance the Rapper Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eYou don’t want no problems, want no problems with me\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eTrouble in the Vueniverse?\u003c/h2\u003e\n\u003cp\u003eVue has always been like the cool \u003ca href=\"https://soundcloud.com/CHANCETHERAPPER\"\u003eSoundCloud rapper\u003c/a\u003e of the JavaScript ecosystem — it’s not quite as mainstream as some of its contemporaries, and it has a super passionate community of fans who love the fact that it isn’t backed by a giant mega-corp.\u003c/p\u003e\n\u003cp\u003eBut the last couple years have been difficult in Vue-Land, starting with the release of Vue 3 in September 2020.\u003c/p\u003e\n\u003cp\u003eThat’s because Vue 3 was all about scaling up. They completely re-wrote its virtual DOM, and introduced a new set of React Hooks-like \u003ca href=\"https://vuejs.org/guide/extras/composition-api-faq.html\"\u003eAPIs\u003c/a\u003e to “address the pain points of Vue usage in large scale applications.”\u003c/p\u003e\n\u003cp\u003eBut after 18 months, it’s clear that these big upgrades have caused some lingering fragmentation in the ecosystem — Nuxt 3 is still only in beta, and Vuetify (the most popular Vue component library) is only in alpha with its Vue 3 update. Other libraries have also \u003ca href=\"https://www.lindsaykwardell.com/blog/coming-into-vue-whats-next-vue-3/\"\u003estruggled with the migration\u003c/a\u003e, thanks to the new major version.\u003c/p\u003e\n\u003cp\u003eAs you can imagine, this has made life a lot more inconvenient for Vue devs — they want to use Vue 3, but their favorite UI framework or component library might not be compatible.\u003c/p\u003e\n\u003cp\u003eYou could make the argument that this migration \u003cem\u003emight\u003c/em\u003e have been less painful if Vue was backed by a big tech company with a nonstop money printer, but I’m also old enough to remember Angular.js, so who knows.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Lots of indie artists struggle to make the jump into the mainstream, while still staying true to the OG fans who got them there. Vue is feeling those same growing pains right now — but the good news is that once the ecosystem \u003cem\u003efinally\u003c/em\u003e catches up to Vue 3, they should be stronger than ever.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/cursed-cookie.png\" alt=\"Cursed Cookie\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWhen you build your own chat app from scratch [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://getstream.io/try-for-free/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial\"\u003eStream\u003c/a\u003e is how smart developers build chat apps\u003c/h2\u003e\n\u003cp\u003eBuilding a chat app from scratch in 2022 is like trying to make Pop-Tarts \u003ca href=\"https://www.youtube.com/watch?v=jYqRiKu7gY0\"\u003efrom scratch\u003c/a\u003e — overly complex and completely unnecessary thanks to glorious technology.\u003c/p\u003e\n\u003cp\u003eThat’s because most developers just \u003ca href=\"https://getstream.io/try-for-free/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial.\"\u003euse Stream\u003c/a\u003e It’s the #1 chat-messaging and activity feed platform in the world — because it handles all of the mess that comes with building chat apps for you.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ebUt WilL iT SCaLe?\u003c/strong\u003e Don’t ask me, ask Match.com – they use Stream to let their 22 million members send each other heartfelt messages like, \u003cem\u003e“You up?”\u003c/em\u003e every single \u003cdel\u003eday\u003c/del\u003e night. So next time you drunkenly message that person who ghosted you 7 months ago, you can thank (or curse) Stream for making it all possible.\u003c/p\u003e\n\u003cp\u003eCodePen, Imgur, SoundCloud and a bunch of other companies have built apps with Stream too. Chances are, you’ve already used Stream as a user without even realizing it \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://getstream.io/try-for-free/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial\"\u003eCheck out the free trial\u003c/a\u003e and I guarantee you’ll be shocked by how straightforward (and flexible) the API is.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/neville.png\" alt=\"Neville Glowup Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eGlow-up of the century\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eHappy Birthday Visual Studio \u003cspan role=\"img\" aria-label=\"birthday cake\"\u003e🎂\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003eVisual Studio is about to \u003ca href=\"https://visualstudio.microsoft.com/\"\u003eturn 25\u003c/a\u003e, and like many of us, it was a late bloomer.\u003c/p\u003e\n\u003cp\u003eBack in 1997, it started out as a collection of three separate IDE’s for Visual Basic, Visual C++, and Visual FoxPro (no relation to Starfox, we checked). And they all came on separate CD’s, which you had to \u003cem\u003ebuy from a store\u003c/em\u003e \u003cspan role=\"img\" aria-label=\"face vomiting\"\u003e🤮\u003c/span\u003e. In the ’90s, “stealing software” meant setting up a heist at your local Circuit City like Mark Wahlberg in \u003ca href=\"https://youtu.be/thjtHfVkPAU?t=104\"\u003eThe Italian Job\u003c/a\u003e. We call it the Dark Ages for a reason.\u003c/p\u003e\n\u003cp\u003eIn 2002, we got Visual Studio .NET edition, which came with a brand new programming language called C#. This fun little bonus feature was created by Anders Hejlsberg, who went on to create TypeScript a decade later \u003cspan role=\"img\" aria-label=\"goat\"\u003e🐐\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003eAnd so it went for the next ~18 years. Along the way, Visual Studio was able to ditch the CD’s, but the software itself remained pretty bloated and relatively unpopular. VS finally got its \u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003eglow-up\u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003e in 2015 when it came out with VS\u003cem\u003eCode\u003c/em\u003e — the powerful text editor we all know and (mostly) love, with TypeScript as the key ingredient.\u003c/p\u003e\n\u003cp\u003eFast forward to today, and VSCode is used by over 70% of web developers and literally \u003ca href=\"https://copilot.github.com/\"\u003ewrites our code\u003c/a\u003e for us now. The Visual Studio IDE is still around too, but it’s mostly used by .NET developers to do whatever it is they do.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e None of this is that relevant to me personally, since I write all my code in the Apple Notes app right after I finish sketching it out on a whiteboard — but I guess it’s cool if you’re into debugging your code and stuff.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug — Sponsored by \u003ca href=\"https://unlayer.com/embed\"\u003eUnlayer\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eUnlayer’s simple JavaScript SDK lets you embed a white-label email editor or page builder into your SaaS app in 5 minutes, instead of spending hours building it yourself (gross). \u003ca href=\"https://unlayer.com/embed\"\u003eCheck it out.\u003c/a\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003econvertMilesToFeet\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003emiles\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e miles \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e \u003cspan class=\"token number\"\u003e5_280\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eJohnny Simpson wrote about \u003ca href=\"https://dev.to/smpnjn/future-javascript-records-and-tuples-14fk\"\u003eRecord and Tuples\u003c/a\u003e — a Stage 2 proposal for JavaScript. “Records and Tuples” is also the name of Wes Bos’s performance art piece that he’ll be debuting at the MoMA later this year.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eStorybook lets you pinpoint visual bugs automatically. Chromatic runs visual tests, publishes component docs and gathers UI feedback in one shared workspace. That helps you ship UIs with less manual work. \u003ca href=\"https://www.chromatic.com/?utm_source=ui_dev_bytes\u0026amp;utm_medium=sponsorship\u0026amp;utm_campaign=q1_2022\"\u003eLearn more »\u003c/a\u003e [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNicholas Nethercote from the Rust team wrote about \u003ca href=\"https://nnethercote.github.io/2022/02/25/how-to-speed-up-the-rust-compiler-in-2022.html\"\u003eHow to Speed Up the Rust Compiler in 2022\u003c/a\u003e. But has he just considered rewriting the whole thing in Rust?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCan you spot the bug in \u003ca href=\"https://www.youtube.com/shorts/9hzZt39QScY\"\u003ethis code\u003c/a\u003e?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJens Kuerschner created a nice JavaScript snippet that lets you create \u003ca href=\"https://github.com/jekuer/add-to-calendar-button\"\u003ebeautiful add-to-calendar buttons\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJustin Schroeder created \u003ca href=\"https://dev.to/justinschroeder/introducing-formkit-a-vue-3-form-building-framework-53ji\"\u003eFormKit\u003c/a\u003e — a “form building framework” for Vue 3 that he forked from a Vue 2 version of a similar library he created (Vue Formulate). Because sometimes it’s easier to fork your library than to try and migrate it \u003cspan role=\"img\" aria-label=\"woozy face\"\u003e🥴\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJarrod Overson wrote a free e-book called \u003ca href=\"https://github.com/vinodotdev/node-to-rust/#from-javascript-to-rust-ebook\"\u003eFrom JavaScript to Rust\u003c/a\u003e that’ll get you writing your own blog posts about how to speed up Rust’s compiler in no time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/parcel-bundler/parcel-css/releases/tag/v1.4.0\"\u003eParcel v1.4\u003c/a\u003e was just released with Cascade Layers — not to be confused with \u003cem\u003eCascada\u003c/em\u003e Layers — which is what I call it when I blast “Every Time We Touch” on my Bose headphones at full volume in order to \u003ca href=\"https://www.reddit.com/r/TikTokCringe/comments/jcij5k/everytime_we_touch_by_cascada_is_such_a_bop/\"\u003efeel young again\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug - Solution\u003c/h2\u003e\n\u003cp\u003eOK fine. There actually isn’t a bug. You might think \u003ccode\u003e5_280\u003c/code\u003e is a typo, but it’s actually a feature of ES2021 called “numeric separators”. You can use it to more easily write numbers with separators.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e products \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Sticker Pack\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e10_00\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"The Creation of React T-shirt\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e30_00\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Expand Your Mind Crewneck\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e50_00\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"89"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"89"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

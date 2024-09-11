@@ -1,0 +1,304 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #7 - thank u, next.js</title><link rel="canonical" href="https://bytes.dev/archives/7"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Next.js says &#x27;F Yo Couch&#x27;, we reminisce about MySpace, and a guide to React&#x27;s context API."/><meta property="og:url" content="https://bytes.dev/archives/7"/><meta property="og:title" content="Bytes #7 - thank u, next.js"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/fyocouch.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Next.js says &#x27;F Yo Couch&#x27;, we reminisce about MySpace, and a guide to React&#x27;s context API."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #7 - thank u, next.js"/><meta property="twitter:description" content="Next.js says &#x27;F Yo Couch&#x27;, we reminisce about MySpace, and a guide to React&#x27;s context API."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/fyocouch.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">thank u, next.js</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->7<!-- -->.</span><span class="mr-6 font-bold">August 3, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This newsletter is an <a href="https://youtu.be/H6eYLCxxQdA?t=852">economic miracle</a>.</p>
+<hr>
+<h2>Next.js releases v9.5</h2>
+<p><img src="https://bytes.dev/images/content/fyocouch.jpg" alt="f yo couch">
+</p><p class="image-alt">Why don’t I stretch out?</p><p></p>
+<p><strong>thank u, next…</strong> <a href="https://nextjs.org/blog/next-9-5">Next.js released v9.5 last week</a> and doubled down on its recent commitment to static site generation with a new <a href="https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration">incremental static re-generation feature</a>.</p>
+<p><strong>Wtf does that mean?</strong> It’s a long name for a new mechanism that lets you update existing pages on your site by statically re-rendering them in the background as traffic comes in. The goal is to give you the benefits of both static and dynamic content. <a href="https://reactions-demo.now.sh/">Check out this Github Reactions demo</a> to see it in action.</p>
+<p><strong>Other features from v9.5:</strong> Customizable base path, redirects and rewrites, Webpack 5 beta, and more.</p>
+<h3>How did we get here?</h3>
+<p>In the good ol’ days, (before COVID and <a href="https://twitter.com/MenonBioPhysics/status/1286577862280085504">that terrible twitter joke format</a> from last week) it was easy to choose between Gatsby and Next.js. If you wanted to build a static site you used Gatsby, and if you wanted server-side rendering you used Next.js.</p>
+<p>Then, everything changed when the <del>Fire Nation attacked</del> VC’s wrote checks.</p>
+<p>Gatsby and Vercel (the company behind Next.js) both raised fat stacks of cash with the idea that they could use their very popular open source frameworks as distribution channels for their paid platforms.</p>
+<p>But taking VC money means your company needs to grow fast, which means your distribution channels need to grow fast, too. So it’s probably not a coincidence that Next.js announced support for static site generation right around the time they announced their first big VC investment. Supporting more use cases means more users, which ultimately means more revenue (in theory).</p>
+<h3>The bottom line</h3>
+<p>The new features in Next.js 9.5 help to beef up the framework’s new static site offering, while continuing to add to its already robust feature set for SSR. This is exciting news for Next.js fans, but what about Gatsby? Does this new static support from Next.js send a message that “this town ain’t big enough for the both of us? Or is there room for more than one winner? I guess we’ll wait and see.</p>
+<hr>
+<h2>This week in history</h2>
+<p><img src="https://bytes.dev/images/content/tom.jpg" alt="myspace tom">
+</p><p class="image-alt">Heroes get remembered, but legends never die.</p><p></p>
+<p>Edgy teens found a new internet home when Myspace officially launched 17 years ago this week. The OG social network was originally built with ColdFusion and SQL (before later migrating to ASP.NET), and was processing 1.5 billion page views per day at its peak. It clocked in as the #1 most visited site in the US in 2006, ahead of Google and Yahoo.</p>
+<p>Since the glory days, the company has been bought, sold, and re-sold to everyone from Justin Timberlake (that sounds like a joke, it’s not) to Time Magazine. At this point, I don’t think a big comeback is gonna happen.</p>
+<p>The most lasting legacy of Myspace might be the way it <a href="https://news.codecademy.com/myspace-and-the-coding-legacy/">inspired a whole generation</a> to learn the basics of HTML and CSS in order to customize their profiles.</p>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p>Felix decided to serve us some real-life nightmare fuel by building <a href="https://github.com/felixrieseberg/macintosh.js">an entire 1991 Macintosh Quadra with Mac OS 8.1 running in an Electron app</a>. It’s a beautiful abomination.</p>
+</li>
+<li>
+<p>Josh walks you through creating a <a href="https://github.com/felixrieseberg/macintosh.js">basic physics simulation in JavaScript</a> that will make you wish you had actually paid attention in physics back in high school.</p>
+</li>
+<li>
+<p>Etienne wrote about simplifying your JavaScript (and impressing your coworkers) by using <a href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">.map(), .reduce(), and .filter()</a>.</p>
+</li>
+<li>
+<p>Aaron made a video about <a href="https://www.youtube.com/watch?v=3vLCthTptY0">21 “life-changing” JavaScript tips</a> that comes with a helpful, downloadable cheat sheet.</p>
+</li>
+<li>
+<p>This <a href="https://sunilsandhu.com/posts/i-created-the-exact-same-app-in-react-and-vue-2020-edition">side-by-side comparison of React and Vue 3</a> gives an in-depth look at the similarities and differences between the two technologies when building the same to-do app.</p>
+</li>
+<li>
+<p>Adam wrote about <a href="https://adamconrad.dev/blog/3-basics-of-typescript-you-probably-dont-know/">3 lesser-known TypeScript concepts</a>. How many did you know?</p>
+</li>
+<li>
+<p><a href="https://github.com/jamiebuilds/tinykeys">Tinykeys is tiny, modern library for key bindings</a> with a nice live demo, so you can check it out for yourself.</p>
+</li>
+<li>
+<p>Elijah Manor wrote about <a href="https://elijahmanor.com/format-js-dates-and-times">how to natively format JavaScript dates and times</a> with some helpful graphics and code examples.</p>
+</li>
+</ol>
+<hr>
+<h2>This week on ui.dev</h2>
+<ul>
+<li>
+<p><a href="https://ui.dev/jsx">JSX Tips and Gotchas for Beginners</a></p>
+</li>
+<li>
+<p><a href="https://ui.dev/npm">What is NPM? A guide to the company, registry, and CLI</a></p>
+</li>
+<li>
+<p><a href="https://ui.dev/capitalize-first-letter-of-string-javascript">How to capitalize the first letter of a string in JavaScript</a></p>
+</li>
+<li>
+<p><a href="https://ui.dev/react-context">Guide to React Context</a></p>
+</li>
+<li>
+<p><a href="https://ui.dev/add-item-to-end-of-array-javascript">How to add an item to the end of an Array in JavaScript</a></p>
+</li>
+</ul>
+<hr>
+<h2>?OTW</h2>
+<p>What do you think is the single most important problem that the Web/JS community should be working on?</p>
+<p>We’ll show off some of the best responses in next week’s issue.</p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"thank u, next.js","date":"2020-08-03","description":"Next.js says 'F Yo Couch', we reminisce about MySpace, and a guide to React's context API.","featuredImage":"https://bytes.dev/images/content/fyocouch.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis newsletter is an \u003ca href=\"https://youtu.be/H6eYLCxxQdA?t=852\"\u003eeconomic miracle\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eNext.js releases v9.5\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/fyocouch.jpg\" alt=\"f yo couch\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWhy don’t I stretch out?\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ethank u, next…\u003c/strong\u003e \u003ca href=\"https://nextjs.org/blog/next-9-5\"\u003eNext.js released v9.5 last week\u003c/a\u003e and doubled down on its recent commitment to static site generation with a new \u003ca href=\"https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration\"\u003eincremental static re-generation feature\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWtf does that mean?\u003c/strong\u003e It’s a long name for a new mechanism that lets you update existing pages on your site by statically re-rendering them in the background as traffic comes in. The goal is to give you the benefits of both static and dynamic content. \u003ca href=\"https://reactions-demo.now.sh/\"\u003eCheck out this Github Reactions demo\u003c/a\u003e to see it in action.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eOther features from v9.5:\u003c/strong\u003e Customizable base path, redirects and rewrites, Webpack 5 beta, and more.\u003c/p\u003e\n\u003ch3\u003eHow did we get here?\u003c/h3\u003e\n\u003cp\u003eIn the good ol’ days, (before COVID and \u003ca href=\"https://twitter.com/MenonBioPhysics/status/1286577862280085504\"\u003ethat terrible twitter joke format\u003c/a\u003e from last week) it was easy to choose between Gatsby and Next.js. If you wanted to build a static site you used Gatsby, and if you wanted server-side rendering you used Next.js.\u003c/p\u003e\n\u003cp\u003eThen, everything changed when the \u003cdel\u003eFire Nation attacked\u003c/del\u003e VC’s wrote checks.\u003c/p\u003e\n\u003cp\u003eGatsby and Vercel (the company behind Next.js) both raised fat stacks of cash with the idea that they could use their very popular open source frameworks as distribution channels for their paid platforms.\u003c/p\u003e\n\u003cp\u003eBut taking VC money means your company needs to grow fast, which means your distribution channels need to grow fast, too. So it’s probably not a coincidence that Next.js announced support for static site generation right around the time they announced their first big VC investment. Supporting more use cases means more users, which ultimately means more revenue (in theory).\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eThe new features in Next.js 9.5 help to beef up the framework’s new static site offering, while continuing to add to its already robust feature set for SSR. This is exciting news for Next.js fans, but what about Gatsby? Does this new static support from Next.js send a message that “this town ain’t big enough for the both of us? Or is there room for more than one winner? I guess we’ll wait and see.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThis week in history\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/tom.jpg\" alt=\"myspace tom\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eHeroes get remembered, but legends never die.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eEdgy teens found a new internet home when Myspace officially launched 17 years ago this week. The OG social network was originally built with ColdFusion and SQL (before later migrating to ASP.NET), and was processing 1.5 billion page views per day at its peak. It clocked in as the #1 most visited site in the US in 2006, ahead of Google and Yahoo.\u003c/p\u003e\n\u003cp\u003eSince the glory days, the company has been bought, sold, and re-sold to everyone from Justin Timberlake (that sounds like a joke, it’s not) to Time Magazine. At this point, I don’t think a big comeback is gonna happen.\u003c/p\u003e\n\u003cp\u003eThe most lasting legacy of Myspace might be the way it \u003ca href=\"https://news.codecademy.com/myspace-and-the-coding-legacy/\"\u003einspired a whole generation\u003c/a\u003e to learn the basics of HTML and CSS in order to customize their profiles.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eFelix decided to serve us some real-life nightmare fuel by building \u003ca href=\"https://github.com/felixrieseberg/macintosh.js\"\u003ean entire 1991 Macintosh Quadra with Mac OS 8.1 running in an Electron app\u003c/a\u003e. It’s a beautiful abomination.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJosh walks you through creating a \u003ca href=\"https://github.com/felixrieseberg/macintosh.js\"\u003ebasic physics simulation in JavaScript\u003c/a\u003e that will make you wish you had actually paid attention in physics back in high school.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEtienne wrote about simplifying your JavaScript (and impressing your coworkers) by using \u003ca href=\"https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d\"\u003e.map(), .reduce(), and .filter()\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAaron made a video about \u003ca href=\"https://www.youtube.com/watch?v=3vLCthTptY0\"\u003e21 “life-changing” JavaScript tips\u003c/a\u003e that comes with a helpful, downloadable cheat sheet.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis \u003ca href=\"https://sunilsandhu.com/posts/i-created-the-exact-same-app-in-react-and-vue-2020-edition\"\u003eside-by-side comparison of React and Vue 3\u003c/a\u003e gives an in-depth look at the similarities and differences between the two technologies when building the same to-do app.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdam wrote about \u003ca href=\"https://adamconrad.dev/blog/3-basics-of-typescript-you-probably-dont-know/\"\u003e3 lesser-known TypeScript concepts\u003c/a\u003e. How many did you know?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/jamiebuilds/tinykeys\"\u003eTinykeys is tiny, modern library for key bindings\u003c/a\u003e with a nice live demo, so you can check it out for yourself.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eElijah Manor wrote about \u003ca href=\"https://elijahmanor.com/format-js-dates-and-times\"\u003ehow to natively format JavaScript dates and times\u003c/a\u003e with some helpful graphics and code examples.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eThis week on ui.dev\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ui.dev/jsx\"\u003eJSX Tips and Gotchas for Beginners\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ui.dev/npm\"\u003eWhat is NPM? A guide to the company, registry, and CLI\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ui.dev/capitalize-first-letter-of-string-javascript\"\u003eHow to capitalize the first letter of a string in JavaScript\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ui.dev/react-context\"\u003eGuide to React Context\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ui.dev/add-item-to-end-of-array-javascript\"\u003eHow to add an item to the end of an Array in JavaScript\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2\u003e?OTW\u003c/h2\u003e\n\u003cp\u003eWhat do you think is the single most important problem that the Web/JS community should be working on?\u003c/p\u003e\n\u003cp\u003eWe’ll show off some of the best responses in next week’s issue.\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"7"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"7"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Node Weekly Issue 489: June 6, 2023</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="alternate" type="application/rss+xml" title="Node Weekly" href="/rss/">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta name="facebook-domain-verification" content="lml32j8e8q00yrgpg4hs968ah31mxv" />
+  
+</head>
+<body class="node dom dom-node issues 489 issue node issue">
+  <header class="contained">
+    <nav>
+    <div class="sitename" style="cursor: pointer" onclick="window.location.href='/'"><a href="/">Node Weekly</a></div>
+
+    <div class="items">
+        
+            <a href="/issues" class="issues">Archives</a><span class="divider">|</span>
+            <a href="/latest" class="latest">Latest</a><span class="nomobile"><span class="divider">|</span>
+            <a href="/rss/">RSS</a></span>
+        
+    </div>
+  </nav>
+
+</header>
+
+  <main>
+
+
+<section class="contained">
+
+  <div class="nomobile">
+<div class="subscribe_box" class="">
+<form class="subscribe" action="/subscribe" method="POST">
+  <input type="email" placeholder="Want to subscribe? Enter your address here" class="email" name="yemail" id="email" /><button class="awesome" type="submit">Subscribe now &raquo;</button>
+  <div class="smallprint">Easy to unsubscribe at any time. Your e-mail address <a href="https://cooperpress.com/spam.html">is safe</a> &mdash; here's <a href="https://cooperpress.com/legal/privacy/">our privacy policy.</a></div>
+  <input type="hidden" name="_csrf" value="Y3jtR66abSjpCEgo1dacxA4JGTtQaEX_vyck-_nY6BY" />
+  
+</form>
+</div>
+</div>
+
+  <div class="pager">
+    <div class="prev">
+      
+        <a href="/issues/488">&laquo; Prev</a>
+      
+    </div>
+    <div class="center">
+      <!-- Issue 489 -->
+    </div>
+    <div class="next">
+      
+        <a href="/issues/490">Next &raquo;</a>
+      
+    </div>
+  </div>
+
+  <div class="issue-html">
+
+  
+
+    
+    
+    
+    
+    
+  
+
+
+
+<!--[if (gte mso 9)|(IE)]>
+<table cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" width="600"><tr><td valign="top" style="width: 600px;" bgcolor="#ffffff"><![endif]-->
+<table align="center" border="0" cellpadding="0" cellspacing="0" id="main" width="100%" style="table-layout: fixed; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; max-width: 600px; height: 100% !important; direction: ltr; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;">
+  <tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;">
+  <div id="content">    <!-- left/right splitbar -->
+    <table class="el-splitbar" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr>
+<td width="50%" align="left" style="padding-left: 4px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"><p style="font-size: 12px; color: #999999; text-transform: uppercase; line-height: 1.0em; margin-top: 0.8em; margin-bottom: 0.8em;">#​489 — June 6, 2023</p></td>
+<td width="50%" align="right" style="padding-right: 4px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"><p style="font-size: 12px; text-transform: uppercase; line-height: 1.0em; margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://nodeweekly.com/issues/489" style="text-decoration: none; color: #20824B;">Read on the Web</a></p></td>
+</tr></table>
+<table class="norss" id="together" width="100%" align="center" style="text-align: center; border-collapse: collapse; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+  <tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+    <table align="center" style="margin-top: 4px; margin-bottom: 4px; border-collapse: collapse;">
+      <tr>
+<td style="vertical-align: middle; text-align: right; text-transform: uppercase; letter-spacing: -0.2px; font-weight: 500; color: #222; font-size: 0.9em; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; line-height: 1.48em; border-collapse: collapse;">Together with </td>
+        <td style="vertical-align: middle; text-align: left; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;">
+          <a target="_blank" href="https://frontendmasters.com/courses/fullstack-v3/?utm_source=email&amp;utm_medium=nodeweekly&amp;utm_content=fullstackv3" style="outline: none; text-decoration: none; color: #20824B; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+          <img src="https://res.cloudinary.com/cpress/image/upload/c_fill,g_auto,w_300,h_70/e_make_transparent/co_white,e_outline:5/nk0tfdvalivacz8rw7rt.png" style="max-width: 150px; outline: none; height: auto; text-decoration: none; line-height: 100%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" width="150" alt="Frontend Masters logo">
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#6ca629" border="0" style="border-collapse: collapse;"><tr style="max-height: 90px;" width="100%"><td style="width: 100%; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><img src="https://res.cloudinary.com/cpress/image/upload/v1653576619/lgfqinzbdqttwmhvljxb.png" alt="Node.js Weekly" width="100%" style="max-width: 100%; outline: none; height: auto; text-decoration: none; line-height: 100%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"></td></tr></table>
+<table width="100%" class="el-fullwidthimage " cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;">
+  <a target="_blank" href="https://github.com/ranyitz/qnm" style="text-decoration: none; color: #20824B;"><img src="https://res.cloudinary.com/cpress/image/upload/w_1280,e_sharpen:60,q_auto/vndetmkzebjpznxbhjqj.jpg" alt="" width="640" style="outline: none; height: auto; text-decoration: none; max-width: 100%; line-height: 100%; width: 100%; border-bottom-color: #6ca629; border-bottom-style: solid; border-top-width: 0; border-right-width: 0; border-bottom-width: 3px; border-left-width: 0;"></a>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://github.com/ranyitz/qnm" title="github.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">qnm: A CLI Tool to Look Into <code style='font-family: menlo, monaco, "Ubuntu Mono", courier, monospace; font-weight: normal; background-color: #f4ffdd !important;'>node_modules</code></a></span> — If you’ve been into a <code style="background-color: #f4ffdd !important;">node_modules</code> folder and been overwhelmed, this tool (supporting both npm and Yarn) lets you dig around with extra guidance as to what is what. You can use fuzzy search to find specific things, and also see which modules are using the most space (you could try that right now with <code style="background-color: #f4ffdd !important;">npx qnm doctor</code>).</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Ran Yitzhaki </p>
+</td></tr></table>
+<!-- normal content section -->
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-content blue" style="color: #222; border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;"><p style="margin-top: 0; margin-bottom: 0.8em; background-color: #f0f9ff; line-height: 1.4em; font-size: 0.9em; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">💡 Don't forget about the always handy <a target="_blank" href="https://npkill.js.org/" style="text-decoration: none; color: #20824B; font-weight: 600;">NPKILL</a> for if you actually want to clear away those <code>node_modules</code> nightmares.. 😁</p></td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  <a target="_blank" target="_blank" href="https://frontendmasters.com/courses/fullstack-v3/?utm_source=email&amp;utm_medium=nodeweekly&amp;utm_content=fullstackv3" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;"><img src="https://copm.s3.amazonaws.com/e6fff36c.png" width="110" height="110" style="padding-top: 12px; padding-left: 12px; outline: none; height: auto; text-decoration: none; max-width: 100%; line-height: 100%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" align="right" alt="" class="som"></a>
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://frontendmasters.com/courses/fullstack-v3/?utm_source=email&amp;utm_medium=nodeweekly&amp;utm_content=fullstackv3" title="frontendmasters.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Full Stack for Front-End Engineers with Jem Young (Netflix)</a></span> — Learn what it means to become a well-rounded full-stack engineer with this hands-on video course. You’ll dive into servers, work with the command line, understand networking and security, set up continuous integration and deployment, manage databases, build containers, and more.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Frontend Masters <span style="text-transform: uppercase; margin-left: 4px; font-size: 0.9em; border-radius: 2px; background-color: #ff8; color: #997 !important; padding-top: 1px; padding-right: 4px; padding-bottom: 1px; padding-left: 4px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: #eeb; border-right-color: #eeb; border-bottom-color: #eeb; border-left-color: #eeb; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" class="tag-sponsor">sponsor</span></p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://www.sonarsource.com/blog/node-js-test-runner/" title="www.sonarsource.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Hands On with Node's Built-In Test Runner</a></span> — The built-in test runner <a target="_blank" href="https://nodejs.org/en/blog/announcements/v20-release-announce#stable-test-runner" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">became stable</a> with the release of Node 20 and a lot of folks are now figuring out how to use it in their workflows. Phil walks through it with an easily understood and complete example here.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Phil Nash </p>
+</td></tr></table>
+<!-- normal content section -->
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-content blue" style="color: #222; border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;"><p style="margin-top: 0; margin-bottom: 0.8em; background-color: #f0f9ff; line-height: 1.4em; font-size: 0.9em; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">🛠 It must be the week for testing, as <em>endpts</em> has shared a thorough <a target="_blank" href="https://blog.endpts.io/primer-on-the-built-in-node-js-test-runner" style="text-decoration: none; color: #20824B; font-weight: 600;">built-in test runner primer</a> too, and NearForm's Rômulo Vitoi takes it a step further by showing us <a target="_blank" href="https://www.nearform.com/blog/writing-a-node-js-test-reporter/" style="text-decoration: none; color: #20824B; font-weight: 600;">how to build a custom test reporter.</a></p></td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-md " style="border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><strong style="font-weight: 600;">IN BRIEF:</strong></p>
+<ul>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;">Somehow we missed it, but <a target="_blank" href="https://twitter.com/nodejs/status/1662130000987062274" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Node.js recently turned 14 years old</a> with the initial release being on May 27, 2009.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;">As of June 1, <a target="_blank" href="https://github.com/nodejs/Release?#end-of-life-releases" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Node.js 19 is now 'end of life'</a> and will not receive further updates.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;">📄 Ohm, Pohl and Boes published an academic paper titled <a target="_blank" href="https://arxiv.org/abs/2305.19760" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;"><em>You Can Run But You Can't Hide: Runtime Protection Against Malicious Package Updates for Node.js</em></a>. They approached the long-standing issue around supply chain security with a technique to automatically limit the capability of packages at runtime with 90% success and little overhead.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;">Alternative server-side JavaScript runtime Bun has added <a target="_blank" href="https://bun.sh/blog/bun-macros" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">an interesting 'macro' feature to its new bundler</a>. This might catch on.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;">MDN's reference pages on regular expressions in JavaScript <a target="_blank" href="https://developer.mozilla.org/en-US/blog/regular-expressions-reference-updates/" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">have been substantially improved</a>.</p>
+</li>
+</ul>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><span class="pretitle">📅 </span> <a target="_blank" href="https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023&amp;utm_medium=paid-email&amp;utm_source=cooperpress-node-weekly&amp;utm_content=202306-ethical-hacking-101-workshop-2" title="go.snyk.io" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Ethical Hacking 101 Workshop Hosted by Snyk | June 21 | 11am EDT</a></span> — Join Snyk to exploit vulnerabilities and learn how to proactively identify and fix security weaknesses. <a target="_blank" href="https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023&amp;utm_medium=paid-email&amp;utm_source=cooperpress-node-weekly&amp;utm_content=202306-ethical-hacking-101-workshop-2" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Register now</a>.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Snyk <span style="text-transform: uppercase; margin-left: 4px; font-size: 0.9em; border-radius: 2px; background-color: #ff8; color: #997 !important; padding-top: 1px; padding-right: 4px; padding-bottom: 1px; padding-left: 4px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-color: #eeb; border-right-color: #eeb; border-bottom-color: #eeb; border-left-color: #eeb; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" class="tag-sponsor">sponsor</span></p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  video" style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink">▶  <a target="_blank" href="https://www.youtube.com/watch?v=dWfng4qJYMU" title="www.youtube.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">How to Deploy a Node App on to AWS Elastic Beanstalk</a></span> — Elastic Beanstalk is an AWS-only orchestration service for deploying apps on to services like EC2 and S3. It’s <em>12 years old</em> now and predates Docker, Kubernetes, etc. but is still actively maintained and provides an experience many folks prefer to heavier alternatives.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Digital Cloud </p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://newrelic.com/blog/how-to-relic/opentelemetry-full-stack-javascript" title="newrelic.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">How to Set Up OpenTelemetry for Full-Stack JS Dev</a></span> — Quite specifically, in this case, to then export the collected telemetry data to New Relic.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Zameer Fouzan </p>
+</td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="height: 6px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"></td></tr></table>
+<!-- normal content section -->
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-content " style="color: #222; border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;"><p style="color: #46483d; font-size: 1.4em; margin-top: 14px; font-weight: 600; border-bottom-width: 4px; border-bottom-color: #eeeeee; border-bottom-style: solid; line-height: 1.4em; display: inline-block; margin-bottom: 10px;">🛠 Code &amp; Tools</p></td></tr></table>
+<table width="100%" class="el-fullwidthimage " cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;">
+  <a target="_blank" href="https://bundlejs.com/?q=alpinejs" style="text-decoration: none; color: #20824B;"><img src="https://res.cloudinary.com/cpress/image/upload/w_1280,e_sharpen:60,q_auto/gqhks2q9dby3xccalkgb.jpg" alt="" width="640" style="border-top-color: #dddddd; border-top-style: solid; border-bottom-color: #dddddd; border-bottom-style: solid; outline: none; height: auto; text-decoration: none; max-width: 100%; line-height: 100%; width: 100%; border-top-width: 3px; border-right-width: 0; border-bottom-width: 3px; border-left-width: 0;"></a>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://bundlejs.com/?q=alpinejs" title="bundlejs.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">bundlejs: npm Package Bundle Size Checker</a></span> — A browser-based tool that can treeshake, bundle, minify, and compress (gzip and brotli) packages to show you what their weight impact is. It runs entirely in the browser, too, using the <a target="_blank" href="https://esbuild.github.io/getting-started/#wasm" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">WebAssembly build of esbuild</a>.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Okiki Ojo </p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://github.com/loop-payments/prisma-lint" title="github.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Prisma-Lint: A Linter for Prisma Schema Files</a></span> — The team behind this tool has dozens of schema files to stay on top of, so they built this to maintain a consistent style and ensure they have the proper indices in place.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Loop Payments </p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://github.com/xavi-/node-copy-paste" title="github.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">copy-paste: Cross-Platform Clipboard Copy/Paste</a></span> — Wraps around different utilities for each operating system (macOS, Linux, BSD, and Windows).</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Xavi </p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://github.com/crufters/actio" title="github.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Actio: A Framework for Backend Apps</a></span> — A framework that 'blurs the line' between microservices and monoliths giving the flexilibity to experiment with your approach. Comes with a few 'batteries included' services for areas like auth, file upload support, configuration, and payments. (<a target="_blank" href="https://github.com/crufters/actio/tree/main/examples" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">Examples.</a>)</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Crufters </p>
+</td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="el-item item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  
+  <p class="desc" style="color: #222; margin-top: 0.8em; margin-bottom: 0; line-height: 1.6em !important; font-size: 15px !important;"><span style="font-weight: 500 !important; font-size: 18px !important; color: #000;" class="mainlink"><a target="_blank" href="https://github.com/rsinger86/dto-classes" title="github.com" style="text-decoration: none; color: #20824B; border-bottom-width: 1px !important; border-bottom-color: #ddd !important; border-bottom-style: solid !important;">DOT Classes: TypeScript Library to Model Data Transfer Objects</a></span> — Designed to model data transfer objects in HTTP JSON APIs using class-based schemas that serialize/deserialize, static types by default, custom validation  support, and an API that may feel familiar if you use OpenAPI and JSON Schema.</p>
+  <p class="name" style="color: #aaa !important; margin-top: 4px; margin-bottom: 0.8em; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Robert Singer </p>
+</td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-md releases flat" style="border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+<ul style="padding-left: 0; margin-left: 0px; list-style-type: none; list-style-position: inside;">
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.6.0" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Node MongoDB Native Driver 5.6</a><br>
+↳ Adds Node 20.x support.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/meilisearch/meilisearch-js/releases/tag/v0.33.0" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Meilisearch JavaScript 0.33</a><br>
+↳ Adds support for the new <a target="_blank" href="https://github.com/meilisearch/meilisearch/releases/tag/v1.2.0" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Meilisearch 1.2</a>.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/middyjs/middy" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Middy 4.5</a><br>
+↳ Node middleware engine for AWS Lambda.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/JS-DevTools/npm-publish" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">npm-publish 2.2</a><br>
+↳ GitHub Action to publish to npm.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/denoland/dnt" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">dnt (Deno to Node Transform) 0.37</a><br>
+↳ Deno to npm package build tool.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/DevExpress/testcafe" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">TestCafe 2.6.2</a><br>
+↳ Automate end-to-end web testing with Node.</p>
+</li>
+<li style="color: #222; line-height: 1.35em; margin-bottom: 12px; margin-left: 0px !important;">
+<p style="margin-top: 0.8em; margin-bottom: 0.8em;"><a target="_blank" href="https://github.com/prisma/prisma" style="text-decoration: none; color: #20824B; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Prisma 4.15</a></p>
+</li>
+</ul>
+</td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" class="el-subtable " style="background-color: #faffe6; margin-top: 15px; border-collapse: collapse;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;">
+<!-- normal content section -->
+<table width="100%" cellpadding="0" cellspacing="0" class="content el-content " style="color: #222; border-collapse: collapse; margin-top: 0 !important;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;"><p style="font-weight: 600; font-size: 1.05em; border-bottom-width: 4px; border-bottom-color: #ddeebb; border-bottom-style: solid; line-height: 1.6em; display: inline-block; margin-top: 0.8em; margin-bottom: 0.8em;">💻 Jobs</p></td></tr></table>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="miniitem item  " style="border-collapse: collapse; margin-bottom: 4px;"><tr><td style="font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse; padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px;">
+  <p class="desc" style="color: #5a5a5a; line-height: 1.5em !important; font-size: 0.9em !important; margin-top: 8px; margin-right: 0px; margin-bottom: 6px; margin-left: 0px;"><span style="font-weight: 600; font-size: 1.0em; color: #000;"><a target="_blank" href="https://hired.com/join/?utm_source=newsletter&amp;utm_medium=sponsor&amp;utm_campaign=(b2c)(l-all)(r-all)(cooper-nodeweekly)&amp;utm_content=find-your-next-job" style="text-decoration: none; color: #20824B; font-size: 1.2em !important; font-weight: 400; border-bottom-width: 1px; border-bottom-color: #ddd; border-bottom-style: solid;">Find Tech Jobs with Hired</a></span> — Hired makes job hunting easy-instead of chasing recruiters, companies approach you with salary details up front. Create a free profile now.
+  <br><span class="name" style="color: #bbbbbb !important; margin-top: 4px; text-transform: uppercase; font-size: 12px; line-height: 1.2em;">Hired</span> 
+  </p>
+</td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="height: 10px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"></td></tr></table>
+</td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="height: 10px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"></td></tr></table>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;"><tr><td style="height: 12px; font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif; font-size: 15px; line-height: 1.48em; border-collapse: collapse;"></td></tr></table>
+      
+</div>
+  </td></tr>
+</table>
+<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+
+
+
+</div>
+
+<div class="pager">
+    <div class="prev">
+      
+        <a href="/issues/488">&laquo; Prev</a>
+      
+    </div>
+    <div class="center">
+      <!-- Issue 489 -->
+    </div>
+    <div class="next">
+      
+        <a href="/issues/490">Next &raquo;</a>
+      
+    </div>
+  </div>
+
+  
+<div class="subscribe_box" class="">
+<form class="subscribe" action="/subscribe" method="POST">
+  <input type="email" placeholder="Want to subscribe? Enter your address here" class="email" name="yemail" id="email" /><button class="awesome" type="submit">Subscribe now &raquo;</button>
+  <div class="smallprint">Easy to unsubscribe at any time. Your e-mail address <a href="https://cooperpress.com/spam.html">is safe</a> &mdash; here's <a href="https://cooperpress.com/legal/privacy/">our privacy policy.</a></div>
+  <input type="hidden" name="_csrf" value="Y3jtR66abSjpCEgo1dacxA4JGTtQaEX_vyck-_nY6BY" />
+  
+</form>
+</div>
+
+
+</section>
+
+<img src="/open/489/web" />
+</main>
+  <script src="/js/app.js"></script>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-32535004-7','nodeweekly.com');ga('send', 'pageview');
+</script>
+
+</body>
+</html>

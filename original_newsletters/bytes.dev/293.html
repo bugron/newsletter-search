@@ -1,0 +1,326 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #293 - What&#x27;s going on with HTML?</title><link rel="canonical" href="https://bytes.dev/archives/293"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox."/><meta property="og:url" content="https://bytes.dev/archives/293"/><meta property="og:title" content="Bytes #293 - What&#x27;s going on with HTML?"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/magicians-alliance.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #293 - What&#x27;s going on with HTML?"/><meta property="twitter:description" content="The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox."/><meta property="twitter:image" content="https://bytes.dev/images/content/magicians-alliance.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> What&#x27;s going on with HTML?</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->293<!-- -->.</span><span class="mr-6 font-bold">May 30, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><span role="img" aria-label="crystal ball">🔮</span> For the past year we’ve been working closely with the React Query team to create <a href="https://query.gg?s=bytes">query.gg</a>&nbsp;–&nbsp;the new official React Query course.</p>
+<p>We’re excited to announce that it’s now available and will be up to 30% off through June 5th.</p>
+<p>You can <a href="https://query.gg?s=bytes">claim your discount here</a>.</p>
+<hr>
+<p><strong>Today’s issue:</strong> The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/293">#293</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/magicians-alliance.jpg" alt="Alliance of magicians meeting from Arrested Development" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">HTML wizards meetup<!-- --> </p></div><h3>What’s going on with HTML?</h3><p>The first-ever <a href="https://2023.stateofhtml.com/en-US/">State of HTML</a> survey came out earlier this month, and I must admit that I was surprised to learn that the average HTML developer makes $750k per year.</p><p>That’s a joke, but we did find 5 surprising insights from the survey to give a better idea of what’s going on in web platform world:</p><ol>
+<li>
+<p>Developers are <em>very</em> hyped about the new popover API. And considering the fact that most codebases currently have appx. 1,000 lines of code dedicated to managing popovers, it’s not hard to see why.</p>
+</li>
+<li>
+<p>For all their benefits, SVGs are still one of the things that developers <a href="https://2023.stateofhtml.com/en-US/features/content/#content_pain_points">struggle with</a> the most – whether its managing their size, layout, or styling.</p>
+</li>
+<li>
+<p>It seems like the true believers are going to have to wait another year for Web Components to really hit the mainstream. Developers still report various pain points with Web Components, particularly  when it comes to <a href="https://2023.stateofhtml.com/en-US/features/web_components/#using_web_components_pain_points">styling (Shadow Dom) and customization</a>.</p>
+</li>
+<li>
+<p>When it comes to accessibility, you can get pretty far with semantic HTML, descriptive alt texts, and using good contrast. But developers still report <a href="https://2023.stateofhtml.com/en-US/features/accessibility/#accessibility_techniques">some struggles</a> with “the rest” – keyboard navigation, focus management, and testing accessibility.</p>
+</li>
+<li>
+<p>One of the more interesting bits was what elements developers <a href="https://2023.stateofhtml.com/en-US/usage/#html_missing_elements">still feel are missing</a> from HTML. Lists, native tabs, style-able toggles, and loading placeholders rounded out the top 4 features on the wishlist.</p>
+</li>
+</ol><p><strong>Bottom Line:</strong> Welcome to the golden age of hypertext markup.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/293" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F293" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Breaking%20down%20everything%20you%20missed%20from%20the%20State%20of%20HTML%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F293" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABreaking%20down%20everything%20you%20missed%20from%20the%20State%20of%20HTML%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F293" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/speedcurve-logo.png" alt="speedcurve logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/renaissance-woman.jpg" alt="Renaissance-style painting of woman looking at a phone" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you push some new features and the site won’t load<!-- --> </p></div><h3><a href="https://www.speedcurve.com/features/regressions/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">Catch performance regressions before they happen with SpeedCurve</a></h3><p>Your site was super fast when you built it – but now it’s 6 months later, and that thing feels slower than a 4-hour Scorcese movie.</p><p>Next time, use SpeedCurve.</p><p>Their regression monitoring platform was created by a team of <a href="https://www.speedcurve.com/about/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">web performance pioneers</a> to help you catch performance regressions  <em>before</em> they happen.</p><p><strong>Here’s how it works:</strong></p><ol>
+<li>
+<p>Create <a href="https://www.speedcurve.com/features/performance-budgets/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">performance budgets</a> by setting thresholds for metrics you care about, like Core Web Vitals</p>
+</li>
+<li>
+<p>Integrate SpeedCurve with your CI/CD process to send you alerts or even <a href="https://www.speedcurve.com/blog/performance-testing-in-ci-lets-break-the-build/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">break the build</a> when the performance budget is violated</p>
+</li>
+<li>
+<p>Get all the <a href="https://www.speedcurve.com/blog/rum-attribution-subparts-interaction-to-next-paint/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">diagnostics</a> you need to find and fix the problems, when there’s an issue</p>
+</li>
+</ol><p><a href="https://www.speedcurve.com/features/regressions/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">Check out the free trial</a> – and see why developers at Airbnb, Shopify, and many more <a href="https://www.speedcurve.com/customers/tag/performance-budgets/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=sponsor">really love it</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://socket.dev/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=may30&amp;utm_id=bytes">Socket</a></h4><p><em>Their <a href="https://socket.dev/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=may30&amp;utm_id=bytes">developer-first security platform</a> is the best way to secure all your dependencies, and is used by teams at Figma, Vercel, Expo, Replit, and many more.</em></p></div></div>
+<p>What will be logged to the console when this code executes? The answer is below.</p>
+<pre class="language-js"><code class="language-js">window<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Mike Tyson"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> me <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Tyler"</span><span class="token punctuation">,</span>
+  <span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> sayName <span class="token operator">=</span> me<span class="token punctuation">.</span>sayName<span class="token punctuation">;</span>
+<span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>We made you this <a href="https://ui.dev/c/query?s=bytes">free course preview</a> of our new React Query course, query.gg, so you can try before you buy.</p>
+</li>
+<li>
+<p>Max Böck wrote about <a href="https://mxb.dev/blog/old-dogs-new-css-tricks/">teaching an old dog new CSS tricks</a>. That’s cool, because my goldendoodle still can’t figure out flexbox.</p>
+</li>
+<li>
+<p>Almog G did <a href="https://github.com/theninthsky/client-side-rendering">an in-depth case study</a> on client-side rendering performance, SEO, and how it (might) be better than server-side-rendering.</p>
+</li>
+<li>
+<p>Salma Alam-Naylor shared <a href="https://blog.sentry.io/5-easy-tips-to-improve-your-personal-website-performance/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=frontend-fy25q2-jtbd1&amp;utm_content=blog-5tipswebperf-read">5 easy tips to improve your personal website performance on the Sentry blog</a>. Dumbledore said that “there will come a time when we must choose between what is right and what is easy” – but these tips are both, so I guess that time hasn’t come yet <span role="img" aria-label="folded hands">🙏</span>. [sponsored]</p>
+</li>
+<li>
+<p>If you were confused about async vs defer vs typemodule, Zachary Lee <a href="https://webdeveloper.beehiiv.com/p/html-script-element-attributes-async-vs-defer-vs-typemodule">wrote this article </a> to clear it up.</p>
+</li>
+<li>
+<p><a href="https://astro.build/blog/astro-490">Astro 4.9</a> was just released and includes support for React 19, plus the (experimental) ability to render Astro components outside of Astro.</p>
+</li>
+<li>
+<p>Vinny wrote about <a href="https://wasp-lang.dev/blog/2024/05/29/why-we-dont-have-laravel-for-javascript-yet">Why we don’t have a Laravel for… yet</a>. Is that a threat?</p>
+</li>
+<li>
+<p>Calling all design systems fans! The StackBlitz and zeroheight teams are hosting an <a href="https://www.crowdcast.io/c/stackblitz-zeroheight?utm_source=Bytes&amp;utm_medium=secondary">in-depth discussion on designer-developer collaboration</a> next week. They’ll be sharing proven tactics for establishing a continuous feedback loop for design system users and maintainers alike. [sponsored]</p>
+</li>
+<li>
+<p>Marcelo created a <a href="https://lazamar.github.io/virtual-dom/">virtual DOM in 200 lines of code</a>. Relax, this VDOM is “not about performance” (it’s about the friends you made along the way).</p>
+</li>
+<li>
+<p>Marvin Hagemeister (aka the George R.R. Martin of JavaScript) just published the 9th installment of his “Speeding up the JavaScript ecosystem” series on <a href="https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-9/">Server Side JSX</a>.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://socket.dev/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=may30&amp;utm_id=bytes">Socket</a></h4></div></div>
+<p>What will be logged to the console when this code executes?</p>
+<pre class="language-js"><code class="language-js">window<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Mike Tyson"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> me <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Tyler"</span><span class="token punctuation">,</span>
+  <span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> sayName <span class="token operator">=</span> me<span class="token punctuation">.</span>sayName<span class="token punctuation">;</span>
+<span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The answer? “Mike Tyson”.</p>
+<p>Since we’re not in strict mode, <code>sayName</code> isn’t a method, and we’re not using <code>call</code> or <code>apply</code>, <code>this</code> inside of <code>sayName</code> will default to the <code>window</code> object.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: What's going on with HTML?","date":"2024-05-30","featuredImage":"/images/content/magicians-alliance.jpg","description":"The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cspan role=\"img\" aria-label=\"crystal ball\"\u003e🔮\u003c/span\u003e For the past year we’ve been working closely with the React Query team to create \u003ca href=\"https://query.gg?s=bytes\"\u003equery.gg\u003c/a\u003e\u0026nbsp;–\u0026nbsp;the new official React Query course.\u003c/p\u003e\n\u003cp\u003eWe’re excited to announce that it’s now available and will be up to 30% off through June 5th.\u003c/p\u003e\n\u003cp\u003eYou can \u003ca href=\"https://query.gg?s=bytes\"\u003eclaim your discount here\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e The George R.R. Martin of JavaScript, the Laravel threat, and teaching my goldendoodle flexbox.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/293\"\u003e#293\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/magicians-alliance.jpg\" alt=\"Alliance of magicians meeting from Arrested Development\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eHTML wizards meetup\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eWhat’s going on with HTML?\u003c/h3\u003e\u003cp\u003eThe first-ever \u003ca href=\"https://2023.stateofhtml.com/en-US/\"\u003eState of HTML\u003c/a\u003e survey came out earlier this month, and I must admit that I was surprised to learn that the average HTML developer makes $750k per year.\u003c/p\u003e\u003cp\u003eThat’s a joke, but we did find 5 surprising insights from the survey to give a better idea of what’s going on in web platform world:\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eDevelopers are \u003cem\u003every\u003c/em\u003e hyped about the new popover API. And considering the fact that most codebases currently have appx. 1,000 lines of code dedicated to managing popovers, it’s not hard to see why.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFor all their benefits, SVGs are still one of the things that developers \u003ca href=\"https://2023.stateofhtml.com/en-US/features/content/#content_pain_points\"\u003estruggle with\u003c/a\u003e the most – whether its managing their size, layout, or styling.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt seems like the true believers are going to have to wait another year for Web Components to really hit the mainstream. Developers still report various pain points with Web Components, particularly  when it comes to \u003ca href=\"https://2023.stateofhtml.com/en-US/features/web_components/#using_web_components_pain_points\"\u003estyling (Shadow Dom) and customization\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWhen it comes to accessibility, you can get pretty far with semantic HTML, descriptive alt texts, and using good contrast. But developers still report \u003ca href=\"https://2023.stateofhtml.com/en-US/features/accessibility/#accessibility_techniques\"\u003esome struggles\u003c/a\u003e with “the rest” – keyboard navigation, focus management, and testing accessibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOne of the more interesting bits was what elements developers \u003ca href=\"https://2023.stateofhtml.com/en-US/usage/#html_missing_elements\"\u003estill feel are missing\u003c/a\u003e from HTML. Lists, native tabs, style-able toggles, and loading placeholders rounded out the top 4 features on the wishlist.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Welcome to the golden age of hypertext markup.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/293\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F293\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Breaking%20down%20everything%20you%20missed%20from%20the%20State%20of%20HTML%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F293\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABreaking%20down%20everything%20you%20missed%20from%20the%20State%20of%20HTML%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F293\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/speedcurve-logo.png\" alt=\"speedcurve logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/renaissance-woman.jpg\" alt=\"Renaissance-style painting of woman looking at a phone\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you push some new features and the site won’t load\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.speedcurve.com/features/regressions/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003eCatch performance regressions before they happen with SpeedCurve\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eYour site was super fast when you built it – but now it’s 6 months later, and that thing feels slower than a 4-hour Scorcese movie.\u003c/p\u003e\u003cp\u003eNext time, use SpeedCurve.\u003c/p\u003e\u003cp\u003eTheir regression monitoring platform was created by a team of \u003ca href=\"https://www.speedcurve.com/about/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003eweb performance pioneers\u003c/a\u003e to help you catch performance regressions  \u003cem\u003ebefore\u003c/em\u003e they happen.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how it works:\u003c/strong\u003e\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eCreate \u003ca href=\"https://www.speedcurve.com/features/performance-budgets/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003eperformance budgets\u003c/a\u003e by setting thresholds for metrics you care about, like Core Web Vitals\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIntegrate SpeedCurve with your CI/CD process to send you alerts or even \u003ca href=\"https://www.speedcurve.com/blog/performance-testing-in-ci-lets-break-the-build/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003ebreak the build\u003c/a\u003e when the performance budget is violated\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGet all the \u003ca href=\"https://www.speedcurve.com/blog/rum-attribution-subparts-interaction-to-next-paint/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003ediagnostics\u003c/a\u003e you need to find and fix the problems, when there’s an issue\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003e\u003ca href=\"https://www.speedcurve.com/features/regressions/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003eCheck out the free trial\u003c/a\u003e – and see why developers at Airbnb, Shopify, and many more \u003ca href=\"https://www.speedcurve.com/customers/tag/performance-budgets/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=sponsor\"\u003ereally love it\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://socket.dev/?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=may30\u0026amp;utm_id=bytes\"\u003eSocket\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir \u003ca href=\"https://socket.dev/?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=may30\u0026amp;utm_id=bytes\"\u003edeveloper-first security platform\u003c/a\u003e is the best way to secure all your dependencies, and is used by teams at Figma, Vercel, Expo, Replit, and many more.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat will be logged to the console when this code executes? The answer is below.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003ewindow\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Mike Tyson\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e me \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Tyler\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esayName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e sayName \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e me\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003esayName\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esayName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eWe made you this \u003ca href=\"https://ui.dev/c/query?s=bytes\"\u003efree course preview\u003c/a\u003e of our new React Query course, query.gg, so you can try before you buy.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMax Böck wrote about \u003ca href=\"https://mxb.dev/blog/old-dogs-new-css-tricks/\"\u003eteaching an old dog new CSS tricks\u003c/a\u003e. That’s cool, because my goldendoodle still can’t figure out flexbox.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlmog G did \u003ca href=\"https://github.com/theninthsky/client-side-rendering\"\u003ean in-depth case study\u003c/a\u003e on client-side rendering performance, SEO, and how it (might) be better than server-side-rendering.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSalma Alam-Naylor shared \u003ca href=\"https://blog.sentry.io/5-easy-tips-to-improve-your-personal-website-performance/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=frontend-fy25q2-jtbd1\u0026amp;utm_content=blog-5tipswebperf-read\"\u003e5 easy tips to improve your personal website performance on the Sentry blog\u003c/a\u003e. Dumbledore said that “there will come a time when we must choose between what is right and what is easy” – but these tips are both, so I guess that time hasn’t come yet \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you were confused about async vs defer vs typemodule, Zachary Lee \u003ca href=\"https://webdeveloper.beehiiv.com/p/html-script-element-attributes-async-vs-defer-vs-typemodule\"\u003ewrote this article \u003c/a\u003e to clear it up.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://astro.build/blog/astro-490\"\u003eAstro 4.9\u003c/a\u003e was just released and includes support for React 19, plus the (experimental) ability to render Astro components outside of Astro.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVinny wrote about \u003ca href=\"https://wasp-lang.dev/blog/2024/05/29/why-we-dont-have-laravel-for-javascript-yet\"\u003eWhy we don’t have a Laravel for… yet\u003c/a\u003e. Is that a threat?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCalling all design systems fans! The StackBlitz and zeroheight teams are hosting an \u003ca href=\"https://www.crowdcast.io/c/stackblitz-zeroheight?utm_source=Bytes\u0026amp;utm_medium=secondary\"\u003ein-depth discussion on designer-developer collaboration\u003c/a\u003e next week. They’ll be sharing proven tactics for establishing a continuous feedback loop for design system users and maintainers alike. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarcelo created a \u003ca href=\"https://lazamar.github.io/virtual-dom/\"\u003evirtual DOM in 200 lines of code\u003c/a\u003e. Relax, this VDOM is “not about performance” (it’s about the friends you made along the way).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarvin Hagemeister (aka the George R.R. Martin of JavaScript) just published the 9th installment of his “Speeding up the JavaScript ecosystem” series on \u003ca href=\"https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-9/\"\u003eServer Side JSX\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://socket.dev/?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=may30\u0026amp;utm_id=bytes\"\u003eSocket\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat will be logged to the console when this code executes?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003ewindow\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Mike Tyson\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e me \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Tyler\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esayName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e sayName \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e me\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003esayName\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esayName\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe answer? “Mike Tyson”.\u003c/p\u003e\n\u003cp\u003eSince we’re not in strict mode, \u003ccode\u003esayName\u003c/code\u003e isn’t a method, and we’re not using \u003ccode\u003ecall\u003c/code\u003e or \u003ccode\u003eapply\u003c/code\u003e, \u003ccode\u003ethis\u003c/code\u003e inside of \u003ccode\u003esayName\u003c/code\u003e will default to the \u003ccode\u003ewindow\u003c/code\u003e object.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"293"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"293"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

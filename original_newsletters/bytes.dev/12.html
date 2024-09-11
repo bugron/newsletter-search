@@ -1,0 +1,361 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #12 - Bring a bucket and a mop for these new operators</title><link rel="canonical" href="https://bytes.dev/archives/12"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="ESLint&#x27;s big dreams and NativeScript gets lucky with v7, "/><meta property="og:url" content="https://bytes.dev/archives/12"/><meta property="og:title" content="Bytes #12 - Bring a bucket and a mop for these new operators"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/visionboard.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="ESLint&#x27;s big dreams and NativeScript gets lucky with v7, "/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #12 - Bring a bucket and a mop for these new operators"/><meta property="twitter:description" content="ESLint&#x27;s big dreams and NativeScript gets lucky with v7, "/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/visionboard.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">Bring a bucket and a mop for these new operators</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->12<!-- -->.</span><span class="mr-6 font-bold">September 7, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><h2><a href="https://eslint.org/blog/2020/08/eslint-v7.8.0-released">ESLint’s got a new <del>vision board</del> roadmap</a></h2>
+<p><img src="https://bytes.dev/images/content/visionboard.jpg" alt="ESLint's Vision Board">
+</p><p class="image-alt">Passion, Ambition, and Love</p><p></p>
+<p><strong>It was a busy week</strong> for the King of JavaScript linters as the team released a new update and also shared ESLint’s first-ever public roadmap.</p>
+<p><a href="https://eslint.org/blog/2020/08/eslint-v7.8.0-released">v7.8.0 is a minor release</a> - the biggest highlight is new support for logical assignment operators and numeric separators. WTF are those?</p>
+<h3>Logical assignment operators</h3>
+<p>Bring a bucket and a mop for these new operators, <code>||=</code>, <code>&amp;&amp;=</code>, and <code>??=</code></p>
+<pre class="language-js"><code class="language-js"><span class="token comment">/*
+  ||= returns its right-hand side
+  when its left-hand side is falsy
+
+  &amp;&amp;= returns its right-hand side
+  when its left-hand side is truthy
+
+  ??= returns its right-hand side
+  when its left-hand side is null or undefined.
+*/</span>
+
+<span class="token comment">// Turns this code</span>
+<span class="token keyword">function</span> <span class="token function">isUndefinedOrNull</span> <span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> input <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> input <span class="token operator">===</span> <span class="token keyword">undefined</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">calculateBill</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  options<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Guest'</span><span class="token punctuation">)</span>
+  options<span class="token punctuation">.</span>greeting <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>greeting <span class="token operator">=</span> <span class="token string">'Welcome Back!'</span><span class="token punctuation">)</span>
+  options<span class="token punctuation">.</span>tax <span class="token operator">=</span> <span class="token function">isUndefinedOrNull</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>tax<span class="token punctuation">)</span>
+    <span class="token operator">?</span> <span class="token number">0.05</span>
+    <span class="token operator">:</span> options<span class="token punctuation">.</span>tax
+  options<span class="token punctuation">.</span>discount <span class="token operator">=</span> <span class="token function">isUndefinedOrNull</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>discount<span class="token punctuation">)</span>
+    <span class="token operator">?</span> <span class="token number">0</span>
+    <span class="token operator">:</span> options<span class="token punctuation">.</span>discount
+
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Into this code</span>
+<span class="token keyword">function</span> <span class="token function">calculateBill</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  options<span class="token punctuation">.</span>name <span class="token operator">||=</span> <span class="token string">'Guest'</span>
+  options<span class="token punctuation">.</span>greeting <span class="token operator">&amp;&amp;=</span> <span class="token string">'Welcome Back!'</span>
+  options<span class="token punctuation">.</span>tax <span class="token operator">??=</span> <span class="token number">0.05</span>
+  options<span class="token punctuation">.</span>discount <span class="token operator">??=</span> <span class="token number">0</span>
+
+  <span class="token keyword">return</span> <span class="token comment">// math</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>Numeric Separators</h3>
+<p>Turns out, humans aren’t good at reading large numbers. Numeric Separators makes that a little easier by allowing developers to create visual separation between groups of digits with an <code>_</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> oldAndBusted <span class="token operator">=</span> <span class="token number">1000000000</span>
+<span class="token keyword">const</span> newHotness <span class="token operator">=</span> <span class="token number">1_000_000_000</span>
+
+oldAndBusted <span class="token operator">===</span> newHotness <span class="token comment">// true</span>
+</code></pre>
+<p>Both Logical assignment operators and Numeric separators are currently Stage 4 in the ECMAScript process - now back to the ESLint.</p>
+<h3>The Roadmap</h3>
+<p>The public roadmap is a little more exciting and features three major initiatives:</p>
+<p><strong>1. Lint files in parallel:</strong> Just like it sounds, this new capability will allow you to lint multiple files in parallel, which should speed up the linting process significantly. It’s also something that ESLint fans have been <del>begging for</del> patiently requesting for <a href="https://github.com/eslint/eslint/issues/3565">over 5 years</a>.</p>
+<p><strong>2. New configuration system:</strong> The team has already been working hard on the new config for months, with the intention of making ESLint simpler and faster overall. They also plan to make it easier to create plugins and shareable configs, so that you’ll <em>maybe</em> try using a new config besides just the over opinionated Airbnb one.</p>
+<p><strong>3. Participating in the Google Season of Docs:</strong> This is kind of like going to OSS documentation summer camp, but instead of <a href="https://www.youtube.com/watch?v=2O8jPvnCGIM">learning how to make the perfect boondoggle</a>, a few ESLint maintainers will learn how to overhaul and simplify the docs so that they’re a lot more useful.</p>
+<h3>Why release this roadmap now?</h3>
+<p>2 words: Money Talks.</p>
+<p>Microsoft, Salesforce, and a few other big names recently donated tens of thousands of dollars to ESLint. This has allowed the ESLint team to pay some maintainers (part-time) for all their work and begin working on these larger, long-term projects. Hooray for capitalism!… uhh I mean supporting open source!</p>
+<hr>
+<h2><a href="https://nativescript.org/blog/nativescript-7-announcement/">NativeScript releases lucky number v7</a></h2>
+<p><img src="https://bytes.dev/images/content/situp.png" alt="Bobby doing situps">
+</p><p class="image-alt">NativeScript working hard on its core</p><p></p>
+<p><strong>One small step for man…</strong> NativeScript says they made a “significant step forward” with the release of v7.0 last week, with some significant new features focused on improving the framework’s core.</p>
+<p><strong>ICYMI</strong> NativeScript is a framework that was first released back in 2015 for building “truly native” iOS and Android apps with JavaScript and other frontend technologies like Angular, Vue, and TypeScript.</p>
+<p><strong>Feel like you’ve heard that sales pitch before?</strong> That’s probably because you have. But unlike Ionic, Cordova, or Phone Gap (lol), NativeScript does this with real native components, not a webview.</p>
+<p>Now let’s jump into <strong>what’s new in v7:</strong></p>
+<ul>
+<li>
+<p><strong>New build targeting</strong> of ES2017 and higher should make for faster and more performant code, which allows you to utilize all of the latest and greatest ES features.</p>
+</li>
+<li>
+<p><strong>V8 iOS engine</strong> means that both Android and iOS now run on V8, which should make it easier to maintain both runtimes. (Goodbye forever, JavaScriptCore.)</p>
+</li>
+<li>
+<p><strong>New <code>@NativeClass()</code> decorator</strong> for TypeScript/JavaScript classes, inherited from native iOS and Android classes.</p>
+</li>
+<li>
+<p><strong><code>nativescript.config.ts</code></strong> is a new, strongly-typed NativeScript config module that is self-documenting</p>
+</li>
+</ul>
+<p>This update also introduces a new monorepo structure that should make it easier for more developers to contribute to the project and test-drive NativeScript with some new demo applications.</p>
+<h3>The bottom line</h3>
+<p>(Comparatively) NativeScript hasn’t gained a ton of mainstream adoption in the 5 years it’s been around, but it does have a pretty engaged community (not quite as intense as the Rust zealots, but still solid). By aligning itself with modern JS standards and introducing some other core improvements, this release should make NativeScript a more appealing option for all mobile developers.</p>
+<hr>
+<h2>Spot the Bug - Answer Below</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">capitalize</span> <span class="token punctuation">(</span><span class="token parameter">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> string
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p>Dr. Axel Rauschmayer is kind of like the Ernest Hemingway of JavaScript: he’s written a ton of great books that you probably can’t understand. <a href="https://exploringjs.com/tackling-ts/">He just released “Tackling TypeScript”</a>, and you can read the first half of it for free online.</p>
+</li>
+<li>
+<p>React without the virtual DOM? Is that even legal? We’re not sure, but <a href="https://github.com/brahmosjs/brahmos">Brahmos is a new UI library that’s pushing the limits.</a> It still supports the modern React API and native templates.</p>
+</li>
+<li>
+<p>Allan wrote a helpful <a href="https://medium.com/javascript-in-plain-english/ml-for-js-devs-in-10-minutes-46794782762e">introduction to machine learning for JavaScript devs</a>. After reading it, you’ll probably be able to control a pig’s brain <a href="https://www.theverge.com/2020/8/28/21406143/elon-musk-neuralink-ai-pigs-demo-brain-computer-interface">just like Elon</a>, but with great power comes great responsibility.</p>
+</li>
+<li>
+<p>Joel wrote about <a href="https://blog.bitsrc.io/8-methods-to-search-javascript-arrays-fadbce8bea51">8 methods to find, search, and filter arrays</a>.</p>
+</li>
+<li>
+<p>Nick made a helpful guide for some common areas of confusion in JavaScript called <a href="https://github.com/nas5w/javascript-tips-and-tidbits">JS tips and tidbits</a>.</p>
+</li>
+<li>
+<p>In an attempt to trick us into liking Math, <a href="https://cindyjs.org/">CindyJS is a new framework for creating interactive math content for the web</a> (physics simulations, visualizers, etc).</p>
+</li>
+<li>
+<p>Gustavo wrote a <a href="https://blog.kommit.co/a-gentle-introduction-to-code-splitting-with-react-395ddf44b71b">a gentle introduction to code splitting with React</a>. This can be a confusing topic, but this article is a helpful resource.</p>
+</li>
+<li>
+<p>Monica made a <a href="https://slicker.me/javascript/tower.htm">classic tower stacking game in under 100 lines of JavaScript</a>. I heard a rumor that if you get to level 100, they’ll send you a giant stuffed animal in the mail (definitely not true).</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug - Answer</h2>
+<p>When we call <code>toUpperCase</code>, we’re assuming that we’re modifying the string that was passed into the function. However, since strings are <a href="https://ui.dev/primitive-vs-reference-values-in-javascript">primitive values</a>, that means they’re immutable and can’t be modified once they’re been created. Instead of trying to modify the string directly, we need to return a new string after capitalizing the first character.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">capitalize</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>firstLetter<span class="token punctuation">,</span> <span class="token operator">...</span>restOfWord<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> firstLetter<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> restOfWord<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>For more information, visit <a href="https://ui.dev/capitalize-first-letter-of-string-javascript">How to capitalize the first letter of a string in JavaScript</a></p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bring a bucket and a mop for these new operators","date":"2020-09-07","description":"ESLint's big dreams and NativeScript gets lucky with v7, ","featuredImage":"https://bytes.dev/images/content/visionboard.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003ch2\u003e\u003ca href=\"https://eslint.org/blog/2020/08/eslint-v7.8.0-released\"\u003eESLint’s got a new \u003cdel\u003evision board\u003c/del\u003e roadmap\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/visionboard.jpg\" alt=\"ESLint's Vision Board\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003ePassion, Ambition, and Love\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIt was a busy week\u003c/strong\u003e for the King of JavaScript linters as the team released a new update and also shared ESLint’s first-ever public roadmap.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://eslint.org/blog/2020/08/eslint-v7.8.0-released\"\u003ev7.8.0 is a minor release\u003c/a\u003e - the biggest highlight is new support for logical assignment operators and numeric separators. WTF are those?\u003c/p\u003e\n\u003ch3\u003eLogical assignment operators\u003c/h3\u003e\n\u003cp\u003eBring a bucket and a mop for these new operators, \u003ccode\u003e||=\u003c/code\u003e, \u003ccode\u003e\u0026amp;\u0026amp;=\u003c/code\u003e, and \u003ccode\u003e??=\u003c/code\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token comment\"\u003e/*\n  ||= returns its right-hand side\n  when its left-hand side is falsy\n\n  \u0026amp;\u0026amp;= returns its right-hand side\n  when its left-hand side is truthy\n\n  ??= returns its right-hand side\n  when its left-hand side is null or undefined.\n*/\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Turns this code\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eisUndefinedOrNull\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003einput\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e input \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enull\u003c/span\u003e \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e input \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eundefined\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalculateBill\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eoptions\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e||\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eoptions\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Guest'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003egreeting \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eoptions\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003egreeting \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Welcome Back!'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etax \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003eisUndefinedOrNull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eoptions\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etax\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e?\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e:\u003c/span\u003e options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etax\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ediscount \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003eisUndefinedOrNull\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eoptions\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ediscount\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e?\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e:\u003c/span\u003e options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ediscount\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// Into this code\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecalculateBill\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eoptions\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e||=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Guest'\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003egreeting \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Welcome Back!'\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etax \u003cspan class=\"token operator\"\u003e??=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.05\u003c/span\u003e\n  options\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ediscount \u003cspan class=\"token operator\"\u003e??=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// math\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eNumeric Separators\u003c/h3\u003e\n\u003cp\u003eTurns out, humans aren’t good at reading large numbers. Numeric Separators makes that a little easier by allowing developers to create visual separation between groups of digits with an \u003ccode\u003e_\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e oldAndBusted \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000000000\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e newHotness \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e1_000_000_000\u003c/span\u003e\n\noldAndBusted \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e newHotness \u003cspan class=\"token comment\"\u003e// true\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBoth Logical assignment operators and Numeric separators are currently Stage 4 in the ECMAScript process - now back to the ESLint.\u003c/p\u003e\n\u003ch3\u003eThe Roadmap\u003c/h3\u003e\n\u003cp\u003eThe public roadmap is a little more exciting and features three major initiatives:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e1. Lint files in parallel:\u003c/strong\u003e Just like it sounds, this new capability will allow you to lint multiple files in parallel, which should speed up the linting process significantly. It’s also something that ESLint fans have been \u003cdel\u003ebegging for\u003c/del\u003e patiently requesting for \u003ca href=\"https://github.com/eslint/eslint/issues/3565\"\u003eover 5 years\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e2. New configuration system:\u003c/strong\u003e The team has already been working hard on the new config for months, with the intention of making ESLint simpler and faster overall. They also plan to make it easier to create plugins and shareable configs, so that you’ll \u003cem\u003emaybe\u003c/em\u003e try using a new config besides just the over opinionated Airbnb one.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e3. Participating in the Google Season of Docs:\u003c/strong\u003e This is kind of like going to OSS documentation summer camp, but instead of \u003ca href=\"https://www.youtube.com/watch?v=2O8jPvnCGIM\"\u003elearning how to make the perfect boondoggle\u003c/a\u003e, a few ESLint maintainers will learn how to overhaul and simplify the docs so that they’re a lot more useful.\u003c/p\u003e\n\u003ch3\u003eWhy release this roadmap now?\u003c/h3\u003e\n\u003cp\u003e2 words: Money Talks.\u003c/p\u003e\n\u003cp\u003eMicrosoft, Salesforce, and a few other big names recently donated tens of thousands of dollars to ESLint. This has allowed the ESLint team to pay some maintainers (part-time) for all their work and begin working on these larger, long-term projects. Hooray for capitalism!… uhh I mean supporting open source!\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://nativescript.org/blog/nativescript-7-announcement/\"\u003eNativeScript releases lucky number v7\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/situp.png\" alt=\"Bobby doing situps\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eNativeScript working hard on its core\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eOne small step for man…\u003c/strong\u003e NativeScript says they made a “significant step forward” with the release of v7.0 last week, with some significant new features focused on improving the framework’s core.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eICYMI\u003c/strong\u003e NativeScript is a framework that was first released back in 2015 for building “truly native” iOS and Android apps with JavaScript and other frontend technologies like Angular, Vue, and TypeScript.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFeel like you’ve heard that sales pitch before?\u003c/strong\u003e That’s probably because you have. But unlike Ionic, Cordova, or Phone Gap (lol), NativeScript does this with real native components, not a webview.\u003c/p\u003e\n\u003cp\u003eNow let’s jump into \u003cstrong\u003ewhat’s new in v7:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew build targeting\u003c/strong\u003e of ES2017 and higher should make for faster and more performant code, which allows you to utilize all of the latest and greatest ES features.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eV8 iOS engine\u003c/strong\u003e means that both Android and iOS now run on V8, which should make it easier to maintain both runtimes. (Goodbye forever, JavaScriptCore.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew \u003ccode\u003e@NativeClass()\u003c/code\u003e decorator\u003c/strong\u003e for TypeScript/JavaScript classes, inherited from native iOS and Android classes.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ccode\u003enativescript.config.ts\u003c/code\u003e\u003c/strong\u003e is a new, strongly-typed NativeScript config module that is self-documenting\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis update also introduces a new monorepo structure that should make it easier for more developers to contribute to the project and test-drive NativeScript with some new demo applications.\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003e(Comparatively) NativeScript hasn’t gained a ton of mainstream adoption in the 5 years it’s been around, but it does have a pretty engaged community (not quite as intense as the Rust zealots, but still solid). By aligning itself with modern JS standards and introducing some other core improvements, this release should make NativeScript a more appealing option for all mobile developers.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Answer Below\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecapitalize\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003estring\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  string\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e string\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eDr. Axel Rauschmayer is kind of like the Ernest Hemingway of JavaScript: he’s written a ton of great books that you probably can’t understand. \u003ca href=\"https://exploringjs.com/tackling-ts/\"\u003eHe just released “Tackling TypeScript”\u003c/a\u003e, and you can read the first half of it for free online.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReact without the virtual DOM? Is that even legal? We’re not sure, but \u003ca href=\"https://github.com/brahmosjs/brahmos\"\u003eBrahmos is a new UI library that’s pushing the limits.\u003c/a\u003e It still supports the modern React API and native templates.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAllan wrote a helpful \u003ca href=\"https://medium.com/javascript-in-plain-english/ml-for-js-devs-in-10-minutes-46794782762e\"\u003eintroduction to machine learning for JavaScript devs\u003c/a\u003e. After reading it, you’ll probably be able to control a pig’s brain \u003ca href=\"https://www.theverge.com/2020/8/28/21406143/elon-musk-neuralink-ai-pigs-demo-brain-computer-interface\"\u003ejust like Elon\u003c/a\u003e, but with great power comes great responsibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJoel wrote about \u003ca href=\"https://blog.bitsrc.io/8-methods-to-search-javascript-arrays-fadbce8bea51\"\u003e8 methods to find, search, and filter arrays\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNick made a helpful guide for some common areas of confusion in JavaScript called \u003ca href=\"https://github.com/nas5w/javascript-tips-and-tidbits\"\u003eJS tips and tidbits\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn an attempt to trick us into liking Math, \u003ca href=\"https://cindyjs.org/\"\u003eCindyJS is a new framework for creating interactive math content for the web\u003c/a\u003e (physics simulations, visualizers, etc).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGustavo wrote a \u003ca href=\"https://blog.kommit.co/a-gentle-introduction-to-code-splitting-with-react-395ddf44b71b\"\u003ea gentle introduction to code splitting with React\u003c/a\u003e. This can be a confusing topic, but this article is a helpful resource.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMonica made a \u003ca href=\"https://slicker.me/javascript/tower.htm\"\u003eclassic tower stacking game in under 100 lines of JavaScript\u003c/a\u003e. I heard a rumor that if you get to level 100, they’ll send you a giant stuffed animal in the mail (definitely not true).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Answer\u003c/h2\u003e\n\u003cp\u003eWhen we call \u003ccode\u003etoUpperCase\u003c/code\u003e, we’re assuming that we’re modifying the string that was passed into the function. However, since strings are \u003ca href=\"https://ui.dev/primitive-vs-reference-values-in-javascript\"\u003eprimitive values\u003c/a\u003e, that means they’re immutable and can’t be modified once they’re been created. Instead of trying to modify the string directly, we need to return a new string after capitalizing the first character.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003ecapitalize\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003efirstLetter\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token operator\"\u003e...\u003c/span\u003erestOfWord\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e firstLetter\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e restOfWord\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e''\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information, visit \u003ca href=\"https://ui.dev/capitalize-first-letter-of-string-javascript\"\u003eHow to capitalize the first letter of a string in JavaScript\u003c/a\u003e\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"12"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"12"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

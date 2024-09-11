@@ -1,0 +1,293 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #117 - Retiring JavaScript</title><link rel="canonical" href="https://bytes.dev/archives/117"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript&#x27;s 401k going underwater."/><meta property="og:url" content="https://bytes.dev/archives/117"/><meta property="og:title" content="Bytes #117 - Retiring JavaScript"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/signals.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript&#x27;s 401k going underwater."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #117 - Retiring JavaScript"/><meta property="twitter:description" content="This issue, we&#x27;ve got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript&#x27;s 401k going underwater."/><meta property="twitter:image" content="https://bytes.dev/images/content/signals.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Retiring JavaScript</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->117<!-- -->.</span><span class="mr-6 font-bold">September 8, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Welcome to #117.</p>
+<p>This issue’s winner is Lauren Bocook. Thanks for reading and we <span role="img" aria-label="red heart">❤️</span> you. Reply to this email and we’ll get you your AirPods.</p>
+<p>Next Monday, we’re giving away two $100 Amazon gift cards and next Thursday, we’re giving away 3 ui.dev swag boxes.</p>
+<p>As always, all you have to do to enter is open the most recent issue.</p>
+<p>This week, we’ve got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript’s 401k going underwater.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/signals.jpg" alt="Batman signal with Jason Miller's face" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The Signals Signal<!-- --> </p></div><h3>The Hero We Deserve</h3><p>If there was a Masters Tournament for code golf, Jason “got that dog in him” Miller would probably have more green jackets than Tiger Woods. First, he created Preact — an alternative to React with less bytes than this newsletter, and now he and his team are back at it again with a new state management library called <a href="https://preactjs.com/blog/introducing-signals/">Signals</a>.</p><p>Before we dive into <a href="https://www.youtube.com/watch?v=GCMtwS1mNxc">nitty gritty</a>, let’s do a quick recap to get everyone up to speed.</p><p>When people complain about React, it’s usually related to the unholy trinity of: bundle size, performance (virtual DOM + re-renders), and hooks. Preact was created to solve the first problem, but it  still has many of the same issues as React.</p><p>Both frameworks do a bunch of extra work under the hood when updating state to determine which elements to update. And when Hooks was released, things got… weird. Enter Signals.</p><p>Signals moves state outside of Preact entirely. It skips all the expensive work of re-rendering components and only updates the ones that access the state’s value directly. Less work = more speed. <a href="https://preactjs.com/blog/introducing-signals#:~:text=This%20difference%20is%20most%20apparent%20when%20measured%20in%20the%20browser%20%2D%20the%20screenshot%20below%20shows%20a%20DevTools%20Profiler%20trace%20for%20the%20same%20app%20measured%20twice%3A%20once%20using%20hooks%20as%20the%20state%20primitive%20and%20a%20second%20time%20using%20signals%3A">See for yourself.</a>.</p><p><strong>Here’s how Signals work:</strong></p><ul>
+<li>
+<p><strong>Lazy by default</strong> — Signals only do work when they really need to (a trait we admire).</p>
+</li>
+<li>
+<p><strong>Optimal updates</strong> — If a signal’s value hasn’t changed, components and effects that use that signal’s value won’t be updated, even if the signal’s dependencies have changed.</p>
+</li>
+<li>
+<p><strong>Optimal dependency tracking</strong> — No more dependency arrays <span role="img" aria-label="folded hands">🙏</span>. Signals handles all of that, like a true gentleman and a scholar.</p>
+</li>
+<li>
+<p><strong>Direct access</strong> — You automatically get subscribed to updates when you access a signals value (no selectors or custom hooks).</p>
+</li>
+</ul><p>The best part, Signals went full-on <a href="https://twitter.com/LuisThePhotog/status/999472968110673920?s=20&amp;t=XBmYN1_rOS0Z7dB7E8krhw">Mason Ramsey</a> and created a React package too <span role="img" aria-label="fire">🔥</span>.</p><p><strong>Bottom Line:</strong> Jason <a href="https://github.com/preactjs/signals/blob/main/packages/react/src/index.ts#L25-L39">literally hacked React</a> and gave us everything we’ve been asking for since Hooks first came out. Get this man another green jacket.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/sizzy-logo.png" alt="Sizzy logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/thomas.jpg" alt="An angry Thomas the Train" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you open your app in Safari for the first time.<!-- --> </p></div><h3><a href="https://sizzy.co/?utm_source=bytes&amp;utm_medium=newsletter_sponsor">Sizzy</a> proves we <em>can</em> have nice things</h3><p>Have you ever thought about how we never get to use fun tools on the job?</p><p>The designers get Figma, game devs get Unity, and even Product Managers get… Slack <span role="img" aria-label="woozy face">🥴</span>.</p><p>But we’re over here building the future of the web with a couple of free VSCode extensions and a prayer.</p><p>That’s why we’re so hyped about <a href="https://sizzy.co/?utm_source=bytes&amp;utm_medium=newsletter_sponsor">Sizzy</a> — a browser specifically designed for web developers.</p><p><strong>Wtf does that even mean?</strong> It’s like a normal browser, but with a bunch of <a href="https://sizzy.co/features/?utm_source=bytes&amp;utm_medium=newsletter_sponsor">helpful features</a> that make the tedious parts of your job less annoying.</p><p>Some of our favorites include:</p><ul>
+<li>
+<p>Session Manager lets you log in with different user accounts on different devices <em>at the same time</em> (<span role="img" aria-label="waving hand">👋</span>, Incognito Mode)</p>
+</li>
+<li>
+<p>Responsive Mode lets you test if your site is responsive (on every device) without ever having to resize your browser.</p>
+</li>
+<li>
+<p>A custom CSS debugger panel, a la <code>console.log</code> for CSS, and a bunch of other tools for catching annoying UI bugs.</p>
+</li>
+</ul><p><strong>Does this cost money?</strong> Yes, but it’s a lot cheaper than the Adobe Suite subscription that the marketing team just bought. It’s also a great way to support a small, bootstrapped team that’s <a href="https://sizzy.co/customers/?utm_source=bytes&amp;utm_medium=newsletter_sponsor">beloved</a> in the web dev community.</p><p>Interested? <a href="https://portal.sizzy.co/download/?utm_source=bytes&amp;utm_medium=newsletter_sponsor">Check out the 14-day free trial</a>. You won’t regret it.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/close-logo.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2">Senior or Staff Front-end Engineer</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">100% Remote</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">React</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Close.com is looking for 3 experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. Close is a 100% globally distributed team of ~55 high-performing, happy people that are dedicated to building a product our customers love.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/trends.png" alt="Trends logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Trend of the Week</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://ui.dev">ui.dev</a></h4><p><em>If you like our newsletter, then you’ll love our courses. They’re fun and they’ve helped thousands of developers get jobs and level up their careers.</em></p></div></div>
+<div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/date-trends.jpg" alt="date-fns vs dayjs vs luxon vs moment" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The date library showdown - data from npmtrends.com<!-- --> </p></div>
+<p>Moment.js has been the biggest player in the date library game for an eternity (in JavaScript), but after getting bundle-size-shamed, they recently threw in the towel and declared open source bankruptcy.</p>
+<p>Date-fns aimed to be a “modern” (aka tree shakeable) alternative to Moment and has enjoyed a lot of popularity, but the real mover in this trend has been Day.js — a faster, modern equivalent with the same API (kind of like Preact is to React).</p>
+<p>Bringing up the rear is Luxon. It also does some cool stuff but is probably better suited for evergreen projects than as a true alternative to Moment.</p>
+<p><strong>The Takeaway:</strong> Dealing with dates in JavaScript still sucks and you’re probably going to need some type of library.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Meta just released an experimental version of <a href="https://github.com/facebookresearch/shumai">Shumai</a> — a fast machine learning library in JavaScript with Bun and Flashlight that (like everything else related to Bun) is named after another Asian food dish. Personally, I can’t wait to buy a “Teppanyaki-level sponsor ticket” to the first Bun Conf and hear the speakers talk about some new meta framework called <em>Dim Sum</em> and a new build tool called <em>Crab Rangoon.</em></p>
+</li>
+<li>
+<p><a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=dev1">CarbonQA</a> provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]</p>
+</li>
+<li>
+<p>In a recent <a href="https://www.crockford.com/qa2.html">interview</a>, Douglas Crockford (the creator of JSON) said that “The best thing we can do today to JavaScript is to retire it.” Unfortunately for Douglas, the recent tech downturn means that JavaScript’s 401k is completely underwater and thus, decades away from retiring.</p>
+</li>
+<li>
+<p><a href="https://reactnative.dev/blog/2022/09/05/version-070">React Native 0.70</a> comes with Hermes as the new default engine for all RN apps. And in a weird way, it makes perfect sense that a core part React Native infrastructure is named after the Greek God of trade, wealth, luck, fertility, <em>animal husbandry (??)</em>, sleep, language, travel, and thieves (we looked it up).</p>
+</li>
+<li>
+<p>The Acquired Podcast did a 3-hour deep dive on <a href="https://podcasts.apple.com/us/podcast/acquired/id1050462261?i=1000578485843">the history of AWS</a>. It won’t help you fix any of your AWS error codes, but it <em>will</em> help you know which names to curse for all of the AWS error codes in your app (since it’s obviously not your fault).</p>
+</li>
+<li>
+<p>Charlie Gerard wrote about <a href="https://charliegerard.dev/blog/aircraft-radar-system-rtl-sdr-web-usb/">Building an aircraft radar system in JavaScript</a>. But if Douglas Crockford gets his way, no planes will ever get to know the joy of running JavaScript.</p>
+</li>
+<li>
+<p>Hayk An created <a href="https://hihayk.github.io/shaper/">Shaper</a> — a cool tool that generates different themes for the UI so you can play around with different looks. It’s like Polly Pocket, but for your website.</p>
+</li>
+<li>
+<p><a href="https://hyperfetch.bettertyped.com/">Hyper Fetch</a> is a backend-agnostic fetching framework that can handle data exchange, async state management, queueing, and more. It’s also the name of a game I play with my son in order to burn off all the caffeine and sugar in his body after I catch him sucking down a two-liter bottle of Mtn Dew that he stole from the local 7-11. He’s an ambitious 6 year old.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: Retiring JavaScript","date":"2022-09-08","featuredImage":"/images/content/signals.jpg","description":"This issue, we've got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript's 401k going underwater."},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eWelcome to #117.\u003c/p\u003e\n\u003cp\u003eThis issue’s winner is Lauren Bocook. Thanks for reading and we \u003cspan role=\"img\" aria-label=\"red heart\"\u003e❤️\u003c/span\u003e you. Reply to this email and we’ll get you your AirPods.\u003c/p\u003e\n\u003cp\u003eNext Monday, we’re giving away two $100 Amazon gift cards and next Thursday, we’re giving away 3 ui.dev swag boxes.\u003c/p\u003e\n\u003cp\u003eAs always, all you have to do to enter is open the most recent issue.\u003c/p\u003e\n\u003cp\u003eThis week, we’ve got a brand new React hack, a Teppanyaki-level ticket to Bun Conf, and JavaScript’s 401k going underwater.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/signals.jpg\" alt=\"Batman signal with Jason Miller's face\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe Signals Signal\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eThe Hero We Deserve\u003c/h3\u003e\u003cp\u003eIf there was a Masters Tournament for code golf, Jason “got that dog in him” Miller would probably have more green jackets than Tiger Woods. First, he created Preact — an alternative to React with less bytes than this newsletter, and now he and his team are back at it again with a new state management library called \u003ca href=\"https://preactjs.com/blog/introducing-signals/\"\u003eSignals\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eBefore we dive into \u003ca href=\"https://www.youtube.com/watch?v=GCMtwS1mNxc\"\u003enitty gritty\u003c/a\u003e, let’s do a quick recap to get everyone up to speed.\u003c/p\u003e\u003cp\u003eWhen people complain about React, it’s usually related to the unholy trinity of: bundle size, performance (virtual DOM + re-renders), and hooks. Preact was created to solve the first problem, but it  still has many of the same issues as React.\u003c/p\u003e\u003cp\u003eBoth frameworks do a bunch of extra work under the hood when updating state to determine which elements to update. And when Hooks was released, things got… weird. Enter Signals.\u003c/p\u003e\u003cp\u003eSignals moves state outside of Preact entirely. It skips all the expensive work of re-rendering components and only updates the ones that access the state’s value directly. Less work = more speed. \u003ca href=\"https://preactjs.com/blog/introducing-signals#:~:text=This%20difference%20is%20most%20apparent%20when%20measured%20in%20the%20browser%20%2D%20the%20screenshot%20below%20shows%20a%20DevTools%20Profiler%20trace%20for%20the%20same%20app%20measured%20twice%3A%20once%20using%20hooks%20as%20the%20state%20primitive%20and%20a%20second%20time%20using%20signals%3A\"\u003eSee for yourself.\u003c/a\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how Signals work:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLazy by default\u003c/strong\u003e — Signals only do work when they really need to (a trait we admire).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOptimal updates\u003c/strong\u003e — If a signal’s value hasn’t changed, components and effects that use that signal’s value won’t be updated, even if the signal’s dependencies have changed.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOptimal dependency tracking\u003c/strong\u003e — No more dependency arrays \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e. Signals handles all of that, like a true gentleman and a scholar.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDirect access\u003c/strong\u003e — You automatically get subscribed to updates when you access a signals value (no selectors or custom hooks).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eThe best part, Signals went full-on \u003ca href=\"https://twitter.com/LuisThePhotog/status/999472968110673920?s=20\u0026amp;t=XBmYN1_rOS0Z7dB7E8krhw\"\u003eMason Ramsey\u003c/a\u003e and created a React package too \u003cspan role=\"img\" aria-label=\"fire\"\u003e🔥\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Jason \u003ca href=\"https://github.com/preactjs/signals/blob/main/packages/react/src/index.ts#L25-L39\"\u003eliterally hacked React\u003c/a\u003e and gave us everything we’ve been asking for since Hooks first came out. Get this man another green jacket.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/sizzy-logo.png\" alt=\"Sizzy logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/thomas.jpg\" alt=\"An angry Thomas the Train\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you open your app in Safari for the first time.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://sizzy.co/?utm_source=bytes\u0026amp;utm_medium=newsletter_sponsor\"\u003eSizzy\u003c/a\u003e proves we \u003cem\u003ecan\u003c/em\u003e have nice things\u003c/h3\u003e\u003cp\u003eHave you ever thought about how we never get to use fun tools on the job?\u003c/p\u003e\u003cp\u003eThe designers get Figma, game devs get Unity, and even Product Managers get… Slack \u003cspan role=\"img\" aria-label=\"woozy face\"\u003e🥴\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eBut we’re over here building the future of the web with a couple of free VSCode extensions and a prayer.\u003c/p\u003e\u003cp\u003eThat’s why we’re so hyped about \u003ca href=\"https://sizzy.co/?utm_source=bytes\u0026amp;utm_medium=newsletter_sponsor\"\u003eSizzy\u003c/a\u003e — a browser specifically designed for web developers.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWtf does that even mean?\u003c/strong\u003e It’s like a normal browser, but with a bunch of \u003ca href=\"https://sizzy.co/features/?utm_source=bytes\u0026amp;utm_medium=newsletter_sponsor\"\u003ehelpful features\u003c/a\u003e that make the tedious parts of your job less annoying.\u003c/p\u003e\u003cp\u003eSome of our favorites include:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eSession Manager lets you log in with different user accounts on different devices \u003cem\u003eat the same time\u003c/em\u003e (\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e, Incognito Mode)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eResponsive Mode lets you test if your site is responsive (on every device) without ever having to resize your browser.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA custom CSS debugger panel, a la \u003ccode\u003econsole.log\u003c/code\u003e for CSS, and a bunch of other tools for catching annoying UI bugs.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eDoes this cost money?\u003c/strong\u003e Yes, but it’s a lot cheaper than the Adobe Suite subscription that the marketing team just bought. It’s also a great way to support a small, bootstrapped team that’s \u003ca href=\"https://sizzy.co/customers/?utm_source=bytes\u0026amp;utm_medium=newsletter_sponsor\"\u003ebeloved\u003c/a\u003e in the web dev community.\u003c/p\u003e\u003cp\u003eInterested? \u003ca href=\"https://portal.sizzy.co/download/?utm_source=bytes\u0026amp;utm_medium=newsletter_sponsor\"\u003eCheck out the 14-day free trial\u003c/a\u003e. You won’t regret it.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/close-logo.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2\"\u003eSenior or Staff Front-end Engineer\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e100% Remote\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eReact\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eClose.com is looking for 3 experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. Close is a 100% globally distributed team of ~55 high-performing, happy people that are dedicated to building a product our customers love.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/trends.png\" alt=\"Trends logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eTrend of the Week\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://ui.dev\"\u003eui.dev\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eIf you like our newsletter, then you’ll love our courses. They’re fun and they’ve helped thousands of developers get jobs and level up their careers.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/date-trends.jpg\" alt=\"date-fns vs dayjs vs luxon vs moment\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe date library showdown - data from npmtrends.com\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\n\u003cp\u003eMoment.js has been the biggest player in the date library game for an eternity (in JavaScript), but after getting bundle-size-shamed, they recently threw in the towel and declared open source bankruptcy.\u003c/p\u003e\n\u003cp\u003eDate-fns aimed to be a “modern” (aka tree shakeable) alternative to Moment and has enjoyed a lot of popularity, but the real mover in this trend has been Day.js — a faster, modern equivalent with the same API (kind of like Preact is to React).\u003c/p\u003e\n\u003cp\u003eBringing up the rear is Luxon. It also does some cool stuff but is probably better suited for evergreen projects than as a true alternative to Moment.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe Takeaway:\u003c/strong\u003e Dealing with dates in JavaScript still sucks and you’re probably going to need some type of library.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eMeta just released an experimental version of \u003ca href=\"https://github.com/facebookresearch/shumai\"\u003eShumai\u003c/a\u003e — a fast machine learning library in JavaScript with Bun and Flashlight that (like everything else related to Bun) is named after another Asian food dish. Personally, I can’t wait to buy a “Teppanyaki-level sponsor ticket” to the first Bun Conf and hear the speakers talk about some new meta framework called \u003cem\u003eDim Sum\u003c/em\u003e and a new build tool called \u003cem\u003eCrab Rangoon.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=dev1\"\u003eCarbonQA\u003c/a\u003e provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn a recent \u003ca href=\"https://www.crockford.com/qa2.html\"\u003einterview\u003c/a\u003e, Douglas Crockford (the creator of JSON) said that “The best thing we can do today to JavaScript is to retire it.” Unfortunately for Douglas, the recent tech downturn means that JavaScript’s 401k is completely underwater and thus, decades away from retiring.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://reactnative.dev/blog/2022/09/05/version-070\"\u003eReact Native 0.70\u003c/a\u003e comes with Hermes as the new default engine for all RN apps. And in a weird way, it makes perfect sense that a core part React Native infrastructure is named after the Greek God of trade, wealth, luck, fertility, \u003cem\u003eanimal husbandry (??)\u003c/em\u003e, sleep, language, travel, and thieves (we looked it up).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Acquired Podcast did a 3-hour deep dive on \u003ca href=\"https://podcasts.apple.com/us/podcast/acquired/id1050462261?i=1000578485843\"\u003ethe history of AWS\u003c/a\u003e. It won’t help you fix any of your AWS error codes, but it \u003cem\u003ewill\u003c/em\u003e help you know which names to curse for all of the AWS error codes in your app (since it’s obviously not your fault).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCharlie Gerard wrote about \u003ca href=\"https://charliegerard.dev/blog/aircraft-radar-system-rtl-sdr-web-usb/\"\u003eBuilding an aircraft radar system in JavaScript\u003c/a\u003e. But if Douglas Crockford gets his way, no planes will ever get to know the joy of running JavaScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHayk An created \u003ca href=\"https://hihayk.github.io/shaper/\"\u003eShaper\u003c/a\u003e — a cool tool that generates different themes for the UI so you can play around with different looks. It’s like Polly Pocket, but for your website.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://hyperfetch.bettertyped.com/\"\u003eHyper Fetch\u003c/a\u003e is a backend-agnostic fetching framework that can handle data exchange, async state management, queueing, and more. It’s also the name of a game I play with my son in order to burn off all the caffeine and sugar in his body after I catch him sucking down a two-liter bottle of Mtn Dew that he stole from the local 7-11. He’s an ambitious 6 year old.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"117"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"117"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

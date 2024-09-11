@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #43 - A bit Chonky</title><link rel="canonical" href="https://bytes.dev/archives/43"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;re monkeybrowing the internet, fancy new eslint rules, and unashamedly team Meghan."/><meta property="og:url" content="https://bytes.dev/archives/43"/><meta property="og:title" content="Bytes #43 - A bit Chonky"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/meghan.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;re monkeybrowing the internet, fancy new eslint rules, and unashamedly team Meghan."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #43 - A bit Chonky"/><meta property="twitter:description" content="This issue, we&#x27;re monkeybrowing the internet, fancy new eslint rules, and unashamedly team Meghan."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/meghan.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> A bit Chonky</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->43<!-- -->.</span><span class="mr-6 font-bold">April 12, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Congratulations everybody, we finally did it. Humanity has officially given monkeys the power to <a href="https://twitter.com/TechCrunch/status/1380332677421793281">play Pong telepathically</a>.</p>
+<p>Never let anyone tell you that we’re not living in the golden age of progress.</p>
+<hr>
+<h2>NativeScript releases v8.0</h2>
+<p><img src="https://bytes.dev/images/content/meghan.jpg" alt="Meghan Markle">
+</p><p class="image-alt">#teammeghan</p><p></p>
+<p><strong>It’s 2021 now…</strong> but writing about NativeScript has transported us straight back to 2018. Meghan Markle got to live every girl’s dream by marrying Prince Harry and NativeScript was the belle of the ball.</p>
+<p>Fast forward a few years and well, maybe this release will be NativeScript’s Oprah moment.</p>
+<p><strong>Quick review:</strong> NativeScript is a framework for building “truly native” iOS and Android apps with JavaScript/TypeScript and frameworks like Angular, Vue, Svelte, and React.</p>
+<p>Feel like you’ve heard that sales pitch before? That’s probably because you have. But unlike Ionic, Cordova, or Phone Gap (lol), NativeScript does this with real native components, not a webview.</p>
+<p><strong>What’s new in NativeScript 8:</strong></p>
+<ul>
+<li>
+<p><strong>Fancy new eslint rules</strong> — <code>@nativescript/eslint-plugin</code> is the first official set of eslint rules for NativeScript projects. It helps mitigate framework breaking changes and lets you auto-update project imports to align themselves with the latest updates.</p>
+</li>
+<li>
+<p><strong>Way simpler Webpack shiz</strong> — The new-and-improved <code>webpack.config.js</code> is much cleaner (only 4 lines of code), while managing all of NativeScript’s supported frameworks and their specific Webpack requirements. Plugins can also automatically register new loaders and rules now, so you don’t have to manually copy and paste loaders &amp; Webpack plugins like a heathen.</p>
+</li>
+<li>
+<p><strong>New CSS tricks</strong> — First requested in 2015, you can now use <code>box-shadow</code> and <code>text-shadow</code> with your CSS in NativeScript.</p>
+</li>
+</ul>
+<p>Check out this <a href="https://github.com/williamjuan027/nativescript-movies-demo">demo app</a> that was built by a NativeScript community member if you want to see all of the updates and new features in action.</p>
+<h3>The Bottom Line</h3>
+<p>It’s no secret that Flutter/Dart is the hot new thing in the cross-platform space these days. But if you want to use a JavaScript framework (that isn’t React Native) to build mobile apps, NativeScript still seems like a solid choice with a fairly large developer community around it.</p>
+<hr>
+<h2>TWIH — The Internet is Born</h2>
+<p><img src="https://bytes.dev/images/content/monkeys.png" alt="Monkey browing the internet">
+</p><p class="image-alt">Ushering in The Golden Age of Progress</p><p></p>
+<p><strong>52 years ago last week…</strong> Steve Crocker issued the <a href="https://www.rfc-editor.org/rfc/rfc1.html">first-ever RFC</a> (“Request for Comments”), which defined the IMP software that allowed communication between host machines on the ARPAnet (the world’s first computer network).</p>
+<p>Today, RFC1 is widely considered the first main document that paved the way for the birth of the internet. It’s the GrandDaddy of all Docs.</p>
+<p><strong>So, what was actually in RFC1?</strong> It stated the purpose of connecting <a href="https://twitter.com/JonErlichman/status/1319060095725088769">the first 4 hosts</a> (3 from California, 1 from Utah (Hell yeah, go Jazz)) on the network and described the initial “simple use” case and what the longer-term “deep use” case might look like.</p>
+<p>Most importantly, it outlined how the software would work:</p>
+<blockquote>
+<p>Information is transmitted from HOST to HOST in bundles called messages. A message is any stream of not more than 8080 bits (or 1/5th of React.js), together with its header.  The header is 16 bits and contains the following information:</p>
+</blockquote>
+<p>Destination     5 bits
+Link            8 bits
+Trace           1 bit
+Spare           2 bits</p>
+<p>RFC1 eventually morphed into the <a href="https://www.rfc-editor.org/">RFC Series</a>, which has since produced over 9,000 technical and organizational documents about the Internet over the last 50 years.</p>
+<p><strong>104 days after RFC1,</strong> the Apollo 11 crew made its one giant leap for mankind when it landed on the moon. Turns out 1969 was a pretty big year for groundbreaking tech. But hey, in 2021 we’ve got monkeys playing MindPong and libraries for the meta-frameworks of our JavaScript frameworks.</p>
+<p>The <a href="https://youtu.be/T09Sa7jQY38?t=9">disruptive innovation</a> never stops.</p>
+<hr>
+<h3>What will building for the web look like in 5 years?</h3>
+<img class="section-image-avatar" src="https://ui.dev/images/events/brian.jpg" alt="Brian Rinaldi">
+<p>I think (hope) that in five years we’ll see a return to simplicity of building for the web. Web development has become increasingly complicated, with Frontend developers  asked to orchestrate a widening array of tools, frameworks and services across a range of platforms. I think we’ll see a consolidation of tools and services and a rise of platforms that make it much easier to orchestrate all the pieces, allowing frontend devs to focus their energies on the frontend again.</p>
+<blockquote>
+<p><a href="https://twitter.com/remotesynth">Brian Rinaldi</a> is a Developer Advocate at StepZen with over 20 years experience. He’s actively involved in the community and will be doing a ui.dev event this Thursday titled “A Practical Intro to JAMstack.”</p>
+</blockquote>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Having a hard time keeping up with all the hot new build tools? Hugh’s got you covered with an awesome article, <strong><a href="https://css-tricks.com/comparing-the-new-generation-of-build-tools/">“Comparing the New Generation of Build Tools</a></strong>, which will help you feel like less of a JS boomer.</p>
+</li>
+<li>
+<p>Matt created <strong><a href="https://xstate-catalogue.com">XState Catalogue</a></strong> — a collection of professionally designed state machines you can drop into your projects. Hopefully, it’s as useful to you as the JCPenny back-to-school catalog was to my mom in the ’90s.</p>
+</li>
+<li>
+<p>Nader Dabit released his <strong><a href="https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13">Complete Guide to Full Stack Ethereum Development</a></strong> last Friday, and ETH prices immediately jumped 6%. <em>Coincidence?</em></p>
+</li>
+<li>
+<p><strong><a href="https://github.com/PatGleeson101/mathicall.js">Mathicall.js</a></strong> is a fast, new JavaScript math library designed for simulation and data processing. It’s also how I pronounced the word “magical” when I was an 8-year-old kid with no front teeth but a binder full of Pokemon cards. A mathicall time indeed.</p>
+</li>
+<li>
+<p>Vue 3 announced that <strong><a href="https://github.com/vuejs/rfcs/blob/ie11/active-rfcs/0000-vue3-ie11-support.md">it won’t support IE11</a></strong> because (and I’m quoting Evan word for word here), “You’re tacky and I hate you.”</p>
+</li>
+<li>
+<p><strong><a href="https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour">CodeTour</a></strong> is a VSCode Extension that lets you record and playback guided walkthroughs of your codebases. AKA it’ll eliminate 80% of a dev manager’s job.</p>
+</li>
+<li>
+<p>Like your rich friends who can’t stop posting about their remodeled kitchen, The Chrome DevTools team is keeping us in the loop with their own “architecture refresh,” this time with a new post on <strong><a href="https://developer.chrome.com/blog/migrating-to-typescript/">migrating to TypeScript</a></strong>. Bad news, it’s probably <a href="https://twitter.com/slightlylate/status/1381302642756837378">“a bit Chonky”</a>.</p>
+</li>
+<li>
+<p>Lea Verou wrote a great tutorial on <strong><a href="https://lea.verou.me/">adding dark mode in 5 minutes</a></strong>. Making things dark within 5 minutes? Sounds like every episode of Breaking Bad.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: A bit Chonky","date":"2021-04-12","description":"This issue, we're monkeybrowing the internet, fancy new eslint rules, and unashamedly team Meghan.","featuredImage":"https://bytes.dev/images/content/meghan.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eCongratulations everybody, we finally did it. Humanity has officially given monkeys the power to \u003ca href=\"https://twitter.com/TechCrunch/status/1380332677421793281\"\u003eplay Pong telepathically\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNever let anyone tell you that we’re not living in the golden age of progress.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eNativeScript releases v8.0\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/meghan.jpg\" alt=\"Meghan Markle\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e#teammeghan\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIt’s 2021 now…\u003c/strong\u003e but writing about NativeScript has transported us straight back to 2018. Meghan Markle got to live every girl’s dream by marrying Prince Harry and NativeScript was the belle of the ball.\u003c/p\u003e\n\u003cp\u003eFast forward a few years and well, maybe this release will be NativeScript’s Oprah moment.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick review:\u003c/strong\u003e NativeScript is a framework for building “truly native” iOS and Android apps with JavaScript/TypeScript and frameworks like Angular, Vue, Svelte, and React.\u003c/p\u003e\n\u003cp\u003eFeel like you’ve heard that sales pitch before? That’s probably because you have. But unlike Ionic, Cordova, or Phone Gap (lol), NativeScript does this with real native components, not a webview.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat’s new in NativeScript 8:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFancy new eslint rules\u003c/strong\u003e — \u003ccode\u003e@nativescript/eslint-plugin\u003c/code\u003e is the first official set of eslint rules for NativeScript projects. It helps mitigate framework breaking changes and lets you auto-update project imports to align themselves with the latest updates.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWay simpler Webpack shiz\u003c/strong\u003e — The new-and-improved \u003ccode\u003ewebpack.config.js\u003c/code\u003e is much cleaner (only 4 lines of code), while managing all of NativeScript’s supported frameworks and their specific Webpack requirements. Plugins can also automatically register new loaders and rules now, so you don’t have to manually copy and paste loaders \u0026amp; Webpack plugins like a heathen.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew CSS tricks\u003c/strong\u003e — First requested in 2015, you can now use \u003ccode\u003ebox-shadow\u003c/code\u003e and \u003ccode\u003etext-shadow\u003c/code\u003e with your CSS in NativeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCheck out this \u003ca href=\"https://github.com/williamjuan027/nativescript-movies-demo\"\u003edemo app\u003c/a\u003e that was built by a NativeScript community member if you want to see all of the updates and new features in action.\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eIt’s no secret that Flutter/Dart is the hot new thing in the cross-platform space these days. But if you want to use a JavaScript framework (that isn’t React Native) to build mobile apps, NativeScript still seems like a solid choice with a fairly large developer community around it.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eTWIH — The Internet is Born\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/monkeys.png\" alt=\"Monkey browing the internet\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eUshering in The Golden Age of Progress\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e52 years ago last week…\u003c/strong\u003e Steve Crocker issued the \u003ca href=\"https://www.rfc-editor.org/rfc/rfc1.html\"\u003efirst-ever RFC\u003c/a\u003e (“Request for Comments”), which defined the IMP software that allowed communication between host machines on the ARPAnet (the world’s first computer network).\u003c/p\u003e\n\u003cp\u003eToday, RFC1 is widely considered the first main document that paved the way for the birth of the internet. It’s the GrandDaddy of all Docs.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSo, what was actually in RFC1?\u003c/strong\u003e It stated the purpose of connecting \u003ca href=\"https://twitter.com/JonErlichman/status/1319060095725088769\"\u003ethe first 4 hosts\u003c/a\u003e (3 from California, 1 from Utah (Hell yeah, go Jazz)) on the network and described the initial “simple use” case and what the longer-term “deep use” case might look like.\u003c/p\u003e\n\u003cp\u003eMost importantly, it outlined how the software would work:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eInformation is transmitted from HOST to HOST in bundles called messages. A message is any stream of not more than 8080 bits (or 1/5th of React.js), together with its header.  The header is 16 bits and contains the following information:\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eDestination     5 bits\nLink            8 bits\nTrace           1 bit\nSpare           2 bits\u003c/p\u003e\n\u003cp\u003eRFC1 eventually morphed into the \u003ca href=\"https://www.rfc-editor.org/\"\u003eRFC Series\u003c/a\u003e, which has since produced over 9,000 technical and organizational documents about the Internet over the last 50 years.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e104 days after RFC1,\u003c/strong\u003e the Apollo 11 crew made its one giant leap for mankind when it landed on the moon. Turns out 1969 was a pretty big year for groundbreaking tech. But hey, in 2021 we’ve got monkeys playing MindPong and libraries for the meta-frameworks of our JavaScript frameworks.\u003c/p\u003e\n\u003cp\u003eThe \u003ca href=\"https://youtu.be/T09Sa7jQY38?t=9\"\u003edisruptive innovation\u003c/a\u003e never stops.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003eWhat will building for the web look like in 5 years?\u003c/h3\u003e\n\u003cimg class=\"section-image-avatar\" src=\"https://ui.dev/images/events/brian.jpg\" alt=\"Brian Rinaldi\"\u003e\n\u003cp\u003eI think (hope) that in five years we’ll see a return to simplicity of building for the web. Web development has become increasingly complicated, with Frontend developers  asked to orchestrate a widening array of tools, frameworks and services across a range of platforms. I think we’ll see a consolidation of tools and services and a rise of platforms that make it much easier to orchestrate all the pieces, allowing frontend devs to focus their energies on the frontend again.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/remotesynth\"\u003eBrian Rinaldi\u003c/a\u003e is a Developer Advocate at StepZen with over 20 years experience. He’s actively involved in the community and will be doing a ui.dev event this Thursday titled “A Practical Intro to JAMstack.”\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eHaving a hard time keeping up with all the hot new build tools? Hugh’s got you covered with an awesome article, \u003cstrong\u003e\u003ca href=\"https://css-tricks.com/comparing-the-new-generation-of-build-tools/\"\u003e“Comparing the New Generation of Build Tools\u003c/a\u003e\u003c/strong\u003e, which will help you feel like less of a JS boomer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMatt created \u003cstrong\u003e\u003ca href=\"https://xstate-catalogue.com\"\u003eXState Catalogue\u003c/a\u003e\u003c/strong\u003e — a collection of professionally designed state machines you can drop into your projects. Hopefully, it’s as useful to you as the JCPenny back-to-school catalog was to my mom in the ’90s.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNader Dabit released his \u003cstrong\u003e\u003ca href=\"https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13\"\u003eComplete Guide to Full Stack Ethereum Development\u003c/a\u003e\u003c/strong\u003e last Friday, and ETH prices immediately jumped 6%. \u003cem\u003eCoincidence?\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/PatGleeson101/mathicall.js\"\u003eMathicall.js\u003c/a\u003e\u003c/strong\u003e is a fast, new JavaScript math library designed for simulation and data processing. It’s also how I pronounced the word “magical” when I was an 8-year-old kid with no front teeth but a binder full of Pokemon cards. A mathicall time indeed.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVue 3 announced that \u003cstrong\u003e\u003ca href=\"https://github.com/vuejs/rfcs/blob/ie11/active-rfcs/0000-vue3-ie11-support.md\"\u003eit won’t support IE11\u003c/a\u003e\u003c/strong\u003e because (and I’m quoting Evan word for word here), “You’re tacky and I hate you.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour\"\u003eCodeTour\u003c/a\u003e\u003c/strong\u003e is a VSCode Extension that lets you record and playback guided walkthroughs of your codebases. AKA it’ll eliminate 80% of a dev manager’s job.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLike your rich friends who can’t stop posting about their remodeled kitchen, The Chrome DevTools team is keeping us in the loop with their own “architecture refresh,” this time with a new post on \u003cstrong\u003e\u003ca href=\"https://developer.chrome.com/blog/migrating-to-typescript/\"\u003emigrating to TypeScript\u003c/a\u003e\u003c/strong\u003e. Bad news, it’s probably \u003ca href=\"https://twitter.com/slightlylate/status/1381302642756837378\"\u003e“a bit Chonky”\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLea Verou wrote a great tutorial on \u003cstrong\u003e\u003ca href=\"https://lea.verou.me/\"\u003eadding dark mode in 5 minutes\u003c/a\u003e\u003c/strong\u003e. Making things dark within 5 minutes? Sounds like every episode of Breaking Bad.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"43"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"43"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

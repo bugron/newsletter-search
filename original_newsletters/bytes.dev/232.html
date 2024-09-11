@@ -1,0 +1,353 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #232 - The Ghost of TanStack Past</title><link rel="canonical" href="https://bytes.dev/archives/232"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual."/><meta property="og:url" content="https://bytes.dev/archives/232"/><meta property="og:title" content="Bytes #232 - The Ghost of TanStack Past"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/stacks.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #232 - The Ghost of TanStack Past"/><meta property="twitter:description" content="Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual."/><meta property="twitter:image" content="https://bytes.dev/images/content/stacks.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The Ghost of TanStack Past</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->232<!-- -->.</span><span class="mr-6 font-bold">October 19, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/232">#232</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/stacks.jpg" alt="A guy stacking a bunch of plastic cups on top of a guy who's sleeping" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">TanStacks on stacks on stacks.<!-- --> </p></div><h3>TanStack Query hits v5</h3><p>The last time we wrote about React’s most popular data fetching library in August 2022, it had just launched v4, changed its name from React Query to <em>TanStack Query</em>, and decided to start supporting other JS frameworks.</p><p>Fast forward 15 months, and the TQ crew has come a long way: The React Query version of TanStack has grown over 2x to ~3.5 million weekly downloads, they’ve launched adapters for Vue, Svelte, and Solid.js, and they just released <a href="https://tanstack.com/blog/announcing-tanstack-query-v5">TanStack v5</a> on Tuesday.</p><p>The team’s major focus for v5 was to make TanStack Query “smaller, better, and more intuitive to use,” and they seemed to check all those boxes.</p><p>v5 is 20% smaller than v4, and a few key changes and new features help it deliver on the “better and more intuitive” promise:</p><ul>
+<li>
+<p>They removed overloads from the codebase, which unifies how you use <code>useQuery</code> and other hooks. This makes the object API more consistent and helps you avoid annoying TypeScript error messages.</p>
+</li>
+<li>
+<p>A new, simplified way to do optimistic updates lets you leverage the returned <code>variables</code> from <code>useMutation</code>, without having to write code that updates the cache manually.</p>
+</li>
+<li>
+<p>Shareable mutation state gives you access to the state of all mutations shared across components with a new <code>useMutationState</code> hook.</p>
+</li>
+<li>
+<p>First-class support for <code>suspense</code>, plus experimental support for streaming with RSC.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> By continuing to adapt to the ever-changing React ecosystem and adding support for other JS frameworks, TanStack Query is proving that it’s going to be around for the long haul.</p><p>That’s why we’ve been working with Tanner and Dominik from the React Query core team to build <a href="https://query.gg/">query.gg <span role="img" aria-label="crystal ball">🔮</span></a> — a brand new React Query course that’s packed with interactive visuals and real-world challenges to help you master the library fast.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/232" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F232" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40tan_stack%20team%20never%20sleeps%2C%20and%20v5%20proves%20it.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F232" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40tan_stack%20team%20never%20sleeps%2C%20and%20v5%20proves%20it.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F232" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/spam-spy-logo.png" alt="spamspy logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/capt-planet.jpg" alt="The Captain Planet kids putting their rings together to summon Captain Planet" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">With all our spam combined, we can save the internet<!-- --> </p></div><h3><a href="https://spamspy.io/?ref=bytes">SpamSpy is the future of spam fighting</a></h3><p>This community-driven spam blocker is basically the Captain Planet of spam protection.</p><p>It lets us combine all of our spam data together to create an AI-powered spam solution that’s constantly evolving — so it can stay one step ahead of bots and spammers, instead of just reacting to them.</p><p>It’s still in closed beta, but if you <a href="https://spamspy.io/Subscribe?ref=bytes">subscribe to their newsletter</a>, you can get notified and start using it before everyone else.</p><p><strong>Here’s how it works:</strong></p><ol>
+<li>
+<p>Connect your data through RapidAPI to submit your spam content.</p>
+</li>
+<li>
+<p>SpamSpy’s AI learns to block your spam content, along with all the other spam submitted by other community members.</p>
+</li>
+<li>
+<p>You can use the SpamSpy platform to block spam on your own site for good.</p>
+</li>
+</ol><p><a href="https://discord.com/invite/axgwC4QFXz/?ref=bytes">Join the Discord</a> today to see what the future of spam fighting looks like.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/bytes/">Datadog’s State of Serverless 2023</a></h4><p><em>For this <a href="https://www.datadoghq.com/bytes/">free report</a>, Datadog examined telemetry data from thousands of companies’ serverless apps to analyze the latest trends.</em></p></div></div>
+<p>What gets logged when you click the inner div?</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>What gets logged?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">#outerDiv</span> <span class="token punctuation">{</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> lightgrey<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px solid black<span class="token punctuation">;</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">#innerDiv</span> <span class="token punctuation">{</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> lightcoral<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 2px solid black<span class="token punctuation">;</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>outerDiv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      Outer Div
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>innerDiv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Inner Div<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword">const</span> outerDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"outerDiv"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> innerDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"innerDiv"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      outerDiv<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+        <span class="token string">"click"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Outer div clicked!"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token boolean">true</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      innerDiv<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+        <span class="token string">"click"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Inner div clicked!"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token boolean">false</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://query.gg/">query.gg <span role="img" aria-label="crystal ball">🔮</span></a> is the spooky new landing page we just launched for our upcoming React Query course. It’s inspired by a (very true) traumatic experience one of us had playing with a Ouija board at a sleepover when we were 12, and we were the only kid who couldn’t get it to work, and our friends said it was because we “didn’t have a connection to the spirit world.” <span role="img" aria-label="loudly crying face">😭</span></p>
+</li>
+<li>
+<p><a href="https://openjsf.org/announcement/2023/10/17/node-js-21-available-now/">Node.js 21</a> just dropped with some new test runner updates and stable WebStreams for processing data in small sizes for browser applications.</p>
+</li>
+<li>
+<p><a href="https://lp.jetbrains.com/javascriptday2023/?utm_campaign=javascript_day_2023&amp;utm_medium=cpc&amp;utm_source=bytes">Jetbrains JavaScript Day</a> is a free, virtual event on Nov. 2nd that brings together community experts to discuss trends and answer your questions about the ever-changing JavaScript ecosystem. It features great speakers like Fred K. Schott, Simona Cotin, and more, so don’t miss out! [sponsored]</p>
+</li>
+<li>
+<p>View Transitions just landed in <a href="https://github.com/remix-run/remix/releases">Remix v2.1</a>. They’re still experimental, but Halloween is a good time to experiment with all sorts of things.</p>
+</li>
+<li>
+<p>Sathya Gunasekaran from the React Core Team gave a 25-minute talk at React India called, <a href="https://www.youtube.com/watch?v=kjOacmVsLSE">Statically Analysing React Components for Fun and Profit</a>, where he discusses his work on the the React-Forget compiler and gives a quick peek under the hood.</p>
+</li>
+<li>
+<p><a href="https://github.com/analogjs/analog">Analog</a> is a fullstack meta-framework for Angular that uses Vite for serving and building and file-based routing and server routes. I just wish they could’ve come up with a more creative name like Nixt or Ngxt.</p>
+</li>
+<li>
+<p>The ByteDance team just released <a href="https://github.com/web-infra-dev/rspress">Rspress 1.0</a> — an Rspack-based static site generator with MDX support.</p>
+</li>
+<li>
+<p><a href="https://www.qawolf.com?utm_campaign=SecondaryPlacement10192023&amp;utm_source=bytesdev&amp;utm_medium=newsletter">QA Wolf</a> gets web apps to 80% automated end-to-end test coverage in 4 months. They’ll build and maintain your test suite in Playwright, plus give you unlimited parallel runs on their infra, so you never have to worry about bugs again. [sponsored]</p>
+</li>
+<li>
+<p>Artem Zakharchenko wrote an article called <a href="https://kettanaito.com/blog/why-fetch-promise-doesnt-reject-on-error-responses">Why Fetch Promise Doesn’t Reject on Error Responses</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/gluestack/gluestack-ui">gluestack-ui just launched v1.0</a> of its universal headless component library for React/Next and React Native. <em>Gluestacks</em> was also the name of the homemade candy my elderly neighbor used to hand out on Halloween when I was a kid — back before we knew that dried Elmer’s glue shavings weren’t great for your intestinal tract, no matter how tasty they were. My digestion recovered, eventually.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/bytes/">Datadog’s State of Serverless 2023</a></h4></div></div>
+<p>What gets logged when you click the inner div?</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Outer div clicked! &lt;div id=​"innerDiv"&gt;​Inner Div​&lt;/div&gt;</span>
+<span class="token comment">// Inner div clicked! &lt;div id=​"innerDiv"&gt;​Inner Div​&lt;/div&gt;</span>
+</code></pre>
+<p>Even though <code>stopPropagation()</code> is called in the child’s event handler, the parent’s event handler still executes because it’s set to capture, and it executes before the event reaches the child in the capturing phase.</p>
+<p>If the parent’s event handler was set to bubble, then the child’s event handler would execute first, and the parent’s event handler would not execute at all because the event would have been stopped in the child’s event handler.</p>
+<p>Lastly, the <code>target</code> property of the event object is always the element that the event was dispatched to, which is the inner div in this case.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: The Ghost of TanStack Past","date":"2023-10-19","featuredImage":"/images/content/stacks.jpg","description":"Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Ouija-board driven development, a sneak peek at the React-Forget compiler (finally!), and an Angular meta-framework with a slightly more creative name than usual.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/232\"\u003e#232\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/stacks.jpg\" alt=\"A guy stacking a bunch of plastic cups on top of a guy who's sleeping\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eTanStacks on stacks on stacks.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eTanStack Query hits v5\u003c/h3\u003e\u003cp\u003eThe last time we wrote about React’s most popular data fetching library in August 2022, it had just launched v4, changed its name from React Query to \u003cem\u003eTanStack Query\u003c/em\u003e, and decided to start supporting other JS frameworks.\u003c/p\u003e\u003cp\u003eFast forward 15 months, and the TQ crew has come a long way: The React Query version of TanStack has grown over 2x to ~3.5 million weekly downloads, they’ve launched adapters for Vue, Svelte, and Solid.js, and they just released \u003ca href=\"https://tanstack.com/blog/announcing-tanstack-query-v5\"\u003eTanStack v5\u003c/a\u003e on Tuesday.\u003c/p\u003e\u003cp\u003eThe team’s major focus for v5 was to make TanStack Query “smaller, better, and more intuitive to use,” and they seemed to check all those boxes.\u003c/p\u003e\u003cp\u003ev5 is 20% smaller than v4, and a few key changes and new features help it deliver on the “better and more intuitive” promise:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eThey removed overloads from the codebase, which unifies how you use \u003ccode\u003euseQuery\u003c/code\u003e and other hooks. This makes the object API more consistent and helps you avoid annoying TypeScript error messages.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA new, simplified way to do optimistic updates lets you leverage the returned \u003ccode\u003evariables\u003c/code\u003e from \u003ccode\u003euseMutation\u003c/code\u003e, without having to write code that updates the cache manually.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eShareable mutation state gives you access to the state of all mutations shared across components with a new \u003ccode\u003euseMutationState\u003c/code\u003e hook.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFirst-class support for \u003ccode\u003esuspense\u003c/code\u003e, plus experimental support for streaming with RSC.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e By continuing to adapt to the ever-changing React ecosystem and adding support for other JS frameworks, TanStack Query is proving that it’s going to be around for the long haul.\u003c/p\u003e\u003cp\u003eThat’s why we’ve been working with Tanner and Dominik from the React Query core team to build \u003ca href=\"https://query.gg/\"\u003equery.gg \u003cspan role=\"img\" aria-label=\"crystal ball\"\u003e🔮\u003c/span\u003e\u003c/a\u003e — a brand new React Query course that’s packed with interactive visuals and real-world challenges to help you master the library fast.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/232\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F232\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40tan_stack%20team%20never%20sleeps%2C%20and%20v5%20proves%20it.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F232\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40tan_stack%20team%20never%20sleeps%2C%20and%20v5%20proves%20it.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F232\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/spam-spy-logo.png\" alt=\"spamspy logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/capt-planet.jpg\" alt=\"The Captain Planet kids putting their rings together to summon Captain Planet\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWith all our spam combined, we can save the internet\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://spamspy.io/?ref=bytes\"\u003eSpamSpy is the future of spam fighting\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eThis community-driven spam blocker is basically the Captain Planet of spam protection.\u003c/p\u003e\u003cp\u003eIt lets us combine all of our spam data together to create an AI-powered spam solution that’s constantly evolving — so it can stay one step ahead of bots and spammers, instead of just reacting to them.\u003c/p\u003e\u003cp\u003eIt’s still in closed beta, but if you \u003ca href=\"https://spamspy.io/Subscribe?ref=bytes\"\u003esubscribe to their newsletter\u003c/a\u003e, you can get notified and start using it before everyone else.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how it works:\u003c/strong\u003e\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eConnect your data through RapidAPI to submit your spam content.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSpamSpy’s AI learns to block your spam content, along with all the other spam submitted by other community members.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can use the SpamSpy platform to block spam on your own site for good.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003e\u003ca href=\"https://discord.com/invite/axgwC4QFXz/?ref=bytes\"\u003eJoin the Discord\u003c/a\u003e today to see what the future of spam fighting looks like.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003eDatadog’s State of Serverless 2023\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eFor this \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003efree report\u003c/a\u003e, Datadog examined telemetry data from thousands of companies’ serverless apps to analyze the latest trends.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged when you click the inner div?\u003c/p\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token doctype\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;!\u003c/span\u003e\u003cspan class=\"token doctype-tag\"\u003eDOCTYPE\u003c/span\u003e \u003cspan class=\"token name\"\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehtml\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003elang\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003een\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003emeta\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003echarset\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eUTF-8\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e/\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003emeta\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eviewport\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003econtent\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ewidth=device-width, initial-scale=1.0\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e/\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003etitle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003eWhat gets logged?\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003etitle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token style\"\u003e\u003cspan class=\"token language-css\"\u003e\n      \u003cspan class=\"token selector\"\u003e#outerDiv\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground-color\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e lightgrey\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003epadding\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e 50px\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eborder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e 2px solid black\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003etext-align\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e center\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n      \u003cspan class=\"token selector\"\u003e#innerDiv\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003ebackground-color\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e lightcoral\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003epadding\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e 20px\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003emargin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e 20px\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003eborder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e 2px solid black\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token property\"\u003etext-align\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e:\u003c/span\u003e center\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n    \u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003estyle\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehead\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ebody\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ediv\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eid\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eouterDiv\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n      Outer Div\n      \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ediv\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eid\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003einnerDiv\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003eInner Div\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ediv\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ediv\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\n    \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003escript\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token script\"\u003e\u003cspan class=\"token language-javascript\"\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e outerDiv \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e document\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003egetElementById\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"outerDiv\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e innerDiv \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e document\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003egetElementById\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"innerDiv\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n      outerDiv\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eaddEventListener\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n        \u003cspan class=\"token string\"\u003e\"click\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ee\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n          console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Outer div clicked!\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etarget\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"token boolean\"\u003etrue\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n      innerDiv\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eaddEventListener\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n        \u003cspan class=\"token string\"\u003e\"click\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ee\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n          e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003estopPropagation\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n          console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Inner div clicked!\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etarget\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"token boolean\"\u003efalse\u003c/span\u003e\n      \u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003escript\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\n  \u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ebody\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ehtml\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://query.gg/\"\u003equery.gg \u003cspan role=\"img\" aria-label=\"crystal ball\"\u003e🔮\u003c/span\u003e\u003c/a\u003e is the spooky new landing page we just launched for our upcoming React Query course. It’s inspired by a (very true) traumatic experience one of us had playing with a Ouija board at a sleepover when we were 12, and we were the only kid who couldn’t get it to work, and our friends said it was because we “didn’t have a connection to the spirit world.” \u003cspan role=\"img\" aria-label=\"loudly crying face\"\u003e😭\u003c/span\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://openjsf.org/announcement/2023/10/17/node-js-21-available-now/\"\u003eNode.js 21\u003c/a\u003e just dropped with some new test runner updates and stable WebStreams for processing data in small sizes for browser applications.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://lp.jetbrains.com/javascriptday2023/?utm_campaign=javascript_day_2023\u0026amp;utm_medium=cpc\u0026amp;utm_source=bytes\"\u003eJetbrains JavaScript Day\u003c/a\u003e is a free, virtual event on Nov. 2nd that brings together community experts to discuss trends and answer your questions about the ever-changing JavaScript ecosystem. It features great speakers like Fred K. Schott, Simona Cotin, and more, so don’t miss out! [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eView Transitions just landed in \u003ca href=\"https://github.com/remix-run/remix/releases\"\u003eRemix v2.1\u003c/a\u003e. They’re still experimental, but Halloween is a good time to experiment with all sorts of things.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSathya Gunasekaran from the React Core Team gave a 25-minute talk at React India called, \u003ca href=\"https://www.youtube.com/watch?v=kjOacmVsLSE\"\u003eStatically Analysing React Components for Fun and Profit\u003c/a\u003e, where he discusses his work on the the React-Forget compiler and gives a quick peek under the hood.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/analogjs/analog\"\u003eAnalog\u003c/a\u003e is a fullstack meta-framework for Angular that uses Vite for serving and building and file-based routing and server routes. I just wish they could’ve come up with a more creative name like Nixt or Ngxt.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe ByteDance team just released \u003ca href=\"https://github.com/web-infra-dev/rspress\"\u003eRspress 1.0\u003c/a\u003e — an Rspack-based static site generator with MDX support.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.qawolf.com?utm_campaign=SecondaryPlacement10192023\u0026amp;utm_source=bytesdev\u0026amp;utm_medium=newsletter\"\u003eQA Wolf\u003c/a\u003e gets web apps to 80% automated end-to-end test coverage in 4 months. They’ll build and maintain your test suite in Playwright, plus give you unlimited parallel runs on their infra, so you never have to worry about bugs again. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eArtem Zakharchenko wrote an article called \u003ca href=\"https://kettanaito.com/blog/why-fetch-promise-doesnt-reject-on-error-responses\"\u003eWhy Fetch Promise Doesn’t Reject on Error Responses\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/gluestack/gluestack-ui\"\u003egluestack-ui just launched v1.0\u003c/a\u003e of its universal headless component library for React/Next and React Native. \u003cem\u003eGluestacks\u003c/em\u003e was also the name of the homemade candy my elderly neighbor used to hand out on Halloween when I was a kid — back before we knew that dried Elmer’s glue shavings weren’t great for your intestinal tract, no matter how tasty they were. My digestion recovered, eventually.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003eDatadog’s State of Serverless 2023\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged when you click the inner div?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token comment\"\u003e// Outer div clicked! \u0026lt;div id=​\"innerDiv\"\u0026gt;​Inner Div​\u0026lt;/div\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// Inner div clicked! \u0026lt;div id=​\"innerDiv\"\u0026gt;​Inner Div​\u0026lt;/div\u0026gt;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eEven though \u003ccode\u003estopPropagation()\u003c/code\u003e is called in the child’s event handler, the parent’s event handler still executes because it’s set to capture, and it executes before the event reaches the child in the capturing phase.\u003c/p\u003e\n\u003cp\u003eIf the parent’s event handler was set to bubble, then the child’s event handler would execute first, and the parent’s event handler would not execute at all because the event would have been stopped in the child’s event handler.\u003c/p\u003e\n\u003cp\u003eLastly, the \u003ccode\u003etarget\u003c/code\u003e property of the event object is always the element that the event was dispatched to, which is the inner div in this case.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"232"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"232"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

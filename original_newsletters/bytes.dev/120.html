@@ -1,0 +1,294 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #120 - A Whole Website in a Single JavaScript</title><link rel="canonical" href="https://bytes.dev/archives/120"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got acquisition rumors, a developer productivity report by My Chemical Romance, and literally nothing about the Ethereum Merge."/><meta property="og:url" content="https://bytes.dev/archives/120"/><meta property="og:title" content="Bytes #120 - A Whole Website in a Single JavaScript"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/rr-growth.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got acquisition rumors, a developer productivity report by My Chemical Romance, and literally nothing about the Ethereum Merge."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #120 - A Whole Website in a Single JavaScript"/><meta property="twitter:description" content="This issue, we&#x27;ve got acquisition rumors, a developer productivity report by My Chemical Romance, and literally nothing about the Ethereum Merge."/><meta property="twitter:image" content="https://bytes.dev/images/content/rr-growth.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> A Whole Website in a Single JavaScript</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->120<!-- -->.</span><span class="mr-6 font-bold">September 19, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Welcome to #120.</strong></p>
+<p>Today we’re giving away a <a href="https://www.amazon.com/DWK-Jurassic-Tyrannosaurus-Dinosaur-Mounted/dp/B01H4CHZW2">wall-mounted T-Rex sculpture</a>. The first one to solve the puzzle and respond to this email with the secret code wins.</p>
+<p>The clue? A place that you go, with thoughts you can’t discard. Against your will, you’ll see shirts that go hard.</p>
+<p>This week we’ve got acquisition rumors, a developer productivity report by <em>My Chemical Romance</em>, and literally nothing about the Ethereum Merge. Buckle up.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/rr-growth.jpg" alt="Npm trends graph of React Router with Remix pasted in front of React Router" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you're pre-revenue and the VC's need to see growth<!-- --> </p></div><h3>ReRouterActMix 6.4</h3><p>Back in March, The Remix team (who is also the React Router team) announced that they were ripping out “everything great about Remix’s data and async UI management” and putting it inside of React Router.</p><p>This would give React Router users (aka 50% of React developers) some cool new features without having to fully commit to Remix. And it would also give Remix a nice top of funnel growth strategy for acquiring new users. Win win.</p><p>Fast forward to last week, and The Merge<span role="img" aria-label="trade mark">™️</span> officially kicked off with the release of <a href="https://remix.run/blog/react-router-v6.4">React Router v6.4</a>. Here’s what the new ReRouterActMix looks like under the hood:</p><ul>
+<li>
+<p><strong>Loading Data</strong> — React Router now has the concept of “loaders”, which can pre-load and parallelize requests for each route.</p>
+</li>
+<li>
+<p><strong>Updating Data</strong> — The ’90s are cool again, so RR is bringing back forms. Routes can now handle submission navigation, cancellations, and race conditions for all of your “actions.”</p>
+</li>
+<li>
+<p><strong>Error Handling</strong> — “The vast majority of your application errors are handled automatically by React Router.” That’s a pretty bold claim, Cotton, because they’ve never seen my code.</p>
+</li>
+<li>
+<p><strong>UX Goodies</strong> — RR is giving away goodie bags for your users. We’re talking busy indicators, optimistic UI, scroll restoration, Skeleton UI and more — just in time for Halloween.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> It’s a smart business move for Remix to hitch its wagon to React Router (and its ~8 million weekly npm downloads). But it’s not November 2021 anymore, and VC’s have realized that companies need to “sell” a product for “real money” in order to produce “returns.”</p><p>Remix will eventually have to figure out how to do that if they want to be viable as a business, or maybe they’ll just join $BIGCO and keep living the dream.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="200" src="https://bytes.dev/images/content/fusionauth-logo.png" alt="FusionAuth Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/fusionsoft.jpg" alt="A skeleton admiring the clothes of medieval person" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">"You built all of this in an hour? Incredible."<!-- --> </p></div><h3><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a> is the holy grail</h3><p>Trying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws — it’s painful, complicated, and you’re one wrong step away from a complete disaster.</p><p>That’s why we’re huge fans of <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a>.</p><p>They’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, user management, and security — and if you don’t know what one or more of these things are… you probably need it.</p><p>Their <a href="https://fusionauth.io/download?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Free Community version</a> is surprisingly robust (no credit card, no limits, and it’s free forever if you self host <span role="img" aria-label="folded hands">🙏</span>). That makes it great to learn with or use for side projects, but it also has a pretty seamless integration process for existing apps.</p><p>And if you ever get stuck, you can call their support line and talk to an <em>actual engineer</em> who really knows auth — instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).</p><p><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Check it out</a> and never worry about auth again.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://join.talent.io/tech-salary-report-en?utm_source=BYTES&amp;utm_medium=partnership&amp;utm_campaign=salary-report">talent.io</a></h4><p><em>Curious about the current state of tech salaries? Here’s a <a href="https://join.talent.io/tech-salary-report-en?utm_source=BYTES&amp;utm_medium=partnership&amp;utm_campaign=salary-report">great report</a> by talent.io, the simplest way to find your next job.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">getCapitalizedInitials</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  name
+    <span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> name<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Brian Clark wrote a deep dive on <a href="https://snyk.io/blog/best-practices-create-modern-npm-package/">Best practices for creating a modern npm package</a>. Surprisingly, he doesn’t seem to recommend the old “Russian Nesting Doll Technique” of IIFEs inside of IIFEs inside of more IIFEs. The web has become so complex lately.</p>
+</li>
+<li>
+<p><a href="https://retool.com/try-retool/?utm_source=sponsor&amp;utm_medium=newsletter&amp;utm_campaign=bytes">This Retool page</a> gives a lot of cool examples of how you can build all types of dashboards, database GUI’s, and admin panels. I honestly have no idea how anyone built internal apps like this back in the PRD (Pre-Retool Days). [sponsored]</p>
+</li>
+<li>
+<p>Zach Leatherman (the maintainer of Eleventy) <a href="https://github.com/11ty/webc">built a compiler</a> for “single file components” that transforms into HTML, CSS, vanilla JS, and WebComponents. No word yet on how much Adobe is planning to acquire this for.</p>
+</li>
+<li>
+<p><a href="https://www.dflex.dev/">DFlex</a> is a drag-and-drop Javascript library that actually manipulates the DOM, instead of reconstructing it. I miss the days when “reconstructing the DOM, instead of manipulating it” was the selling point.</p>
+</li>
+<li>
+<p>Sarah Drasner, Minko Gechev, and Madleina Scheidegger spoke about <a href="https://www.youtube.com/watch?v=CABHcf1gCbg">the future of Angular</a> during their keynote at ng-conf.</p>
+</li>
+<li>
+<p>James Williams wrote about <a href="https://jameswillia.ms/posts/shortest-urls.html">The Shortest URLs on the Internet</a>. Somehow, ui.dev didn’t make the cut?? I demand a recount.</p>
+</li>
+<li>
+<p>GitHub wrote about its research efforts to quantify <a href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">Copilot’s impact on developer productivity and happiness</a>. Now I just need Taking Back Sunday and My Chemical Romance to create a research report on how listening to mid 2000s pop-punk <em>also</em> improves developer productivity and happiness. Then all of my confirmation biases will be nice and… confirmed.</p>
+</li>
+<li>
+<p>Leo Kettmeir wrote a post on the Deno blog about creating <a href="https://deno.com/blog/a-whole-website-in-a-single-js-file-continued">A Whole Website in a Single JavaScript File</a>. If he had chosen to clone a popular religious dating website for the demo, he would’ve had the best article title ever: “Christian Mingle in a JS Single.”</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://join.talent.io/tech-salary-report-en?utm_source=BYTES&amp;utm_medium=partnership&amp;utm_campaign=salary-report">talent.io</a></h4></div></div>
+<p>We’re treating <code>forEach</code> as if it returned an array, when it actually returns <code>undefined</code>. Instead, we want to use <code>map</code>, which works similar to <code>forEach</code>, but also creates and returns a new array.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">getCapitalizedInitials</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  name
+    <span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> name<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: A Whole Website in a Single JavaScript","date":"2022-09-19","featuredImage":"/images/content/rr-growth.jpg","description":"This issue, we've got acquisition rumors, a developer productivity report by My Chemical Romance, and literally nothing about the Ethereum Merge."},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eWelcome to #120.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eToday we’re giving away a \u003ca href=\"https://www.amazon.com/DWK-Jurassic-Tyrannosaurus-Dinosaur-Mounted/dp/B01H4CHZW2\"\u003ewall-mounted T-Rex sculpture\u003c/a\u003e. The first one to solve the puzzle and respond to this email with the secret code wins.\u003c/p\u003e\n\u003cp\u003eThe clue? A place that you go, with thoughts you can’t discard. Against your will, you’ll see shirts that go hard.\u003c/p\u003e\n\u003cp\u003eThis week we’ve got acquisition rumors, a developer productivity report by \u003cem\u003eMy Chemical Romance\u003c/em\u003e, and literally nothing about the Ethereum Merge. Buckle up.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/rr-growth.jpg\" alt=\"Npm trends graph of React Router with Remix pasted in front of React Router\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you're pre-revenue and the VC's need to see growth\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eReRouterActMix 6.4\u003c/h3\u003e\u003cp\u003eBack in March, The Remix team (who is also the React Router team) announced that they were ripping out “everything great about Remix’s data and async UI management” and putting it inside of React Router.\u003c/p\u003e\u003cp\u003eThis would give React Router users (aka 50% of React developers) some cool new features without having to fully commit to Remix. And it would also give Remix a nice top of funnel growth strategy for acquiring new users. Win win.\u003c/p\u003e\u003cp\u003eFast forward to last week, and The Merge\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e officially kicked off with the release of \u003ca href=\"https://remix.run/blog/react-router-v6.4\"\u003eReact Router v6.4\u003c/a\u003e. Here’s what the new ReRouterActMix looks like under the hood:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLoading Data\u003c/strong\u003e — React Router now has the concept of “loaders”, which can pre-load and parallelize requests for each route.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eUpdating Data\u003c/strong\u003e — The ’90s are cool again, so RR is bringing back forms. Routes can now handle submission navigation, cancellations, and race conditions for all of your “actions.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eError Handling\u003c/strong\u003e — “The vast majority of your application errors are handled automatically by React Router.” That’s a pretty bold claim, Cotton, because they’ve never seen my code.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eUX Goodies\u003c/strong\u003e — RR is giving away goodie bags for your users. We’re talking busy indicators, optimistic UI, scroll restoration, Skeleton UI and more — just in time for Halloween.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e It’s a smart business move for Remix to hitch its wagon to React Router (and its ~8 million weekly npm downloads). But it’s not November 2021 anymore, and VC’s have realized that companies need to “sell” a product for “real money” in order to produce “returns.”\u003c/p\u003e\u003cp\u003eRemix will eventually have to figure out how to do that if they want to be viable as a business, or maybe they’ll just join $BIGCO and keep living the dream.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"200\" src=\"https://bytes.dev/images/content/fusionauth-logo.png\" alt=\"FusionAuth Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/fusionsoft.jpg\" alt=\"A skeleton admiring the clothes of medieval person\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003e\"You built all of this in an hour? Incredible.\"\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e is the holy grail\u003c/h3\u003e\u003cp\u003eTrying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws — it’s painful, complicated, and you’re one wrong step away from a complete disaster.\u003c/p\u003e\u003cp\u003eThat’s why we’re huge fans of \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eThey’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, user management, and security — and if you don’t know what one or more of these things are… you probably need it.\u003c/p\u003e\u003cp\u003eTheir \u003ca href=\"https://fusionauth.io/download?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFree Community version\u003c/a\u003e is surprisingly robust (no credit card, no limits, and it’s free forever if you self host \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e). That makes it great to learn with or use for side projects, but it also has a pretty seamless integration process for existing apps.\u003c/p\u003e\u003cp\u003eAnd if you ever get stuck, you can call their support line and talk to an \u003cem\u003eactual engineer\u003c/em\u003e who really knows auth — instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eCheck it out\u003c/a\u003e and never worry about auth again.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://join.talent.io/tech-salary-report-en?utm_source=BYTES\u0026amp;utm_medium=partnership\u0026amp;utm_campaign=salary-report\"\u003etalent.io\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eCurious about the current state of tech salaries? Here’s a \u003ca href=\"https://join.talent.io/tech-salary-report-en?utm_source=BYTES\u0026amp;utm_medium=partnership\u0026amp;utm_campaign=salary-report\"\u003egreat report\u003c/a\u003e by talent.io, the simplest way to find your next job.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003egetCapitalizedInitials\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e\n  name\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etrim\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esplit\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\" \"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eforEach\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003echarAt\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBrian Clark wrote a deep dive on \u003ca href=\"https://snyk.io/blog/best-practices-create-modern-npm-package/\"\u003eBest practices for creating a modern npm package\u003c/a\u003e. Surprisingly, he doesn’t seem to recommend the old “Russian Nesting Doll Technique” of IIFEs inside of IIFEs inside of more IIFEs. The web has become so complex lately.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://retool.com/try-retool/?utm_source=sponsor\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eThis Retool page\u003c/a\u003e gives a lot of cool examples of how you can build all types of dashboards, database GUI’s, and admin panels. I honestly have no idea how anyone built internal apps like this back in the PRD (Pre-Retool Days). [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eZach Leatherman (the maintainer of Eleventy) \u003ca href=\"https://github.com/11ty/webc\"\u003ebuilt a compiler\u003c/a\u003e for “single file components” that transforms into HTML, CSS, vanilla JS, and WebComponents. No word yet on how much Adobe is planning to acquire this for.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.dflex.dev/\"\u003eDFlex\u003c/a\u003e is a drag-and-drop Javascript library that actually manipulates the DOM, instead of reconstructing it. I miss the days when “reconstructing the DOM, instead of manipulating it” was the selling point.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSarah Drasner, Minko Gechev, and Madleina Scheidegger spoke about \u003ca href=\"https://www.youtube.com/watch?v=CABHcf1gCbg\"\u003ethe future of Angular\u003c/a\u003e during their keynote at ng-conf.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJames Williams wrote about \u003ca href=\"https://jameswillia.ms/posts/shortest-urls.html\"\u003eThe Shortest URLs on the Internet\u003c/a\u003e. Somehow, ui.dev didn’t make the cut?? I demand a recount.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGitHub wrote about its research efforts to quantify \u003ca href=\"https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/\"\u003eCopilot’s impact on developer productivity and happiness\u003c/a\u003e. Now I just need Taking Back Sunday and My Chemical Romance to create a research report on how listening to mid 2000s pop-punk \u003cem\u003ealso\u003c/em\u003e improves developer productivity and happiness. Then all of my confirmation biases will be nice and… confirmed.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLeo Kettmeir wrote a post on the Deno blog about creating \u003ca href=\"https://deno.com/blog/a-whole-website-in-a-single-js-file-continued\"\u003eA Whole Website in a Single JavaScript File\u003c/a\u003e. If he had chosen to clone a popular religious dating website for the demo, he would’ve had the best article title ever: “Christian Mingle in a JS Single.”\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://join.talent.io/tech-salary-report-en?utm_source=BYTES\u0026amp;utm_medium=partnership\u0026amp;utm_campaign=salary-report\"\u003etalent.io\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWe’re treating \u003ccode\u003eforEach\u003c/code\u003e as if it returned an array, when it actually returns \u003ccode\u003eundefined\u003c/code\u003e. Instead, we want to use \u003ccode\u003emap\u003c/code\u003e, which works similar to \u003ccode\u003eforEach\u003c/code\u003e, but also creates and returns a new array.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003egetCapitalizedInitials\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e\n  name\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etrim\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esplit\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\" \"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003emap\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e name\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003echarAt\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"120"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"120"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

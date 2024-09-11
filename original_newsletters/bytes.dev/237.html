@@ -1,0 +1,292 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #237 - WinterJS is coming</title><link rel="canonical" href="https://bytes.dev/archives/237"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="WinterJS is coming, Douglas Crockford&#x27;s new programming language, and the longest 37 minutes of my life."/><meta property="og:url" content="https://bytes.dev/archives/237"/><meta property="og:title" content="Bytes #237 - WinterJS is coming"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/luigi.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="WinterJS is coming, Douglas Crockford&#x27;s new programming language, and the longest 37 minutes of my life."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #237 - WinterJS is coming"/><meta property="twitter:description" content="WinterJS is coming, Douglas Crockford&#x27;s new programming language, and the longest 37 minutes of my life."/><meta property="twitter:image" content="https://bytes.dev/images/content/luigi.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> WinterJS is coming</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->237<!-- -->.</span><span class="mr-6 font-bold">November 6, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> WinterJS is coming, Douglas Crockford’s new programming language, and the longest 37 minutes of my life.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/237">#237</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/luigi.jpg" alt="Luigi floating in the air with his eyes closed" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When the mushrooms hit just right<!-- --> </p></div><h3>Platform Power-ups</h3><p>The CSS world is buzzier than usual — and not just because they’re making fun of you for not understanding <code>clamp()</code>. It’s because browser vendors are rolling out new CSS features at a breakneck pace, giving us new ways to build interactive websites with less JavaScript.</p><p>So let’s all take a quick break from playing the new <em>Super Mario Bros. Wonder</em> game and take a closer look at three of these new-ish Platform Power-ups™:</p><p><strong><span role="img" aria-label="mushroom">🍄</span> The <code>:has()</code> selector</strong> just landed in Firefox and is now finally supported in all major browsers. It lets you apply CSS to an element based on what’s happening <em>inside</em> that element — like if you wanted to apply different styles to a form depending on the state of one of its input fields (Jen Simmons <a href="https://webkit.org/blog/13096/css-has-pseudo-class/">wrote more</a> about it <span role="img" aria-label="goat">🐐</span>).</p><p><strong><span role="img" aria-label="star">⭐</span>️ CSS Nesting</strong> allows you to nest one style rule inside another, with the selector of the child rule relative to the selector of the parent rule. This helps make your CSS more readable and modular and can reduce the size of your CSS files. You used to need a CSS preprocessor like Sass to do this, but it’s now supported by all browsers, so you can just #UseThePlatform.</p><p><strong><span role="img" aria-label="tulip">🌷</span> <code>color()</code> functions</strong> allow the browser to display colors in any color space, such as the P3 color space, which can display colors outside of the default sRGB color space. This makes it really easy to manipulate the alpha (opacity) of a color on the fly, or even manipulating the color with the <code>color-mix</code> function. It’s also available in all browsers <span role="img" aria-label="folded hands">🙏</span>.</p><p><strong>Bottom Line:</strong> There’s only one downside to all these powerful new CSS features being added to the platform — now we all have to learn how to actually <em>use</em> the platform. Be careful what you wish for.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/237" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F237" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Those%20web%20platform%20powerups%20have%20been%20hitting%20different%20lately%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F237" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThose%20web%20platform%20powerups%20have%20been%20hitting%20different%20lately%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F237" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/bugherd-logo.png" alt="Bugherd logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/whack-a-mole.jpg" alt="A guy playing whack-a-mole" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Fixing bugs in production<!-- --> </p></div><h3><a href="https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral&amp;utm_medium=newsletter&amp;utm_campaign=bytes">BugHerd is the simplest way to track issues</a></h3><p>I finally have my life back.</p><p>That’s because I’m not wasting hours digging through email chains to find website feedback from my team, then spending <em>even more time</em> trying to figure out what they meant.</p><p>And it’s all thanks to BugHerd.</p><ul>
+<li>
+<p>It lets your team (or clients) pin feedback directly to website elements, and it automatically provides metadata about their specific browser, OS, and screen resolution — so you can pinpoint issues fast.</p>
+</li>
+<li>
+<p>It consolidates all that feedback into their <a href="https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral&amp;utm_medium=newsletter&amp;utm_campaign=bytes">kanban-stayle Task Board</a>, so you can manage and track progress on bug fixes in one place.</p>
+</li>
+</ul><p><a href="https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral&amp;utm_medium=newsletter&amp;utm_campaign=bytes">Try it out for free</a> — and see why over 10,000 companies, including Amazon and Automattic, love BugHerd.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://sentry.io/events/launch-week/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=general-fy24q3-launchweek&amp;utm_content=newsletter-launchweek-tunein">Sentry</a></h4><p><em><span role="img" aria-label="mobile phone">📱</span> Calling all devs! <a href="https://sentry.io/events/launch-week/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=general-fy24q3-launchweek&amp;utm_content=newsletter-launchweek-tunein">Sentry Launch Week</a> is coming. Tune in Nov 13-17th on YouTube and Discord daily for new products, demos, and discussions with experts from the community.</em></p></div></div>
+<p>What gets logged?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Matt Silverlock and Kris Evans wrote a good debrief of <a href="https://blog.cloudflare.com/cloudflare-incident-on-october-30-2023/">Cloudflare’s 37-minute outage</a> last Monday, which was probably the longest 37 minutes of their lives. I had the longest 37 minutes of my life last week too, when my father-in-law forced me to watch an episode of <em>Young Sheldon</em> with him and answer questions about whether writing a newsletter was “a real job.”</p>
+</li>
+<li>
+<p>Mark Dalgleish gave a great talk at React Advanced Conf called <a href="https://portal.gitnation.org/contents/simplifying-server-components">Simplifying Server Components</a> that will help you understand what’s going on under the hood and the line between React and the meta-frameworks built on top of it.</p>
+</li>
+<li>
+<p>Vercel created their own font called <a href="https://vercel.com/font/mono">Geist</a>, which helps the company get back to its roots of choosing difficult-to-pronounce names with an <code>ei</code> in the middle.</p>
+</li>
+<li>
+<p>CarbonQA’s <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=nov6">high-quality QA services for dev teams</a> gives you a team of dedicated, US-based QA testers. They’ll catch all the bugs for you, so you never get stuck QA testing your own apps again. <span role="img" aria-label="folded hands">🙏</span> [sponsored]</p>
+</li>
+<li>
+<p>Tzvetan Mikov shared <a href="https://twitter.com/tmikov/status/1720103356738474060">this cool demo</a> of the WIP Static Hermes compiler that shows off what he’s been working on at Meta.</p>
+</li>
+<li>
+<p>Five months after saying everyone should stop using JavaScript, Douglas Crockford just released a new programming language called <a href="https://www.crockford.com/misty/">Misty</a>, which describes itself as a “dynamic, general-purpose, transitional, actor language.” That sentence is somehow the <em>least</em> confusing thing about it.</p>
+</li>
+<li>
+<p>Jarrod Overson wrote a <del>Salad Fingers biography</del> <em>technical article</em> called <a href="https://jsoverson.medium.com/was-rust-worth-it-f43d171fb1b3">Was Rust worth it?</a> It shares his experience of transitioning from JavaScript developer to Rust developer over the past three years.</p>
+</li>
+<li>
+<p>Hannah Sutor wrote about <a href="https://fusionauth.io/articles/ciam/unlocking-growth-low-friction-signup-process?utm_medium=newsletter&amp;utm_source=bytes&amp;utm_campaign=secondary">Why A Low Friction User Signup Process Is Crucial For Your Business</a> on the FusionAuth blog. It’s a great deep dive on how you can use different Customer Identity and Access Management strategies to increase conversion rates and improve UX. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://svelteflow.dev/">Svelte Flow</a> is a customizable Svelte component for building Node-based editors and interactive diagrams, created by the folks behind React Flow.</p>
+</li>
+<li>
+<p><a href="https://wasmer.io/posts/announcing-winterjs-service-workers">WinterJS</a> is a JavaScript Service Workers server written in Rust, that uses the SpiderMonkey runtime to execute JavaScript. We might write more about it in the future, but I’ll need a little more time to prepare an extended metaphor involving all the characters from Frozen 2, Game of Thrones, and Vertical Limit.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://sentry.io/events/launch-week/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=general-fy24q3-launchweek&amp;utm_content=newsletter-launchweek-tunein">Sentry Launch Week</a></h4></div></div>
+<p>What gets logged?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>A little throw back for all you old heads. This used to be everyone’s favorite JavaScript interview question.</p>
+<p>This code will log <code>5</code> 5 times.</p>
+<p>The reason for this is because we declared our variable with <code>var</code>, which is function scoped. By the time our functions given to <code>setTimeout</code> run, <code>i</code> will already be <code>5</code> and every function will reference that same variable. To fix this, use <code>let</code> which is block scoped and will give each iteration of our for loop its own <code>i</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: WinterJS is coming","date":"2023-11-06","featuredImage":"/images/content/luigi.jpg","description":"WinterJS is coming, Douglas Crockford's new programming language, and the longest 37 minutes of my life.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e WinterJS is coming, Douglas Crockford’s new programming language, and the longest 37 minutes of my life.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/237\"\u003e#237\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/luigi.jpg\" alt=\"Luigi floating in the air with his eyes closed\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen the mushrooms hit just right\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003ePlatform Power-ups\u003c/h3\u003e\u003cp\u003eThe CSS world is buzzier than usual — and not just because they’re making fun of you for not understanding \u003ccode\u003eclamp()\u003c/code\u003e. It’s because browser vendors are rolling out new CSS features at a breakneck pace, giving us new ways to build interactive websites with less JavaScript.\u003c/p\u003e\u003cp\u003eSo let’s all take a quick break from playing the new \u003cem\u003eSuper Mario Bros. Wonder\u003c/em\u003e game and take a closer look at three of these new-ish Platform Power-ups™:\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"mushroom\"\u003e🍄\u003c/span\u003e The \u003ccode\u003e:has()\u003c/code\u003e selector\u003c/strong\u003e just landed in Firefox and is now finally supported in all major browsers. It lets you apply CSS to an element based on what’s happening \u003cem\u003einside\u003c/em\u003e that element — like if you wanted to apply different styles to a form depending on the state of one of its input fields (Jen Simmons \u003ca href=\"https://webkit.org/blog/13096/css-has-pseudo-class/\"\u003ewrote more\u003c/a\u003e about it \u003cspan role=\"img\" aria-label=\"goat\"\u003e🐐\u003c/span\u003e).\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"star\"\u003e⭐\u003c/span\u003e️ CSS Nesting\u003c/strong\u003e allows you to nest one style rule inside another, with the selector of the child rule relative to the selector of the parent rule. This helps make your CSS more readable and modular and can reduce the size of your CSS files. You used to need a CSS preprocessor like Sass to do this, but it’s now supported by all browsers, so you can just #UseThePlatform.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e\u003cspan role=\"img\" aria-label=\"tulip\"\u003e🌷\u003c/span\u003e \u003ccode\u003ecolor()\u003c/code\u003e functions\u003c/strong\u003e allow the browser to display colors in any color space, such as the P3 color space, which can display colors outside of the default sRGB color space. This makes it really easy to manipulate the alpha (opacity) of a color on the fly, or even manipulating the color with the \u003ccode\u003ecolor-mix\u003c/code\u003e function. It’s also available in all browsers \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e There’s only one downside to all these powerful new CSS features being added to the platform — now we all have to learn how to actually \u003cem\u003euse\u003c/em\u003e the platform. Be careful what you wish for.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/237\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F237\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Those%20web%20platform%20powerups%20have%20been%20hitting%20different%20lately%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F237\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThose%20web%20platform%20powerups%20have%20been%20hitting%20different%20lately%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F237\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/bugherd-logo.png\" alt=\"Bugherd logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/whack-a-mole.jpg\" alt=\"A guy playing whack-a-mole\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eFixing bugs in production\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eBugHerd is the simplest way to track issues\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eI finally have my life back.\u003c/p\u003e\u003cp\u003eThat’s because I’m not wasting hours digging through email chains to find website feedback from my team, then spending \u003cem\u003eeven more time\u003c/em\u003e trying to figure out what they meant.\u003c/p\u003e\u003cp\u003eAnd it’s all thanks to BugHerd.\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eIt lets your team (or clients) pin feedback directly to website elements, and it automatically provides metadata about their specific browser, OS, and screen resolution — so you can pinpoint issues fast.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt consolidates all that feedback into their \u003ca href=\"https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003ekanban-stayle Task Board\u003c/a\u003e, so you can manage and track progress on bug fixes in one place.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://bugherd.com/lp/bug-tracker-developers-new?utm_source=referral\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=bytes\"\u003eTry it out for free\u003c/a\u003e — and see why over 10,000 companies, including Amazon and Automattic, love BugHerd.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://sentry.io/events/launch-week/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=general-fy24q3-launchweek\u0026amp;utm_content=newsletter-launchweek-tunein\"\u003eSentry\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003e\u003cspan role=\"img\" aria-label=\"mobile phone\"\u003e📱\u003c/span\u003e Calling all devs! \u003ca href=\"https://sentry.io/events/launch-week/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=general-fy24q3-launchweek\u0026amp;utm_content=newsletter-launchweek-tunein\"\u003eSentry Launch Week\u003c/a\u003e is coming. Tune in Nov 13-17th on YouTube and Discord daily for new products, demos, and discussions with experts from the community.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eMatt Silverlock and Kris Evans wrote a good debrief of \u003ca href=\"https://blog.cloudflare.com/cloudflare-incident-on-october-30-2023/\"\u003eCloudflare’s 37-minute outage\u003c/a\u003e last Monday, which was probably the longest 37 minutes of their lives. I had the longest 37 minutes of my life last week too, when my father-in-law forced me to watch an episode of \u003cem\u003eYoung Sheldon\u003c/em\u003e with him and answer questions about whether writing a newsletter was “a real job.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMark Dalgleish gave a great talk at React Advanced Conf called \u003ca href=\"https://portal.gitnation.org/contents/simplifying-server-components\"\u003eSimplifying Server Components\u003c/a\u003e that will help you understand what’s going on under the hood and the line between React and the meta-frameworks built on top of it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVercel created their own font called \u003ca href=\"https://vercel.com/font/mono\"\u003eGeist\u003c/a\u003e, which helps the company get back to its roots of choosing difficult-to-pronounce names with an \u003ccode\u003eei\u003c/code\u003e in the middle.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA’s \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=nov6\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e gives you a team of dedicated, US-based QA testers. They’ll catch all the bugs for you, so you never get stuck QA testing your own apps again. \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTzvetan Mikov shared \u003ca href=\"https://twitter.com/tmikov/status/1720103356738474060\"\u003ethis cool demo\u003c/a\u003e of the WIP Static Hermes compiler that shows off what he’s been working on at Meta.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFive months after saying everyone should stop using JavaScript, Douglas Crockford just released a new programming language called \u003ca href=\"https://www.crockford.com/misty/\"\u003eMisty\u003c/a\u003e, which describes itself as a “dynamic, general-purpose, transitional, actor language.” That sentence is somehow the \u003cem\u003eleast\u003c/em\u003e confusing thing about it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJarrod Overson wrote a \u003cdel\u003eSalad Fingers biography\u003c/del\u003e \u003cem\u003etechnical article\u003c/em\u003e called \u003ca href=\"https://jsoverson.medium.com/was-rust-worth-it-f43d171fb1b3\"\u003eWas Rust worth it?\u003c/a\u003e It shares his experience of transitioning from JavaScript developer to Rust developer over the past three years.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHannah Sutor wrote about \u003ca href=\"https://fusionauth.io/articles/ciam/unlocking-growth-low-friction-signup-process?utm_medium=newsletter\u0026amp;utm_source=bytes\u0026amp;utm_campaign=secondary\"\u003eWhy A Low Friction User Signup Process Is Crucial For Your Business\u003c/a\u003e on the FusionAuth blog. It’s a great deep dive on how you can use different Customer Identity and Access Management strategies to increase conversion rates and improve UX. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://svelteflow.dev/\"\u003eSvelte Flow\u003c/a\u003e is a customizable Svelte component for building Node-based editors and interactive diagrams, created by the folks behind React Flow.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wasmer.io/posts/announcing-winterjs-service-workers\"\u003eWinterJS\u003c/a\u003e is a JavaScript Service Workers server written in Rust, that uses the SpiderMonkey runtime to execute JavaScript. We might write more about it in the future, but I’ll need a little more time to prepare an extended metaphor involving all the characters from Frozen 2, Game of Thrones, and Vertical Limit.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://sentry.io/events/launch-week/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=general-fy24q3-launchweek\u0026amp;utm_content=newsletter-launchweek-tunein\"\u003eSentry Launch Week\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA little throw back for all you old heads. This used to be everyone’s favorite JavaScript interview question.\u003c/p\u003e\n\u003cp\u003eThis code will log \u003ccode\u003e5\u003c/code\u003e 5 times.\u003c/p\u003e\n\u003cp\u003eThe reason for this is because we declared our variable with \u003ccode\u003evar\u003c/code\u003e, which is function scoped. By the time our functions given to \u003ccode\u003esetTimeout\u003c/code\u003e run, \u003ccode\u003ei\u003c/code\u003e will already be \u003ccode\u003e5\u003c/code\u003e and every function will reference that same variable. To fix this, use \u003ccode\u003elet\u003c/code\u003e which is block scoped and will give each iteration of our for loop its own \u003ccode\u003ei\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"237"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"237"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

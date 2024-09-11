@@ -1,0 +1,381 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #195 - Once you Wasm, the fun don&#x27;t stopsm</title><link rel="canonical" href="https://bytes.dev/archives/195"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Smelly JavScript, organic human batteries, and my weird neighbor who&#x27;s a little *too* excited about NakedJSX."/><meta property="og:url" content="https://bytes.dev/archives/195"/><meta property="og:title" content="Bytes #195 - Once you Wasm, the fun don&#x27;t stopsm"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/polywasm.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Smelly JavScript, organic human batteries, and my weird neighbor who&#x27;s a little *too* excited about NakedJSX."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #195 - Once you Wasm, the fun don&#x27;t stopsm"/><meta property="twitter:description" content="Smelly JavScript, organic human batteries, and my weird neighbor who&#x27;s a little *too* excited about NakedJSX."/><meta property="twitter:image" content="https://bytes.dev/images/content/polywasm.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Once you Wasm, the fun don&#x27;t stopsm</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->195<!-- -->.</span><span class="mr-6 font-bold">June 12, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>You may not know it (we’re bad at marketing), but Bytes is actually just a small part of what we do as a business. The other 90% is spent teaching the JavaScript ecosystem. And after nearly a year of building, we’re excited to finally announce that our newest course, <span role="img" aria-label="joystick">🕹️</span> <a href="https://react.gg">react.gg</a>, is now in private beta.</p>
+<p>For this launch we’re opening it up to 10% of the size of our waitlist – on a first come, first serve basis.</p>
+<p>There’s a launch discount available now on <a href="https://react.gg">http://react.gg</a>.</p>
+<p>And with that, back to our regularly scheduled programming.</p>
+<hr>
+<p><strong>Today’s issue:</strong> Smelly JavScript, organic human batteries, and my weird neighbor who’s a little <em>too</em> excited about NakedJSX.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/195">#195</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/polywasm.jpg" alt="Polywhirl pokemon with Wasm logos on the eyes" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Polywasm, go!!<!-- --> </p></div><h3>Poly-what now?</h3><p>When I heard that Evan Wallace created something called <em>polywasm</em>, my first thought was, “Oh no, was he hanging out with the FTX team down in the Bahamas?”</p><p>Thankfully, the answer is no <span role="img" aria-label="folded hands">🙏</span>. It turns out that <a href="https://github.com/evanw/polywasm">polywasm</a> is actually just a <em>polyfill</em> for WebAssembly.</p><p>That means it allows you to run a <code>.wasm</code> file in a JavaScript environment that doesn’t have a Wasm implementation (or has it disabled, like Safari when Apple’s “Lockdown Mode” security feature is on). Polywasm does this by parsing the <code>.wasm</code> file and translating each WebAssembly function to a JS function.</p><p>This approach sacrifices some of the speed and power you get with native WebAssembly, but it theoretically allows Wasm apps to go where no Wasm apps have gone before.</p><p>To understand why that’s cool, let’s do a quick WebAssembly review:</p><ul>
+<li>
+<p>Wasm is a portable compilation target that lets developers use faster, lower-level languages like C++ and Rust to build web applications with near native performance.</p>
+</li>
+<li>
+<p>Wasm dramatically increases the scope of what’s possible to build on the web. We’ve already seen companies like Figma (which Evan co-founded) leverage Wasm for their browser-based design tool, StackBlitz is using Wasm to build Web Containers (an interactive dev environment in the browser), and a bunch of other projects are using Wasm to push the boundaries of the browser even further.</p>
+</li>
+</ul><p>At this point, Wasm support is already pretty widespread (it became an official WC3 standard back in 2019). But this polyfill provides an interesting solution to help developers work around edge cases to make sure that WebAssembly can truly go anywhere JavaScript can.</p><p>And since polywasm was created by the co-founder of the most successful Wasm app ever, who also of happens to be the creator of esbuild, this project might be worth keeping an eye on.</p><p><strong>Bottom Line:</strong> Never bet against the web. And always bet against drug-fueled polycules in the Bahamas.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/195" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F195" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Polywasm%20is%20a%20cool%20polyfill%20for%20WebAssembly%20and%20*not*%20associated%20with%20the%20FTX%20team%20in%20the%20Bahamas%20in%20any%20way%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F195" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0APolywasm%20is%20a%20cool%20polyfill%20for%20WebAssembly%20and%20*not*%20associated%20with%20the%20FTX%20team%20in%20the%20Bahamas%20in%20any%20way%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F195" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/airplane-logo.png" alt="Airplane Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/flying-pug.jpg" alt="A pug flying in a drone." width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When my team finally lets me build some real tools.<!-- --> </p></div><h3><a href="https://www.airplane.dev/?utm_source=bytes_jun2023">Airplane</a> is the developer platform for internal tools</h3><p>No-code platforms are kind of like getting all-you-can-eat sushi: it starts off great, and then reality sets in.</p><p>And that’s the best part about Airplane’s robust, <em>code-first</em> platform for internal tools. It helps you quickly transform scripts, queries, and APIs into custom UIs and workflows for your team — but everything you build is <a href="https://www.airplane.dev/?utm_source=bytes_jun2023">code</a>.</p><p>That means it’s integrated with the rest of your codebase, easy to extend with third-party libraries, and version-controlled.</p><p>Here’s what else it gets you:</p><ul>
+<li>
+<p><strong>Views</strong> are a <a href="https://docs.airplane.dev/views/overview">“React-the-good-parts” component library</a> for creating custom UIs and dashboards that are fully extensible as code.</p>
+</li>
+<li>
+<p><strong>Tasks</strong> help you turn scripts into production-grade apps that can connect to any data source or API.</p>
+</li>
+<li>
+<p><strong>Enterprise-grade defaults</strong> give you maintenance-free schedules, role-based permissions, audit logs, self hosting, and more.</p>
+</li>
+</ul><p><a href="https://app.airplane.dev/signup?utm_source=bytes_jun2023">Check it out for free</a> — and see why companies like Vercel, Box, and Flatfile love it.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023&amp;utm_medium=paid-email&amp;utm_source=bytes-advertiser&amp;utm_content=202306-ethical-hacking-101-workshop-2">Snyk</a></h4><p>Join Snyk’s hands-on <a href="https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023&amp;utm_medium=paid-email&amp;utm_source=bytes-advertiser&amp;utm_content=202306-ethical-hacking-101-workshop-2">Ethical Hacking 101 Workshop</a> on June 21 to exploit vulnerabilities and learn how to proactively identify and fix security weaknesses. Register now!</p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span class="token constant">SVG</span> Filter<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token constant">SVG</span> Filter<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>svg xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2000/svg"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>defs<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>filter id<span class="token operator">=</span><span class="token string">"filter"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>feGaussianBlur <span class="token keyword">in</span><span class="token operator">=</span><span class="token string">"SourceGraphic"</span> stdDeviation<span class="token operator">=</span><span class="token string">"5"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>filter<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>defs<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>image
+        id<span class="token operator">=</span><span class="token string">"myImage1"</span>
+        href<span class="token operator">=</span><span class="token string">"image.jpg"</span>
+        x<span class="token operator">=</span><span class="token string">"10"</span>
+        y<span class="token operator">=</span><span class="token string">"10"</span>
+        height<span class="token operator">=</span><span class="token string">"100px"</span>
+        width<span class="token operator">=</span><span class="token string">"100px"</span>
+        filter<span class="token operator">=</span><span class="token string">"url(#filter)"</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>svg xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2000/svg"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>defs<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>filter id<span class="token operator">=</span><span class="token string">"filter"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>feColorMatrix
+            <span class="token keyword">in</span><span class="token operator">=</span><span class="token string">"SourceGraphic"</span>
+            type<span class="token operator">=</span><span class="token string">"matrix"</span>
+            values<span class="token operator">=</span><span class="token string">"1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"</span>
+          <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>filter<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>defs<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>image
+        id<span class="token operator">=</span><span class="token string">"myImage2"</span>
+        href<span class="token operator">=</span><span class="token string">"image.jpg"</span>
+        x<span class="token operator">=</span><span class="token string">"10"</span>
+        y<span class="token operator">=</span><span class="token string">"10"</span>
+        height<span class="token operator">=</span><span class="token string">"100px"</span>
+        width<span class="token operator">=</span><span class="token string">"100px"</span>
+        filter<span class="token operator">=</span><span class="token string">"url(#filter)"</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Npm, yarn, and pnpm are <a href="https://blog.stackblitz.com/posts/announcing-native-package-manager-support/">now supported natively in WebContainers</a> and claim to have up to 5x faster installs than on local. <em>Once you Wasm, the fun don’t stopsm.</em></p>
+</li>
+<li>
+<p><a href="https://blog.postman.com/introducing-postbot-postmans-new-ai-assistant/">Postbot</a> is a powerful new AI assistant in Postman. It helps you debug and understand APIs, write tests faster, and make sense of large quantities of data. <a href="https://blog.postman.com/introducing-postbot-postmans-new-ai-assistant/">Sign up</a> for early access. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://nakedjsx.org/">NakedJSX</a> is a CLI tool for using JSX without React. Unfortunately, I know my next-door neighbor with the giant windows is going to love it.</p>
+</li>
+<li>
+<p><a href="https://github.com/HeyPuter/kv.js">KV.JS</a> is a fast, in-memory data store written in JavaScript. It’s meant for when you need caching, but running Redis would be overkill.</p>
+</li>
+<li>
+<p>Douglas Crockford said that <a href="https://www.youtube.com/watch?v=lc5Np9OqDHU">JavaScript is a “smelly language”</a>, and we shouldn’t use it anymore — but maybe it’s just because his all-natural deodorant isn’t working.</p>
+</li>
+<li>
+<p>The Algolia team created <a href="https://github.com/algolia/autocomplete">Autocomplete</a> — a full-featured JS library for enabling user laziness (in a good way).</p>
+</li>
+<li>
+<p>Jules Blom created this <a href="https://julesblom.com/writing/running-promises-in-parallel">Visual guide to running promises in parallel</a>.</p>
+</li>
+<li>
+<p>VS Code’s IntelliSense can now <a href="https://devblogs.microsoft.com/visualstudio/github-copilot-visual-studio-intellisense/">steer GitHub Copilot code completions</a> — which means we’re one step closer to becoming the organic human batteries from <em>The Matrix</em> powering the super AI. At least the steak will be delicious.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023&amp;utm_medium=paid-email&amp;utm_source=bytes-advertiser&amp;utm_content=202306-ethical-hacking-101-workshop-2">Snyk</a></h4></div></div>
+<p>The filter on the SVG has a duplicate <code>id</code> of <code>filter</code> causing the second svg to apply the filter from the first. To fix this, ensure that each relevant element has a unique <code>id</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span class="token constant">SVG</span> Filter<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token constant">SVG</span> Filter<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>svg xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2000/svg"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>defs<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>filter id<span class="token operator">=</span><span class="token string">"filter"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>feGaussianBlur <span class="token keyword">in</span><span class="token operator">=</span><span class="token string">"SourceGraphic"</span> stdDeviation<span class="token operator">=</span><span class="token string">"5"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>filter<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>defs<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>image
+        id<span class="token operator">=</span><span class="token string">"myImage1"</span>
+        href<span class="token operator">=</span><span class="token string">"image.jpg"</span>
+        x<span class="token operator">=</span><span class="token string">"10"</span>
+        y<span class="token operator">=</span><span class="token string">"10"</span>
+        height<span class="token operator">=</span><span class="token string">"100px"</span>
+        width<span class="token operator">=</span><span class="token string">"100px"</span>
+        filter<span class="token operator">=</span><span class="token string">"url(#filter)"</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>svg xmlns<span class="token operator">=</span><span class="token string">"http://www.w3.org/2000/svg"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>defs<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>filter id<span class="token operator">=</span><span class="token string">"filter2"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>feColorMatrix
+            <span class="token keyword">in</span><span class="token operator">=</span><span class="token string">"SourceGraphic"</span>
+            type<span class="token operator">=</span><span class="token string">"matrix"</span>
+            values<span class="token operator">=</span><span class="token string">"1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"</span>
+          <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>filter<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>defs<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>image
+        id<span class="token operator">=</span><span class="token string">"myImage2"</span>
+        href<span class="token operator">=</span><span class="token string">"image.jpg"</span>
+        x<span class="token operator">=</span><span class="token string">"10"</span>
+        y<span class="token operator">=</span><span class="token string">"10"</span>
+        height<span class="token operator">=</span><span class="token string">"100px"</span>
+        width<span class="token operator">=</span><span class="token string">"100px"</span>
+        filter<span class="token operator">=</span><span class="token string">"url(#filter2)"</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Once you Wasm, the fun don't stopsm","date":"2023-06-12","featuredImage":"/images/content/polywasm.jpg","description":"Smelly JavScript, organic human batteries, and my weird neighbor who's a little *too* excited about NakedJSX.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eYou may not know it (we’re bad at marketing), but Bytes is actually just a small part of what we do as a business. The other 90% is spent teaching the JavaScript ecosystem. And after nearly a year of building, we’re excited to finally announce that our newest course, \u003cspan role=\"img\" aria-label=\"joystick\"\u003e🕹️\u003c/span\u003e \u003ca href=\"https://react.gg\"\u003ereact.gg\u003c/a\u003e, is now in private beta.\u003c/p\u003e\n\u003cp\u003eFor this launch we’re opening it up to 10% of the size of our waitlist – on a first come, first serve basis.\u003c/p\u003e\n\u003cp\u003eThere’s a launch discount available now on \u003ca href=\"https://react.gg\"\u003ehttp://react.gg\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAnd with that, back to our regularly scheduled programming.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Smelly JavScript, organic human batteries, and my weird neighbor who’s a little \u003cem\u003etoo\u003c/em\u003e excited about NakedJSX.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/195\"\u003e#195\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/polywasm.jpg\" alt=\"Polywhirl pokemon with Wasm logos on the eyes\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003ePolywasm, go!!\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003ePoly-what now?\u003c/h3\u003e\u003cp\u003eWhen I heard that Evan Wallace created something called \u003cem\u003epolywasm\u003c/em\u003e, my first thought was, “Oh no, was he hanging out with the FTX team down in the Bahamas?”\u003c/p\u003e\u003cp\u003eThankfully, the answer is no \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e. It turns out that \u003ca href=\"https://github.com/evanw/polywasm\"\u003epolywasm\u003c/a\u003e is actually just a \u003cem\u003epolyfill\u003c/em\u003e for WebAssembly.\u003c/p\u003e\u003cp\u003eThat means it allows you to run a \u003ccode\u003e.wasm\u003c/code\u003e file in a JavaScript environment that doesn’t have a Wasm implementation (or has it disabled, like Safari when Apple’s “Lockdown Mode” security feature is on). Polywasm does this by parsing the \u003ccode\u003e.wasm\u003c/code\u003e file and translating each WebAssembly function to a JS function.\u003c/p\u003e\u003cp\u003eThis approach sacrifices some of the speed and power you get with native WebAssembly, but it theoretically allows Wasm apps to go where no Wasm apps have gone before.\u003c/p\u003e\u003cp\u003eTo understand why that’s cool, let’s do a quick WebAssembly review:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eWasm is a portable compilation target that lets developers use faster, lower-level languages like C++ and Rust to build web applications with near native performance.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWasm dramatically increases the scope of what’s possible to build on the web. We’ve already seen companies like Figma (which Evan co-founded) leverage Wasm for their browser-based design tool, StackBlitz is using Wasm to build Web Containers (an interactive dev environment in the browser), and a bunch of other projects are using Wasm to push the boundaries of the browser even further.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eAt this point, Wasm support is already pretty widespread (it became an official WC3 standard back in 2019). But this polyfill provides an interesting solution to help developers work around edge cases to make sure that WebAssembly can truly go anywhere JavaScript can.\u003c/p\u003e\u003cp\u003eAnd since polywasm was created by the co-founder of the most successful Wasm app ever, who also of happens to be the creator of esbuild, this project might be worth keeping an eye on.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Never bet against the web. And always bet against drug-fueled polycules in the Bahamas.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/195\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F195\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Polywasm%20is%20a%20cool%20polyfill%20for%20WebAssembly%20and%20*not*%20associated%20with%20the%20FTX%20team%20in%20the%20Bahamas%20in%20any%20way%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F195\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0APolywasm%20is%20a%20cool%20polyfill%20for%20WebAssembly%20and%20*not*%20associated%20with%20the%20FTX%20team%20in%20the%20Bahamas%20in%20any%20way%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F195\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/airplane-logo.png\" alt=\"Airplane Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/flying-pug.jpg\" alt=\"A pug flying in a drone.\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen my team finally lets me build some real tools.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.airplane.dev/?utm_source=bytes_jun2023\"\u003eAirplane\u003c/a\u003e is the developer platform for internal tools\u003c/h3\u003e\u003cp\u003eNo-code platforms are kind of like getting all-you-can-eat sushi: it starts off great, and then reality sets in.\u003c/p\u003e\u003cp\u003eAnd that’s the best part about Airplane’s robust, \u003cem\u003ecode-first\u003c/em\u003e platform for internal tools. It helps you quickly transform scripts, queries, and APIs into custom UIs and workflows for your team — but everything you build is \u003ca href=\"https://www.airplane.dev/?utm_source=bytes_jun2023\"\u003ecode\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eThat means it’s integrated with the rest of your codebase, easy to extend with third-party libraries, and version-controlled.\u003c/p\u003e\u003cp\u003eHere’s what else it gets you:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eViews\u003c/strong\u003e are a \u003ca href=\"https://docs.airplane.dev/views/overview\"\u003e“React-the-good-parts” component library\u003c/a\u003e for creating custom UIs and dashboards that are fully extensible as code.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eTasks\u003c/strong\u003e help you turn scripts into production-grade apps that can connect to any data source or API.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEnterprise-grade defaults\u003c/strong\u003e give you maintenance-free schedules, role-based permissions, audit logs, self hosting, and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://app.airplane.dev/signup?utm_source=bytes_jun2023\"\u003eCheck it out for free\u003c/a\u003e — and see why companies like Vercel, Box, and Flatfile love it.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023\u0026amp;utm_medium=paid-email\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=202306-ethical-hacking-101-workshop-2\"\u003eSnyk\u003c/a\u003e\u003c/h4\u003e\u003cp\u003eJoin Snyk’s hands-on \u003ca href=\"https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023\u0026amp;utm_medium=paid-email\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=202306-ethical-hacking-101-workshop-2\"\u003eEthical Hacking 101 Workshop\u003c/a\u003e on June 21 to exploit vulnerabilities and learn how to proactively identify and fix security weaknesses. Register now!\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e!\u003c/span\u003e\u003cspan class=\"token constant\"\u003eDOCTYPE\u003c/span\u003e html\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ehtml\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ehead\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003etitle\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"token constant\"\u003eSVG\u003c/span\u003e Filter\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003etitle\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ehead\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ebody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eh1\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"token constant\"\u003eSVG\u003c/span\u003e Filter\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eh1\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003esvg xmlns\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"http://www.w3.org/2000/svg\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efilter id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"filter\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efeGaussianBlur \u003cspan class=\"token keyword\"\u003ein\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"SourceGraphic\"\u003c/span\u003e stdDeviation\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"5\"\u003c/span\u003e \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003efilter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eimage\n        id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"myImage1\"\u003c/span\u003e\n        href\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"image.jpg\"\u003c/span\u003e\n        x\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        y\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        height\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        width\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        filter\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"url(#filter)\"\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003esvg\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003esvg xmlns\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"http://www.w3.org/2000/svg\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efilter id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"filter\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efeColorMatrix\n            \u003cspan class=\"token keyword\"\u003ein\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"SourceGraphic\"\u003c/span\u003e\n            type\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"matrix\"\u003c/span\u003e\n            values\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0\"\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003efilter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eimage\n        id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"myImage2\"\u003c/span\u003e\n        href\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"image.jpg\"\u003c/span\u003e\n        x\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        y\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        height\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        width\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        filter\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"url(#filter)\"\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003esvg\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ebody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ehtml\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eNpm, yarn, and pnpm are \u003ca href=\"https://blog.stackblitz.com/posts/announcing-native-package-manager-support/\"\u003enow supported natively in WebContainers\u003c/a\u003e and claim to have up to 5x faster installs than on local. \u003cem\u003eOnce you Wasm, the fun don’t stopsm.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://blog.postman.com/introducing-postbot-postmans-new-ai-assistant/\"\u003ePostbot\u003c/a\u003e is a powerful new AI assistant in Postman. It helps you debug and understand APIs, write tests faster, and make sense of large quantities of data. \u003ca href=\"https://blog.postman.com/introducing-postbot-postmans-new-ai-assistant/\"\u003eSign up\u003c/a\u003e for early access. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://nakedjsx.org/\"\u003eNakedJSX\u003c/a\u003e is a CLI tool for using JSX without React. Unfortunately, I know my next-door neighbor with the giant windows is going to love it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/HeyPuter/kv.js\"\u003eKV.JS\u003c/a\u003e is a fast, in-memory data store written in JavaScript. It’s meant for when you need caching, but running Redis would be overkill.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDouglas Crockford said that \u003ca href=\"https://www.youtube.com/watch?v=lc5Np9OqDHU\"\u003eJavaScript is a “smelly language”\u003c/a\u003e, and we shouldn’t use it anymore — but maybe it’s just because his all-natural deodorant isn’t working.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Algolia team created \u003ca href=\"https://github.com/algolia/autocomplete\"\u003eAutocomplete\u003c/a\u003e — a full-featured JS library for enabling user laziness (in a good way).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJules Blom created this \u003ca href=\"https://julesblom.com/writing/running-promises-in-parallel\"\u003eVisual guide to running promises in parallel\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVS Code’s IntelliSense can now \u003ca href=\"https://devblogs.microsoft.com/visualstudio/github-copilot-visual-studio-intellisense/\"\u003esteer GitHub Copilot code completions\u003c/a\u003e — which means we’re one step closer to becoming the organic human batteries from \u003cem\u003eThe Matrix\u003c/em\u003e powering the super AI. At least the steak will be delicious.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://go.snyk.io/202306-ethical-hacking-101-workshop-2.html?utm_campaign=eh-101_06-2023\u0026amp;utm_medium=paid-email\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=202306-ethical-hacking-101-workshop-2\"\u003eSnyk\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eThe filter on the SVG has a duplicate \u003ccode\u003eid\u003c/code\u003e of \u003ccode\u003efilter\u003c/code\u003e causing the second svg to apply the filter from the first. To fix this, ensure that each relevant element has a unique \u003ccode\u003eid\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e!\u003c/span\u003e\u003cspan class=\"token constant\"\u003eDOCTYPE\u003c/span\u003e html\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ehtml\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ehead\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003etitle\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"token constant\"\u003eSVG\u003c/span\u003e Filter\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003etitle\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ehead\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003ebody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eh1\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"token constant\"\u003eSVG\u003c/span\u003e Filter\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003eh1\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003esvg xmlns\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"http://www.w3.org/2000/svg\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efilter id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"filter\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efeGaussianBlur \u003cspan class=\"token keyword\"\u003ein\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"SourceGraphic\"\u003c/span\u003e stdDeviation\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"5\"\u003c/span\u003e \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003efilter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eimage\n        id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"myImage1\"\u003c/span\u003e\n        href\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"image.jpg\"\u003c/span\u003e\n        x\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        y\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        height\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        width\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        filter\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"url(#filter)\"\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003esvg\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003esvg xmlns\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"http://www.w3.org/2000/svg\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efilter id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"filter2\"\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003efeColorMatrix\n            \u003cspan class=\"token keyword\"\u003ein\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"SourceGraphic\"\u003c/span\u003e\n            type\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"matrix\"\u003c/span\u003e\n            values\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0\"\u003c/span\u003e\n          \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003efilter\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003edefs\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eimage\n        id\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"myImage2\"\u003c/span\u003e\n        href\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"image.jpg\"\u003c/span\u003e\n        x\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        y\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"10\"\u003c/span\u003e\n        height\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        width\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100px\"\u003c/span\u003e\n        filter\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"url(#filter2)\"\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003esvg\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ebody\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003ehtml\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"195"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"195"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #135 - The People&#x27;s Router™️</title><link rel="canonical" href="https://bytes.dev/archives/135"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The people&#x27;s router, Maslow&#x27;s Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation"/><meta property="og:url" content="https://bytes.dev/archives/135"/><meta property="og:title" content="Bytes #135 - The People&#x27;s Router™️"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/communist-bugs.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The people&#x27;s router, Maslow&#x27;s Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #135 - The People&#x27;s Router™️"/><meta property="twitter:description" content="The people&#x27;s router, Maslow&#x27;s Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation"/><meta property="twitter:image" content="https://bytes.dev/images/content/communist-bugs.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The People&#x27;s Router™️</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->135<!-- -->.</span><span class="mr-6 font-bold">November 10, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Hello friends. I hope that at least some of your currency is the centralized kind <span role="img" aria-label="smiling face with tear">🥲</span>.</p>
+<p>Today, we’ve got the people’s router, Maslow’s Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation.</p>
+<p>Welcome to #135.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/communist-bugs.jpg" alt="Bugs bunny with a hammer and sickle and lots of JS frameworks" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">*Our* router<!-- --> </p></div><h3>Introducing The People’s Router<span role="img" aria-label="trade mark">™️</span></h3><p>During Tuesday’s session of Jamstack Conf, Tanner Linsley (creator of React Query and friends) got on stage and painted us all a picture of a brave new (typesafe) world.</p><p>In this world, we didn’t need to worry about global or server state (at least not as much) — because shouldn’t we just be storing as much state as possible right inside the URL, the way <a href="https://www.google.com/search?q=who+invented+urls&amp;oq=who+invented+urls&amp;aqs=chrome..69i57j0i22i30l2.2264j1j7&amp;sourceid=chrome&amp;ie=UTF-8">TBL</a> intended? After all, links are the OG form of “portable state”, and they’re inherently shareable, bookmark-able, and historical.</p><p>Next.js and React Router already give us APIs to help us manage state inside the URL structure with path parameters and search params, but they still leave us with two problems:</p><ol>
+<li>
+<p>Next and RR’s approach doesn’t always scale well, because they assume you’re working with very few search params, flat key-value pairs, and strings (reality is <del>usually</del> often more complex than this).</p>
+</li>
+<li>
+<p>Next and RR naturally exclude all non-React frameworks. (Remix doesn’t, but more on that later.)</p>
+</li>
+</ol><p>So what did Tanner do? He locked himself in a dark closet under the stairs for a few months (Harry Potter style), until he came out with some magic. And on Tuesday, he unveiled <a href="https://tanstack.com/router/v1">TanStack Router</a> — a scalable, <em>framework-agnostic</em> routing library that brings the full power of URLs to the unwashed masses.</p><p>Here’s a few more highlights from this beta release:</p><ul>
+<li>
+<p><strong>100% typesafety</strong> means the router is fully inferred from route definitions to rendering, so you get autocomplete everywhere and you don’t have to worry about writing unsafe routes.</p>
+</li>
+<li>
+<p><strong>State-manger grade search params</strong> come with schemas and validation, custom parsing and serialization, and immutability to make it easy to store all kinds of state in the URL without triggering unwanted side effects.</p>
+</li>
+<li>
+<p><strong>Built-in caching</strong> with custom cache timings and automatic preloading for faster page loads.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> TanStack Router definitely builds on popular routing patterns and ideas from Remix, Next, and React Router, while taking it to a whole new level and expanding it beyond the React ecosystem.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/135" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F135" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=TanStack%20gives%20us%20the%20people's%20router.%20Loved%20this%20breakdown%20in%20%40bytesdotdev.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F135" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ATanStack%20gives%20us%20the%20people's%20router.%20Loved%20this%20breakdown%20in%20%40bytesdotdev.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F135" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/dynaboard-logo.png" alt="dynaboard logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/car-lady.jpg" alt="A woman in a fast car" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Let the power flow through you<!-- --> </p></div><h3><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q42022">Dynaboard</a> helps you build fast</h3><p>Have you ever though to yourself, “What if Geocities was still around and also had a baby with modern web development?”</p><p>Me neither. But Dynaboard did, and that’s why they were crazy enough to <a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q42022">build it</a>. So now you can use their platform to build fully customized, modern full-stack web apps in one sitting — without all the complexity. Here’s how:</p><ul>
+<li>
+<p>Fork one of their app templates, or use their customizable component libraries to build whatever you want 10x faster — without worrying about frameworks, boilerplate, or dependencies.</p>
+</li>
+<li>
+<p>Add custom code wherever you want, on both the client <em>and</em> the server. Dynaboard is powered by Wasm and supports all ES2020 syntax to give you max flexibility.</p>
+</li>
+<li>
+<p>Build and edit with your whole team (even the marketers) in real time with their Google Docs-like <a href="https://dynaboard.com/features#real-time-collaboration/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q42022">multiplayer mode</a>.</p>
+</li>
+</ul><p>The web’s come a long way since you helped set up that WordPress site for your grandma’s scented candle blog back in 2009, but Dynaboard makes it feel just as fun and simple as it did back then — but with a <em>lot</em> more power.</p><p><a href="https://dynaboard.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=procode-q42022">Check out their (solid) free tier</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/close-logo.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2">Senior or Staff Front-end Engineer</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">100% Remote</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">React</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Close.com is looking for an experienced React developer to help design, implement and launch major user-facing features. Close is a 100% globally distributed team of 65 high-performing, happy people that are dedicated to building a product our customers love.</p></td></tr></tbody></table></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/phantom-logo.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://grnh.se/040f13935us">Software Engineer - Mobile</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">Remote</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">React Native</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">$150-$250k</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Come work closely with Phantom's founders to build their flagship mobile app in React Native – a crypto wallet that's already used by millions of people to access apps and financial services built on the Solana blockchain.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/trends.png" alt="Trends logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Trend of the Week</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://fusionauth.io/ebooks/breaking-down-json-web-tokens?utm_medium=newsletter&amp;utm_source=uidev&amp;utm_campaign=jwt_ebook">FusionAuth</a></h4><p><em>They created this free ebook on <a href="https://fusionauth.io/ebooks/breaking-down-json-web-tokens?utm_medium=newsletter&amp;utm_source=uidev&amp;utm_campaign=jwt_ebook">Breaking Down JSON Web Tokens</a>, that breaks down what they are, how to use them well, and the pros and cons.</em></p></div></div>
+<div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/fp-trends.jpg" alt="lodash vs ramda vs underscore" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The functional programming OG's<!-- --> <!-- -->–&nbsp;data by <a href="https://npmtrends.com/lodash-vs-ramda-vs-underscore">npmtrends.com</a></p></div>
+<p>Much like super skinny jeans, there was a time when functional programming in JavaScript was the all the rage. This was largely thanks to LEGEND Jeremy Ashkenas — the author of CoffeeScript (which had a big influence on the design of ES6), Backbone (which brought the MVC pattern to JS), and Underscore (which introduced the broader JavaScript community to functional programming).</p>
+<p>If you aren’t familiar, Underscore, Lodash, and Ramda are collections of composable functions for dealing with data. So what’s going on with the big functional programming libraries these days?</p>
+<ul>
+<li>
+<p><strong>FP in JS slowing down:</strong> From the trend chart, we see that the overall growth of the 3 most popular libraries seems to be slowing down. In general, there has been an increase in the popularity of reactive systems like Svelte or Vue, which watch for mutations rather than using pure functions and immutability (see also MobX vs Redux).</p>
+</li>
+<li>
+<p><strong>Browser / ESM support:</strong> The two successors to Underscore, Lodash (which started as a fork) and Ramda (which appealed to the hardcore FP nerds), worked on being more browser and bundler friendly by supporting ESM and tree-shaking. This helped them become more popular than the og <code>_</code>.</p>
+</li>
+<li>
+<p><strong>Language updates:</strong> The JavaScript spec has added a lot of new functionality that makes utility libraries like these less necessary. That being said, the functional programming story in JS seems to be held back by the lack of features like <a href="https://github.com/tc39/proposal-pattern-matching">pattern matching</a>.</p>
+</li>
+<li>
+<p><strong>The future:</strong> The reality is that JavaScript will continue to evolve, but it’s always good to remember that we are standing on the shoulders of giants — and tools like Lodash and paradigms like FP will continue to be influential.</p>
+</li>
+</ul>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>SolidJS just released <a href="https://www.solidjs.com/blog/introducing-solidstart">SolidStart</a> — a new framework for Solid apps that’s built on Vite and features Nested FileSystem Routing. Because apparently, the unofficial theme of this year’s Jamstack Conf was “come launch some routing stuff.”</p>
+</li>
+<li>
+<p>If you’re trying to hire remote developers, <a href="https://www.world-wide-teams.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=bytes_october">World Wide Teams</a> lets you easily get your job in front of lots of remote-friendly developers. You can even specify your roles by country, state/province, and time zone. [sponsored]</p>
+</li>
+<li>
+<p>The Placemark team wrote about <a href="https://www.placemark.io/post/dependency-management-in-practice">Dependency management in practice</a>. Now I just need them to write a post called “Practicing Management in Practice”, so that I can use it to <del>passive aggressively</del> <em>gently</em> call out my team lead.</p>
+</li>
+<li>
+<p><a href="https://blog.expo.dev/expo-sdk-47-a0f6f5c038af">Expo SDK 47</a> was just released with a brand new Expo Modules API. Has a single person created a React Native app in the last four years without using Expo? Are we even sure if that’s possible?</p>
+</li>
+<li>
+<p>James Sinclair wrote an article called <a href="https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/">Why would anyone need JavaScript Generator Functions?</a> I don’t know, James, but maybe you should take it up with Old Man Maslow if you’ve got a problem with his hierarchy of needs.</p>
+</li>
+<li>
+<p>Google’s CSS Podcast made this 10-minute episode on <a href="https://www.youtube.com/watch?v=9l7wKRG4Pao">Subgrid</a>, which should be a stable feature in all major browsers “soon” (which means anytime between tomorrow and the year 2037).</p>
+</li>
+<li>
+<p>Alex Illarionov created this <a href="https://github.com/the-illarionov/the-supersonic-plugin-for-scroll-based-animation">Supersonic Plugin For Scroll Based Animation</a>. Like many great web innovations, this plugin was born out of a need to more easily view pictures of cats on the internet.</p>
+</li>
+<li>
+<p><a href="https://rome.tools/blog/2022/11/08/rome-10/">The first stable release of Rome</a> just came out. Time to find out if Ralph Waldo Emerson was right all along when he famously said, “Build a faster linter and the world will beat a path to your door.”</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: The People's Router™️","date":"2022-11-10","featuredImage":"/images/content/communist-bugs.jpg","description":"The people's router, Maslow's Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHello friends. I hope that at least some of your currency is the centralized kind \u003cspan role=\"img\" aria-label=\"smiling face with tear\"\u003e🥲\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003eToday, we’ve got the people’s router, Maslow’s Hierarchy of (JavaScript) needs, and cat photos as the engine of all web innovation.\u003c/p\u003e\n\u003cp\u003eWelcome to #135.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/communist-bugs.jpg\" alt=\"Bugs bunny with a hammer and sickle and lots of JS frameworks\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003e*Our* router\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eIntroducing The People’s Router\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e\u003c/h3\u003e\u003cp\u003eDuring Tuesday’s session of Jamstack Conf, Tanner Linsley (creator of React Query and friends) got on stage and painted us all a picture of a brave new (typesafe) world.\u003c/p\u003e\u003cp\u003eIn this world, we didn’t need to worry about global or server state (at least not as much) — because shouldn’t we just be storing as much state as possible right inside the URL, the way \u003ca href=\"https://www.google.com/search?q=who+invented+urls\u0026amp;oq=who+invented+urls\u0026amp;aqs=chrome..69i57j0i22i30l2.2264j1j7\u0026amp;sourceid=chrome\u0026amp;ie=UTF-8\"\u003eTBL\u003c/a\u003e intended? After all, links are the OG form of “portable state”, and they’re inherently shareable, bookmark-able, and historical.\u003c/p\u003e\u003cp\u003eNext.js and React Router already give us APIs to help us manage state inside the URL structure with path parameters and search params, but they still leave us with two problems:\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eNext and RR’s approach doesn’t always scale well, because they assume you’re working with very few search params, flat key-value pairs, and strings (reality is \u003cdel\u003eusually\u003c/del\u003e often more complex than this).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNext and RR naturally exclude all non-React frameworks. (Remix doesn’t, but more on that later.)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003eSo what did Tanner do? He locked himself in a dark closet under the stairs for a few months (Harry Potter style), until he came out with some magic. And on Tuesday, he unveiled \u003ca href=\"https://tanstack.com/router/v1\"\u003eTanStack Router\u003c/a\u003e — a scalable, \u003cem\u003eframework-agnostic\u003c/em\u003e routing library that brings the full power of URLs to the unwashed masses.\u003c/p\u003e\u003cp\u003eHere’s a few more highlights from this beta release:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e100% typesafety\u003c/strong\u003e means the router is fully inferred from route definitions to rendering, so you get autocomplete everywhere and you don’t have to worry about writing unsafe routes.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eState-manger grade search params\u003c/strong\u003e come with schemas and validation, custom parsing and serialization, and immutability to make it easy to store all kinds of state in the URL without triggering unwanted side effects.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBuilt-in caching\u003c/strong\u003e with custom cache timings and automatic preloading for faster page loads.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e TanStack Router definitely builds on popular routing patterns and ideas from Remix, Next, and React Router, while taking it to a whole new level and expanding it beyond the React ecosystem.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/135\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F135\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=TanStack%20gives%20us%20the%20people's%20router.%20Loved%20this%20breakdown%20in%20%40bytesdotdev.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F135\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ATanStack%20gives%20us%20the%20people's%20router.%20Loved%20this%20breakdown%20in%20%40bytesdotdev.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F135\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/dynaboard-logo.png\" alt=\"dynaboard logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/car-lady.jpg\" alt=\"A woman in a fast car\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eLet the power flow through you\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q42022\"\u003eDynaboard\u003c/a\u003e helps you build fast\u003c/h3\u003e\u003cp\u003eHave you ever though to yourself, “What if Geocities was still around and also had a baby with modern web development?”\u003c/p\u003e\u003cp\u003eMe neither. But Dynaboard did, and that’s why they were crazy enough to \u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q42022\"\u003ebuild it\u003c/a\u003e. So now you can use their platform to build fully customized, modern full-stack web apps in one sitting — without all the complexity. Here’s how:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFork one of their app templates, or use their customizable component libraries to build whatever you want 10x faster — without worrying about frameworks, boilerplate, or dependencies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdd custom code wherever you want, on both the client \u003cem\u003eand\u003c/em\u003e the server. Dynaboard is powered by Wasm and supports all ES2020 syntax to give you max flexibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBuild and edit with your whole team (even the marketers) in real time with their Google Docs-like \u003ca href=\"https://dynaboard.com/features#real-time-collaboration/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q42022\"\u003emultiplayer mode\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eThe web’s come a long way since you helped set up that WordPress site for your grandma’s scented candle blog back in 2009, but Dynaboard makes it feel just as fun and simple as it did back then — but with a \u003cem\u003elot\u003c/em\u003e more power.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://dynaboard.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=procode-q42022\"\u003eCheck out their (solid) free tier\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/close-logo.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.lever.co/close.io/23451700-e03a-4739-9da8-f23d2aad91d2\"\u003eSenior or Staff Front-end Engineer\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e100% Remote\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eReact\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eClose.com is looking for an experienced React developer to help design, implement and launch major user-facing features. Close is a 100% globally distributed team of 65 high-performing, happy people that are dedicated to building a product our customers love.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/phantom-logo.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://grnh.se/040f13935us\"\u003eSoftware Engineer - Mobile\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eRemote\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eReact Native\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e$150-$250k\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eCome work closely with Phantom's founders to build their flagship mobile app in React Native – a crypto wallet that's already used by millions of people to access apps and financial services built on the Solana blockchain.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/trends.png\" alt=\"Trends logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eTrend of the Week\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://fusionauth.io/ebooks/breaking-down-json-web-tokens?utm_medium=newsletter\u0026amp;utm_source=uidev\u0026amp;utm_campaign=jwt_ebook\"\u003eFusionAuth\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey created this free ebook on \u003ca href=\"https://fusionauth.io/ebooks/breaking-down-json-web-tokens?utm_medium=newsletter\u0026amp;utm_source=uidev\u0026amp;utm_campaign=jwt_ebook\"\u003eBreaking Down JSON Web Tokens\u003c/a\u003e, that breaks down what they are, how to use them well, and the pros and cons.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/fp-trends.jpg\" alt=\"lodash vs ramda vs underscore\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe functional programming OG's\u003c!-- --\u003e \u003c!-- --\u003e–\u0026nbsp;data by \u003ca href=\"https://npmtrends.com/lodash-vs-ramda-vs-underscore\"\u003enpmtrends.com\u003c/a\u003e\u003c/p\u003e\u003c/div\u003e\n\u003cp\u003eMuch like super skinny jeans, there was a time when functional programming in JavaScript was the all the rage. This was largely thanks to LEGEND Jeremy Ashkenas — the author of CoffeeScript (which had a big influence on the design of ES6), Backbone (which brought the MVC pattern to JS), and Underscore (which introduced the broader JavaScript community to functional programming).\u003c/p\u003e\n\u003cp\u003eIf you aren’t familiar, Underscore, Lodash, and Ramda are collections of composable functions for dealing with data. So what’s going on with the big functional programming libraries these days?\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFP in JS slowing down:\u003c/strong\u003e From the trend chart, we see that the overall growth of the 3 most popular libraries seems to be slowing down. In general, there has been an increase in the popularity of reactive systems like Svelte or Vue, which watch for mutations rather than using pure functions and immutability (see also MobX vs Redux).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBrowser / ESM support:\u003c/strong\u003e The two successors to Underscore, Lodash (which started as a fork) and Ramda (which appealed to the hardcore FP nerds), worked on being more browser and bundler friendly by supporting ESM and tree-shaking. This helped them become more popular than the og \u003ccode\u003e_\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLanguage updates:\u003c/strong\u003e The JavaScript spec has added a lot of new functionality that makes utility libraries like these less necessary. That being said, the functional programming story in JS seems to be held back by the lack of features like \u003ca href=\"https://github.com/tc39/proposal-pattern-matching\"\u003epattern matching\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eThe future:\u003c/strong\u003e The reality is that JavaScript will continue to evolve, but it’s always good to remember that we are standing on the shoulders of giants — and tools like Lodash and paradigms like FP will continue to be influential.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eSolidJS just released \u003ca href=\"https://www.solidjs.com/blog/introducing-solidstart\"\u003eSolidStart\u003c/a\u003e — a new framework for Solid apps that’s built on Vite and features Nested FileSystem Routing. Because apparently, the unofficial theme of this year’s Jamstack Conf was “come launch some routing stuff.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you’re trying to hire remote developers, \u003ca href=\"https://www.world-wide-teams.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=bytes_october\"\u003eWorld Wide Teams\u003c/a\u003e lets you easily get your job in front of lots of remote-friendly developers. You can even specify your roles by country, state/province, and time zone. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Placemark team wrote about \u003ca href=\"https://www.placemark.io/post/dependency-management-in-practice\"\u003eDependency management in practice\u003c/a\u003e. Now I just need them to write a post called “Practicing Management in Practice”, so that I can use it to \u003cdel\u003epassive aggressively\u003c/del\u003e \u003cem\u003egently\u003c/em\u003e call out my team lead.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://blog.expo.dev/expo-sdk-47-a0f6f5c038af\"\u003eExpo SDK 47\u003c/a\u003e was just released with a brand new Expo Modules API. Has a single person created a React Native app in the last four years without using Expo? Are we even sure if that’s possible?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJames Sinclair wrote an article called \u003ca href=\"https://jrsinclair.com/articles/2022/why-would-anyone-need-javascript-generator-functions/\"\u003eWhy would anyone need JavaScript Generator Functions?\u003c/a\u003e I don’t know, James, but maybe you should take it up with Old Man Maslow if you’ve got a problem with his hierarchy of needs.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGoogle’s CSS Podcast made this 10-minute episode on \u003ca href=\"https://www.youtube.com/watch?v=9l7wKRG4Pao\"\u003eSubgrid\u003c/a\u003e, which should be a stable feature in all major browsers “soon” (which means anytime between tomorrow and the year 2037).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex Illarionov created this \u003ca href=\"https://github.com/the-illarionov/the-supersonic-plugin-for-scroll-based-animation\"\u003eSupersonic Plugin For Scroll Based Animation\u003c/a\u003e. Like many great web innovations, this plugin was born out of a need to more easily view pictures of cats on the internet.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://rome.tools/blog/2022/11/08/rome-10/\"\u003eThe first stable release of Rome\u003c/a\u003e just came out. Time to find out if Ralph Waldo Emerson was right all along when he famously said, “Build a faster linter and the world will beat a path to your door.”\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"135"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"135"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

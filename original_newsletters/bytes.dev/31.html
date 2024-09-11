@@ -1,0 +1,320 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #31 - Guac is Extra</title><link rel="canonical" href="https://bytes.dev/archives/31"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Snowpack Releases 3.0, Vno is a new compiler/bundler, and why use TypeScript?"/><meta property="og:url" content="https://bytes.dev/archives/31"/><meta property="og:title" content="Bytes #31 - Guac is Extra"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/snowflake.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Snowpack Releases 3.0, Vno is a new compiler/bundler, and why use TypeScript?"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #31 - Guac is Extra"/><meta property="twitter:description" content="Snowpack Releases 3.0, Vno is a new compiler/bundler, and why use TypeScript?"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/snowflake.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">Guac is Extra</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->31<!-- -->.</span><span class="mr-6 font-bold">January 18, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>I apologize up front for 1. this being a <strong>long</strong> issue and 2. the terrible restaurant metaphor we use in the Snowpack story.</p>
+<hr>
+<h2><a href="https://www.snowpack.dev/posts/2021-01-13-snowpack-3-0">Snowpack Releases v3.0</a></h2>
+<p><img src="https://bytes.dev/images/content/snowflake.png" alt="Snowpack">
+</p><p class="image-alt">A different kind of “snow pack” for productivity</p><p></p>
+<p><strong>It’s been a busy January</strong> for Snowpack. It was named the “#1 Developer Productivity Booster” by the <a href="https://osawards.com/javascript/2020">JavaScript Open Source Awards</a>, celebrated the one-year anniversary of its v1.0, and just released v3.0 last week.</p>
+<p>(Side note: we all know that <strong>caffeine + the TRON soundtrack</strong>  are the real “#1 developer productivity boosters.” But we’re happy for Snowpack too.)</p>
+<p><strong>Quick review:</strong> Snowpack is a super-fast build tool for ES Modules that builds all of your dependencies once and ships them to the browser. After that, changes in your JavaScript code are instantly reflected in the browser without needing to re-bundle (unlike Webpack, which has to re-bundle after every change).</p>
+<p>There are a lot more differences between Snowpack and Webpack that we don’t have time to cover here, so <strong>here’s a quick TL;DR</strong></p>
+<ul>
+<li>
+<p><strong>Snowpack is like Chipotle.</strong> It’s known for doing one thing really well and really fast <em>(bundling ES Modules / bundling up huge burritos),</em> and it does it in a straightforward way that makes sense. It’s pretty new and trendy, but it doesn’t offer a ton of options beyond its core functionality <em>(bundling ESM / making burritos).</em></p>
+</li>
+<li>
+<p><strong>Webpack is like Cheesecake Factory:</strong> It’s a much slower experience, partially because it offers so many options <em>(tons of Webpack use cases / over 250 menu items at CF).</em> You’ll definitely feel overwhelmed during your first encounter with either of them, and you could reasonably describe both as a <a href="https://twitter.com/MaxKriegerVG/status/931373170791198720">“post-modern design hellscape.”</a> They’re a little older and clunkier, but they’ve still got a lot of power and versatility if you know how to use them.</p>
+</li>
+</ul>
+<p>Now that we’re all craving cheesecake burritos, <strong>here’s what’s new with Snowpack 3.0.</strong></p>
+<ul>
+<li>
+<p><strong>Streaming imports:</strong> This lets you skip the <code>npm install</code> step and just fetch the relevant, pre-built package code on-demand via ESM import. And since Snowpack caches everything for you automatically, you can work offline after the first package fetch.</p>
+</li>
+<li>
+<p><strong>New integration with esbuild:</strong> Now, you can plug in esbuild — the <a href="https://esbuild.github.io/">“I’m-100x-faster-than-everyone-and-not-obnoxious-about-it-at-all”</a> bundler — to make Snowpack even faster.</p>
+</li>
+<li>
+<p><strong>New JavaScript API:</strong> This gives you more advanced control over Snowpack’s dev server and build pipeline, so you can create more powerful integrations on top of Snowpack. SvelteKit (Svelte’s new official web app framework) was built on top of this new API. And that’s a pretty big deal considering that Svelte was just crowned <a href="https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/">Lord of the Frameworks.</a> (by the totally legit and definitely not biased State of JS survey)</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>We’ve got the perfect headline ready to go if Snowpack ever releases a paid, premium version: “Guac is Extra.”</p>
+<hr>
+<h2><a href="https://github.com/oslabs-beta/vno">Vno = Vue + Deno</a></h2>
+<p><img src="https://bytes.dev/images/content/vino.png" alt="Vno">
+</p><p class="image-alt">One more glass of that vno vino</p><p></p>
+<p><strong>Vno is a compiler and bundler</strong> that pitches itself as “the first native build tool for compiling and bundling Vue single-file components in a Deno runtime.”</p>
+<p>By now, you’ve undoubtedly heard the Deno hype. It’s the modern, secure runtime created by Ryan Dahl that many see as the heir apparent to Node.js. It was also the <a href="https://risingstars.js.org/2020/en#section-all">#1 most popular JavaScript project on GitHub last year.</a></p>
+<p>But even though it feels like we’ve been hearing about Deno forever, v1.0 is still just 7 months old <span role="img" aria-label="baby">👶</span>. And until two weeks ago, there was no way to leverage Vue (the second-most popular JavaScript project in 2020) in a Deno runtime environment.</p>
+<p>That’s where vno comes in.</p>
+<p>It acts as an adapter that parses Vue component files and compiles + bundles them into a Javascript file that can be read by the browser. You can use the vno module to get the equivalent of a create-vue-app with a few CLI commands (complete with an example file structure). Or you can use it to optimize an existing Vue project.</p>
+<h3>The Bottom Line</h3>
+<p>Vno is the first tool to make it possible for developers to work with Vue in a Deno environment. That’s a cool concept on its own, but it also demonstrates the continued growth and emergence of Deno and Vue’s respective ecosystems.</p>
+<p>2020 was obviously a huge year for both technologies, and it looks like 2021 isn’t showing any signs of slowing down. All aboard the hype train.</p>
+<hr>
+<h2><del>JS</del> TS Tip: Why TypeScript?</h2>
+<p>Types are foundational to JavaScript; they influence everything about the way you write your programs. But JavaScript’s dynamic type system often makes it easy to introduce bugs by mistakenly referencing variables with the wrong type. How many of us have experienced the dreaded <code>Undefined is not an object</code> error?</p>
+<p>TypeScript was invented to stop these problems from happening before you even run your code. It uses JavaScript as a base, adds some extra syntax to define types, and provides a tool to transform your code back into JavaScript. The result is a hybrid of a compiler and a linter. TypeScript checks your code as you write it to make sure the types are correct, and then compiles it to whatever version of JavaScript you need to support.</p>
+<p>TypeScript is superset of JavaScript, meaning that any JavaScript program is also a valid TypeScript program. This allows TypeScript programs to import and use JavaScript code, meaning you don’t have to rewrite your entire app right away when you start using TypeScript. Other developer tools, like Babel or Webpack, can be configured to process TypeScript files, and new JavaScript runtimes like Deno support TypeScript natively.</p>
+<p>There’s a reason TypeScript is so popular. Developers who use it love the type safety it provides while still giving them the flexibility of JavaScript. Here are some reasons why you might find TypeScript useful.</p>
+<h3>Type Validation</h3>
+<p>TypeScript is a static validation tool, like ESLint. The goal of any kind of validation tool is to increase your confidence that the program you are writing behaves the way it is supposed to and doesn’t have unexpected bugs. Since TypeScript understands the relationships between the types in your codebase, using it well can eliminate entire classes of errors and issues. As you write your code, TypeScript can give you hints to help you write your code correctly. TypeScript doesn’t replace ESLint or automated tests, but it can give you more confidence that your code is working correctly without having to run your code.</p>
+<h3>Compiler</h3>
+<p>TypeScript is also a compiler. Like Babel, it can transform TypeScript and JavaScript code to support different features for older JavaScript engines. If you need to support an older browser like IE11, TypeScript can transform your code so it will work correctly. If you only need to support newer engines, the compiler will strip out the type data and leave you with valid JavaScript.</p>
+<p>It’s important to remember that TypeScript is not a runtime language - all of the types are removed at compile time. It’s purpose is to encourage you, the developer, to use the types to add checks to your program so you have fewer errors and bugs.</p>
+<h3>JavaScript Superset</h3>
+<p>TypeScript can be used as a progressive enhancement to JavaScript. It’s a superset of JavaScript, so any JavaScript program is valid TypeScript. This includes the massive amount of packages available on NPM. However, without proper type annotations, most JavaScript programs will have type errors. You can configure the compiler to ignore type errors on JavaScript programs as you transition your codebase from JavaScript to TypeScript.</p>
+<p>Since TypeScript is a superset of JavaScript, many of the quirks of JavaScript are present in TypeScript programs. It might not always be possible to add the appropriate type annotations to something. TypeScript provides escape hatches, like the <code>any</code> type and <code>// @ts-ignore</code> which turn off the type checker for those parts of your code. This is just like writing regular JavaScript, so you can still enjoy the flexibility of dynamic types. However, it also means you can’t guarantee that your program will never have a type error. If you want a truly strongly typed language that compiles to JavaScript, you can use languages like ReScript or Elm.</p>
+<h3>Communication and Documentation</h3>
+<p>Coming into a brand new codebase can be daunting, especially if you don’t know how all the pieces connect together or how something is supposed to behave. Adding type annotations to your code removes a lot of the guess work in figuring out how a program works and serves as guide for anyone trying to work in your codebase.</p>
+<p>TypeScript can also help with refactoring. Without TypeScript, you have no way of knowing all of the different places that need to be updated when you change something. TypeScript checks your change against any other files that might be affected and warns you if anything is broken. All that’s left is to follow each warning and make the appropriate change without needing to run your code.</p>
+<h3>The Bottom Line</h3>
+<p>In short, TypeScript will help you write code with less errors by checking your code before you run it. Adding the types might take a little bit of work, but it definitely pays off in the long run.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Every White Male in Tech’s favorite JavaScript survey <a href="https://2020.stateofjs.com/en-US/">released their results</a> last week.</p>
+</li>
+<li>
+<p><a href="https://github.com/codespaces-contrib/codeswing">CodeSwing is a cool VSCode extension</a> that lets you create a personalized web playground right inside your editor. It’s even cooler if you use it while singing along to this iconic 2008 hit: <em>“Now drop it loooow, and let me see your code SWING.”</em></p>
+</li>
+<li>
+<p>The Vercel team published a great article and video on <a href="https://vercel.com/blog/everything-about-react-server-components">everything you need to know about React Server Components.</a></p>
+</li>
+<li>
+<p>Mark wrote <a href="https://blog.isquaredsoftware.com/2021/01/blogged-answers-why-react-context-is-not-a-state-management-tool-and-why-it-doesnt-replace-redux/">Why React Context is Not a “State Management” Tool (and Why It Doesn’t Replace Redux)</a>.</p>
+</li>
+<li>
+<p><a href="https://stripe.com/docs/stripe-vscode">Stripe released some new VSCode extensions</a> that let you build, test, and use Stripe inside your editor.</p>
+</li>
+<li>
+<p><a href="https://www.webdesignmuseum.org/web-design-history/jquery-2006">JQuery turned 15 years old last week!</a>. It just got its first armpit hairs and is refusing to shower now. Teenagers.</p>
+</li>
+<li>
+<p>Rob Palmer wrote and in-depth post about <a href="https://www.techatbloomberg.com/blog/10-insights-adopting-typescript-at-scale/">his 10 insights from adopting TypeScript at scale at Bloomberg</a>.</p>
+</li>
+<li>
+<p>You could go through <a href="https://www.youtube.com/watch?v=Xm4BObh4MhI">Ania Kubow’s new <em>12-hour</em> coding bootcamp on YouTube</a>, or you could binge watch all of the extended versions on the Lord of the Rings trilogy. Doing either would probably make you a better person, but Ania’s bootcamp will probably make you better at your job.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Guac is Extra","date":"2021-01-18","description":"Snowpack Releases 3.0, Vno is a new compiler/bundler, and why use TypeScript?","featuredImage":"https://bytes.dev/images/content/snowflake.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eI apologize up front for 1. this being a \u003cstrong\u003elong\u003c/strong\u003e issue and 2. the terrible restaurant metaphor we use in the Snowpack story.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://www.snowpack.dev/posts/2021-01-13-snowpack-3-0\"\u003eSnowpack Releases v3.0\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/snowflake.png\" alt=\"Snowpack\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eA different kind of “snow pack” for productivity\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIt’s been a busy January\u003c/strong\u003e for Snowpack. It was named the “#1 Developer Productivity Booster” by the \u003ca href=\"https://osawards.com/javascript/2020\"\u003eJavaScript Open Source Awards\u003c/a\u003e, celebrated the one-year anniversary of its v1.0, and just released v3.0 last week.\u003c/p\u003e\n\u003cp\u003e(Side note: we all know that \u003cstrong\u003ecaffeine + the TRON soundtrack\u003c/strong\u003e  are the real “#1 developer productivity boosters.” But we’re happy for Snowpack too.)\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick review:\u003c/strong\u003e Snowpack is a super-fast build tool for ES Modules that builds all of your dependencies once and ships them to the browser. After that, changes in your JavaScript code are instantly reflected in the browser without needing to re-bundle (unlike Webpack, which has to re-bundle after every change).\u003c/p\u003e\n\u003cp\u003eThere are a lot more differences between Snowpack and Webpack that we don’t have time to cover here, so \u003cstrong\u003ehere’s a quick TL;DR\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSnowpack is like Chipotle.\u003c/strong\u003e It’s known for doing one thing really well and really fast \u003cem\u003e(bundling ES Modules / bundling up huge burritos),\u003c/em\u003e and it does it in a straightforward way that makes sense. It’s pretty new and trendy, but it doesn’t offer a ton of options beyond its core functionality \u003cem\u003e(bundling ESM / making burritos).\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWebpack is like Cheesecake Factory:\u003c/strong\u003e It’s a much slower experience, partially because it offers so many options \u003cem\u003e(tons of Webpack use cases / over 250 menu items at CF).\u003c/em\u003e You’ll definitely feel overwhelmed during your first encounter with either of them, and you could reasonably describe both as a \u003ca href=\"https://twitter.com/MaxKriegerVG/status/931373170791198720\"\u003e“post-modern design hellscape.”\u003c/a\u003e They’re a little older and clunkier, but they’ve still got a lot of power and versatility if you know how to use them.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNow that we’re all craving cheesecake burritos, \u003cstrong\u003ehere’s what’s new with Snowpack 3.0.\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eStreaming imports:\u003c/strong\u003e This lets you skip the \u003ccode\u003enpm install\u003c/code\u003e step and just fetch the relevant, pre-built package code on-demand via ESM import. And since Snowpack caches everything for you automatically, you can work offline after the first package fetch.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew integration with esbuild:\u003c/strong\u003e Now, you can plug in esbuild — the \u003ca href=\"https://esbuild.github.io/\"\u003e“I’m-100x-faster-than-everyone-and-not-obnoxious-about-it-at-all”\u003c/a\u003e bundler — to make Snowpack even faster.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew JavaScript API:\u003c/strong\u003e This gives you more advanced control over Snowpack’s dev server and build pipeline, so you can create more powerful integrations on top of Snowpack. SvelteKit (Svelte’s new official web app framework) was built on top of this new API. And that’s a pretty big deal considering that Svelte was just crowned \u003ca href=\"https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/\"\u003eLord of the Frameworks.\u003c/a\u003e (by the totally legit and definitely not biased State of JS survey)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eWe’ve got the perfect headline ready to go if Snowpack ever releases a paid, premium version: “Guac is Extra.”\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/oslabs-beta/vno\"\u003eVno = Vue + Deno\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/vino.png\" alt=\"Vno\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eOne more glass of that vno vino\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eVno is a compiler and bundler\u003c/strong\u003e that pitches itself as “the first native build tool for compiling and bundling Vue single-file components in a Deno runtime.”\u003c/p\u003e\n\u003cp\u003eBy now, you’ve undoubtedly heard the Deno hype. It’s the modern, secure runtime created by Ryan Dahl that many see as the heir apparent to Node.js. It was also the \u003ca href=\"https://risingstars.js.org/2020/en#section-all\"\u003e#1 most popular JavaScript project on GitHub last year.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eBut even though it feels like we’ve been hearing about Deno forever, v1.0 is still just 7 months old \u003cspan role=\"img\" aria-label=\"baby\"\u003e👶\u003c/span\u003e. And until two weeks ago, there was no way to leverage Vue (the second-most popular JavaScript project in 2020) in a Deno runtime environment.\u003c/p\u003e\n\u003cp\u003eThat’s where vno comes in.\u003c/p\u003e\n\u003cp\u003eIt acts as an adapter that parses Vue component files and compiles + bundles them into a Javascript file that can be read by the browser. You can use the vno module to get the equivalent of a create-vue-app with a few CLI commands (complete with an example file structure). Or you can use it to optimize an existing Vue project.\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eVno is the first tool to make it possible for developers to work with Vue in a Deno environment. That’s a cool concept on its own, but it also demonstrates the continued growth and emergence of Deno and Vue’s respective ecosystems.\u003c/p\u003e\n\u003cp\u003e2020 was obviously a huge year for both technologies, and it looks like 2021 isn’t showing any signs of slowing down. All aboard the hype train.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cdel\u003eJS\u003c/del\u003e TS Tip: Why TypeScript?\u003c/h2\u003e\n\u003cp\u003eTypes are foundational to JavaScript; they influence everything about the way you write your programs. But JavaScript’s dynamic type system often makes it easy to introduce bugs by mistakenly referencing variables with the wrong type. How many of us have experienced the dreaded \u003ccode\u003eUndefined is not an object\u003c/code\u003e error?\u003c/p\u003e\n\u003cp\u003eTypeScript was invented to stop these problems from happening before you even run your code. It uses JavaScript as a base, adds some extra syntax to define types, and provides a tool to transform your code back into JavaScript. The result is a hybrid of a compiler and a linter. TypeScript checks your code as you write it to make sure the types are correct, and then compiles it to whatever version of JavaScript you need to support.\u003c/p\u003e\n\u003cp\u003eTypeScript is superset of JavaScript, meaning that any JavaScript program is also a valid TypeScript program. This allows TypeScript programs to import and use JavaScript code, meaning you don’t have to rewrite your entire app right away when you start using TypeScript. Other developer tools, like Babel or Webpack, can be configured to process TypeScript files, and new JavaScript runtimes like Deno support TypeScript natively.\u003c/p\u003e\n\u003cp\u003eThere’s a reason TypeScript is so popular. Developers who use it love the type safety it provides while still giving them the flexibility of JavaScript. Here are some reasons why you might find TypeScript useful.\u003c/p\u003e\n\u003ch3\u003eType Validation\u003c/h3\u003e\n\u003cp\u003eTypeScript is a static validation tool, like ESLint. The goal of any kind of validation tool is to increase your confidence that the program you are writing behaves the way it is supposed to and doesn’t have unexpected bugs. Since TypeScript understands the relationships between the types in your codebase, using it well can eliminate entire classes of errors and issues. As you write your code, TypeScript can give you hints to help you write your code correctly. TypeScript doesn’t replace ESLint or automated tests, but it can give you more confidence that your code is working correctly without having to run your code.\u003c/p\u003e\n\u003ch3\u003eCompiler\u003c/h3\u003e\n\u003cp\u003eTypeScript is also a compiler. Like Babel, it can transform TypeScript and JavaScript code to support different features for older JavaScript engines. If you need to support an older browser like IE11, TypeScript can transform your code so it will work correctly. If you only need to support newer engines, the compiler will strip out the type data and leave you with valid JavaScript.\u003c/p\u003e\n\u003cp\u003eIt’s important to remember that TypeScript is not a runtime language - all of the types are removed at compile time. It’s purpose is to encourage you, the developer, to use the types to add checks to your program so you have fewer errors and bugs.\u003c/p\u003e\n\u003ch3\u003eJavaScript Superset\u003c/h3\u003e\n\u003cp\u003eTypeScript can be used as a progressive enhancement to JavaScript. It’s a superset of JavaScript, so any JavaScript program is valid TypeScript. This includes the massive amount of packages available on NPM. However, without proper type annotations, most JavaScript programs will have type errors. You can configure the compiler to ignore type errors on JavaScript programs as you transition your codebase from JavaScript to TypeScript.\u003c/p\u003e\n\u003cp\u003eSince TypeScript is a superset of JavaScript, many of the quirks of JavaScript are present in TypeScript programs. It might not always be possible to add the appropriate type annotations to something. TypeScript provides escape hatches, like the \u003ccode\u003eany\u003c/code\u003e type and \u003ccode\u003e// @ts-ignore\u003c/code\u003e which turn off the type checker for those parts of your code. This is just like writing regular JavaScript, so you can still enjoy the flexibility of dynamic types. However, it also means you can’t guarantee that your program will never have a type error. If you want a truly strongly typed language that compiles to JavaScript, you can use languages like ReScript or Elm.\u003c/p\u003e\n\u003ch3\u003eCommunication and Documentation\u003c/h3\u003e\n\u003cp\u003eComing into a brand new codebase can be daunting, especially if you don’t know how all the pieces connect together or how something is supposed to behave. Adding type annotations to your code removes a lot of the guess work in figuring out how a program works and serves as guide for anyone trying to work in your codebase.\u003c/p\u003e\n\u003cp\u003eTypeScript can also help with refactoring. Without TypeScript, you have no way of knowing all of the different places that need to be updated when you change something. TypeScript checks your change against any other files that might be affected and warns you if anything is broken. All that’s left is to follow each warning and make the appropriate change without needing to run your code.\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eIn short, TypeScript will help you write code with less errors by checking your code before you run it. Adding the types might take a little bit of work, but it definitely pays off in the long run.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eEvery White Male in Tech’s favorite JavaScript survey \u003ca href=\"https://2020.stateofjs.com/en-US/\"\u003ereleased their results\u003c/a\u003e last week.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/codespaces-contrib/codeswing\"\u003eCodeSwing is a cool VSCode extension\u003c/a\u003e that lets you create a personalized web playground right inside your editor. It’s even cooler if you use it while singing along to this iconic 2008 hit: \u003cem\u003e“Now drop it loooow, and let me see your code SWING.”\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Vercel team published a great article and video on \u003ca href=\"https://vercel.com/blog/everything-about-react-server-components\"\u003eeverything you need to know about React Server Components.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMark wrote \u003ca href=\"https://blog.isquaredsoftware.com/2021/01/blogged-answers-why-react-context-is-not-a-state-management-tool-and-why-it-doesnt-replace-redux/\"\u003eWhy React Context is Not a “State Management” Tool (and Why It Doesn’t Replace Redux)\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://stripe.com/docs/stripe-vscode\"\u003eStripe released some new VSCode extensions\u003c/a\u003e that let you build, test, and use Stripe inside your editor.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.webdesignmuseum.org/web-design-history/jquery-2006\"\u003eJQuery turned 15 years old last week!\u003c/a\u003e. It just got its first armpit hairs and is refusing to shower now. Teenagers.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRob Palmer wrote and in-depth post about \u003ca href=\"https://www.techatbloomberg.com/blog/10-insights-adopting-typescript-at-scale/\"\u003ehis 10 insights from adopting TypeScript at scale at Bloomberg\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou could go through \u003ca href=\"https://www.youtube.com/watch?v=Xm4BObh4MhI\"\u003eAnia Kubow’s new \u003cem\u003e12-hour\u003c/em\u003e coding bootcamp on YouTube\u003c/a\u003e, or you could binge watch all of the extended versions on the Lord of the Rings trilogy. Doing either would probably make you a better person, but Ania’s bootcamp will probably make you better at your job.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"31"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"31"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

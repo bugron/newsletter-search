@@ -1,0 +1,26 @@
+{
+    "name": "pagefind-mdn-demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "fetch": "node src/fetch.mjs",
+        "process": "node src/process.mjs",
+        "pregenerate": "npm run process",
+        "generate": "pagefind && node src/update-date.mjs && node src/inline-pagefind.mjs",
+        "serve": "serve ./public",
+        "generate-and-serve": "npm run generate && npm run serve",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@biomejs/biome": "1.9.2",
+        "@types/node": "^20.16.5",
+        "node-html-parser": "^6.1.13",
+        "pagefind": "^1.1.1",
+        "serve": "^14.2.3"
+    }
+}

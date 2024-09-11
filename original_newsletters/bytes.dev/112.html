@@ -1,0 +1,348 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #112 - developers don&#x27;t understand edge compute</title><link rel="canonical" href="https://bytes.dev/archives/112"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="In this issue we&#x27;ve got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science."/><meta property="og:url" content="https://bytes.dev/archives/112"/><meta property="og:title" content="Bytes #112 - developers don&#x27;t understand edge compute"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/tux.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="In this issue we&#x27;ve got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #112 - developers don&#x27;t understand edge compute"/><meta property="twitter:description" content="In this issue we&#x27;ve got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science."/><meta property="twitter:image" content="https://bytes.dev/images/content/tux.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> developers don&#x27;t understand edge compute</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->112<!-- -->.</span><span class="mr-6 font-bold">August 7, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>A big welcome to the 866 of you are new this week. In this issue we’ve got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science.</p>
+<p>Welcome to #112.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/beefyboy.jpg" alt="A really muscular dog">
+</p><p class="image-alt">Who’s a beefy boy?</p><p></p>
+<h2>The truth about the edge</h2>
+<p><a href="https://fly.io/">Fly.io</a> went through the trouble of raising a series B just to get some coverage for their edge-y (<span role="img" aria-label="winking face">😉</span>) hot takes <a href="https://techcrunch.com/2022/07/28/fly-io-wants-to-change-the-way-companies-deploy-apps-at-the-edge/">in TechCrunch</a> (it worked).</p>
+<p>Fresh off that high that only comes with $25 milli hitting the bank account, CEO Kurt Mackey looked that TC <del>intern</del> <em>reporter</em> straight in the eyes and declared that “developers don’t understand edge compute.” A little harsh, but he may have a point.</p>
+<p>When we think of The Edge<span role="img" aria-label="trade mark">™️</span>, most developers are talking about CDNs for static assets that have lightweight compute offerings. But even the most <a href="https://media.giphy.com/media/6ra84Uso2hoir3YCgb/giphy.gif">“cutting edge”</a> compute offerings still have to go on a road trip to Virginia just to get some data. That’s where Fly wants to shake things up.</p>
+<p>So what exactly does Fly do that’s different?</p>
+<ul>
+<li>
+<p><strong>Runs your whole stack at the edge:</strong> No more round trips to <code>us-east-1</code>. You can host your database, server, and everything else at the edge.</p>
+</li>
+<li>
+<p><strong>Brings the beef:</strong> Most applications are too large to deploy on edge infrastructure, but <a href="https://youtu.be/4r7wHMg5Yjg?t=33">Fly don’t care</a>. Fly is buying the beefiest servers on the market to accommodate your apps (yes, even your <code>node_modules</code>).</p>
+</li>
+<li>
+<p><strong>Firecrackers:</strong> Relax dog owners, we’re talking about fast booting VM’s that allow Fly to spin up a server in a few milliseconds. You can even roll your own FaaS offering because goodness knows we don’t already have enough options.</p>
+</li>
+<li>
+<p><strong>Hosted Goodies:</strong> Fly has a hosted Postgres service, which is great since JavaScript developers and devops usually don’t mix.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> Fly is spending that new bread on the beefiest servers in the game so you can run your application at the edge and not have to half-app it. So far, the results are looking <a href="https://twitter.com/BrendanFalk/status/1554290452982968320?s=20&amp;t=deA3yKZcB1TA_qfhwthY6g">pretty impressive</a>.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/gandalf2.jpg" alt="Gandalf on a mac">
+</p><p class="image-alt">“I still think it needs more pop” [sponsored]</p><p></p>
+<h2><a href="https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes&amp;utm_medium=paid-referral&amp;utm_campaign=bytes-presenting-sponsor&amp;utm_term=qa-uat-use-case">Bugherd</a> will break you out of the infinite feedback loop</h2>
+<p>Dante’s 8th level of Dev Hell: trying to get feedback on a website from a big team.</p>
+<p>You create the new landing page and send it to your manager, who gives you feedback and sends it to the VP, who also gives you feedback and “CC’s a few more stakeholders” who also give you feedback… for eternity.</p>
+<p>Thankfully, there’s BugHerd:</p>
+<ol>
+<li>
+<p>It lets your team pin feedback directly to website elements and automatically provides metadata about their specific URL, browser, OS, and screen resolution (no more messy spreadsheets and email <span role="img" aria-label="folded hands">🙏</span>).</p>
+</li>
+<li>
+<p>It consolidates all of that feedback into one place, so you can manage and track progress on bug fixes (no more switching between platforms <span role="img" aria-label="folded hands">🙏</span>).</p>
+</li>
+</ol>
+<p>It saves <a href="https://bugherd.com/customers/customer-success-stories-manifest-digital?utm_source=bytes&amp;utm_medium=paid-referral&amp;utm_campaign=bytes-presenting-sponsor&amp;utm_term=manifest-case-study">a lot</a> of time and is our favorite way to work with QA teams, outside clients, or contractors.</p>
+<p><a href="https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes&amp;utm_medium=paid-referral&amp;utm_campaign=bytes-presenting-sponsor&amp;utm_term=qa-uat-use-case">Check it out</a> – and see why over 10,000 companies use it.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/tux.jpg" alt="A man in a half tuxedo">
+</p><p class="image-alt">Business in the front…</p><p></p>
+<h2>Party in the back end</h2>
+<p>For years now, the JavaScript community has had an irrational love for NoSQL and document oriented databases. But, did you ever wonder…why? My running theory is that it’s our collective haphazard rebellion against anything found in traditional CS curriculum, but there might be another reason.</p>
+<p><strong>Why did relational databases go out of style?</strong></p>
+<p>When Node.js first came out, it specialized (lol) in fast I/O and was good at building things like chat apps. The problem, among others, was that traditional databases were limited to a small number of concurrent connections. In order to have more connections, you needed more memory (i.e. “scaling vertically”) and eventually scaling becomes an issue.</p>
+<p>NoSQL databases have a more limited data structure, which enable them to scale horizontally (i.e. adding more database “nodes” to the “cluster”). But they come with their own tradeoffs.</p>
+<p>NoSQL DB’s work well when you understand your app’s access patterns — but for many apps, they have multiple clients that have different data needs (something a SQL query can handle well).</p>
+<p><strong>So why are they making a comeback now?</strong></p>
+<ol>
+<li>
+<p>RAM has gotten cheaper: the cost of ram has dropped off a cliff over the last 10 years (so there’s a lot more room to scale vertically).</p>
+</li>
+<li>
+<p>Infrastructure as a service: most new databases are actually the same old databases as before, just with much better infrastructure for things like scaling, migrations, and connection pooling.</p>
+</li>
+<li>
+<p>ORMs: Solutions like <a href="https://www.prisma.io/dataguide/types/relational/comparing-sql-query-builders-and-orms">Prisma</a>, which abstract away the database, have become popular. They allow developers to write queries using TypeScript and generate type definitions directly from the database.</p>
+</li>
+</ol>
+<p><strong>Bottom Line:</strong> Like everything in tech (and fashion), databases are coming full circle. The good news is that Database Design &amp; Development course you bought on Udemy for $4.99 in 2015 is still up to date.</p>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://grnh.se/1409f6a25us">Full-stack software engineer at Phantom</a></h3>
+<p>Phantom is looking for fullstack engineers who enjoy massive ownership and freedom, and who want to work with a variety of technologies, including React, TypeScript, Postgres, Docker, and more. You’ll be owning features on their web platform and working closely with the founders to improve the product. The role is fully remote.</p>
+<hr>
+<h2>JS Quiz — Sponsored by <a href="https://getstream.io/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial.">Stream</a></h2>
+<p><em>Stream is the #1 chat platform out there. It’s used by small startups and giants like Adobe, Soundcloud and Match-dot-com.</em></p>
+<p>What order will this code log?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> elem <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>elem<span class="token punctuation">)</span><span class="token punctuation">,</span> elem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Haoran Xu (from the WebKit team) wrote about how <a href="https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/">garbage collection works in JSC</a> (WebKit’s JavaScript engine) in a way that mere mortals like you and me can understand — which is great because <a href="https://www.youtube.com/watch?v=ZydmsWtkUiw">I love garbage</a>.</p>
+</li>
+<li>
+<p>The New Relic team wrote about <a href="https://newrelic.com/blog/how-to-relic/synthetic-user-testing?utm_source=bytes&amp;utm_medium=community&amp;utm_campaign=global-fy23-q2-synthetic-user-testing">Building your own synthetic user testing</a>, which will help you understand how to write tests that simulate the behavior of your users. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://web.dev/css-individual-transform-properties/">Individual transform properties</a> are here. Now you can use translate, scale and rotate without translate — but only if you promise to not to give me motion sickness (in which case we’ll have them removed from the spec).</p>
+</li>
+<li>
+<p>Electron version <code>20.0.0</code> just dropped, and it uses Node <code>16.15.0</code>, Chromium 104, and V8 <code>10.4</code>. If all these numbers going up means my laptop doesn’t catch fire anymore when Slack is open, then let’s gooo.</p>
+</li>
+<li>
+<p><a href="https://lyrajs.io/">Lyra</a> is an in-memory, full-text search written in TypeScript that’s “typo tolerant” — which is refreshing given how “typo intolerant” many readers of this newsletter are. (Still love you.)</p>
+</li>
+<li>
+<p>Marvin Hagemeister (Preact core team member) wrote about one of the most essential skills in DevRel: how to cook the books for your <a href="https://marvinh.dev/blog/benchmarks/">performance benchmarks</a>. It’s nice to see a fellow graduate from the <a href="https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics">Mark Twain School of Data Science</a> doing so well.</p>
+</li>
+<li>
+<p>React-Aria is showing off its summer bod with <a href="https://react-spectrum.adobe.com/releases/2022-07-09.html">this latest release</a>, which dramatically reduces its bundle size.</p>
+</li>
+<li>
+<p>Every great npm package name is taken, right? Wrongo! Steve Ruiz debunked that myth with his new reactive state management library - <a href="https://www.npmjs.com/package/liquorstore">liquorstore</a>. I haven’t felt this rebellious installing something since I downloaded Beer Hunt onto my TI-89 in high school.</p>
+</li>
+</ol>
+<hr>
+<h2>JS Quiz Solution — Sponsored by <a href="https://getstream.io/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial.">Stream</a></h2>
+<p>What order will this code log?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> elem <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>elem<span class="token punctuation">)</span><span class="token punctuation">,</span> elem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If you chose <code>[7, 1, 4, 3, 2]</code> because of how most run-times <a href="https://chromestatus.com/feature/4889002157015040">(used to)</a> handle clamping, you are probably very smart and in this scenario, very wrong.</p>
+<p>The answer is <code>[1, 2, 3, 4, 7]</code> –&nbsp;or as I like to call it, a really bad way to pass a sorting algorithm technical interview.</p>
+<p>Shout out to <a href="https://twitter.com/rauschma/status/1556316417695293440">the Doctor</a> for the source.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: developers don't understand edge compute","date":"2022-08-07","featuredImage":"/images/content/tux.jpg","description":"In this issue we've got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science."},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eA big welcome to the 866 of you are new this week. In this issue we’ve got some beefy servers, some rebellion against traditional CS curriculum, and a new breakthrough at the Mark Twain School of Data Science.\u003c/p\u003e\n\u003cp\u003eWelcome to #112.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/beefyboy.jpg\" alt=\"A really muscular dog\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWho’s a beefy boy?\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eThe truth about the edge\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://fly.io/\"\u003eFly.io\u003c/a\u003e went through the trouble of raising a series B just to get some coverage for their edge-y (\u003cspan role=\"img\" aria-label=\"winking face\"\u003e😉\u003c/span\u003e) hot takes \u003ca href=\"https://techcrunch.com/2022/07/28/fly-io-wants-to-change-the-way-companies-deploy-apps-at-the-edge/\"\u003ein TechCrunch\u003c/a\u003e (it worked).\u003c/p\u003e\n\u003cp\u003eFresh off that high that only comes with $25 milli hitting the bank account, CEO Kurt Mackey looked that TC \u003cdel\u003eintern\u003c/del\u003e \u003cem\u003ereporter\u003c/em\u003e straight in the eyes and declared that “developers don’t understand edge compute.” A little harsh, but he may have a point.\u003c/p\u003e\n\u003cp\u003eWhen we think of The Edge\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e, most developers are talking about CDNs for static assets that have lightweight compute offerings. But even the most \u003ca href=\"https://media.giphy.com/media/6ra84Uso2hoir3YCgb/giphy.gif\"\u003e“cutting edge”\u003c/a\u003e compute offerings still have to go on a road trip to Virginia just to get some data. That’s where Fly wants to shake things up.\u003c/p\u003e\n\u003cp\u003eSo what exactly does Fly do that’s different?\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRuns your whole stack at the edge:\u003c/strong\u003e No more round trips to \u003ccode\u003eus-east-1\u003c/code\u003e. You can host your database, server, and everything else at the edge.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBrings the beef:\u003c/strong\u003e Most applications are too large to deploy on edge infrastructure, but \u003ca href=\"https://youtu.be/4r7wHMg5Yjg?t=33\"\u003eFly don’t care\u003c/a\u003e. Fly is buying the beefiest servers on the market to accommodate your apps (yes, even your \u003ccode\u003enode_modules\u003c/code\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFirecrackers:\u003c/strong\u003e Relax dog owners, we’re talking about fast booting VM’s that allow Fly to spin up a server in a few milliseconds. You can even roll your own FaaS offering because goodness knows we don’t already have enough options.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHosted Goodies:\u003c/strong\u003e Fly has a hosted Postgres service, which is great since JavaScript developers and devops usually don’t mix.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Fly is spending that new bread on the beefiest servers in the game so you can run your application at the edge and not have to half-app it. So far, the results are looking \u003ca href=\"https://twitter.com/BrendanFalk/status/1554290452982968320?s=20\u0026amp;t=deA3yKZcB1TA_qfhwthY6g\"\u003epretty impressive\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/gandalf2.jpg\" alt=\"Gandalf on a mac\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e“I still think it needs more pop” [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes\u0026amp;utm_medium=paid-referral\u0026amp;utm_campaign=bytes-presenting-sponsor\u0026amp;utm_term=qa-uat-use-case\"\u003eBugherd\u003c/a\u003e will break you out of the infinite feedback loop\u003c/h2\u003e\n\u003cp\u003eDante’s 8th level of Dev Hell: trying to get feedback on a website from a big team.\u003c/p\u003e\n\u003cp\u003eYou create the new landing page and send it to your manager, who gives you feedback and sends it to the VP, who also gives you feedback and “CC’s a few more stakeholders” who also give you feedback… for eternity.\u003c/p\u003e\n\u003cp\u003eThankfully, there’s BugHerd:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIt lets your team pin feedback directly to website elements and automatically provides metadata about their specific URL, browser, OS, and screen resolution (no more messy spreadsheets and email \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt consolidates all of that feedback into one place, so you can manage and track progress on bug fixes (no more switching between platforms \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eIt saves \u003ca href=\"https://bugherd.com/customers/customer-success-stories-manifest-digital?utm_source=bytes\u0026amp;utm_medium=paid-referral\u0026amp;utm_campaign=bytes-presenting-sponsor\u0026amp;utm_term=manifest-case-study\"\u003ea lot\u003c/a\u003e of time and is our favorite way to work with QA teams, outside clients, or contractors.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes\u0026amp;utm_medium=paid-referral\u0026amp;utm_campaign=bytes-presenting-sponsor\u0026amp;utm_term=qa-uat-use-case\"\u003eCheck it out\u003c/a\u003e – and see why over 10,000 companies use it.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/tux.jpg\" alt=\"A man in a half tuxedo\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eBusiness in the front…\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eParty in the back end\u003c/h2\u003e\n\u003cp\u003eFor years now, the JavaScript community has had an irrational love for NoSQL and document oriented databases. But, did you ever wonder…why? My running theory is that it’s our collective haphazard rebellion against anything found in traditional CS curriculum, but there might be another reason.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy did relational databases go out of style?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWhen Node.js first came out, it specialized (lol) in fast I/O and was good at building things like chat apps. The problem, among others, was that traditional databases were limited to a small number of concurrent connections. In order to have more connections, you needed more memory (i.e. “scaling vertically”) and eventually scaling becomes an issue.\u003c/p\u003e\n\u003cp\u003eNoSQL databases have a more limited data structure, which enable them to scale horizontally (i.e. adding more database “nodes” to the “cluster”). But they come with their own tradeoffs.\u003c/p\u003e\n\u003cp\u003eNoSQL DB’s work well when you understand your app’s access patterns — but for many apps, they have multiple clients that have different data needs (something a SQL query can handle well).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSo why are they making a comeback now?\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eRAM has gotten cheaper: the cost of ram has dropped off a cliff over the last 10 years (so there’s a lot more room to scale vertically).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInfrastructure as a service: most new databases are actually the same old databases as before, just with much better infrastructure for things like scaling, migrations, and connection pooling.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eORMs: Solutions like \u003ca href=\"https://www.prisma.io/dataguide/types/relational/comparing-sql-query-builders-and-orms\"\u003ePrisma\u003c/a\u003e, which abstract away the database, have become popular. They allow developers to write queries using TypeScript and generate type definitions directly from the database.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Like everything in tech (and fashion), databases are coming full circle. The good news is that Database Design \u0026amp; Development course you bought on Udemy for $4.99 in 2015 is still up to date.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://grnh.se/1409f6a25us\"\u003eFull-stack software engineer at Phantom\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003ePhantom is looking for fullstack engineers who enjoy massive ownership and freedom, and who want to work with a variety of technologies, including React, TypeScript, Postgres, Docker, and more. You’ll be owning features on their web platform and working closely with the founders to improve the product. The role is fully remote.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz — Sponsored by \u003ca href=\"https://getstream.io/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial.\"\u003eStream\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eStream is the #1 chat platform out there. It’s used by small startups and giants like Adobe, Soundcloud and Match-dot-com.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eWhat order will this code log?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e arr \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e elem \u003cspan class=\"token keyword\"\u003eof\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eelem\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e elem\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eHaoran Xu (from the WebKit team) wrote about how \u003ca href=\"https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/\"\u003egarbage collection works in JSC\u003c/a\u003e (WebKit’s JavaScript engine) in a way that mere mortals like you and me can understand — which is great because \u003ca href=\"https://www.youtube.com/watch?v=ZydmsWtkUiw\"\u003eI love garbage\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe New Relic team wrote about \u003ca href=\"https://newrelic.com/blog/how-to-relic/synthetic-user-testing?utm_source=bytes\u0026amp;utm_medium=community\u0026amp;utm_campaign=global-fy23-q2-synthetic-user-testing\"\u003eBuilding your own synthetic user testing\u003c/a\u003e, which will help you understand how to write tests that simulate the behavior of your users. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://web.dev/css-individual-transform-properties/\"\u003eIndividual transform properties\u003c/a\u003e are here. Now you can use translate, scale and rotate without translate — but only if you promise to not to give me motion sickness (in which case we’ll have them removed from the spec).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eElectron version \u003ccode\u003e20.0.0\u003c/code\u003e just dropped, and it uses Node \u003ccode\u003e16.15.0\u003c/code\u003e, Chromium 104, and V8 \u003ccode\u003e10.4\u003c/code\u003e. If all these numbers going up means my laptop doesn’t catch fire anymore when Slack is open, then let’s gooo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://lyrajs.io/\"\u003eLyra\u003c/a\u003e is an in-memory, full-text search written in TypeScript that’s “typo tolerant” — which is refreshing given how “typo intolerant” many readers of this newsletter are. (Still love you.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarvin Hagemeister (Preact core team member) wrote about one of the most essential skills in DevRel: how to cook the books for your \u003ca href=\"https://marvinh.dev/blog/benchmarks/\"\u003eperformance benchmarks\u003c/a\u003e. It’s nice to see a fellow graduate from the \u003ca href=\"https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics\"\u003eMark Twain School of Data Science\u003c/a\u003e doing so well.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReact-Aria is showing off its summer bod with \u003ca href=\"https://react-spectrum.adobe.com/releases/2022-07-09.html\"\u003ethis latest release\u003c/a\u003e, which dramatically reduces its bundle size.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEvery great npm package name is taken, right? Wrongo! Steve Ruiz debunked that myth with his new reactive state management library - \u003ca href=\"https://www.npmjs.com/package/liquorstore\"\u003eliquorstore\u003c/a\u003e. I haven’t felt this rebellious installing something since I downloaded Beer Hunt onto my TI-89 in high school.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz Solution — Sponsored by \u003ca href=\"https://getstream.io/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial.\"\u003eStream\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eWhat order will this code log?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e arr \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e elem \u003cspan class=\"token keyword\"\u003eof\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eelem\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e elem\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you chose \u003ccode\u003e[7, 1, 4, 3, 2]\u003c/code\u003e because of how most run-times \u003ca href=\"https://chromestatus.com/feature/4889002157015040\"\u003e(used to)\u003c/a\u003e handle clamping, you are probably very smart and in this scenario, very wrong.\u003c/p\u003e\n\u003cp\u003eThe answer is \u003ccode\u003e[1, 2, 3, 4, 7]\u003c/code\u003e –\u0026nbsp;or as I like to call it, a really bad way to pass a sorting algorithm technical interview.\u003c/p\u003e\n\u003cp\u003eShout out to \u003ca href=\"https://twitter.com/rauschma/status/1556316417695293440\"\u003ethe Doctor\u003c/a\u003e for the source.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"112"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"112"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

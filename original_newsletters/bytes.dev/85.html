@@ -1,0 +1,316 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #85 - Render me, tenderly</title><link rel="canonical" href="https://bytes.dev/archives/85"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;re checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries."/><meta property="og:url" content="https://bytes.dev/archives/85"/><meta property="og:title" content="Bytes #85 - Render me, tenderly"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/denonuggs.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;re checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #85 - Render me, tenderly"/><meta property="twitter:description" content="This issue, we&#x27;re checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/denonuggs.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Render me, tenderly</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->85<!-- -->.</span><span class="mr-6 font-bold">January 31, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week we’re checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries. Welcome to #85.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/denonuggs.png" alt="Deno Nuggets">
+</p><p class="image-alt">Backup Monetization Strategy</p><p></p>
+<h2>Checking in on Deno</h2>
+<p><strong>The case for Deno was simple:</strong> Ryan Dahl had built Node almost a decade earlier — but after re-watching one of Heath Ledger’s <a href="https://www.imdb.com/title/tt0147800/mediaviewer/rm953815296/">greatest films</a>, he decided there were <a href="https://www.youtube.com/watch?v=M3BM9TB-8yA">10 things he hated</a> about the OG JavaScript runtime. So, he built a new-and-improved runtime from scratch that used V8 and Rust, was “secure by default,” and didn’t need any of those heavy <code>node_modules</code>.</p>
+<p><strong>Deno v1 was <del>hatched</del> born in May 2020,</strong> and the hype meter was instantly cranked up to eleven. Every blogger was writing think pieces about it, every newsletter was newslettering about it, and every YouTuber was making videos about how it was the next big thing.</p>
+<p><strong>Fast forward to today,</strong> and it turns out that Deno <em>hasn’t</em> killed off Node (despite what some thoughtfluencers on Twitter would have you believe). But even though there’s definitely less Deno buzz now than there was back in Summer 2020 (and more Covid WTF?), last year was still <a href="https://deno.com/blog/deno-in-2021">a big year for the Deno team:</a></p>
+<ul>
+<li>
+<p>They formed <a href="https://deno.com/blog/the-deno-company">Deno the Company</a>, raised $4.9m, and launched the first beta of Deno Deploy. (More VC-backed open source projects monetizing via a serverless cloud product, yayyy <span role="img" aria-label="grimacing face">😬</span>)</p>
+</li>
+<li>
+<p>They used some of that cash to pay to <a href="https://deno.com/blog/deno-joins-tc39">join the TC39 Working Group</a> — which is a kind of like paying to <del>have friends in college</del> <em>join a fraternity</em>, but with crazier hazing rituals (don’t ask).</p>
+</li>
+<li>
+<p>They shipped 11 minor releases that introduced new features like a moire optimized core, native HTTP server bindings, and more.</p>
+</li>
+<li>
+<p>They started working on Node.js compatibility, which will allow Deno to <a href="https://www.youtube.com/watch?v=45RYX77veK0">seamlessly run npm packages developed for Node</a>. This is a big shift from Deno’s early stance of (and I quote), “Node modules are the devil.” But it turns out that being detached from the npm ecosystem is a bug, not a feature, when you’re trying to get developers to use your runtime.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> Deno might still be the future of server-side JavaScript, and they’ve made lots of progress already — but it’s clear that they’re not replacing Node overnight. And with venture capital involved, the clock is always ticking.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/clerk.png" alt="Thanos Meme">
+</p><p class="image-alt">The jank is… inevitable [sponsored]</p><p></p>
+<h2><a href="https://clerk.dev/">Clerk.dev</a> — user management, now with less pain!</h2>
+<p>There’s only one lesson I hope my kids learn from me: “the best code is the code that <em>you</em> don’t have to write/maintain.” (<em>“Be a good person”</em> was a close second place.)</p>
+<p>So if any of my offspring ever builds an app, they better use <a href="https://clerk.dev/">Clerk.dev</a> for all their user management garbage.</p>
+<p>Clerk has all the <a href="https://docs.clerk.dev/components/introduction">front-end components</a> and back-end logic you need to quickly set up all types of <a href="https://docs.clerk.dev/popular-guides/setup-your-application#authentication">auth</a>, session management, user profiles, B2B features, etc.</p>
+<p>It also integrates super smoothly with React, Expo, <a href="https://docs.clerk.dev/get-started/nextjs">Next</a>, and Gatsby to save you even more time.</p>
+<p>Your users don’t care <em>how</em> your user management system works — they just want it to work, so they can get busy losing money on NFTs, gambling on virtual horses, or whatever it is your app does.</p>
+<p><span role="img" aria-label="backhand index pointing right">👉</span> <a href="https://clerk.dev/pricing">Check out Clerk.dev’s free tier</a> and stop worrying about the boring code nobody cares about.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/typecheck.png" alt="Typechecking meme">
+</p><p class="image-alt">If you’re gonna drink, I’d rather you do it in the house</p><p></p>
+<h2>Type checking is finally getting an upgrade (we hope)</h2>
+<p><strong>JavaScript build tools have gotten a lot faster</strong> in the past couple years, thanks to hot new projects like SWC, esbuild, and others — written in languages like Rust and Go.</p>
+<p>But TypeScript’s type checker, <code>tsc</code> is still slow <del>AF</del> ATDM (<em>As The Dune Movie</em>). Good news though: this week, the folks behind SWC announced that they’re working on <a href="https://kdy1.dev/posts/2022/1/tsc-go">a Go port of the type checker</a>.</p>
+<p><strong>But why is it slow?</strong> Stripping out all the TypeScript code so that browsers can run the compiled JavaScript is already super easy (and fast) — Babel, esbuild, and SWC do this without breaking a sweat.</p>
+<p>The hard (and slow) part is checking the code for type errors. So far, <code>tsc</code> (a CLI tool provided by the TypeScript team) is the only tool that can do this. It’s what powers your VS Code error highlights and autocompletion and outputs the <code>.d.ts</code> files that libraries use to share their types. But it’s written in JavaScript — which leaves lots of room for performance improvements.</p>
+<p><strong>Why hasn’t anyone built a faster version?</strong> Believe me, <a href="https://zackoverflow.dev/writing/tyty">people have tried</a>. The teams behind <a href="https://github.com/swc-project/swc/issues/571#issuecomment-572304093">SWC</a> and <a href="https://github.com/denoland/deno/issues/5432">Deno</a> have been working on it for <em>over 2 years</em>, with nothing to show for it. Turns out that TypeScript has inherited lots of gnarly, weird bits of JavaScript — which makes the type checker a minefield of edge cases.</p>
+<p><strong>What makes this latest attempt any different?</strong></p>
+<ul>
+<li>
+<p>Instead of rewriting <code>tsc</code>, the SWC team will port it, so the structure and behavior of the code will be the same as its JS counterpart (much smoother transition).</p>
+</li>
+<li>
+<p>Vercel is bankrolling the whole project with the promise to open-source it. And as we all know, <del>Daddy Warbucks</del> Guillermo has pretty deep pockets these days.</p>
+</li>
+<li>
+<p>Earlier failed attempts at a Rust rewrite should provide valuable insights for this new effort in Go.</p>
+</li>
+<li>
+<p>It’s <a href="https://news.ycombinator.com/item?id=30079403">Evan Wallace-approved</a>.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> If they can pull this off, we should start a GoFundMe to pay for a Cameo of Jeff Goldblum saying his <a href="https://www.youtube.com/watch?v=gXBJRz_33Y8">most iconic line</a>.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Did you know that when React first launched, people <em>really</em> didn’t like it? True story, so true, in fact - that I spent 60 hours making this video to tell it. I bring you <a href="https://www.youtube.com/watch?v=Wm_xI7KntDs">The Story of React</a>. If anyone has a connection at the Hallmark Channel, lmk.</p>
+</li>
+<li>
+<p>The annual <strong>State of JavaScript</strong> report needs you to <a href="https://stateofjs.com/?source=bytes">take this survey</a>, so that they can crown 2021’s JavaScript Prom King &amp; Queen. The theme of this year’s dance is <em>“Render me, tenderly”</em> — so please dress accordingly.</p>
+</li>
+<li>
+<p>The CSS Tricks crew wrote an in-depth <a href="https://css-tricks.com/a-complete-beginners-guide-to-npm/">Beginner’s Guide to npm</a>, just in time for you to be able run all the npm packages you want in Deno.</p>
+</li>
+<li>
+<p>Alan Dávalos wrote about <a href="https://engineering.linecorp.com/en/blog/the-baseline-for-web-development-in-2022/">the baseline for web development in 2022</a>. TLDR — we’re all overusing JavaScript, so I guess Astro is the only thing that can save our <a href="https://www.youtube.com/watch?v=zyDvo6s6Z4Q&amp;t=65s">little broken bodies</a>.</p>
+</li>
+<li>
+<p><a href="https://recoiljs.org/blog/2022/01/28/0.6.0-release/">Recoil v0.6</a> was just released with improved support for React 18 features like concurrent rendering and transitions. It must feel nice to be so ahead of schedule, since we all know React 18 won’t actually come out until June (2023).</p>
+</li>
+<li>
+<p>Chirpy wrote about <a href="https://chirpy.dev/blog/open-source">deciding to open source its Disqus-style comment system</a>, which differentiates itself from Disqus by <em>not</em> sharing the personal data of 10 million+ users <a href="https://twitter.com/martingund/status/1207327648093003777">without their consent</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/infinitered/gluegun">Gluegun</a> is a cool toolkit for building TypeScript-powered command-line apps that’s named after my favorite tool for bedazzling my True Religion jeans.</p>
+</li>
+<li>
+<p><a href="https://github.com/lucaburgio/iconoir">Iconoir</a> is an open source library of 1,000+ SVG Icons that are all free to use. Since it’s called Ico<em><strong>noir</strong></em>, I assume that the icons have the same <em>dark-and-mysterious</em> vibe as a big-city detective with a troubled past who isn’t afraid to get his hands dirty if it helps him catch the bad guys — until one day he wakes up, takes a long drag of a cigarette and thinks to himself, “What if I’m the bad guy? What if I’ve become the very thing I swore to defend this city against when I first put on the badge all those years ago?” But then he pops another Xanax and buries those thoughts deep, because darnit — he’s got a city to save.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Render me, tenderly","date":"2022-01-31","description":"This issue, we're checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries.","featuredImage":"https://bytes.dev/images/content/denonuggs.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week we’re checking in on Deno, praying for faster type checking, and anthropomorphizing new icon libraries. Welcome to #85.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/denonuggs.png\" alt=\"Deno Nuggets\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eBackup Monetization Strategy\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eChecking in on Deno\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eThe case for Deno was simple:\u003c/strong\u003e Ryan Dahl had built Node almost a decade earlier — but after re-watching one of Heath Ledger’s \u003ca href=\"https://www.imdb.com/title/tt0147800/mediaviewer/rm953815296/\"\u003egreatest films\u003c/a\u003e, he decided there were \u003ca href=\"https://www.youtube.com/watch?v=M3BM9TB-8yA\"\u003e10 things he hated\u003c/a\u003e about the OG JavaScript runtime. So, he built a new-and-improved runtime from scratch that used V8 and Rust, was “secure by default,” and didn’t need any of those heavy \u003ccode\u003enode_modules\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eDeno v1 was \u003cdel\u003ehatched\u003c/del\u003e born in May 2020,\u003c/strong\u003e and the hype meter was instantly cranked up to eleven. Every blogger was writing think pieces about it, every newsletter was newslettering about it, and every YouTuber was making videos about how it was the next big thing.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFast forward to today,\u003c/strong\u003e and it turns out that Deno \u003cem\u003ehasn’t\u003c/em\u003e killed off Node (despite what some thoughtfluencers on Twitter would have you believe). But even though there’s definitely less Deno buzz now than there was back in Summer 2020 (and more Covid WTF?), last year was still \u003ca href=\"https://deno.com/blog/deno-in-2021\"\u003ea big year for the Deno team:\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eThey formed \u003ca href=\"https://deno.com/blog/the-deno-company\"\u003eDeno the Company\u003c/a\u003e, raised $4.9m, and launched the first beta of Deno Deploy. (More VC-backed open source projects monetizing via a serverless cloud product, yayyy \u003cspan role=\"img\" aria-label=\"grimacing face\"\u003e😬\u003c/span\u003e)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey used some of that cash to pay to \u003ca href=\"https://deno.com/blog/deno-joins-tc39\"\u003ejoin the TC39 Working Group\u003c/a\u003e — which is a kind of like paying to \u003cdel\u003ehave friends in college\u003c/del\u003e \u003cem\u003ejoin a fraternity\u003c/em\u003e, but with crazier hazing rituals (don’t ask).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey shipped 11 minor releases that introduced new features like a moire optimized core, native HTTP server bindings, and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey started working on Node.js compatibility, which will allow Deno to \u003ca href=\"https://www.youtube.com/watch?v=45RYX77veK0\"\u003eseamlessly run npm packages developed for Node\u003c/a\u003e. This is a big shift from Deno’s early stance of (and I quote), “Node modules are the devil.” But it turns out that being detached from the npm ecosystem is a bug, not a feature, when you’re trying to get developers to use your runtime.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Deno might still be the future of server-side JavaScript, and they’ve made lots of progress already — but it’s clear that they’re not replacing Node overnight. And with venture capital involved, the clock is always ticking.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/clerk.png\" alt=\"Thanos Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe jank is… inevitable [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://clerk.dev/\"\u003eClerk.dev\u003c/a\u003e — user management, now with less pain!\u003c/h2\u003e\n\u003cp\u003eThere’s only one lesson I hope my kids learn from me: “the best code is the code that \u003cem\u003eyou\u003c/em\u003e don’t have to write/maintain.” (\u003cem\u003e“Be a good person”\u003c/em\u003e was a close second place.)\u003c/p\u003e\n\u003cp\u003eSo if any of my offspring ever builds an app, they better use \u003ca href=\"https://clerk.dev/\"\u003eClerk.dev\u003c/a\u003e for all their user management garbage.\u003c/p\u003e\n\u003cp\u003eClerk has all the \u003ca href=\"https://docs.clerk.dev/components/introduction\"\u003efront-end components\u003c/a\u003e and back-end logic you need to quickly set up all types of \u003ca href=\"https://docs.clerk.dev/popular-guides/setup-your-application#authentication\"\u003eauth\u003c/a\u003e, session management, user profiles, B2B features, etc.\u003c/p\u003e\n\u003cp\u003eIt also integrates super smoothly with React, Expo, \u003ca href=\"https://docs.clerk.dev/get-started/nextjs\"\u003eNext\u003c/a\u003e, and Gatsby to save you even more time.\u003c/p\u003e\n\u003cp\u003eYour users don’t care \u003cem\u003ehow\u003c/em\u003e your user management system works — they just want it to work, so they can get busy losing money on NFTs, gambling on virtual horses, or whatever it is your app does.\u003c/p\u003e\n\u003cp\u003e\u003cspan role=\"img\" aria-label=\"backhand index pointing right\"\u003e👉\u003c/span\u003e \u003ca href=\"https://clerk.dev/pricing\"\u003eCheck out Clerk.dev’s free tier\u003c/a\u003e and stop worrying about the boring code nobody cares about.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/typecheck.png\" alt=\"Typechecking meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eIf you’re gonna drink, I’d rather you do it in the house\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eType checking is finally getting an upgrade (we hope)\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eJavaScript build tools have gotten a lot faster\u003c/strong\u003e in the past couple years, thanks to hot new projects like SWC, esbuild, and others — written in languages like Rust and Go.\u003c/p\u003e\n\u003cp\u003eBut TypeScript’s type checker, \u003ccode\u003etsc\u003c/code\u003e is still slow \u003cdel\u003eAF\u003c/del\u003e ATDM (\u003cem\u003eAs The Dune Movie\u003c/em\u003e). Good news though: this week, the folks behind SWC announced that they’re working on \u003ca href=\"https://kdy1.dev/posts/2022/1/tsc-go\"\u003ea Go port of the type checker\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBut why is it slow?\u003c/strong\u003e Stripping out all the TypeScript code so that browsers can run the compiled JavaScript is already super easy (and fast) — Babel, esbuild, and SWC do this without breaking a sweat.\u003c/p\u003e\n\u003cp\u003eThe hard (and slow) part is checking the code for type errors. So far, \u003ccode\u003etsc\u003c/code\u003e (a CLI tool provided by the TypeScript team) is the only tool that can do this. It’s what powers your VS Code error highlights and autocompletion and outputs the \u003ccode\u003e.d.ts\u003c/code\u003e files that libraries use to share their types. But it’s written in JavaScript — which leaves lots of room for performance improvements.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy hasn’t anyone built a faster version?\u003c/strong\u003e Believe me, \u003ca href=\"https://zackoverflow.dev/writing/tyty\"\u003epeople have tried\u003c/a\u003e. The teams behind \u003ca href=\"https://github.com/swc-project/swc/issues/571#issuecomment-572304093\"\u003eSWC\u003c/a\u003e and \u003ca href=\"https://github.com/denoland/deno/issues/5432\"\u003eDeno\u003c/a\u003e have been working on it for \u003cem\u003eover 2 years\u003c/em\u003e, with nothing to show for it. Turns out that TypeScript has inherited lots of gnarly, weird bits of JavaScript — which makes the type checker a minefield of edge cases.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat makes this latest attempt any different?\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eInstead of rewriting \u003ccode\u003etsc\u003c/code\u003e, the SWC team will port it, so the structure and behavior of the code will be the same as its JS counterpart (much smoother transition).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVercel is bankrolling the whole project with the promise to open-source it. And as we all know, \u003cdel\u003eDaddy Warbucks\u003c/del\u003e Guillermo has pretty deep pockets these days.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEarlier failed attempts at a Rust rewrite should provide valuable insights for this new effort in Go.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt’s \u003ca href=\"https://news.ycombinator.com/item?id=30079403\"\u003eEvan Wallace-approved\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e If they can pull this off, we should start a GoFundMe to pay for a Cameo of Jeff Goldblum saying his \u003ca href=\"https://www.youtube.com/watch?v=gXBJRz_33Y8\"\u003emost iconic line\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eDid you know that when React first launched, people \u003cem\u003ereally\u003c/em\u003e didn’t like it? True story, so true, in fact - that I spent 60 hours making this video to tell it. I bring you \u003ca href=\"https://www.youtube.com/watch?v=Wm_xI7KntDs\"\u003eThe Story of React\u003c/a\u003e. If anyone has a connection at the Hallmark Channel, lmk.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe annual \u003cstrong\u003eState of JavaScript\u003c/strong\u003e report needs you to \u003ca href=\"https://stateofjs.com/?source=bytes\"\u003etake this survey\u003c/a\u003e, so that they can crown 2021’s JavaScript Prom King \u0026amp; Queen. The theme of this year’s dance is \u003cem\u003e“Render me, tenderly”\u003c/em\u003e — so please dress accordingly.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe CSS Tricks crew wrote an in-depth \u003ca href=\"https://css-tricks.com/a-complete-beginners-guide-to-npm/\"\u003eBeginner’s Guide to npm\u003c/a\u003e, just in time for you to be able run all the npm packages you want in Deno.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlan Dávalos wrote about \u003ca href=\"https://engineering.linecorp.com/en/blog/the-baseline-for-web-development-in-2022/\"\u003ethe baseline for web development in 2022\u003c/a\u003e. TLDR — we’re all overusing JavaScript, so I guess Astro is the only thing that can save our \u003ca href=\"https://www.youtube.com/watch?v=zyDvo6s6Z4Q\u0026amp;t=65s\"\u003elittle broken bodies\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://recoiljs.org/blog/2022/01/28/0.6.0-release/\"\u003eRecoil v0.6\u003c/a\u003e was just released with improved support for React 18 features like concurrent rendering and transitions. It must feel nice to be so ahead of schedule, since we all know React 18 won’t actually come out until June (2023).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eChirpy wrote about \u003ca href=\"https://chirpy.dev/blog/open-source\"\u003edeciding to open source its Disqus-style comment system\u003c/a\u003e, which differentiates itself from Disqus by \u003cem\u003enot\u003c/em\u003e sharing the personal data of 10 million+ users \u003ca href=\"https://twitter.com/martingund/status/1207327648093003777\"\u003ewithout their consent\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/infinitered/gluegun\"\u003eGluegun\u003c/a\u003e is a cool toolkit for building TypeScript-powered command-line apps that’s named after my favorite tool for bedazzling my True Religion jeans.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lucaburgio/iconoir\"\u003eIconoir\u003c/a\u003e is an open source library of 1,000+ SVG Icons that are all free to use. Since it’s called Ico\u003cem\u003e\u003cstrong\u003enoir\u003c/strong\u003e\u003c/em\u003e, I assume that the icons have the same \u003cem\u003edark-and-mysterious\u003c/em\u003e vibe as a big-city detective with a troubled past who isn’t afraid to get his hands dirty if it helps him catch the bad guys — until one day he wakes up, takes a long drag of a cigarette and thinks to himself, “What if I’m the bad guy? What if I’ve become the very thing I swore to defend this city against when I first put on the badge all those years ago?” But then he pops another Xanax and buries those thoughts deep, because darnit — he’s got a city to save.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"85"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"85"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

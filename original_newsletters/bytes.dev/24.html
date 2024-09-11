@@ -1,0 +1,424 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #24 - The keys to the universe</title><link rel="canonical" href="https://bytes.dev/archives/24"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Svelte turns 4, a guide to useReducer, and learn to impress your coworkers with .reduce"/><meta property="og:url" content="https://bytes.dev/archives/24"/><meta property="og:title" content="Bytes #24 - The keys to the universe"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/4.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Svelte turns 4, a guide to useReducer, and learn to impress your coworkers with .reduce"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #24 - The keys to the universe"/><meta property="twitter:description" content="Svelte turns 4, a guide to useReducer, and learn to impress your coworkers with .reduce"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/4.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">The keys to the universe</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->24<!-- -->.</span><span class="mr-6 font-bold">November 30, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Not sure why (<span role="img" aria-label="poultry leg">🍗</span>?), but this was a slow news week which means this will be a smaller issue than normal.</p>
+<p>OK, no more promotion until next year. Pinky promise.</p>
+<hr>
+<h2>TWIH — Svelte turns 4</h2>
+<p><img src="https://bytes.dev/images/content/4.jpg" alt="Svelte turns 4">
+</p><p class="image-alt">HAPPY HAPPY BIRTHDAY, FROM ALL OF US TO YOU</p><p></p>
+<p><strong>While we were stuffing our faces</strong> with pie last Thursday, we paused to give thanks for Svelte, which was first released 4 years ago on Thanksgiving.</p>
+<p>When creator (and part-time shampoo model) Rich Harris first announced Svelte back in 2016, he referred to it as <a href="https://svelte.dev/blog/frameworks-without-the-framework">“a framework without the framework.”</a> That’s a very meta way of saying that Rich believed that frameworks were better for structuring your thoughts than structuring your actual code, because of how a framework’s bloat would often slow down applications.</p>
+<p>So Rich dreamed up a <del>brave</del> <em>svelte</em> new world where the framework didn’t run in the browser, but instead converted your code into lower-level vanilla JavaScript that didn’t need to ship a runtime with it. That way, you could still have the benefits of a framework, but your app would be lighter and faster.</p>
+<p>Fast forward 4 years and that’s still the driving philosophy behind Svelte, along with these <strong>3 main selling points</strong> that have emerged:</p>
+<ol>
+<li>
+<p>No virtual DOM — because Svelte manipulates the DOM directly.</p>
+</li>
+<li>
+<p>Write components in HTML, CSS, and JavaScript without boilerplate.</p>
+</li>
+<li>
+<p>Bring <a href="https://www.youtube.com/watch?v=AdNJ3fydeao">“true reactivity”</a> to JavaScript without state management libraries.</p>
+</li>
+</ol>
+<h3>The Bottom Line</h3>
+<p>After 4 years, Svelte still sits somewhere in between “Hipster Devs Only” and “Promising Paradigm Shift” on the JavaScript framework popularity spectrum. It’s a highly respected project with a loyal following, but (objectively) still hasn’t achieved a lot of mainstream adoption.</p>
+<p>So what’s next for Svelte?</p>
+<p>Rich and the team are focused on improving the developer experience, making it a lot easier to get started, while also increasing the framework’s versatility.</p>
+<p>We’re excited to see what’s in store for the next 4 years, and we’ll check in again on Thanksgiving 2024.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Speaking of Svelte, <a href="https://undefined.fm/radio/vue-vs-svelte-with-evan-you-and-rich-harris">Rich Harris and Evan You went on last week’s Undefined Podcast</a> to argue to the death about Svelte vs. Vue. (K fine, it was just a respectful discussion.)</p>
+</li>
+<li>
+<p>We released <a href="https://ui.dev/usereducer/">Understanding React’s useReducer Hook</a> if you want to impress all your coworkers and join team #neveruseState for the status signalling it brings.</p>
+</li>
+<li>
+<p><a href="https://github.com/evinism/timebomb">Timebomb is a cross-language library that fails loudly if a TODO has not been completed before a deadline you set.</a> Because we could all use a little more stress around the holidays.</p>
+</li>
+<li>
+<p>Next.js just released <a href="https://github.com/shuding/nextra">a static site generator called Nextra.</a> I guess <em>Nextby</em> was already taken.</p>
+</li>
+<li>
+<p><a href="https://github.com/ben-rogerson/twin.macro">Twin.macro blends the magic of Tailwind</a> with the flexibility of css-in-js at build time.</p>
+</li>
+<li>
+<p>Danilo created <a href="https://namingmyfunction.vercel.app/">Naming My Function,</a> which is basically a Buzzfeed quiz that helps you with the most difficult thing about programming.</p>
+</li>
+<li>
+<p><a href="https://github.com/talentlessguy/tinyhttp">tinyhttp just released v1.0</a> of its speedy, Express-like framework. Written in TypeScript, compiled to native ESM, and uses the bare minimum amount of dependencies.</p>
+</li>
+<li>
+<p>Vadim did a <a href="https://www.youtube.com/watch?v=a3DVa_ErUp0">4-hour livestream on cloning Twitter Fleets with React Native.</a> Fun fact: Twitter called them “Fleets” because Jack Dorsey is slowly descending into madness like Sweeney Todd — <a href="https://youtu.be/IzFw-TdkJog?t=456">the Demon Barber of <em>Fleet</em> Street.</a></p>
+</li>
+</ol>
+<hr>
+<h2>JS Tip - .reduce</h2>
+<p><code>.reduce</code> holds the keys to the universe. If you master it, you’ll be able to do pretty much anything you want with arrays. Before you even look at the API, it’s important to understand why <code>.reduce</code> exists. The idea of <code>.reduce</code> is that you can take an array and transform it into anything else - another array, an object, an integer, literally anything. Why would you ever want to do that? Look at every single example on this whole page. In each one, we’re taking an array and transforming it in some way - mostly to another array. Let’s look at some other common ways you’d transform an array.</p>
+<pre><code class="language-md">[1,2,3] -&gt; sum-&gt; 6
+
+---
+
+[
+ { name: 'Tyler', age: 28},
+ { name: 'Mikenzi', age: 26},
+ { name: 'Blaine', age: 30 }
+] -&gt; Just the names -&gt; ['Tyler', 'Mikenzi', 'Blaine']
+
+---
+
+[
+ { name: 'Tyler', age: 28},
+ { name: 'Mikenzi', age: 26},
+ { name: 'Blaine', age: 30 }
+] -&gt; Length and age count -&gt; { users: 3, ageTotal: 84}
+
+---
+
+[
+  { id: 1, stars: 13, text: 'Turns out "git reset --hard HEAD^" was a terrible idea.' },
+  { id: 2, stars: 87, text: 'Tech conferences are too expensive.' },
+  { id: 3, stars: 51, text: 'Clean code is subjective. Optimize for deletion.' },
+  { id: 4, stars: 19, text: 'Maybe the real benefit of open source was the friendships we made along the way?' },
+]
+  -&gt; Remove the stars property -&gt;
+[
+  { id: 1, text: 'Turns out "git reset --hard HEAD^" was a terrible idea.' },
+  { id: 2, text: 'Tech conferences are too expensive.' },
+  { id: 3, text: 'Clean code is subjective. Optimize for deletion.' },
+  { id: 4, text: 'Maybe the real benefit of open source was the friendships we made along the way?' },
+]
+</code></pre>
+<p>Here’s how I think about whether I should use <code>.reduce</code> or not.</p>
+<pre class="language-js"><code class="language-js"><span class="token number">1</span><span class="token punctuation">)</span> Am <span class="token constant">I</span> transforming an array into another array
+just by removing some elements<span class="token operator">?</span> Use <span class="token punctuation">.</span>filter
+
+<span class="token number">2</span><span class="token punctuation">)</span> Am <span class="token constant">I</span> transforming an array into another array<span class="token operator">?</span> Use <span class="token punctuation">.</span>map
+
+<span class="token number">3</span><span class="token punctuation">)</span> Am <span class="token constant">I</span> transforming an array into something other than another array<span class="token operator">?</span> Use <span class="token punctuation">.</span>reduce
+</code></pre>
+<p>Now that we understand what <code>.reduce</code> is used for, let’s take a look at the API. Don’t worry if this is confusing, with great power comes great initial confusion. Google “reduce JavaScript” and read the first two pages of results. It’ll be worth it - promise.</p>
+<p>I’ll first show you how to accomplish our goal of summing up an array of number into a single integer, then we’ll walk through it.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> total <span class="token operator">+</span> num
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 6</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 15</span>
+</code></pre>
+<p>Remember, the goal here is to take the array that’s being passed into the <code>sum</code> function and transform it into a single integer, which is the summation of all the numbers in the array.</p>
+<p>The first thing you’ll notice is that we pass <code>.reduce</code> two arguments. The first is a function that will be invoked for every element in the array. The second is what we’ll call the “initial value”. In our example, because we’re adding all the numbers together, we want the initial value to be 0 (so we don’t run into any NaN problems). If we were creating a new object, the initial value would be an empty object. If we were creating an array, it would be an empty array.</p>
+<p>Next, we need to figure out what the parameters are for the function we pass to <code>.reduce</code>. In our example, we named them <code>total</code> and <code>num</code>. Remember, this function is going to be called for each element in the array. The reason we named it <code>num</code> is because we’re reducing over an array full of integers and for each iteration, <code>num</code> is going to be whatever the number is in the array. We can see this in the example below.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// 1</span>
+<span class="token comment">// 2</span>
+<span class="token comment">// 3</span>
+</code></pre>
+<p>That makes sense. The next thing we need to figure out is <code>total</code>. This is where it gets a little mind-bendy. In our example, <code>total</code> is going to initially be 0, since that’s what we set our initial value to. After that, <code>total</code> is going to be whatever the previous iteration returned. We can see this clearly in the example below.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>total<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The first time our callback function runs, it logs 0 to the console. Again, that’s because we set the initial value to 0. Then, for each new time the function runs, we get a timestamp in the console because that’s what we’re returning.</p>
+<p>Now let’s take this knowledge and look back at our initial solution.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">total<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> total <span class="token operator">+</span> num
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The very first time the callback function runs, <code>total</code> will be 0 and <code>num</code> will be 1. Then, the next iteration, <code>total</code> will be 1 and num will be <code>2</code>. The reason <code>total</code> is one is because we previously returned <code>0 + 1</code>. Then, <code>total</code> will be 3 and <code>num</code> will be 3. Then, there are no more elements in the array so what gets returned is 6. We can see this in the diagram below.</p>
+<pre class="language-js"><code class="language-js">Initial Value<span class="token operator">:</span> <span class="token number">0</span>
+
+First iteration<span class="token operator">:</span>
+  <span class="token literal-property property">total</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">1</span>
+
+Second iteration<span class="token operator">:</span>
+  <span class="token literal-property property">total</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">2</span>
+
+Third iteration<span class="token operator">:</span>
+  <span class="token literal-property property">total</span><span class="token operator">:</span> <span class="token number">3</span>
+  <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">3</span>
+
+No more elements <span class="token keyword">in</span> the array<span class="token punctuation">,</span> <span class="token keyword">return</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">3</span> which is <span class="token number">6.</span>
+</code></pre>
+<p>Let’s look at the example where we convert an array of objects into another object.</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">[</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Tyler'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">28</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Mikenzi'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">26</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Blaine'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Length and age count <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token literal-property property">users</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token literal-property property">ageTotal</span><span class="token operator">:</span> <span class="token number">84</span><span class="token punctuation">}</span>
+</code></pre>
+<p>First, what do we want the initial value to be? We want it to be an object with a <code>users</code> property as well as an <code>ageTotal</code> property, both set to <code>0</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getUserData</span> <span class="token punctuation">(</span><span class="token parameter">users</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> users<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">users</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">ageTotal</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Now we need to figure out what each iteration looks like. We know what we want to return is the initial object, adding 1 to the <code>users</code> property and adding whatever the user’s age is to the <code>ageTotal</code> property.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getUserData</span> <span class="token punctuation">(</span><span class="token parameter">users</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> users<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> user</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    data<span class="token punctuation">.</span>users <span class="token operator">+=</span> <span class="token number">1</span>
+    data<span class="token punctuation">.</span>ageTotal <span class="token operator">+=</span> user<span class="token punctuation">.</span>age
+
+    <span class="token keyword">return</span> data
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">users</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">ageTotal</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Tyler'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">28</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Mikenzi'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">26</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Blaine'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token function">getUserData</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span> <span class="token comment">// { users: 3, ageTotal: 84 }</span>
+</code></pre>
+<p>Impressive, yeah? Odds are this is still a bit fuzzy. The best thing you can do is take an array, and practice transforming it into anything you can think of.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"The keys to the universe","date":"2020-11-30","description":"Svelte turns 4, a guide to useReducer, and learn to impress your coworkers with .reduce","featuredImage":"https://bytes.dev/images/content/4.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eNot sure why (\u003cspan role=\"img\" aria-label=\"poultry leg\"\u003e🍗\u003c/span\u003e?), but this was a slow news week which means this will be a smaller issue than normal.\u003c/p\u003e\n\u003cp\u003eOK, no more promotion until next year. Pinky promise.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eTWIH — Svelte turns 4\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/4.jpg\" alt=\"Svelte turns 4\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eHAPPY HAPPY BIRTHDAY, FROM ALL OF US TO YOU\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhile we were stuffing our faces\u003c/strong\u003e with pie last Thursday, we paused to give thanks for Svelte, which was first released 4 years ago on Thanksgiving.\u003c/p\u003e\n\u003cp\u003eWhen creator (and part-time shampoo model) Rich Harris first announced Svelte back in 2016, he referred to it as \u003ca href=\"https://svelte.dev/blog/frameworks-without-the-framework\"\u003e“a framework without the framework.”\u003c/a\u003e That’s a very meta way of saying that Rich believed that frameworks were better for structuring your thoughts than structuring your actual code, because of how a framework’s bloat would often slow down applications.\u003c/p\u003e\n\u003cp\u003eSo Rich dreamed up a \u003cdel\u003ebrave\u003c/del\u003e \u003cem\u003esvelte\u003c/em\u003e new world where the framework didn’t run in the browser, but instead converted your code into lower-level vanilla JavaScript that didn’t need to ship a runtime with it. That way, you could still have the benefits of a framework, but your app would be lighter and faster.\u003c/p\u003e\n\u003cp\u003eFast forward 4 years and that’s still the driving philosophy behind Svelte, along with these \u003cstrong\u003e3 main selling points\u003c/strong\u003e that have emerged:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eNo virtual DOM — because Svelte manipulates the DOM directly.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWrite components in HTML, CSS, and JavaScript without boilerplate.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBring \u003ca href=\"https://www.youtube.com/watch?v=AdNJ3fydeao\"\u003e“true reactivity”\u003c/a\u003e to JavaScript without state management libraries.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eAfter 4 years, Svelte still sits somewhere in between “Hipster Devs Only” and “Promising Paradigm Shift” on the JavaScript framework popularity spectrum. It’s a highly respected project with a loyal following, but (objectively) still hasn’t achieved a lot of mainstream adoption.\u003c/p\u003e\n\u003cp\u003eSo what’s next for Svelte?\u003c/p\u003e\n\u003cp\u003eRich and the team are focused on improving the developer experience, making it a lot easier to get started, while also increasing the framework’s versatility.\u003c/p\u003e\n\u003cp\u003eWe’re excited to see what’s in store for the next 4 years, and we’ll check in again on Thanksgiving 2024.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eSpeaking of Svelte, \u003ca href=\"https://undefined.fm/radio/vue-vs-svelte-with-evan-you-and-rich-harris\"\u003eRich Harris and Evan You went on last week’s Undefined Podcast\u003c/a\u003e to argue to the death about Svelte vs. Vue. (K fine, it was just a respectful discussion.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWe released \u003ca href=\"https://ui.dev/usereducer/\"\u003eUnderstanding React’s useReducer Hook\u003c/a\u003e if you want to impress all your coworkers and join team #neveruseState for the status signalling it brings.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/evinism/timebomb\"\u003eTimebomb is a cross-language library that fails loudly if a TODO has not been completed before a deadline you set.\u003c/a\u003e Because we could all use a little more stress around the holidays.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNext.js just released \u003ca href=\"https://github.com/shuding/nextra\"\u003ea static site generator called Nextra.\u003c/a\u003e I guess \u003cem\u003eNextby\u003c/em\u003e was already taken.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ben-rogerson/twin.macro\"\u003eTwin.macro blends the magic of Tailwind\u003c/a\u003e with the flexibility of css-in-js at build time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDanilo created \u003ca href=\"https://namingmyfunction.vercel.app/\"\u003eNaming My Function,\u003c/a\u003e which is basically a Buzzfeed quiz that helps you with the most difficult thing about programming.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/talentlessguy/tinyhttp\"\u003etinyhttp just released v1.0\u003c/a\u003e of its speedy, Express-like framework. Written in TypeScript, compiled to native ESM, and uses the bare minimum amount of dependencies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVadim did a \u003ca href=\"https://www.youtube.com/watch?v=a3DVa_ErUp0\"\u003e4-hour livestream on cloning Twitter Fleets with React Native.\u003c/a\u003e Fun fact: Twitter called them “Fleets” because Jack Dorsey is slowly descending into madness like Sweeney Todd — \u003ca href=\"https://youtu.be/IzFw-TdkJog?t=456\"\u003ethe Demon Barber of \u003cem\u003eFleet\u003c/em\u003e Street.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Tip - .reduce\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003e.reduce\u003c/code\u003e holds the keys to the universe. If you master it, you’ll be able to do pretty much anything you want with arrays. Before you even look at the API, it’s important to understand why \u003ccode\u003e.reduce\u003c/code\u003e exists. The idea of \u003ccode\u003e.reduce\u003c/code\u003e is that you can take an array and transform it into anything else - another array, an object, an integer, literally anything. Why would you ever want to do that? Look at every single example on this whole page. In each one, we’re taking an array and transforming it in some way - mostly to another array. Let’s look at some other common ways you’d transform an array.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-md\"\u003e[1,2,3] -\u0026gt; sum-\u0026gt; 6\n\n---\n\n[\n { name: 'Tyler', age: 28},\n { name: 'Mikenzi', age: 26},\n { name: 'Blaine', age: 30 }\n] -\u0026gt; Just the names -\u0026gt; ['Tyler', 'Mikenzi', 'Blaine']\n\n---\n\n[\n { name: 'Tyler', age: 28},\n { name: 'Mikenzi', age: 26},\n { name: 'Blaine', age: 30 }\n] -\u0026gt; Length and age count -\u0026gt; { users: 3, ageTotal: 84}\n\n---\n\n[\n  { id: 1, stars: 13, text: 'Turns out \"git reset --hard HEAD^\" was a terrible idea.' },\n  { id: 2, stars: 87, text: 'Tech conferences are too expensive.' },\n  { id: 3, stars: 51, text: 'Clean code is subjective. Optimize for deletion.' },\n  { id: 4, stars: 19, text: 'Maybe the real benefit of open source was the friendships we made along the way?' },\n]\n  -\u0026gt; Remove the stars property -\u0026gt;\n[\n  { id: 1, text: 'Turns out \"git reset --hard HEAD^\" was a terrible idea.' },\n  { id: 2, text: 'Tech conferences are too expensive.' },\n  { id: 3, text: 'Clean code is subjective. Optimize for deletion.' },\n  { id: 4, text: 'Maybe the real benefit of open source was the friendships we made along the way?' },\n]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHere’s how I think about whether I should use \u003ccode\u003e.reduce\u003c/code\u003e or not.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e Am \u003cspan class=\"token constant\"\u003eI\u003c/span\u003e transforming an array into another array\njust by removing some elements\u003cspan class=\"token operator\"\u003e?\u003c/span\u003e Use \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003efilter\n\n\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e Am \u003cspan class=\"token constant\"\u003eI\u003c/span\u003e transforming an array into another array\u003cspan class=\"token operator\"\u003e?\u003c/span\u003e Use \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003emap\n\n\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e Am \u003cspan class=\"token constant\"\u003eI\u003c/span\u003e transforming an array into something other than another array\u003cspan class=\"token operator\"\u003e?\u003c/span\u003e Use \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ereduce\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow that we understand what \u003ccode\u003e.reduce\u003c/code\u003e is used for, let’s take a look at the API. Don’t worry if this is confusing, with great power comes great initial confusion. Google “reduce JavaScript” and read the first two pages of results. It’ll be worth it - promise.\u003c/p\u003e\n\u003cp\u003eI’ll first show you how to accomplish our goal of summing up an array of number into a single integer, then we’ll walk through it.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esum\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earr\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etotal\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e num\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e total \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e num\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esum\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// 6\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esum\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// 15\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eRemember, the goal here is to take the array that’s being passed into the \u003ccode\u003esum\u003c/code\u003e function and transform it into a single integer, which is the summation of all the numbers in the array.\u003c/p\u003e\n\u003cp\u003eThe first thing you’ll notice is that we pass \u003ccode\u003e.reduce\u003c/code\u003e two arguments. The first is a function that will be invoked for every element in the array. The second is what we’ll call the “initial value”. In our example, because we’re adding all the numbers together, we want the initial value to be 0 (so we don’t run into any NaN problems). If we were creating a new object, the initial value would be an empty object. If we were creating an array, it would be an empty array.\u003c/p\u003e\n\u003cp\u003eNext, we need to figure out what the parameters are for the function we pass to \u003ccode\u003e.reduce\u003c/code\u003e. In our example, we named them \u003ccode\u003etotal\u003c/code\u003e and \u003ccode\u003enum\u003c/code\u003e. Remember, this function is going to be called for each element in the array. The reason we named it \u003ccode\u003enum\u003c/code\u003e is because we’re reducing over an array full of integers and for each iteration, \u003ccode\u003enum\u003c/code\u003e is going to be whatever the number is in the array. We can see this in the example below.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esum\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earr\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etotal\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e num\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003enum\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esum\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 1\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 2\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// 3\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThat makes sense. The next thing we need to figure out is \u003ccode\u003etotal\u003c/code\u003e. This is where it gets a little mind-bendy. In our example, \u003ccode\u003etotal\u003c/code\u003e is going to initially be 0, since that’s what we set our initial value to. After that, \u003ccode\u003etotal\u003c/code\u003e is going to be whatever the previous iteration returned. We can see this clearly in the example below.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esum\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earr\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etotal\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e num\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003etotal\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e Date\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003enow\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esum\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe first time our callback function runs, it logs 0 to the console. Again, that’s because we set the initial value to 0. Then, for each new time the function runs, we get a timestamp in the console because that’s what we’re returning.\u003c/p\u003e\n\u003cp\u003eNow let’s take this knowledge and look back at our initial solution.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esum\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earr\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e arr\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003etotal\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e num\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e total \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e num\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esum\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe very first time the callback function runs, \u003ccode\u003etotal\u003c/code\u003e will be 0 and \u003ccode\u003enum\u003c/code\u003e will be 1. Then, the next iteration, \u003ccode\u003etotal\u003c/code\u003e will be 1 and num will be \u003ccode\u003e2\u003c/code\u003e. The reason \u003ccode\u003etotal\u003c/code\u003e is one is because we previously returned \u003ccode\u003e0 + 1\u003c/code\u003e. Then, \u003ccode\u003etotal\u003c/code\u003e will be 3 and \u003ccode\u003enum\u003c/code\u003e will be 3. Then, there are no more elements in the array so what gets returned is 6. We can see this in the diagram below.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003eInitial Value\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\nFirst iteration\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003etotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003enum\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\n\nSecond iteration\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003etotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003enum\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\n\nThird iteration\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003etotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003enum\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\n\nNo more elements \u003cspan class=\"token keyword\"\u003ein\u003c/span\u003e the array\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e which is \u003cspan class=\"token number\"\u003e6.\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eLet’s look at the example where we convert an array of objects into another object.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e28\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Mikenzi'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Blaine'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e30\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e Length and age count \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eusers\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eageTotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e84\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFirst, what do we want the initial value to be? We want it to be an object with a \u003ccode\u003eusers\u003c/code\u003e property as well as an \u003ccode\u003eageTotal\u003c/code\u003e property, both set to \u003ccode\u003e0\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetUserData\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eusers\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e users\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eusers\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eageTotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow we need to figure out what each iteration looks like. We know what we want to return is the initial object, adding 1 to the \u003ccode\u003eusers\u003c/code\u003e property and adding whatever the user’s age is to the \u003ccode\u003eageTotal\u003c/code\u003e property.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetUserData\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eusers\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e users\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003edata\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e user\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    data\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eusers \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\n    data\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eageTotal \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\n\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e data\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eusers\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eageTotal\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e users \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e28\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Mikenzi'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Blaine'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e30\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003egetUserData\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eusers\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// { users: 3, ageTotal: 84 }\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eImpressive, yeah? Odds are this is still a bit fuzzy. The best thing you can do is take an array, and practice transforming it into anything you can think of.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"24"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"24"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

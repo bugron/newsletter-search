@@ -1,0 +1,313 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #311 - Electron, but make it zesty</title><link rel="canonical" href="https://bytes.dev/archives/311"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world&#x27;s financial markets on fire."/><meta property="og:url" content="https://bytes.dev/archives/311"/><meta property="og:title" content="Bytes #311 - Electron, but make it zesty"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/dog-screaming.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world&#x27;s financial markets on fire."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #311 - Electron, but make it zesty"/><meta property="twitter:description" content="Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world&#x27;s financial markets on fire."/><meta property="twitter:image" content="https://bytes.dev/images/content/dog-screaming.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Electron, but make it zesty</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->311<!-- -->.</span><span class="mr-6 font-bold">August 5, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world’s financial markets on fire.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/311">#311</a>. Amber is the color of your energy.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/dog-screaming.jpg" alt="A chihuahua looking scared" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">My laptop fan watching me open Slack, Discord, VS Code, and Figma simultaneously<!-- --> </p></div><h3>DX vs. UX</h3><p>Tauri just released a <a href="https://v2.tauri.app/blog/tauri-2-0-0-release-candidate/">v2.0 RC</a> of its toolkit for building cross-platform desktop apps from a single codebase using web technologies like HTML, CSS, and JavaScript.</p><p>And since there aren’t a <em>ton</em> of exciting new features in this release, let’s break down what makes Tauri different from Electron – and try to figure out if it’ll be the next big thing in Desktop-Land.</p><p><strong>Electron’s approach</strong> bundles Node.js on the backend with Chromium on the frontend to create a desktop runtime for web technologies. This provides a great DX, but it also leads to big-‘n-beefy app sizes that’ll make your laptop fan hum louder than my grandma when she’s watching re-runs of <em>The Lawrence Welk Show</em> at 2 am.</p><p><strong>Tauri’s approach</strong> tries to solve this problem in a few different ways:</p><ul>
+<li>
+<p>It uses Rust on the backend, and two libraries (<a href="https://github.com/tauri-apps/tao">TAO</a> and <a href="https://github.com/tauri-apps/wry">WRY</a>) on the frontend to provide a much more lightweight webview – without needing to embed Chromium.</p>
+</li>
+<li>
+<p>This results in significantly smaller bundle sizes and less memory usage than Electron apps, plus a flexible architecture that lets you use any frontend JavaScript framework you want.</p>
+</li>
+<li>
+<p>Tauri is also secure by default and provides an isolation pattern to prevent untrusted scripts from accessing the backend from a webview.</p>
+</li>
+</ul><p>Like most Rust-based projects, Tauri comes with one major tradeoff: <em>you’ll need to a bit of Rust.</em> That might not be a dealbreaker for some of you, particularly because you don’t need to be a full-fledged Rust expert to use Tauri, but it’s definitely a hurdle for lots of dev teams.</p><p><strong>Bottom Line:</strong> Right now, Electron vs Tauri feels like a classic battle of DX vs UX – and we know how those battles usually turn out. But as Tauri continues to mature, and as more developers get comfortable using it, we could start to see it eventually eat into Electron’s desktop dominance.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/311" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F311" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=How%20Tauri%20compares%20to%20Electron%20and%20predicting%20where%20it%20goes%20from%20here%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F311" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AHow%20Tauri%20compares%20to%20Electron%20and%20predicting%20where%20it%20goes%20from%20here%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F311" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/qa-wolf-logo.png" alt="QA Wolf logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/meds-kicking-in.jpg" alt="Danny Devito looking worried" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Mfw my manager tells me to QA test all the features I just pushed<!-- --> </p></div><h3><a href="https://www.qawolf.com/?utm_campaign=SlowQACycles08052024&amp;utm_source=bytes&amp;utm_medium=newsletter">QA Wolf gets you 80% test coverage – with zero extra work</a></h3><p>And it’s way less expensive than hiring a full-time QA team, and way <em>more</em> effective than forcing your engineers to do it themselves.</p><p><strong>Here’s how it works:</strong></p><ul>
+<li>
+<p>They build and automate thousands of tests for you in Playwright to test every single user flow and API. The <a href="https://www.qawolf.com/how-it-works/?utm_campaign=SlowQACycles08052024&amp;utm_source=bytes&amp;utm_medium=newsletter">open-source code</a> is all yours, with no vendor lock in.</p>
+</li>
+<li>
+<p>They provide all the infra to run 100% of your test suite in parallel, so your team can test and deploy continuously.</p>
+</li>
+<li>
+<p>They sort all the real bugs from the flakes with human-verified bug reports, and provide 24-hour test maintenance.</p>
+</li>
+</ul><p>Instead of selling licenses or labor hours, QA Wolf just sells complete test coverage, so your incentives are always aligned.</p><p><a href="https://www.qawolf.com/?utm_campaign=SlowQACycles08052024&amp;utm_source=bytes&amp;utm_medium=newsletter">Schedule a personalized demo</a> – and see how they’ve helped big orgs at Drata, Salesloft, Mailchimp, and AutoTrader ship faster and with fewer bugs.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=tracing-fy25q3-traceworkshop&amp;utm_content=static-ad-headshots-rsvp">Sentry</a></h4><p><em>They’re hosting a <a href="https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=tracing-fy25q3-traceworkshop&amp;utm_content=static-ad-headshots-rsvp">free workshop</a> on solving frontend issues with backend tools, where they’ll debug some common perf issues live in a Next.js project.</em></p></div></div>
+<p>How can this code be improved?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Mark “I am the Redux core team” Erikson just released the <a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">revised Redux Essentials tutorial</a> with TypeScript examples, more RTK APIs, and lots of new concept explanations.</p>
+</li>
+<li>
+<p><a href="https://fusionauth.io/?utm_source=bytes">FusionAuth</a> is a customer auth platform that’s purpose-built to make developers’ lives awesome. It gives you all the features your app needs plus a customizable, scalable solution you can run on any computer, anywhere in the world. [sponsored]</p>
+</li>
+<li>
+<p>Robby Pruan wrote <a href="https://www.rob.directory/blog/a-different-way-to-think-about-typescript">A different way to think about TypeScript</a>.</p>
+</li>
+<li>
+<p><a href="https://astro.build/blog/astro-4130/">Astro 4.13</a> introduces stable request rewriting, stable content collection JSON schemas, and some logging improvements.</p>
+</li>
+<li>
+<p><a href="https://github.com/web-infra-dev/rslib">Rslib</a> is an Rsbuild-based library build tool that just went public yesterday – and the entire world’s equity markets immediately crashed. Coincidence?</p>
+</li>
+<li>
+<p><a href="https://eduardoleao052.github.io/js-pytorch/site/index.html">JS-PyTorch</a> is a deep learning JavaScript library that you can use to train, test, and deploy neural networks with Node.js or a web browser.</p>
+</li>
+<li>
+<p>CarbonQA provides <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=aug5">high-quality QA services for dev teams</a>, so you never have to waste engineering time on QA testing ever again. Their US-based QA testers will break your app repeatedly, so your developers don’t have to worry about it. [sponsored]</p>
+</li>
+<li>
+<p>Igor Zinkovsky and Andy Jiang wrote about <a href="https://deno.com/blog/aws-lambda-coldstart-benchmarks">Benchmarking AWS Lambda cold starts across JavaScript runtimes</a> on the Deno blog. I bet you’ll never guess which runtime came out on top.</p>
+</li>
+<li>
+<p><a href="https://nx.dev/blog/nx-19-5-adds-stackblitz-new-features-and-more">Nx 19.5</a> comes with newly added support for StackBlitz, Bun, and incremental builds with Vite.</p>
+</li>
+<li>
+<p>MERJ and Vercel just released some interesting research on <a href="https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process">How Google handles JavaScript throughout the indexing process</a> that aims to “demystify Google’s rendering through empirical evidence.” I’m pretty sure Galileo was trying to do the same thing before the pope put him under house arrest for the rest of his life.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=tracing-fy25q3-traceworkshop&amp;utm_content=static-ad-headshots-rsvp">Sentry</a></h4></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Because <code>processOrder</code> doesn’t depend on the result of <code>updateAnalytics</code>, you can parallelize the two invocations.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>_<span class="token punctuation">,</span> order<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: Electron, but make it zesty","date":"2024-08-05","featuredImage":"/images/content/dog-screaming.jpg","description":"Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world's financial markets on fire.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Galileo takes on Google, some good old fashioned benchmarketing, and the Rust library that just lit the world’s financial markets on fire.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/311\"\u003e#311\u003c/a\u003e. Amber is the color of your energy.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/dog-screaming.jpg\" alt=\"A chihuahua looking scared\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMy laptop fan watching me open Slack, Discord, VS Code, and Figma simultaneously\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eDX vs. UX\u003c/h3\u003e\u003cp\u003eTauri just released a \u003ca href=\"https://v2.tauri.app/blog/tauri-2-0-0-release-candidate/\"\u003ev2.0 RC\u003c/a\u003e of its toolkit for building cross-platform desktop apps from a single codebase using web technologies like HTML, CSS, and JavaScript.\u003c/p\u003e\u003cp\u003eAnd since there aren’t a \u003cem\u003eton\u003c/em\u003e of exciting new features in this release, let’s break down what makes Tauri different from Electron – and try to figure out if it’ll be the next big thing in Desktop-Land.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eElectron’s approach\u003c/strong\u003e bundles Node.js on the backend with Chromium on the frontend to create a desktop runtime for web technologies. This provides a great DX, but it also leads to big-‘n-beefy app sizes that’ll make your laptop fan hum louder than my grandma when she’s watching re-runs of \u003cem\u003eThe Lawrence Welk Show\u003c/em\u003e at 2 am.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eTauri’s approach\u003c/strong\u003e tries to solve this problem in a few different ways:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eIt uses Rust on the backend, and two libraries (\u003ca href=\"https://github.com/tauri-apps/tao\"\u003eTAO\u003c/a\u003e and \u003ca href=\"https://github.com/tauri-apps/wry\"\u003eWRY\u003c/a\u003e) on the frontend to provide a much more lightweight webview – without needing to embed Chromium.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis results in significantly smaller bundle sizes and less memory usage than Electron apps, plus a flexible architecture that lets you use any frontend JavaScript framework you want.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTauri is also secure by default and provides an isolation pattern to prevent untrusted scripts from accessing the backend from a webview.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eLike most Rust-based projects, Tauri comes with one major tradeoff: \u003cem\u003eyou’ll need to a bit of Rust.\u003c/em\u003e That might not be a dealbreaker for some of you, particularly because you don’t need to be a full-fledged Rust expert to use Tauri, but it’s definitely a hurdle for lots of dev teams.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Right now, Electron vs Tauri feels like a classic battle of DX vs UX – and we know how those battles usually turn out. But as Tauri continues to mature, and as more developers get comfortable using it, we could start to see it eventually eat into Electron’s desktop dominance.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/311\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F311\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=How%20Tauri%20compares%20to%20Electron%20and%20predicting%20where%20it%20goes%20from%20here%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F311\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AHow%20Tauri%20compares%20to%20Electron%20and%20predicting%20where%20it%20goes%20from%20here%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F311\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/qa-wolf-logo.png\" alt=\"QA Wolf logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/meds-kicking-in.jpg\" alt=\"Danny Devito looking worried\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMfw my manager tells me to QA test all the features I just pushed\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=SlowQACycles08052024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eQA Wolf gets you 80% test coverage – with zero extra work\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eAnd it’s way less expensive than hiring a full-time QA team, and way \u003cem\u003emore\u003c/em\u003e effective than forcing your engineers to do it themselves.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how it works:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eThey build and automate thousands of tests for you in Playwright to test every single user flow and API. The \u003ca href=\"https://www.qawolf.com/how-it-works/?utm_campaign=SlowQACycles08052024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eopen-source code\u003c/a\u003e is all yours, with no vendor lock in.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey provide all the infra to run 100% of your test suite in parallel, so your team can test and deploy continuously.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThey sort all the real bugs from the flakes with human-verified bug reports, and provide 24-hour test maintenance.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eInstead of selling licenses or labor hours, QA Wolf just sells complete test coverage, so your incentives are always aligned.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=SlowQACycles08052024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eSchedule a personalized demo\u003c/a\u003e – and see how they’ve helped big orgs at Drata, Salesloft, Mailchimp, and AutoTrader ship faster and with fewer bugs.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=tracing-fy25q3-traceworkshop\u0026amp;utm_content=static-ad-headshots-rsvp\"\u003eSentry\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey’re hosting a \u003ca href=\"https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=tracing-fy25q3-traceworkshop\u0026amp;utm_content=static-ad-headshots-rsvp\"\u003efree workshop\u003c/a\u003e on solving frontend issues with backend tools, where they’ll debug some common perf issues live in a Next.js project.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eHow can this code be improved?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eMark “I am the Redux core team” Erikson just released the \u003ca href=\"https://redux.js.org/tutorials/essentials/part-1-overview-concepts\"\u003erevised Redux Essentials tutorial\u003c/a\u003e with TypeScript examples, more RTK APIs, and lots of new concept explanations.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://fusionauth.io/?utm_source=bytes\"\u003eFusionAuth\u003c/a\u003e is a customer auth platform that’s purpose-built to make developers’ lives awesome. It gives you all the features your app needs plus a customizable, scalable solution you can run on any computer, anywhere in the world. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRobby Pruan wrote \u003ca href=\"https://www.rob.directory/blog/a-different-way-to-think-about-typescript\"\u003eA different way to think about TypeScript\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://astro.build/blog/astro-4130/\"\u003eAstro 4.13\u003c/a\u003e introduces stable request rewriting, stable content collection JSON schemas, and some logging improvements.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/web-infra-dev/rslib\"\u003eRslib\u003c/a\u003e is an Rsbuild-based library build tool that just went public yesterday – and the entire world’s equity markets immediately crashed. Coincidence?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://eduardoleao052.github.io/js-pytorch/site/index.html\"\u003eJS-PyTorch\u003c/a\u003e is a deep learning JavaScript library that you can use to train, test, and deploy neural networks with Node.js or a web browser.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA provides \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=aug5\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e, so you never have to waste engineering time on QA testing ever again. Their US-based QA testers will break your app repeatedly, so your developers don’t have to worry about it. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIgor Zinkovsky and Andy Jiang wrote about \u003ca href=\"https://deno.com/blog/aws-lambda-coldstart-benchmarks\"\u003eBenchmarking AWS Lambda cold starts across JavaScript runtimes\u003c/a\u003e on the Deno blog. I bet you’ll never guess which runtime came out on top.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://nx.dev/blog/nx-19-5-adds-stackblitz-new-features-and-more\"\u003eNx 19.5\u003c/a\u003e comes with newly added support for StackBlitz, Bun, and incremental builds with Vite.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMERJ and Vercel just released some interesting research on \u003ca href=\"https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process\"\u003eHow Google handles JavaScript throughout the indexing process\u003c/a\u003e that aims to “demystify Google’s rendering through empirical evidence.” I’m pretty sure Galileo was trying to do the same thing before the pope put him under house arrest for the rest of his life.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://sentry.io/resources/extended-tracing-frontend-issues-with-backend-solutions/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=tracing-fy25q3-traceworkshop\u0026amp;utm_content=static-ad-headshots-rsvp\"\u003eSentry\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBecause \u003ccode\u003eprocessOrder\u003c/code\u003e doesn’t depend on the result of \u003ccode\u003eupdateAnalytics\u003c/code\u003e, you can parallelize the two invocations.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e_\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e Promise\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eall\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"311"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"311"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

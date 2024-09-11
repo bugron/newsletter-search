@@ -1,0 +1,328 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #9 - He came, he saw, he conquered</title><link rel="canonical" href="https://bytes.dev/archives/9"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="React fixes tech debt, Rome declares war, and IBM releases a THICC boy"/><meta property="og:url" content="https://bytes.dev/archives/9"/><meta property="og:title" content="Bytes #9 - He came, he saw, he conquered"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/ceaser.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="React fixes tech debt, Rome declares war, and IBM releases a THICC boy"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #9 - He came, he saw, he conquered"/><meta property="twitter:description" content="React fixes tech debt, Rome declares war, and IBM releases a THICC boy"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/ceaser.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">He came, he saw, he conquered</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->9<!-- -->.</span><span class="mr-6 font-bold">August 17, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><h2><a href="https://romefrontend.dev/blog/2020/08/08/introducing-rome.html">Introducing Rome</a></h2>
+<p><img src="https://bytes.dev/images/content/ceaser.png" alt="Julius Caesar">
+</p><p class="image-alt">He came, he saw, he conquered</p><p></p>
+<p><strong>All roads lead to…</strong> JavaScript, obviously. But Rome wants to help make your JS journey smoother and simpler than ever.</p>
+<p><a href="https://twitter.com/sebmck">Sebastian McKenzie</a> announced Rome’s first beta release last week, and called it “the spiritual successor of Babel” (he’s allowed to say that because he created Babel). Sebastian <a href="https://mobile.twitter.com/sebmck/status/879282797915119616">has long maintained that his original plan for Babel was to use it to consolidate multiple frontend tools into one</a>, but for a variety of reasons that never happened. Well, it’s happening now.</p>
+<p>This first version of Rome is just a simple linter for JavaScript and TypeScript, but it eventually wants to become the one-stop shop for all your frontend tooling needs.</p>
+<p><strong>What does that actually look like?</strong></p>
+<p>Instead of using a collection of tools for compiling, bundling, and testing your frontend code, Rome will provide all of that functionality in one single package that’s built from scratch. Rome refers to this as their “toolchain”.</p>
+<h3>The bottom line</h3>
+<p>“Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others” –&nbsp;which some would say is an impossible goal. However, similar to Augustus, Sebastian found JavaScript a language of bricks, and he plans on leaving it a language of marble.</p>
+<hr>
+<h2><a href="https://reactjs.org/blog/2020/08/10/react-v17-rc.html">React Fixes Tech Debt</a></h2>
+<p><img src="https://bytes.dev/images/content/react17.png" alt="react 17">
+</p><p class="image-alt">by <a href="https://twitter.com/bradypp/status/1294349163451293698/photo/1">@bradypp</a></p><p></p>
+<p>After more than 3 years since the last Major release, React v17.0 (RC) is finally here and let me tell you –&nbsp;it was <strong>worth the wait</strong>.</p>
+<p>Huh? There are no new features? How 2020.</p>
+<p>Like your boyfriend in High School, React 17 is a “stepping stone” to future upgrades. Here’s a recap.</p>
+<ul>
+<li><strong>Gradual Upgrades</strong>: Typically when upgrading Major versions, you’d have to upgrade your entire app. React 17 will make it easier to upgrade your app piece by piece rather than all at once.</li>
+<li><strong>New Event Delegation</strong>: Traditionally React would attach events not to the DOM nodes on which you’d declare them, but to the <code>document</code> node itself. This worked fine, unless you had various React versions in your app. In R17, React will attach events to the root DOM container where React is rendered, therefor, fixing the multiple versions issue.</li>
+<li><strong>New JSX Transform</strong>: One gotcha for new React devs is that even if you weren’t using the <code>React</code> package directly, you’d still need to <code>import React</code> because of JSX. With the new <code>react/jsx-runtime</code>, that’s a problem of the past.</li>
+<li><strong>Remove Event Pooling</strong>: Historically React has recycled synthetic event objects. Again, this is usually fine except for rare cases where you’d want to access the event “later on” like in an updater function.</li>
+</ul>
+<h3>The bottom line</h3>
+<p>Though not the release we were hoping for, React 17 puts all the right pieces in place for better versions in the future.</p>
+<hr>
+<h2>This week in history</h2>
+<p><img src="https://bytes.dev/images/content/ibm5150.png" alt="IBM 5150">
+</p><p class="image-alt">Damn BOI HE THICC</p><p></p>
+<p>IBM released the first desktop computer to be called a “PC” 39 years ago last week. Other desktop computers had launched before it, but this IBM 5150 was the first one to get mainstream traction and is credited with kicking off the “worldwide computing revolution.” The OG PC is arguably one of the most important hardware products of the last 50 years.</p>
+<ul>
+<li><strong>Specs:</strong> Working speed of 4.77 MHz, 16KB of RAM, dual 160KB disk drives, and a <strong>cassette port</strong> for additional storage</li>
+<li><strong>Price:</strong> $1,565 ($4,440 in 2020 dollars)</li>
+<li><strong>Design:</strong> Off-white before Virgil, the bright red power switch on the side (you literally flip it on and off), and a clacky keyboard that actually worked.</li>
+</ul>
+<p>Your Macbook Pro might cost a lot and might not have as much RAM as you’d like, but at least you’re not paying $278 <strong>per KB.</strong>  It also doesn’t need a cassette port. It just needs a dongle with 6 different adapters, #courage.</p>
+<hr>
+<h2>Spot the bug (in React 16) - Answer Below</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">Form</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token operator">...</span>user<span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p>Everyone’s favorite, handsome, charming - yet humble technical author wrote the best thing you’ll ever read about <a href="https://ui.dev/useref">React’s useRef Hook</a>.</p>
+</li>
+<li>
+<p>This <a href="https://typescript-exercises.github.io/">interactive collection of TypeScript exercises</a> gives a nice, soft intro to some foundational TypeScript capabilities and principles.</p>
+</li>
+<li>
+<p>Shesh wrote <a href="http://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/">a fantastic tutorial building a single page app in Rust</a>. He shows you how to build an online store called “RustMart”, which sounds like a very safe and normal place to go grocery shopping.</p>
+</li>
+<li>
+<p><a href="https://www.gatsbyjs.com/blog/announcing-unified-gatsby/">Gatsby merged their two websites into a newly updated Gatsbyjs.com</a> in order to <del>funnel more traffic to their paid product</del> “set up users for success through one consolidated resource.” They also released a new roadmap.</p>
+</li>
+<li>
+<p>Jimmy made <a href="https://www.youtube.com/watch?v=TU_kTuz2i9Y&amp;feature=youtu.be">a short, insightful video about how the React Native bridge works</a>.</p>
+</li>
+<li>
+<p><a href="https://storybook.js.org/releases/6.0">Storybook just released v6.0</a>, which promises to be much easier to set up while incorporating new best practices for component-driven development.</p>
+</li>
+<li>
+<p>Debdut created <a href="https://github.com/Debdut/omg-curry">a JavaScript currying library</a> called <code>omg-curry</code>. <a href="https://www.youtube.com/watch?v=wy7gpWBZF04">Look at Curry man</a>.</p>
+</li>
+<li>
+<p>Afonso wrote about <a href="https://dev.to/afonsopacifer/how-i-became-a-senior-javascript-developer-with-personal-projects-1lpo">how building helpful tools for himself and others helped him become a senior JavaScript developer.</a></p>
+</li>
+</ol>
+<hr>
+<h2>Spot the bug - Explanation</h2>
+<p>As mentioned above, React 17 removes “Event Pooling”. This is an example of where Event Pooling could go wrong with React 16. Because React used to recycle synthetic event objects, <code>e.target.value</code> would be gone by the time we wanted to access it. To fix this we can either upgrade to React 17 (RC), call <code>.persist()</code> on the event, or do as we’re doing in the code below.</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">...</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+ <span class="token keyword">const</span> name <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+
+ <span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token operator">...</span>user<span class="token punctuation">,</span>
+   name
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">...</span>
+</code></pre>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"He came, he saw, he conquered","date":"2020-08-17","description":"React fixes tech debt, Rome declares war, and IBM releases a THICC boy","featuredImage":"https://bytes.dev/images/content/ceaser.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003ch2\u003e\u003ca href=\"https://romefrontend.dev/blog/2020/08/08/introducing-rome.html\"\u003eIntroducing Rome\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/ceaser.png\" alt=\"Julius Caesar\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eHe came, he saw, he conquered\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAll roads lead to…\u003c/strong\u003e JavaScript, obviously. But Rome wants to help make your JS journey smoother and simpler than ever.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/sebmck\"\u003eSebastian McKenzie\u003c/a\u003e announced Rome’s first beta release last week, and called it “the spiritual successor of Babel” (he’s allowed to say that because he created Babel). Sebastian \u003ca href=\"https://mobile.twitter.com/sebmck/status/879282797915119616\"\u003ehas long maintained that his original plan for Babel was to use it to consolidate multiple frontend tools into one\u003c/a\u003e, but for a variety of reasons that never happened. Well, it’s happening now.\u003c/p\u003e\n\u003cp\u003eThis first version of Rome is just a simple linter for JavaScript and TypeScript, but it eventually wants to become the one-stop shop for all your frontend tooling needs.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat does that actually look like?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eInstead of using a collection of tools for compiling, bundling, and testing your frontend code, Rome will provide all of that functionality in one single package that’s built from scratch. Rome refers to this as their “toolchain”.\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003e“Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and others” –\u0026nbsp;which some would say is an impossible goal. However, similar to Augustus, Sebastian found JavaScript a language of bricks, and he plans on leaving it a language of marble.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://reactjs.org/blog/2020/08/10/react-v17-rc.html\"\u003eReact Fixes Tech Debt\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/react17.png\" alt=\"react 17\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eby \u003ca href=\"https://twitter.com/bradypp/status/1294349163451293698/photo/1\"\u003e@bradypp\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eAfter more than 3 years since the last Major release, React v17.0 (RC) is finally here and let me tell you –\u0026nbsp;it was \u003cstrong\u003eworth the wait\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eHuh? There are no new features? How 2020.\u003c/p\u003e\n\u003cp\u003eLike your boyfriend in High School, React 17 is a “stepping stone” to future upgrades. Here’s a recap.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eGradual Upgrades\u003c/strong\u003e: Typically when upgrading Major versions, you’d have to upgrade your entire app. React 17 will make it easier to upgrade your app piece by piece rather than all at once.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNew Event Delegation\u003c/strong\u003e: Traditionally React would attach events not to the DOM nodes on which you’d declare them, but to the \u003ccode\u003edocument\u003c/code\u003e node itself. This worked fine, unless you had various React versions in your app. In R17, React will attach events to the root DOM container where React is rendered, therefor, fixing the multiple versions issue.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNew JSX Transform\u003c/strong\u003e: One gotcha for new React devs is that even if you weren’t using the \u003ccode\u003eReact\u003c/code\u003e package directly, you’d still need to \u003ccode\u003eimport React\u003c/code\u003e because of JSX. With the new \u003ccode\u003ereact/jsx-runtime\u003c/code\u003e, that’s a problem of the past.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eRemove Event Pooling\u003c/strong\u003e: Historically React has recycled synthetic event objects. Again, this is usually fine except for rare cases where you’d want to access the event “later on” like in an updater function.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eThough not the release we were hoping for, React 17 puts all the right pieces in place for better versions in the future.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThis week in history\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/ibm5150.png\" alt=\"IBM 5150\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eDamn BOI HE THICC\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eIBM released the first desktop computer to be called a “PC” 39 years ago last week. Other desktop computers had launched before it, but this IBM 5150 was the first one to get mainstream traction and is credited with kicking off the “worldwide computing revolution.” The OG PC is arguably one of the most important hardware products of the last 50 years.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eSpecs:\u003c/strong\u003e Working speed of 4.77 MHz, 16KB of RAM, dual 160KB disk drives, and a \u003cstrong\u003ecassette port\u003c/strong\u003e for additional storage\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ePrice:\u003c/strong\u003e $1,565 ($4,440 in 2020 dollars)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDesign:\u003c/strong\u003e Off-white before Virgil, the bright red power switch on the side (you literally flip it on and off), and a clacky keyboard that actually worked.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYour Macbook Pro might cost a lot and might not have as much RAM as you’d like, but at least you’re not paying $278 \u003cstrong\u003eper KB.\u003c/strong\u003e  It also doesn’t need a cassette port. It just needs a dongle with 6 different adapters, #courage.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the bug (in React 16) - Answer Below\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eimport\u003c/span\u003e React \u003cspan class=\"token keyword\"\u003efrom\u003c/span\u003e \u003cspan class=\"token string\"\u003e'react'\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eForm\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e...\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003ehandleChange\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ee\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003esetData\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token operator\"\u003e...\u003c/span\u003euser\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n      \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etarget\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003evalue\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token operator\"\u003e...\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eEveryone’s favorite, handsome, charming - yet humble technical author wrote the best thing you’ll ever read about \u003ca href=\"https://ui.dev/useref\"\u003eReact’s useRef Hook\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis \u003ca href=\"https://typescript-exercises.github.io/\"\u003einteractive collection of TypeScript exercises\u003c/a\u003e gives a nice, soft intro to some foundational TypeScript capabilities and principles.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eShesh wrote \u003ca href=\"http://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/\"\u003ea fantastic tutorial building a single page app in Rust\u003c/a\u003e. He shows you how to build an online store called “RustMart”, which sounds like a very safe and normal place to go grocery shopping.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.gatsbyjs.com/blog/announcing-unified-gatsby/\"\u003eGatsby merged their two websites into a newly updated Gatsbyjs.com\u003c/a\u003e in order to \u003cdel\u003efunnel more traffic to their paid product\u003c/del\u003e “set up users for success through one consolidated resource.” They also released a new roadmap.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJimmy made \u003ca href=\"https://www.youtube.com/watch?v=TU_kTuz2i9Y\u0026amp;feature=youtu.be\"\u003ea short, insightful video about how the React Native bridge works\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://storybook.js.org/releases/6.0\"\u003eStorybook just released v6.0\u003c/a\u003e, which promises to be much easier to set up while incorporating new best practices for component-driven development.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDebdut created \u003ca href=\"https://github.com/Debdut/omg-curry\"\u003ea JavaScript currying library\u003c/a\u003e called \u003ccode\u003eomg-curry\u003c/code\u003e. \u003ca href=\"https://www.youtube.com/watch?v=wy7gpWBZF04\"\u003eLook at Curry man\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAfonso wrote about \u003ca href=\"https://dev.to/afonsopacifer/how-i-became-a-senior-javascript-developer-with-personal-projects-1lpo\"\u003ehow building helpful tools for himself and others helped him become a senior JavaScript developer.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the bug - Explanation\u003c/h2\u003e\n\u003cp\u003eAs mentioned above, React 17 removes “Event Pooling”. This is an example of where Event Pooling could go wrong with React 16. Because React used to recycle synthetic event objects, \u003ccode\u003ee.target.value\u003c/code\u003e would be gone by the time we wanted to access it. To fix this we can either upgrade to React 17 (RC), call \u003ccode\u003e.persist()\u003c/code\u003e on the event, or do as we’re doing in the code below.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token operator\"\u003e...\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003ehandleChange\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ee\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etarget\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003evalue\n\n \u003cspan class=\"token function\"\u003esetData\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n   \u003cspan class=\"token operator\"\u003e...\u003c/span\u003euser\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n   name\n \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token operator\"\u003e...\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"9"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"9"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

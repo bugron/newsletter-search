@@ -1,0 +1,327 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #14 - The best Vue comes after t̶h̶e̶ ̶l̶o̶n̶g̶e̶s̶t̶ ̶c̶l̶i̶m̶b̶ 37 RFCs</title><link rel="canonical" href="https://bytes.dev/archives/14"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Vue 3 is finally here, Deno releases v1.4.0, and #thicc-libs."/><meta property="og:url" content="https://bytes.dev/archives/14"/><meta property="og:title" content="Bytes #14 - The best Vue comes after t̶h̶e̶ ̶l̶o̶n̶g̶e̶s̶t̶ ̶c̶l̶i̶m̶b̶ 37 RFCs"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/vue3.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Vue 3 is finally here, Deno releases v1.4.0, and #thicc-libs."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #14 - The best Vue comes after t̶h̶e̶ ̶l̶o̶n̶g̶e̶s̶t̶ ̶c̶l̶i̶m̶b̶ 37 RFCs"/><meta property="twitter:description" content="Vue 3 is finally here, Deno releases v1.4.0, and #thicc-libs."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/vue3.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">The best Vue comes after t̶h̶e̶ ̶l̶o̶n̶g̶e̶s̶t̶ ̶c̶l̶i̶m̶b̶ 37 RFCs</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->14<!-- -->.</span><span class="mr-6 font-bold">September 21, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve been thinking about how large, slower JavaScript libraries deserve their own classification and nickname. Our vote: <code>thicc-libs</code>.</p>
+<h2><a href="https://github.com/vuejs/vue-next/releases/tag/v3.0.0">Vue 3 is finally here</a></h2>
+<p><img src="https://bytes.dev/images/content/vue3.png" alt="Vue 3 release">
+</p><p class="image-alt">#MondayMotivation</p><p></p>
+<p><strong>This is not a drill…</strong> After 2 years and 2,600 commits Vue 3.0 was <em>actually</em> released last Friday. It’s not another beta, or alpha, or any of the other 4 Greek letters you (might) know.</p>
+<h3>The highlights:</h3>
+<p><strong>Big performance boost:</strong> Vue is now <em>significantly</em> smaller and faster thanks to newly introduced tree-shaking and a complete re-write of Vue’s virtual DOM, which features a new diffing algorithm with compiler-based optimizations.</p>
+<p><strong>Composition API:</strong> This new set of APIs is explicitly designed to make Vue easier to use in large scale applications, and features an alternate syntax for managing features and functionality across components.</p>
+<p><strong>Teleport:</strong> A new component that provides native support for portals and simplifies working with elements like modals and popups.</p>
+<p><strong>Fragments:</strong> Like React, Vue 3 now has official support for fragments (AKA multi-root node components).</p>
+<p>Vue 3.0 is written entirely in TypeScript and includes enhanced support for TS users. Check out <a href="https://youtu.be/Vp5ANvd88x0?t=554">Evan’s keynote</a> from the Vue.JS Amsterdam Conference last Friday for a deeper dive into v3.</p>
+<h3>The bottom line</h3>
+<p>Vue has always (rightfully) received a lot of love from the developers who use it. But the new features in this release should help the framework start to position itself as an attractive option for large-scale applications.</p>
+<p>Important note: Evan said that if Vue 3 gets over 100,000 npm downloads in the first week, he’ll legally change his name to Evan Vue (k fine, we made that up).</p>
+<hr>
+<h2><a href="https://deno.land/posts/v1.4">Deno releases v1.4.0</a></h2>
+<p><img src="https://bytes.dev/images/content/deno1.4.png" alt="Deno 1.4">
+</p><p class="image-alt">It’s growing right before our eyes!</p><p></p>
+<p><strong>Runtime, fun-time…</strong> Last week, the <del>Node turncoats</del> Deno team released v1.4.0, and called it “our largest feature release yet.” Deno’s only been around since May, so that’s not saying a <em>ton,</em> but this is still a pretty significant release and a big step forward for the new JavaScript/TypeScript runtime.</p>
+<h3>The highlights:</h3>
+<p><strong>Web Standard WebSocket API:</strong> Newly added support for the <code>WebSocket API</code> allows you to communicate with remote servers over the WebSocket protocol, which is available in all modern browsers.</p>
+<p><strong>Automatic restarts on file change:</strong> A new, integrated file watcher lets you restart a script when any dependencies change.</p>
+<p><strong>Integrated test coverage:</strong> If you run tests in deno test with the <code>--coverage</code> flag, you’ll be able to find code that isn’t covered by your tests. Once your tests finish, Deno will print you a summary of your code coverage per file. (You may want to hide this from the developer on your team who is obsessed with 100% test coverage at the expense of everything else…)</p>
+<h3>The bottom line</h3>
+<p>Deno is still a baby, but like, one of those babies whose parent’s are super smart. Ryan Dahl has been upfront with his goals to make Deno more “simple, modern, and secure” than Node.js (Ryan’s first-born runtime). Will these early releases provide enough unique functionality to start convincing developers to jump ship from Node.js? I guess we’ll see.</p>
+<p>“DEE-NO” still sounds more like the name of that big dog in your neighborhood than a super modern JavaScript runtime, but we don’t make the rules.</p>
+<hr>
+<h2>JS Quiz - Answer Below</h2>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p><a href="https://momentjs.com/docs/#/-project-status/">Moment.js says that it will shift into legacy mode</a>, choosing to prioritize stability over new features. It’s telling developers to stop using it for new projects because it’s big and slow (#ThiccLib), but so far, no one’s listening. It still got 12 million downloads last week.</p>
+</li>
+<li>
+<p>Jane wrote an <a href="https://dev.to/tracycss/tailwind-css-resources-you-wish-you-had-3i18">in-depth article on 10 helpful Tailwind CSS resources</a> that will help you better utilize the design framework, whether you’re just starting out or have been using it for a while.</p>
+</li>
+<li>
+<p>You could spend $10 per month for a Netflix subscription, or you could <a href="https://www.youtube.com/watch?v=x_EEwGe-a9o">spend 10 <em>hours</em> building a Netflix clone by following this video tutorial.</a> (Note: Trying to clone Tiger King will take longer than 10 hours. And a lot more drugs).</p>
+</li>
+<li>
+<p>Everyone who uses Rust is legally obligated to preach the Gospel of Rust at all times. In this article, <a href="https://valand.dev/blog/post/from-rust-to-typescript">Alan does that by describing his attempts to incorporate some of his favorite Rust patterns and practices into TypeScript.</a> It’s a great read if you’re interested in Rust as a JavaScript developer.</p>
+</li>
+<li>
+<p>Amanda wrote a <a href="https://www.testcraft.io/end-to-end-testing">comprehensive guide to end to end testing</a> that is genuinely helpful.</p>
+</li>
+<li>
+<p><a href="https://bgjar.com/">BGJar is a free SVG background generator</a> that gives you a bunch of ways to make your site look pretty without using the same Bootstrap/WordPress theme you’ve been using since 2015.</p>
+</li>
+<li>
+<p>Terrible interview question someone has probably been asked: “Can you name the top 4 most common JavaScript security vulnerabilities and the best ways to address them?” <a href="https://www.securecoding.com/most-common-security-vulnerabilities-using-javascript/">Luckily, this post covers that exact topic in detail.</a> Congrats on getting hired at Google.</p>
+</li>
+<li>
+<p><a href="https://www.gethalfmoon.com/">Halfmoon is a new bootstrap alternative with built-in dark mode that’s fully customizable with CSS variables</a>. And it uses vanilla JavaScript instead of JQuery. Apparently, everyone decided to release design tools this week. <span role="img" aria-label="woman shrugging">🤷‍♀️</span></p>
+</li>
+</ol>
+<hr>
+<h2>One Question Interview</h2>
+<h3>What does building for the web look like 5 years from now?</h3>
+<img class="section-image-avatar" src="https://ui.dev/images/events/harry.jpg" alt="Harry Wolff">
+<p>“In 5 years, the browser will increasingly become a compiler target, to such an extent that HTML and CSS will become comparable to writing in Assembly. There will be an increasing number of mature abstractions (WebAssembly among them) that will open entire new categories of web applications (e.g. graphically intensive games). Notably these new applications of the browser will live alongside - and not replace - web apps as we currently know them. The total effect is one where the web can do almost everything native applications can do today.”</p>
+<ul>
+<li><a href="https://twitter.com/hswolff">Harry Wolff (Director of Engineering at MongoDB and YouTuber extraordinaire)</a></li>
+</ul>
+<p>Harry will be giving a talk titled <strong>“The 1 Hour Crash Course to React Hooks”</strong> this Thursday for <a href="https://ui.dev/events/">ui.dev subscribers</a>. (calm down, we’ve got kids to feed!).</p>
+<hr>
+<h2>JS Quiz - Answer</h2>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>First</code>, <code>Fourth</code>, <code>Third</code>, <code>Second</code>.</p>
+<p>To fully understand this one you need an understanding of JavaScript’s event loop, specifically, the Call Stack, Task Queue, Web APIs (for <code>setTimeout</code>), and the Job Queue.</p>
+<p>We’ll publish a post sometime this week that goes over all of those and we’ll include it in next week’s Bytes. If you don’t want to wait until next week, we’ll tweet about it from <a href="https://twitter.com/uidotdev">@uidotdev</a> when it’s out.</p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"The best Vue comes after t̶h̶e̶ ̶l̶o̶n̶g̶e̶s̶t̶ ̶c̶l̶i̶m̶b̶ 37 RFCs","date":"2020-09-21","description":"Vue 3 is finally here, Deno releases v1.4.0, and #thicc-libs.","featuredImage":"https://bytes.dev/images/content/vue3.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve been thinking about how large, slower JavaScript libraries deserve their own classification and nickname. Our vote: \u003ccode\u003ethicc-libs\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://github.com/vuejs/vue-next/releases/tag/v3.0.0\"\u003eVue 3 is finally here\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/vue3.png\" alt=\"Vue 3 release\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e#MondayMotivation\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThis is not a drill…\u003c/strong\u003e After 2 years and 2,600 commits Vue 3.0 was \u003cem\u003eactually\u003c/em\u003e released last Friday. It’s not another beta, or alpha, or any of the other 4 Greek letters you (might) know.\u003c/p\u003e\n\u003ch3\u003eThe highlights:\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eBig performance boost:\u003c/strong\u003e Vue is now \u003cem\u003esignificantly\u003c/em\u003e smaller and faster thanks to newly introduced tree-shaking and a complete re-write of Vue’s virtual DOM, which features a new diffing algorithm with compiler-based optimizations.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eComposition API:\u003c/strong\u003e This new set of APIs is explicitly designed to make Vue easier to use in large scale applications, and features an alternate syntax for managing features and functionality across components.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTeleport:\u003c/strong\u003e A new component that provides native support for portals and simplifies working with elements like modals and popups.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFragments:\u003c/strong\u003e Like React, Vue 3 now has official support for fragments (AKA multi-root node components).\u003c/p\u003e\n\u003cp\u003eVue 3.0 is written entirely in TypeScript and includes enhanced support for TS users. Check out \u003ca href=\"https://youtu.be/Vp5ANvd88x0?t=554\"\u003eEvan’s keynote\u003c/a\u003e from the Vue.JS Amsterdam Conference last Friday for a deeper dive into v3.\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eVue has always (rightfully) received a lot of love from the developers who use it. But the new features in this release should help the framework start to position itself as an attractive option for large-scale applications.\u003c/p\u003e\n\u003cp\u003eImportant note: Evan said that if Vue 3 gets over 100,000 npm downloads in the first week, he’ll legally change his name to Evan Vue (k fine, we made that up).\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://deno.land/posts/v1.4\"\u003eDeno releases v1.4.0\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/deno1.4.png\" alt=\"Deno 1.4\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eIt’s growing right before our eyes!\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRuntime, fun-time…\u003c/strong\u003e Last week, the \u003cdel\u003eNode turncoats\u003c/del\u003e Deno team released v1.4.0, and called it “our largest feature release yet.” Deno’s only been around since May, so that’s not saying a \u003cem\u003eton,\u003c/em\u003e but this is still a pretty significant release and a big step forward for the new JavaScript/TypeScript runtime.\u003c/p\u003e\n\u003ch3\u003eThe highlights:\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eWeb Standard WebSocket API:\u003c/strong\u003e Newly added support for the \u003ccode\u003eWebSocket API\u003c/code\u003e allows you to communicate with remote servers over the WebSocket protocol, which is available in all modern browsers.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAutomatic restarts on file change:\u003c/strong\u003e A new, integrated file watcher lets you restart a script when any dependencies change.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIntegrated test coverage:\u003c/strong\u003e If you run tests in deno test with the \u003ccode\u003e--coverage\u003c/code\u003e flag, you’ll be able to find code that isn’t covered by your tests. Once your tests finish, Deno will print you a summary of your code coverage per file. (You may want to hide this from the developer on your team who is obsessed with 100% test coverage at the expense of everything else…)\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eDeno is still a baby, but like, one of those babies whose parent’s are super smart. Ryan Dahl has been upfront with his goals to make Deno more “simple, modern, and secure” than Node.js (Ryan’s first-born runtime). Will these early releases provide enough unique functionality to start convincing developers to jump ship from Node.js? I guess we’ll see.\u003c/p\u003e\n\u003cp\u003e“DEE-NO” still sounds more like the name of that big dog in your neighborhood than a super modern JavaScript runtime, but we don’t make the rules.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer Below\u003c/h2\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://momentjs.com/docs/#/-project-status/\"\u003eMoment.js says that it will shift into legacy mode\u003c/a\u003e, choosing to prioritize stability over new features. It’s telling developers to stop using it for new projects because it’s big and slow (#ThiccLib), but so far, no one’s listening. It still got 12 million downloads last week.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJane wrote an \u003ca href=\"https://dev.to/tracycss/tailwind-css-resources-you-wish-you-had-3i18\"\u003ein-depth article on 10 helpful Tailwind CSS resources\u003c/a\u003e that will help you better utilize the design framework, whether you’re just starting out or have been using it for a while.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou could spend $10 per month for a Netflix subscription, or you could \u003ca href=\"https://www.youtube.com/watch?v=x_EEwGe-a9o\"\u003espend 10 \u003cem\u003ehours\u003c/em\u003e building a Netflix clone by following this video tutorial.\u003c/a\u003e (Note: Trying to clone Tiger King will take longer than 10 hours. And a lot more drugs).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEveryone who uses Rust is legally obligated to preach the Gospel of Rust at all times. In this article, \u003ca href=\"https://valand.dev/blog/post/from-rust-to-typescript\"\u003eAlan does that by describing his attempts to incorporate some of his favorite Rust patterns and practices into TypeScript.\u003c/a\u003e It’s a great read if you’re interested in Rust as a JavaScript developer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAmanda wrote a \u003ca href=\"https://www.testcraft.io/end-to-end-testing\"\u003ecomprehensive guide to end to end testing\u003c/a\u003e that is genuinely helpful.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://bgjar.com/\"\u003eBGJar is a free SVG background generator\u003c/a\u003e that gives you a bunch of ways to make your site look pretty without using the same Bootstrap/WordPress theme you’ve been using since 2015.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTerrible interview question someone has probably been asked: “Can you name the top 4 most common JavaScript security vulnerabilities and the best ways to address them?” \u003ca href=\"https://www.securecoding.com/most-common-security-vulnerabilities-using-javascript/\"\u003eLuckily, this post covers that exact topic in detail.\u003c/a\u003e Congrats on getting hired at Google.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.gethalfmoon.com/\"\u003eHalfmoon is a new bootstrap alternative with built-in dark mode that’s fully customizable with CSS variables\u003c/a\u003e. And it uses vanilla JavaScript instead of JQuery. Apparently, everyone decided to release design tools this week. \u003cspan role=\"img\" aria-label=\"woman shrugging\"\u003e🤷‍♀️\u003c/span\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eOne Question Interview\u003c/h2\u003e\n\u003ch3\u003eWhat does building for the web look like 5 years from now?\u003c/h3\u003e\n\u003cimg class=\"section-image-avatar\" src=\"https://ui.dev/images/events/harry.jpg\" alt=\"Harry Wolff\"\u003e\n\u003cp\u003e“In 5 years, the browser will increasingly become a compiler target, to such an extent that HTML and CSS will become comparable to writing in Assembly. There will be an increasing number of mature abstractions (WebAssembly among them) that will open entire new categories of web applications (e.g. graphically intensive games). Notably these new applications of the browser will live alongside - and not replace - web apps as we currently know them. The total effect is one where the web can do almost everything native applications can do today.”\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://twitter.com/hswolff\"\u003eHarry Wolff (Director of Engineering at MongoDB and YouTuber extraordinaire)\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eHarry will be giving a talk titled \u003cstrong\u003e“The 1 Hour Crash Course to React Hooks”\u003c/strong\u003e this Thursday for \u003ca href=\"https://ui.dev/events/\"\u003eui.dev subscribers\u003c/a\u003e. (calm down, we’ve got kids to feed!).\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer\u003c/h2\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eFirst\u003c/code\u003e, \u003ccode\u003eFourth\u003c/code\u003e, \u003ccode\u003eThird\u003c/code\u003e, \u003ccode\u003eSecond\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo fully understand this one you need an understanding of JavaScript’s event loop, specifically, the Call Stack, Task Queue, Web APIs (for \u003ccode\u003esetTimeout\u003c/code\u003e), and the Job Queue.\u003c/p\u003e\n\u003cp\u003eWe’ll publish a post sometime this week that goes over all of those and we’ll include it in next week’s Bytes. If you don’t want to wait until next week, we’ll tweet about it from \u003ca href=\"https://twitter.com/uidotdev\"\u003e@uidotdev\u003c/a\u003e when it’s out.\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"14"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"14"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

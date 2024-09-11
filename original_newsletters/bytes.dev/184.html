@@ -1,0 +1,310 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #184 - Jack be Nimble, Jack be Qwik</title><link rel="canonical" href="https://bytes.dev/archives/184"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="React canary face tattoos, JavaScript fortune cookies, and the world&#x27;s most satisfying toggle"/><meta property="og:url" content="https://bytes.dev/archives/184"/><meta property="og:title" content="Bytes #184 - Jack be Nimble, Jack be Qwik"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/arthur-cake.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="React canary face tattoos, JavaScript fortune cookies, and the world&#x27;s most satisfying toggle"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #184 - Jack be Nimble, Jack be Qwik"/><meta property="twitter:description" content="React canary face tattoos, JavaScript fortune cookies, and the world&#x27;s most satisfying toggle"/><meta property="twitter:image" content="https://bytes.dev/images/content/arthur-cake.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Jack be Nimble, Jack be Qwik</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->184<!-- -->.</span><span class="mr-6 font-bold">May 4, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Hi friends. Here’s what we’ve got for you in today’s issue:</p>
+<ul>
+<li>React canary face tattoos</li>
+<li>JavaScript fortune cookies</li>
+<li>The world’s most satisfying toggle</li>
+</ul>
+<p>Welcome to <a href="https://bytes.dev/archives/184">#184</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/arthur-cake.jpg" alt="Arthur eating a giant cake in one bite" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">I love having my cake and eating it too.<!-- --> </p></div><h3>Jack be Nimble, Jack be Qwik</h3><p>After months of hype, Qwik 1.0 launched on Monday <span role="img" aria-label="rocket">🚀</span>. And their announcement post had one key line that sounded straight out of a JavaScript fortune cookie:</p><p><em>“Qwik’s philosophy is to ensure the easy path is the performant path.”</em> <span role="img" aria-label="man in lotus position">🧘‍♂️</span></p><p>That’s cool, and now I’m craving Panda Express, but we’ve heard this “best-of-both-worlds” pitch from lots of JS frameworks. So what makes Qwik unique?</p><p>In one word: <strong>Resumability.</strong></p><p>That’s the name of Qwik’s unique rendering approach, which doesn’t require any of the pure overhead that comes with traditional hydration. Here’s a quick TLDR on how it works:</p><ul>
+<li>
+<p>Fully interactive sites are able to load with a tiny amount of JavaScript, then pick up from where the server left off. As users interact with your site, the relevant parts of it load on demand.</p>
+</li>
+<li>
+<p>This “precision lazy-loading” is possible because Qwik apps are fully serialized as HTML. So with SSR, the whole app can be shipped to the browser as just HTML, where it will resume loading where it left off - without needing to execute any JavaScript.</p>
+</li>
+<li>
+<p>This means you don’t need to worry about how much JavaScript you’re adding or how your site is being lazy loaded. You just build whatever you want, however you want, and Qwik makes sure you always get a perfect lighthouse score — because it only downloads the bare minimum amount of JavaScript needed for each interaction.</p>
+</li>
+</ul><p>When it comes to the DX, the most unique thing about Qwik’s approach might be that it’s not actually <em>that</em> unique at all, by design. It doesn’t try to bash React as an “anti-pattern” — instead, Qwik and its Qwik City meta-framework embrace many core concepts from React and Next.js like JSX, directory-based routing, middleware, and more.</p><p>And now they’ve released <a href="https://qwik.builder.io/docs/integrations/react/">Qwik React</a> — which lets you use React (and every React component and library) within Qwik itself. This gives React developers an incremental way to try out Qwik, without having to rewrite their app from scratch.</p><p><strong>Bottom Line:</strong> As much JavaScript as I want and my site will still be blazing fast? What’s next, zero-calorie orange chicken? <span role="img" aria-label="folded hands">🙏</span></p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/184" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F184" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=As%20much%20JavaScript%20as%20I%20want%20and%20my%20site%20will%20still%20be%20blazing%20fast%3F%20What%20will%20%40QwikDev%20invent%20next%2C%20zero-calorie%20orange%20chicken%3F%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F184" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AAs%20much%20JavaScript%20as%20I%20want%20and%20my%20site%20will%20still%20be%20blazing%20fast%3F%20What%20will%20%40QwikDev%20invent%20next%2C%20zero-calorie%20orange%20chicken%3F%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F184" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/fusionauth-logo.png" alt="fusionauth logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/free-willy.jpg" alt="Free Willy jumping in the ocean" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you finally get auth set up and working.<!-- --> </p></div><h3>Free yourself with <a href="https://fusionauth.io/">FusionAuth</a></h3><p>I’ve never been a giant orca whale trapped in a tank before — but I imagine it feels a lot like trying to use a janky auth platform that never works <em>quite</em> like you need it to.</p><p>Thankfully, FusionAuth is here to set you free. Their super flexible auth solution is built by devs, for devs — and it comes with some uniquely powerful features:</p><ul>
+<li>
+<p><strong>Flexible branding and theming</strong> — You can easily customize <a href="https://fusionauth.io/platform/customizable">login screens, emails, and more</a>, so that every part of the auth experience feels like an extension of your own app.</p>
+</li>
+<li>
+<p><strong>Free for unlimited users</strong> — Their Community Edition lets you add login, registration, and user management to your app for free, with no user cap <span role="img" aria-label="folded hands">🙏</span>.</p>
+</li>
+<li>
+<p><strong>Hosting flexibility</strong> — You can easily self-host or let them host for you on a dedicated private server.</p>
+</li>
+</ul><p><a href="https://fusionauth.io/">Check it out</a> — and add all the auth features you’d ever need in days, instead of months.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/tip.png" alt="Tip logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Tip</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/bytes/">Datadog</a></h4><p><em>Check out the <a href="https://www.datadoghq.com/bytes/">free trial</a> of their real-time Node.js log management platform. It’s the best way to optimize perf for all your Node apps.</em></p></div></div>
+<p>Did you know that you can do front end form validations without JavaScript?</p>
+<ol>
+<li><code>required</code> ensures that a form input field must be filled in before the form can be submitted.</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="2">
+<li><code>minlength</code> and <code>maxlength</code> set the minimum and maximum allowed number of characters for an input field.</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">minlength</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">maxlength</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="3">
+<li><code>pattern</code> allows you to define a regular expression that the input value must match.</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[a-zA-Z0-9]{4,20}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="4">
+<li><code>type</code> can be used to specify the expected data type for an input field, which helps in basic validation. For example, you can use <code>type="email"</code> for email validation, <code>type="url"</code> for URL validation, and <code>type="number"</code> for number validation.</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user_email<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>website<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>That being said, you’ll probably want come back-end validation as well.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://blog.angular.io/angular-v16-is-here-4d7a28ec680d">Angular 16</a> just dropped yesterday, and it’s a big one. Yes, we will write a lot more about this on Monday.</p>
+</li>
+<li>
+<p>New Relic just released a new report, <a href="https://newrelic.com/resources/report/2023-state-of-the-java-ecosystem?utm_source=bytes&amp;utm_medium=community&amp;utm_campaign=global-fy24-q1-2023-state-of-the-java-ecosystem">2023 State of the Java Ecosystem</a>. Just in case you needed more evidence about why you don’t want to be a back-end dev. [sponsored]</p>
+</li>
+<li>
+<p>The React Team just announced a new, officially supported <a href="https://react.dev/blog/2023/05/03/react-canaries">React Canary release channel</a> — which gives you a chance to adopt individual new features when their design is close to final, but before they’re released in a stable version. To qualify, you just have to let Dan and Sophie give you a cute little canary face tattoo.</p>
+</li>
+<li>
+<p>Amelia Wattenberger wrote a good article about <a href="https://wattenberger.com/thoughts/boo-chatbots">Why Chatbots Are Not the Future</a>.</p>
+</li>
+<li>
+<p>In case you’re not overwhelmed enough by new JavaScript frameworks, the creators of LLVM and Swift just announced <a href="https://docs.modular.com/mojo/">Mojo</a> — a new programming language for AI developers that “combines the usability of Python with the performance of C.” I’ve never seen so many scary words in one sentence.</p>
+</li>
+<li>
+<p>The Deno team just released <a href="https://github.com/denoland/fastwebsockets">fastwebsockets</a> — but with a name like that, I have no idea what it does or at what speed it does it.</p>
+</li>
+<li>
+<p><a href="https://nextjs.org/blog/next-13-4">Next 13.4</a> was just released to much fanfare. App Router is now stable, Turbopack is now in beta, and Server Actions are now in Alpha.</p>
+</li>
+<li>
+<p><a href="https://observablehq.com/plot/">Observable Plot</a> is an open-source JavaScript library with a concise API for exploratory data visualizations. “No observable plot” was the only feedback I received from my creative writing instructor for my avant-garde retelling of <em>The Epic of Gilgamesh</em> set inside the <em>Minions</em> cinematic universe. It’s ok, most great art isn’t appreciated in its time.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: Jack be Nimble, Jack be Qwik","date":"2023-05-04","featuredImage":"/images/content/arthur-cake.jpg","description":"React canary face tattoos, JavaScript fortune cookies, and the world's most satisfying toggle","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHi friends. Here’s what we’ve got for you in today’s issue:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eReact canary face tattoos\u003c/li\u003e\n\u003cli\u003eJavaScript fortune cookies\u003c/li\u003e\n\u003cli\u003eThe world’s most satisfying toggle\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/184\"\u003e#184\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/arthur-cake.jpg\" alt=\"Arthur eating a giant cake in one bite\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eI love having my cake and eating it too.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eJack be Nimble, Jack be Qwik\u003c/h3\u003e\u003cp\u003eAfter months of hype, Qwik 1.0 launched on Monday \u003cspan role=\"img\" aria-label=\"rocket\"\u003e🚀\u003c/span\u003e. And their announcement post had one key line that sounded straight out of a JavaScript fortune cookie:\u003c/p\u003e\u003cp\u003e\u003cem\u003e“Qwik’s philosophy is to ensure the easy path is the performant path.”\u003c/em\u003e \u003cspan role=\"img\" aria-label=\"man in lotus position\"\u003e🧘‍♂️\u003c/span\u003e\u003c/p\u003e\u003cp\u003eThat’s cool, and now I’m craving Panda Express, but we’ve heard this “best-of-both-worlds” pitch from lots of JS frameworks. So what makes Qwik unique?\u003c/p\u003e\u003cp\u003eIn one word: \u003cstrong\u003eResumability.\u003c/strong\u003e\u003c/p\u003e\u003cp\u003eThat’s the name of Qwik’s unique rendering approach, which doesn’t require any of the pure overhead that comes with traditional hydration. Here’s a quick TLDR on how it works:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFully interactive sites are able to load with a tiny amount of JavaScript, then pick up from where the server left off. As users interact with your site, the relevant parts of it load on demand.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis “precision lazy-loading” is possible because Qwik apps are fully serialized as HTML. So with SSR, the whole app can be shipped to the browser as just HTML, where it will resume loading where it left off - without needing to execute any JavaScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis means you don’t need to worry about how much JavaScript you’re adding or how your site is being lazy loaded. You just build whatever you want, however you want, and Qwik makes sure you always get a perfect lighthouse score — because it only downloads the bare minimum amount of JavaScript needed for each interaction.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eWhen it comes to the DX, the most unique thing about Qwik’s approach might be that it’s not actually \u003cem\u003ethat\u003c/em\u003e unique at all, by design. It doesn’t try to bash React as an “anti-pattern” — instead, Qwik and its Qwik City meta-framework embrace many core concepts from React and Next.js like JSX, directory-based routing, middleware, and more.\u003c/p\u003e\u003cp\u003eAnd now they’ve released \u003ca href=\"https://qwik.builder.io/docs/integrations/react/\"\u003eQwik React\u003c/a\u003e — which lets you use React (and every React component and library) within Qwik itself. This gives React developers an incremental way to try out Qwik, without having to rewrite their app from scratch.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e As much JavaScript as I want and my site will still be blazing fast? What’s next, zero-calorie orange chicken? \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/184\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F184\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=As%20much%20JavaScript%20as%20I%20want%20and%20my%20site%20will%20still%20be%20blazing%20fast%3F%20What%20will%20%40QwikDev%20invent%20next%2C%20zero-calorie%20orange%20chicken%3F%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F184\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AAs%20much%20JavaScript%20as%20I%20want%20and%20my%20site%20will%20still%20be%20blazing%20fast%3F%20What%20will%20%40QwikDev%20invent%20next%2C%20zero-calorie%20orange%20chicken%3F%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F184\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/fusionauth-logo.png\" alt=\"fusionauth logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/free-willy.jpg\" alt=\"Free Willy jumping in the ocean\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you finally get auth set up and working.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eFree yourself with \u003ca href=\"https://fusionauth.io/\"\u003eFusionAuth\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eI’ve never been a giant orca whale trapped in a tank before — but I imagine it feels a lot like trying to use a janky auth platform that never works \u003cem\u003equite\u003c/em\u003e like you need it to.\u003c/p\u003e\u003cp\u003eThankfully, FusionAuth is here to set you free. Their super flexible auth solution is built by devs, for devs — and it comes with some uniquely powerful features:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFlexible branding and theming\u003c/strong\u003e — You can easily customize \u003ca href=\"https://fusionauth.io/platform/customizable\"\u003elogin screens, emails, and more\u003c/a\u003e, so that every part of the auth experience feels like an extension of your own app.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFree for unlimited users\u003c/strong\u003e — Their Community Edition lets you add login, registration, and user management to your app for free, with no user cap \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHosting flexibility\u003c/strong\u003e — You can easily self-host or let them host for you on a dedicated private server.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://fusionauth.io/\"\u003eCheck it out\u003c/a\u003e — and add all the auth features you’d ever need in days, instead of months.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/tip.png\" alt=\"Tip logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Tip\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003eDatadog\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eCheck out the \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003efree trial\u003c/a\u003e of their real-time Node.js log management platform. It’s the best way to optimize perf for all your Node apps.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eDid you know that you can do front end form validations without JavaScript?\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003ccode\u003erequired\u003c/code\u003e ensures that a form input field must be filled in before the form can be submitted.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003etext\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eusername\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003erequired\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003e\u003ccode\u003eminlength\u003c/code\u003e and \u003ccode\u003emaxlength\u003c/code\u003e set the minimum and maximum allowed number of characters for an input field.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003etext\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eusername\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eminlength\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e4\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003emaxlength\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e20\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003e\u003ccode\u003epattern\u003c/code\u003e allows you to define a regular expression that the input value must match.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003etext\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eusername\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003epattern\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e[a-zA-Z0-9]{4,20}\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"4\"\u003e\n\u003cli\u003e\u003ccode\u003etype\u003c/code\u003e can be used to specify the expected data type for an input field, which helps in basic validation. For example, you can use \u003ccode\u003etype=\"email\"\u003c/code\u003e for email validation, \u003ccode\u003etype=\"url\"\u003c/code\u003e for URL validation, and \u003ccode\u003etype=\"number\"\u003c/code\u003e for number validation.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eemail\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003euser_email\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eurl\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ewebsite\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003einput\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003etype\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003enumber\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ename\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003eage\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThat being said, you’ll probably want come back-end validation as well.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://blog.angular.io/angular-v16-is-here-4d7a28ec680d\"\u003eAngular 16\u003c/a\u003e just dropped yesterday, and it’s a big one. Yes, we will write a lot more about this on Monday.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNew Relic just released a new report, \u003ca href=\"https://newrelic.com/resources/report/2023-state-of-the-java-ecosystem?utm_source=bytes\u0026amp;utm_medium=community\u0026amp;utm_campaign=global-fy24-q1-2023-state-of-the-java-ecosystem\"\u003e2023 State of the Java Ecosystem\u003c/a\u003e. Just in case you needed more evidence about why you don’t want to be a back-end dev. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe React Team just announced a new, officially supported \u003ca href=\"https://react.dev/blog/2023/05/03/react-canaries\"\u003eReact Canary release channel\u003c/a\u003e — which gives you a chance to adopt individual new features when their design is close to final, but before they’re released in a stable version. To qualify, you just have to let Dan and Sophie give you a cute little canary face tattoo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAmelia Wattenberger wrote a good article about \u003ca href=\"https://wattenberger.com/thoughts/boo-chatbots\"\u003eWhy Chatbots Are Not the Future\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn case you’re not overwhelmed enough by new JavaScript frameworks, the creators of LLVM and Swift just announced \u003ca href=\"https://docs.modular.com/mojo/\"\u003eMojo\u003c/a\u003e — a new programming language for AI developers that “combines the usability of Python with the performance of C.” I’ve never seen so many scary words in one sentence.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Deno team just released \u003ca href=\"https://github.com/denoland/fastwebsockets\"\u003efastwebsockets\u003c/a\u003e — but with a name like that, I have no idea what it does or at what speed it does it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://nextjs.org/blog/next-13-4\"\u003eNext 13.4\u003c/a\u003e was just released to much fanfare. App Router is now stable, Turbopack is now in beta, and Server Actions are now in Alpha.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://observablehq.com/plot/\"\u003eObservable Plot\u003c/a\u003e is an open-source JavaScript library with a concise API for exploratory data visualizations. “No observable plot” was the only feedback I received from my creative writing instructor for my avant-garde retelling of \u003cem\u003eThe Epic of Gilgamesh\u003c/em\u003e set inside the \u003cem\u003eMinions\u003c/em\u003e cinematic universe. It’s ok, most great art isn’t appreciated in its time.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"184"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"184"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

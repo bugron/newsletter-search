@@ -1,0 +1,351 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #79 - NFL Blitz.js</title><link rel="canonical" href="https://bytes.dev/archives/79"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got Spy Kids 3d, a new archives page, Crap (Create React App) v5."/><meta property="og:url" content="https://bytes.dev/archives/79"/><meta property="og:title" content="Bytes #79 - NFL Blitz.js"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/sly.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got Spy Kids 3d, a new archives page, Crap (Create React App) v5."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #79 - NFL Blitz.js"/><meta property="twitter:description" content="This issue, we&#x27;ve got Spy Kids 3d, a new archives page, Crap (Create React App) v5."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/sly.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> NFL Blitz.js</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->79<!-- -->.</span><span class="mr-6 font-bold">December 20, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>After receiving our billionth request for it, we finally decided to build out an <a href="https://bytes.dev/archives/79">/archives</a> page for Bytes. <a href="https://www.youtube.com/watch?v=IqPr6bcTJhc"><em>Please clap</em></a>.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/sly.png" alt="3d movie Meme">
+</p><p class="image-alt">3D movies are the future</p><p></p>
+<h2>Framer Motion goes 3D</h2>
+<p>Hold onto your hats and (3D) glasses — because Framer Motion has entered <a href="https://www.framer.com/docs/three-introduction/">the 3rd dimension</a>.</p>
+<p><strong>Okay, what?</strong> Framer is a design and prototyping tool that was kind enough to release their animation library for React, aptly named Framer Motion. Because… you know, it <em>moves</em>. With it, you can create declarative, performant animations that’ll blow the socks off of anyone using your site (green or otherwise).</p>
+<p><strong>What about the 3D?</strong> Browsers have been rendering 3D views to the <code>&lt;canvas&gt;</code> element for years with WebGL, and the popular <a href="https://threejs.org/">three.js</a> library makes it <strong>much</strong> easier. <a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction">React Three Fiber (R3F)</a> has become de-facto way to use three.js in React, allowing your cameras, lights, and 3D objects can be composed as React components.</p>
+<p>This new update makes it possible for Framer Motion to animate R3F components. It’s like a Russian doll of API abstractions, but in 3D.</p>
+<p>Using it is easy: Just import their magic <code>motion</code> helper and put it at the front of your component name. It works with any R3F component and supports every powerful feature provided by Framer Motion without sacrificing the convenience of R3F.</p>
+<p>Here’s an example which renders a 3D cube and continuously rotates it using the declarative API of Framer Motion.</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>motion<span class="token punctuation">.</span>mesh
+  rotation<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+  scale<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">}</span>
+  animate<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">rotateZ</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rotateY</span><span class="token operator">:</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">transition</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">rotateZ</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token literal-property property">ease</span><span class="token operator">:</span> <span class="token string">"linear"</span><span class="token punctuation">,</span> <span class="token literal-property property">repeat</span><span class="token operator">:</span> <span class="token number">Infinity</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>boxGeometry args<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>meshPhongMaterial
+    color<span class="token operator">=</span><span class="token string">"#ffdd00"</span>
+    emissive<span class="token operator">=</span><span class="token string">"#ff9500"</span>
+    specular<span class="token operator">=</span><span class="token string">"#fff"</span>
+    shininess<span class="token operator">=</span><span class="token string">"100"</span>
+  <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>motion<span class="token punctuation">.</span>mesh<span class="token operator">&gt;</span>
+</code></pre>
+<p>Framer Motion 3D also tackles one of the hardest problems with 3D on the web: how do you animate the 3D canvas on the 2D screen without introducing distortion? Framer Motion’s solution is trivial: use the <code>&lt;MotionCanvas&gt;</code> and <code>&lt;LayoutCamera&gt;</code> components, animate the surrounding DOM elements, and it “just works” - no futzing with CSS transforms and messy matrix math.</p>
+<p>Be sure to check out <a href="https://www.framer.com/docs/three-introduction/">some of the examples</a> — they’re real and they’re spectacular.</p>
+<p><strong>The Bottom Line:</strong> I personally can’t wait to use Framer Motion 3D to create a shot-for-shot remake of <em>Spy Kids 3D</em> over my holiday vacation. The hardest part will be getting the vein in Sly Stallone’s forehead to bulge out <em>just</em> right, but we’ll get there.</p>
+<hr>
+<h2>A job you might actually like</h2>
+<p>We’ve partnered with our friends over at Portal to make getting your next job suck a little less.</p>
+<p>Here’s how it works. Head over to our <a href="https://www.portaljobs.io/portal/bytes">Portal</a>, upload your resume and contact info, and you’ll be connected to 50+ legit (and pre-vetted) tech companies — including Discord, Zapier, Coinbase, OpenSea, DoorDash, and some YC-backed startups.</p>
+<p>If a recruiter at one of those companies thinks you might be a good fit, they’ll contact you directly <em>and</em> skip you straight to the interview round.</p>
+<p>It doesn’t cost anything, and there’s no catch. We’re doing this because 1) We love you, and 2) We love money (these companies will pay us a finders fee if they end up hiring you). Guess that means we’re headhunters now, hope this message finds you well.</p>
+<p>Let’s all get this bread in 2022.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/sponge.png" alt="Spongebob Meme">
+</p><p class="image-alt">The gang’s all here</p><p></p>
+<h2>Create React App v5</h2>
+<p>It might not feature all those new-and-hot build tools like Vite, esbuild, or Snowpack — but <code>create-react-app</code> is still the OG way to spin up a React app with one command. And they <a href="https://github.com/facebook/create-react-app/releases/tag/v5.0.0">just released v5</a> last week.</p>
+<p><strong>Quick review:</strong> CRA’s magic is how it <del>makes it so you don’t have to read the Webpack docs</del> configures and updates all your build tools for you (Webpack, Babel, and ESLint).</p>
+<p>It’s kind of like using SparkNotes to write your end-of-semester book report — you may not understand <em>everything</em> that’s going on in the book (or under the hood of your app), but you’ll definitely get the assignment done a lot faster.</p>
+<p><strong>CRA5 highlights:</strong></p>
+<ul>
+<li>
+<p><strong>Updated dependencies</strong> —  All major dependencies got updated to their latest version, including Webpack, Jest, ESLint, and PostCSS. You can update them all at once by updating <code>react-scripts</code> to v5.</p>
+</li>
+<li>
+<p><strong>New Tailwind CSS support</strong> — Tailwind stans rejoice, because it’s now a much easier (and cleaner) experience to use the CSS framework with CRA.</p>
+</li>
+<li>
+<p><strong>Fast refresh improvements</strong> — Fixes up a few known bugs and improves fast refresh performance overall.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> Like <a href="https://www.youtube.com/watch?v=kGtGQQUMDjs">the Houston Rockets</a>, CRA’s best days are probably <a href="https://www.npmtrends.com/create-react-app">behind it</a>. With that said, it’s still the most popular way to spin up a React app and the team has shown they’re still dedicated to keeping it up to date –&nbsp;even with “last month’s” tech.</p>
+<hr>
+<h2>JS Quiz - Answer Below</h2>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Is the <a href="https://raygun.com/blog/aws-cloudwatch-first-look/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=aws-rum&amp;utm_content=blog">new AWS RUM tool</a> an industry game-changer? Real User Monitoring for Amazon CloudWatch was just announced at AWS re:Invent, adding to their existing suite of over 200 products and services. But how does it stack up? <a href="https://raygun.com/blog/aws-cloudwatch-first-look/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=aws-rum&amp;utm_content=blog">Raygun tried it out</a> (and wrote about it), so that you don’t have to. [sponsored]</p>
+</li>
+<li>
+<p>Gajus Kuizinas created the <a href="https://github.com/gajus/eslint-config-canonical">Canonical ESLint Config</a> with over 1,000 ESLint rules. I’m not sure who gave Gajus the authority to define that canon, but I’d love to get his take on whether or not <em>The Clone Wars</em> should be considered part of Star Wars canon.</p>
+</li>
+<li>
+<p>Alternatively, you could just break free of ESLint altogether by using <a href="https://quick-lint-js.com/blog/version-1.0/">quick-lint-js</a> — a new linter that promises to be “faster, easier, and friendlier” than the original. Buckle up for the Linter Wars because the Roaring ’20s are back baby.</p>
+</li>
+<li>
+<p>Blitz.js is considering <a href="https://github.com/blitz-js/blitz/discussions/3075">a big pivot</a> towards a “framework agnostic toolkit” approach. We can only hope this pivot will include a joint venture with EA Sports to resurrect (co-brand) the greatest sports video game of all time: <em>NFL Blitz.js</em>.</p>
+</li>
+<li>
+<p><a href="https://www.patterns.dev/">patterns.dev</a> is a free (and very in depth) book on design and component patterns for building powerful web apps with vanilla JavaScript and React.</p>
+</li>
+<li>
+<p>The Storybook team wrote this <a href="https://storybook.js.org/tutorials/ui-testing-handbook/">9-chapter UI Testing Handbook</a> with lots of great info. I haven’t found a SparkNotes entry for it yet, but luckily my book report isn’t due til after Winter Break.</p>
+</li>
+<li>
+<p>The Tower team <a href="https://www.git-tower.com/blog/cto-mark-porter/">interviewed Mark Porter</a> (CTO of MongoDB) about what it’s like running a giant engineering org and hiring/onboarding new employees. Turns out, that job seems pretty stressful. I also thought it was weird that this was <a href="https://twitter.com/JohnDiesattheEn/status/1469704572629311493/photo/1">his favorite job interview question</a> — but I guess that’s why he’s a CTO and I’m a newsletter man.</p>
+</li>
+<li>
+<p>The Expo team released a preview of <a href="https://blog.expo.dev/eas-update-in-preview-d221b6f91f52">EAS Update</a> — a new tool that lets you provide bug fixes or make other small changes to your mobile app <em>in between</em> app store releases. How do you like them _Apple_s?</p>
+</li>
+</ol>
+<hr>
+<h2>JS Quiz - Answer</h2>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>First</code>, <code>Fourth</code>, <code>Third</code>, <code>Second</code>.</p>
+<p>To fully understand this one you need an understanding of JavaScript’s event loop –&nbsp;specifically, the Call Stack, Task Queue, Web APIs (for <code>setTimeout</code>), and the Job Queue. Turns out, that’s a little much to cover here so do some Googling and uh GLHF.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: NFL Blitz.js","date":"2021-12-20","description":"This issue, we've got Spy Kids 3d, a new archives page, Crap (Create React App) v5.","featuredImage":"https://bytes.dev/images/content/sly.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eAfter receiving our billionth request for it, we finally decided to build out an \u003ca href=\"https://bytes.dev/archives/79\"\u003e/archives\u003c/a\u003e page for Bytes. \u003ca href=\"https://www.youtube.com/watch?v=IqPr6bcTJhc\"\u003e\u003cem\u003ePlease clap\u003c/em\u003e\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/sly.png\" alt=\"3d movie Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e3D movies are the future\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eFramer Motion goes 3D\u003c/h2\u003e\n\u003cp\u003eHold onto your hats and (3D) glasses — because Framer Motion has entered \u003ca href=\"https://www.framer.com/docs/three-introduction/\"\u003ethe 3rd dimension\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eOkay, what?\u003c/strong\u003e Framer is a design and prototyping tool that was kind enough to release their animation library for React, aptly named Framer Motion. Because… you know, it \u003cem\u003emoves\u003c/em\u003e. With it, you can create declarative, performant animations that’ll blow the socks off of anyone using your site (green or otherwise).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat about the 3D?\u003c/strong\u003e Browsers have been rendering 3D views to the \u003ccode\u003e\u0026lt;canvas\u0026gt;\u003c/code\u003e element for years with WebGL, and the popular \u003ca href=\"https://threejs.org/\"\u003ethree.js\u003c/a\u003e library makes it \u003cstrong\u003emuch\u003c/strong\u003e easier. \u003ca href=\"https://docs.pmnd.rs/react-three-fiber/getting-started/introduction\"\u003eReact Three Fiber (R3F)\u003c/a\u003e has become de-facto way to use three.js in React, allowing your cameras, lights, and 3D objects can be composed as React components.\u003c/p\u003e\n\u003cp\u003eThis new update makes it possible for Framer Motion to animate R3F components. It’s like a Russian doll of API abstractions, but in 3D.\u003c/p\u003e\n\u003cp\u003eUsing it is easy: Just import their magic \u003ccode\u003emotion\u003c/code\u003e helper and put it at the front of your component name. It works with any R3F component and supports every powerful feature provided by Framer Motion without sacrificing the convenience of R3F.\u003c/p\u003e\n\u003cp\u003eHere’s an example which renders a 3D cube and continuously rotates it using the declarative API of Framer Motion.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003emotion\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003emesh\n  rotation\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003eMath\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token constant\"\u003ePI\u003c/span\u003e \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e Math\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token constant\"\u003ePI\u003c/span\u003e \u003cspan class=\"token operator\"\u003e*\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  scale\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  animate\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003erotateZ\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003erotateY\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e0.3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003etransition\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token literal-property property\"\u003erotateZ\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eduration\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1.5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eease\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"linear\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003erepeat\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003eInfinity\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003eboxGeometry args\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003emeshPhongMaterial\n    color\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"#ffdd00\"\u003c/span\u003e\n    emissive\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"#ff9500\"\u003c/span\u003e\n    specular\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"#fff\"\u003c/span\u003e\n    shininess\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"100\"\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e/\u003c/span\u003e\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"token operator\"\u003e/\u003c/span\u003emotion\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003emesh\u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFramer Motion 3D also tackles one of the hardest problems with 3D on the web: how do you animate the 3D canvas on the 2D screen without introducing distortion? Framer Motion’s solution is trivial: use the \u003ccode\u003e\u0026lt;MotionCanvas\u0026gt;\u003c/code\u003e and \u003ccode\u003e\u0026lt;LayoutCamera\u0026gt;\u003c/code\u003e components, animate the surrounding DOM elements, and it “just works” - no futzing with CSS transforms and messy matrix math.\u003c/p\u003e\n\u003cp\u003eBe sure to check out \u003ca href=\"https://www.framer.com/docs/three-introduction/\"\u003esome of the examples\u003c/a\u003e — they’re real and they’re spectacular.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe Bottom Line:\u003c/strong\u003e I personally can’t wait to use Framer Motion 3D to create a shot-for-shot remake of \u003cem\u003eSpy Kids 3D\u003c/em\u003e over my holiday vacation. The hardest part will be getting the vein in Sly Stallone’s forehead to bulge out \u003cem\u003ejust\u003c/em\u003e right, but we’ll get there.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eA job you might actually like\u003c/h2\u003e\n\u003cp\u003eWe’ve partnered with our friends over at Portal to make getting your next job suck a little less.\u003c/p\u003e\n\u003cp\u003eHere’s how it works. Head over to our \u003ca href=\"https://www.portaljobs.io/portal/bytes\"\u003ePortal\u003c/a\u003e, upload your resume and contact info, and you’ll be connected to 50+ legit (and pre-vetted) tech companies — including Discord, Zapier, Coinbase, OpenSea, DoorDash, and some YC-backed startups.\u003c/p\u003e\n\u003cp\u003eIf a recruiter at one of those companies thinks you might be a good fit, they’ll contact you directly \u003cem\u003eand\u003c/em\u003e skip you straight to the interview round.\u003c/p\u003e\n\u003cp\u003eIt doesn’t cost anything, and there’s no catch. We’re doing this because 1) We love you, and 2) We love money (these companies will pay us a finders fee if they end up hiring you). Guess that means we’re headhunters now, hope this message finds you well.\u003c/p\u003e\n\u003cp\u003eLet’s all get this bread in 2022.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/sponge.png\" alt=\"Spongebob Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe gang’s all here\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eCreate React App v5\u003c/h2\u003e\n\u003cp\u003eIt might not feature all those new-and-hot build tools like Vite, esbuild, or Snowpack — but \u003ccode\u003ecreate-react-app\u003c/code\u003e is still the OG way to spin up a React app with one command. And they \u003ca href=\"https://github.com/facebook/create-react-app/releases/tag/v5.0.0\"\u003ejust released v5\u003c/a\u003e last week.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick review:\u003c/strong\u003e CRA’s magic is how it \u003cdel\u003emakes it so you don’t have to read the Webpack docs\u003c/del\u003e configures and updates all your build tools for you (Webpack, Babel, and ESLint).\u003c/p\u003e\n\u003cp\u003eIt’s kind of like using SparkNotes to write your end-of-semester book report — you may not understand \u003cem\u003eeverything\u003c/em\u003e that’s going on in the book (or under the hood of your app), but you’ll definitely get the assignment done a lot faster.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eCRA5 highlights:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eUpdated dependencies\u003c/strong\u003e —  All major dependencies got updated to their latest version, including Webpack, Jest, ESLint, and PostCSS. You can update them all at once by updating \u003ccode\u003ereact-scripts\u003c/code\u003e to v5.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew Tailwind CSS support\u003c/strong\u003e — Tailwind stans rejoice, because it’s now a much easier (and cleaner) experience to use the CSS framework with CRA.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast refresh improvements\u003c/strong\u003e — Fixes up a few known bugs and improves fast refresh performance overall.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Like \u003ca href=\"https://www.youtube.com/watch?v=kGtGQQUMDjs\"\u003ethe Houston Rockets\u003c/a\u003e, CRA’s best days are probably \u003ca href=\"https://www.npmtrends.com/create-react-app\"\u003ebehind it\u003c/a\u003e. With that said, it’s still the most popular way to spin up a React app and the team has shown they’re still dedicated to keeping it up to date –\u0026nbsp;even with “last month’s” tech.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer Below\u003c/h2\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIs the \u003ca href=\"https://raygun.com/blog/aws-cloudwatch-first-look/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=aws-rum\u0026amp;utm_content=blog\"\u003enew AWS RUM tool\u003c/a\u003e an industry game-changer? Real User Monitoring for Amazon CloudWatch was just announced at AWS re:Invent, adding to their existing suite of over 200 products and services. But how does it stack up? \u003ca href=\"https://raygun.com/blog/aws-cloudwatch-first-look/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=aws-rum\u0026amp;utm_content=blog\"\u003eRaygun tried it out\u003c/a\u003e (and wrote about it), so that you don’t have to. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGajus Kuizinas created the \u003ca href=\"https://github.com/gajus/eslint-config-canonical\"\u003eCanonical ESLint Config\u003c/a\u003e with over 1,000 ESLint rules. I’m not sure who gave Gajus the authority to define that canon, but I’d love to get his take on whether or not \u003cem\u003eThe Clone Wars\u003c/em\u003e should be considered part of Star Wars canon.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlternatively, you could just break free of ESLint altogether by using \u003ca href=\"https://quick-lint-js.com/blog/version-1.0/\"\u003equick-lint-js\u003c/a\u003e — a new linter that promises to be “faster, easier, and friendlier” than the original. Buckle up for the Linter Wars because the Roaring ’20s are back baby.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBlitz.js is considering \u003ca href=\"https://github.com/blitz-js/blitz/discussions/3075\"\u003ea big pivot\u003c/a\u003e towards a “framework agnostic toolkit” approach. We can only hope this pivot will include a joint venture with EA Sports to resurrect (co-brand) the greatest sports video game of all time: \u003cem\u003eNFL Blitz.js\u003c/em\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.patterns.dev/\"\u003epatterns.dev\u003c/a\u003e is a free (and very in depth) book on design and component patterns for building powerful web apps with vanilla JavaScript and React.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Storybook team wrote this \u003ca href=\"https://storybook.js.org/tutorials/ui-testing-handbook/\"\u003e9-chapter UI Testing Handbook\u003c/a\u003e with lots of great info. I haven’t found a SparkNotes entry for it yet, but luckily my book report isn’t due til after Winter Break.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Tower team \u003ca href=\"https://www.git-tower.com/blog/cto-mark-porter/\"\u003einterviewed Mark Porter\u003c/a\u003e (CTO of MongoDB) about what it’s like running a giant engineering org and hiring/onboarding new employees. Turns out, that job seems pretty stressful. I also thought it was weird that this was \u003ca href=\"https://twitter.com/JohnDiesattheEn/status/1469704572629311493/photo/1\"\u003ehis favorite job interview question\u003c/a\u003e — but I guess that’s why he’s a CTO and I’m a newsletter man.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Expo team released a preview of \u003ca href=\"https://blog.expo.dev/eas-update-in-preview-d221b6f91f52\"\u003eEAS Update\u003c/a\u003e — a new tool that lets you provide bug fixes or make other small changes to your mobile app \u003cem\u003ein between\u003c/em\u003e app store releases. How do you like them _Apple_s?\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer\u003c/h2\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eFirst\u003c/code\u003e, \u003ccode\u003eFourth\u003c/code\u003e, \u003ccode\u003eThird\u003c/code\u003e, \u003ccode\u003eSecond\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo fully understand this one you need an understanding of JavaScript’s event loop –\u0026nbsp;specifically, the Call Stack, Task Queue, Web APIs (for \u003ccode\u003esetTimeout\u003c/code\u003e), and the Job Queue. Turns out, that’s a little much to cover here so do some Googling and uh GLHF.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"79"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"79"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

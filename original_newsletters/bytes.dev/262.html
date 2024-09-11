@@ -1,0 +1,319 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #262 - The Super Bowl of monorepos</title><link rel="canonical" href="https://bytes.dev/archives/262"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on ~~drugs~~ Node.js."/><meta property="og:url" content="https://bytes.dev/archives/262"/><meta property="og:title" content="Bytes #262 - The Super Bowl of monorepos"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/ice-spice.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on ~~drugs~~ Node.js."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #262 - The Super Bowl of monorepos"/><meta property="twitter:description" content="The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on ~~drugs~~ Node.js."/><meta property="twitter:image" content="https://bytes.dev/images/content/ice-spice.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The Super Bowl of monorepos</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->262<!-- -->.</span><span class="mr-6 font-bold">February 12, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on <del>drugs</del> Node.js.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/262">#262</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/ice-spice.jpg" alt="Jason Kelce talking to Ice Spice and Taylor Swift" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">"OK explain how Monorepos are like munchkins one more time"<!-- --> </p></div><h3>The Super Bowl of monorepos</h3><p>We just got done watching the live media event of the year that everyone’s still buzzing about — <a href="https://www.youtube.com/watch?v=fy0K2Smyj5A">LaunchNx Conf</a> (obviously).</p><p>Usher was too busy being upstaged by Taylor Swift to stop by, but last week’s <em>MonorepoBowl</em> was packed with major releases, surprise announcements, and (in my case) a bowl of buffalo chicken dip the size of my head.</p><p><strong>Quick monorepo review:</strong> As the name implies, monorepos let you group related projects in a single repo to facilitate communication, reuse code, and speed up development. But you can only get so far with built-in npm/yarn/pnpm workspaces before you hit painfully slow builds — that’s where Nx comes in.</p><p>It’s built in Rust and TypeScript and offers optimizations like local and remote caching to speed up monorepos. Nx has evolved a lot since it first launched in 2017, now getting 4 million npm downloads per week and being used by half of Fortune 500 companies <span role="img" aria-label="exploding head">🤯</span>.</p><p>Now that we’re all on the same page, let’s get to the biggest highlights from Launch Week.</p><p><strong>Big launch #1: <a href="https://dev.to/nx/what-if-nx-plugins-were-more-like-vscode-extensions-4oh0">Project Crystal</a></strong> — a major overhaul of Nx Plugins that makes them more powerful and a lot easier to use.</p><p>Nx plugins can now <a href="https://nx.dev/concepts/inferred-tasks">automatically infer tasks</a> and auto-configure caching inputs and outputs based on existing framework configs. For example, the <code>@nx/vite</code> plugin infers tasks to run Vite through Nx based on your repo’s Vite configuration. This config already defines the destination of your build files, so Nx reads that value and caches the correct output files for you.</p><p>This change also makes it <em>much</em> easier to get started with plugins. Just run <code>nx init</code> on any existing npm/pnpm/yarn workspace to instantly enhance it with special Nx powers.</p><p><strong>Big launch #2: <a href="https://blog.nrwl.io/fast-effortless-ci-67812514ffb4?source=friends_link&amp;sk=89e1b5c0388dda077e64a2eab5495d95">Nx Agents</a></strong> — a paid add-on that brings all the powers of Nx to your CI.</p><p>It gives you seamless distribution of tasks across machines, dynamic allocation o f machines tailored to PR size, fine-grained e2e distribution, and automatic re-running of flaky tests. You can enable all of this with a single line of code, and watch your CI instantly become 80% faster.</p><p><strong>Bottom Line:</strong> Nx has come a long way since 2017, but these major launches should make it more approachable than ever. It’s also nice to see Nx-the-company releasing genuinely innovative products to help fund their open source work.</p><p>Long live the MonorepoBowl.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/262" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F262" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20team%20broke%20down%20everything%20you%20missed%20from%20last%20week's%20MonorepoBowl%20with%20%40nxdevtools%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F262" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20team%20broke%20down%20everything%20you%20missed%20from%20last%20week's%20MonorepoBowl%20with%20%40nxdevtools%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F262" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/multi-logo.png" alt="multi-logo.png"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/shrek-heart-donkey.jpg" alt="Shrek and Donkey making a heart with their hands" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Using Multi to pair program with your work bestie<!-- --> </p></div><h3><a href="https://multi.app/newsletter?r_id=BYTES2">Multi makes remote pairing feel seamless</a></h3><p>Their free MacOS app adds a multiplayer layer to your desktop, so you can collaborate and build together with your team in real time.</p><p>Instead of squinting at lines of code on a Zoom call, Multi gives you everything you need to feel like you’re pairing side by side with your team IRL:</p><ul>
+<li>
+<p>High-quality video sharing that uses low bandwidth, thanks to <a href="https://multi.app/changelog/ai-upscaling?r_id=BYTES2">AI image upscaling</a></p>
+</li>
+<li>
+<p><a href="https://multi.app/changelog/2-3x-faster-shared-control?r_id=BYTES2">Blazing fast shared control</a> that lets you share cursors and clipboards, take control of each others’ apps, and draw</p>
+</li>
+<li>
+<p>Multiple people can screenshare at the same time</p>
+</li>
+</ul><p>We wrote about Multi when it first blew up back in August, and it’s now open to everyone without a waitlist and comes with a bunch of new secret AI features <span role="img" aria-label="shushing face">🤫</span>.</p><p><a href="https://multi.app/newsletter?r_id=BYTES2">Download the MacOS app for free</a> — and see why so many developers (including the creator of Angular) call it “the most seamless collaboration tool I’ve ever used.”</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://getstream.io/video/?utm_source=Bytes&amp;utm_medium=promoted_newsletter&amp;utm_content=developer&amp;utm_campaign=newsletter_content_ad">Stream</a></h4><p><em>Their <a href="https://getstream.io/video/sdk/react/?utm_source=Bytes&amp;utm_medium=promoted_newsletter&amp;utm_content=developer&amp;utm_campaign=newsletter_content_ad">React SDK for Video &amp; Audio</a> lets you easily build a full-featured video call, audio room, or live stream experience in days that can instantly support millions of users.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Animal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>AWS just launched <a href="https://github.com/awslabs/llrt">LLRT</a>, an experimental, low latency JavaScript runtime for serverless applications. I’m not sure what this Amazon Basics version of Bun will retail for, but it’s probably cheaper if you have Prime.</p>
+</li>
+<li>
+<p><a href="https://github.com/honojs/hono/releases/tag/v4.0.0">Hono v4</a> just launched with static site generation, client components, and file-based routing.</p>
+</li>
+<li>
+<p>Convex created <a href="https://www.convex.dev/?utm_source=bytes&amp;utm_medium=newsletter">the 2024 version of Firebase</a>. It’s a modern backend platform that comes with real-time queries, first-class React/Next.js support, and thoughtfully designed wrappers for scheduling — all backed by a durable, transactional database. [sponsored]</p>
+</li>
+<li>
+<p>Ruoyu Sun wrote about <a href="https://ruoyusun.com/2024/01/23/cividle-optimization">Squeezing every last bit of JavaScript performance for my automation game</a>.</p>
+</li>
+<li>
+<p>Matteo Collina wrote about <a href="https://adventures.nodeland.dev/archive/3x-faster-stream-processing/">3x Faster Stream processing in Node.js</a> on his blog called “Adventures in Nodeland.” He doesn’t include as many references to hallucinogenics as Lewis Caroll did, but being a Node maintainer is probably the next closest thing to eating magic mushrooms.</p>
+</li>
+<li>
+<p><a href="https://github.com/dnnsjsk/glaze">Glaze</a> is a new utility-based animation framework that’s built on top of GSAP.</p>
+</li>
+<li>
+<p>Did you know that 63% of JavaScript vulnerabilities have simple fixes available? That’s why Snyk created a free <a href="https://snyk.io/lp/javascript-snyk-code-checker/?utm_campaign=dm_pp-bytes-advertiser_240201_ua_js_code_ch&amp;utm_medium=em-pa&amp;utm_source=bytes-advertiser&amp;utm_content=ua_js_code_ch">JavaScript code security &amp; vulnerability checker</a>. It scans your JS code for security issues and gives you AI-powered fix suggestions in-line in your IDE. [sponsored]</p>
+</li>
+<li>
+<p>Adam Fortuna wrote about how his team <a href="https://hardcover.app/blog/next-js-app-router-seo">increased search traffic by 20x in 4 Months with the Next.js App Router</a>. Take that, App Router haters.</p>
+</li>
+<li>
+<p>Rich Harris did an <a href="https://www.youtube.com/watch?v=z7n17ajJpCo">80-minute interview</a> with Prismic about the future of Svelte.</p>
+</li>
+<li>
+<p><a href="https://github.com/devidw/tabgod">tabgod</a> lets you execute any JavaScript on any Chromium tabs with cross-tab parallel execution. It’s also the name of the up-and-coming Soundcloud rapper who’s an early favorite to perform at next year’s Super Bowl.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://getstream.io/video/?utm_source=Bytes&amp;utm_medium=promoted_newsletter&amp;utm_content=developer&amp;utm_campaign=newsletter_content_ad">Stream</a></h4></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Animal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Arrow functions don’t have their own <code>this</code>. This leads to three errors in our code.</p>
+<p>First, we’re adding properties to <code>this</code> in the constructor function. Again, because Arrow Functions don’t have their own <code>this</code>, you can’t do that.</p>
+<p>Second, we can’t use the <code>new</code> keyword with an Arrow Function. This will throw a <code>X is not a constructor</code> error.</p>
+<p>Third, we can’t add a property on a function’s prototype if that function is an arrow function, again, because there’s no <code>this</code>.</p>
+<p>Here’s the solution -</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: The Super Bowl of monorepos","date":"2024-02-12","featuredImage":"/images/content/ice-spice.jpg","description":"The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on ~~drugs~~ Node.js.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e The Amazon Basics version of Bun, clapping back at the App Router haters, and your brain on \u003cdel\u003edrugs\u003c/del\u003e Node.js.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/262\"\u003e#262\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/ice-spice.jpg\" alt=\"Jason Kelce talking to Ice Spice and Taylor Swift\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003e\"OK explain how Monorepos are like munchkins one more time\"\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eThe Super Bowl of monorepos\u003c/h3\u003e\u003cp\u003eWe just got done watching the live media event of the year that everyone’s still buzzing about — \u003ca href=\"https://www.youtube.com/watch?v=fy0K2Smyj5A\"\u003eLaunchNx Conf\u003c/a\u003e (obviously).\u003c/p\u003e\u003cp\u003eUsher was too busy being upstaged by Taylor Swift to stop by, but last week’s \u003cem\u003eMonorepoBowl\u003c/em\u003e was packed with major releases, surprise announcements, and (in my case) a bowl of buffalo chicken dip the size of my head.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eQuick monorepo review:\u003c/strong\u003e As the name implies, monorepos let you group related projects in a single repo to facilitate communication, reuse code, and speed up development. But you can only get so far with built-in npm/yarn/pnpm workspaces before you hit painfully slow builds — that’s where Nx comes in.\u003c/p\u003e\u003cp\u003eIt’s built in Rust and TypeScript and offers optimizations like local and remote caching to speed up monorepos. Nx has evolved a lot since it first launched in 2017, now getting 4 million npm downloads per week and being used by half of Fortune 500 companies \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eNow that we’re all on the same page, let’s get to the biggest highlights from Launch Week.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBig launch #1: \u003ca href=\"https://dev.to/nx/what-if-nx-plugins-were-more-like-vscode-extensions-4oh0\"\u003eProject Crystal\u003c/a\u003e\u003c/strong\u003e — a major overhaul of Nx Plugins that makes them more powerful and a lot easier to use.\u003c/p\u003e\u003cp\u003eNx plugins can now \u003ca href=\"https://nx.dev/concepts/inferred-tasks\"\u003eautomatically infer tasks\u003c/a\u003e and auto-configure caching inputs and outputs based on existing framework configs. For example, the \u003ccode\u003e@nx/vite\u003c/code\u003e plugin infers tasks to run Vite through Nx based on your repo’s Vite configuration. This config already defines the destination of your build files, so Nx reads that value and caches the correct output files for you.\u003c/p\u003e\u003cp\u003eThis change also makes it \u003cem\u003emuch\u003c/em\u003e easier to get started with plugins. Just run \u003ccode\u003enx init\u003c/code\u003e on any existing npm/pnpm/yarn workspace to instantly enhance it with special Nx powers.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBig launch #2: \u003ca href=\"https://blog.nrwl.io/fast-effortless-ci-67812514ffb4?source=friends_link\u0026amp;sk=89e1b5c0388dda077e64a2eab5495d95\"\u003eNx Agents\u003c/a\u003e\u003c/strong\u003e — a paid add-on that brings all the powers of Nx to your CI.\u003c/p\u003e\u003cp\u003eIt gives you seamless distribution of tasks across machines, dynamic allocation o f machines tailored to PR size, fine-grained e2e distribution, and automatic re-running of flaky tests. You can enable all of this with a single line of code, and watch your CI instantly become 80% faster.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Nx has come a long way since 2017, but these major launches should make it more approachable than ever. It’s also nice to see Nx-the-company releasing genuinely innovative products to help fund their open source work.\u003c/p\u003e\u003cp\u003eLong live the MonorepoBowl.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/262\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F262\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20team%20broke%20down%20everything%20you%20missed%20from%20last%20week's%20MonorepoBowl%20with%20%40nxdevtools%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F262\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20team%20broke%20down%20everything%20you%20missed%20from%20last%20week's%20MonorepoBowl%20with%20%40nxdevtools%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F262\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/multi-logo.png\" alt=\"multi-logo.png\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/shrek-heart-donkey.jpg\" alt=\"Shrek and Donkey making a heart with their hands\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eUsing Multi to pair program with your work bestie\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://multi.app/newsletter?r_id=BYTES2\"\u003eMulti makes remote pairing feel seamless\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eTheir free MacOS app adds a multiplayer layer to your desktop, so you can collaborate and build together with your team in real time.\u003c/p\u003e\u003cp\u003eInstead of squinting at lines of code on a Zoom call, Multi gives you everything you need to feel like you’re pairing side by side with your team IRL:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eHigh-quality video sharing that uses low bandwidth, thanks to \u003ca href=\"https://multi.app/changelog/ai-upscaling?r_id=BYTES2\"\u003eAI image upscaling\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://multi.app/changelog/2-3x-faster-shared-control?r_id=BYTES2\"\u003eBlazing fast shared control\u003c/a\u003e that lets you share cursors and clipboards, take control of each others’ apps, and draw\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMultiple people can screenshare at the same time\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eWe wrote about Multi when it first blew up back in August, and it’s now open to everyone without a waitlist and comes with a bunch of new secret AI features \u003cspan role=\"img\" aria-label=\"shushing face\"\u003e🤫\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://multi.app/newsletter?r_id=BYTES2\"\u003eDownload the MacOS app for free\u003c/a\u003e — and see why so many developers (including the creator of Angular) call it “the most seamless collaboration tool I’ve ever used.”\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://getstream.io/video/?utm_source=Bytes\u0026amp;utm_medium=promoted_newsletter\u0026amp;utm_content=developer\u0026amp;utm_campaign=newsletter_content_ad\"\u003eStream\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir \u003ca href=\"https://getstream.io/video/sdk/react/?utm_source=Bytes\u0026amp;utm_medium=promoted_newsletter\u0026amp;utm_content=developer\u0026amp;utm_campaign=newsletter_content_ad\"\u003eReact SDK for Video \u0026amp; Audio\u003c/a\u003e lets you easily build a full-featured video call, audio room, or live stream experience in days that can instantly support millions of users.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eAWS just launched \u003ca href=\"https://github.com/awslabs/llrt\"\u003eLLRT\u003c/a\u003e, an experimental, low latency JavaScript runtime for serverless applications. I’m not sure what this Amazon Basics version of Bun will retail for, but it’s probably cheaper if you have Prime.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/honojs/hono/releases/tag/v4.0.0\"\u003eHono v4\u003c/a\u003e just launched with static site generation, client components, and file-based routing.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eConvex created \u003ca href=\"https://www.convex.dev/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ethe 2024 version of Firebase\u003c/a\u003e. It’s a modern backend platform that comes with real-time queries, first-class React/Next.js support, and thoughtfully designed wrappers for scheduling — all backed by a durable, transactional database. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRuoyu Sun wrote about \u003ca href=\"https://ruoyusun.com/2024/01/23/cividle-optimization\"\u003eSqueezing every last bit of JavaScript performance for my automation game\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMatteo Collina wrote about \u003ca href=\"https://adventures.nodeland.dev/archive/3x-faster-stream-processing/\"\u003e3x Faster Stream processing in Node.js\u003c/a\u003e on his blog called “Adventures in Nodeland.” He doesn’t include as many references to hallucinogenics as Lewis Caroll did, but being a Node maintainer is probably the next closest thing to eating magic mushrooms.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/dnnsjsk/glaze\"\u003eGlaze\u003c/a\u003e is a new utility-based animation framework that’s built on top of GSAP.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDid you know that 63% of JavaScript vulnerabilities have simple fixes available? That’s why Snyk created a free \u003ca href=\"https://snyk.io/lp/javascript-snyk-code-checker/?utm_campaign=dm_pp-bytes-advertiser_240201_ua_js_code_ch\u0026amp;utm_medium=em-pa\u0026amp;utm_source=bytes-advertiser\u0026amp;utm_content=ua_js_code_ch\"\u003eJavaScript code security \u0026amp; vulnerability checker\u003c/a\u003e. It scans your JS code for security issues and gives you AI-powered fix suggestions in-line in your IDE. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdam Fortuna wrote about how his team \u003ca href=\"https://hardcover.app/blog/next-js-app-router-seo\"\u003eincreased search traffic by 20x in 4 Months with the Next.js App Router\u003c/a\u003e. Take that, App Router haters.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRich Harris did an \u003ca href=\"https://www.youtube.com/watch?v=z7n17ajJpCo\"\u003e80-minute interview\u003c/a\u003e with Prismic about the future of Svelte.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/devidw/tabgod\"\u003etabgod\u003c/a\u003e lets you execute any JavaScript on any Chromium tabs with cross-tab parallel execution. It’s also the name of the up-and-coming Soundcloud rapper who’s an early favorite to perform at next year’s Super Bowl.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://getstream.io/video/?utm_source=Bytes\u0026amp;utm_medium=promoted_newsletter\u0026amp;utm_content=developer\u0026amp;utm_campaign=newsletter_content_ad\"\u003eStream\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eArrow functions don’t have their own \u003ccode\u003ethis\u003c/code\u003e. This leads to three errors in our code.\u003c/p\u003e\n\u003cp\u003eFirst, we’re adding properties to \u003ccode\u003ethis\u003c/code\u003e in the constructor function. Again, because Arrow Functions don’t have their own \u003ccode\u003ethis\u003c/code\u003e, you can’t do that.\u003c/p\u003e\n\u003cp\u003eSecond, we can’t use the \u003ccode\u003enew\u003c/code\u003e keyword with an Arrow Function. This will throw a \u003ccode\u003eX is not a constructor\u003c/code\u003e error.\u003c/p\u003e\n\u003cp\u003eThird, we can’t add a property on a function’s prototype if that function is an arrow function, again, because there’s no \u003ccode\u003ethis\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eHere’s the solution -\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"262"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"262"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

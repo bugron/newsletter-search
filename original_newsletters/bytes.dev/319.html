@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #319 - I like rusty JavaScript</title><link rel="canonical" href="https://bytes.dev/archives/319"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Teaching my grandma&#x27;s friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in ~~humanity~~ the internet"/><meta property="og:url" content="https://bytes.dev/archives/319"/><meta property="og:title" content="Bytes #319 - I like rusty JavaScript"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/salad-fingers.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Teaching my grandma&#x27;s friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in ~~humanity~~ the internet"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #319 - I like rusty JavaScript"/><meta property="twitter:description" content="Teaching my grandma&#x27;s friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in ~~humanity~~ the internet"/><meta property="twitter:image" content="https://bytes.dev/images/content/salad-fingers.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> I like rusty JavaScript</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->319<!-- -->.</span><span class="mr-6 font-bold">September 2, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Teaching my grandma’s friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in <del>humanity</del> the internet.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/319">#319</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/salad-fingers.jpg" alt="Salad Fingers' face" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Mfw I don't have to wait 20 min for my app to build<!-- --> </p></div><h3>I like rusty JavaScript</h3><p>Rspack just launched <a href="https://rspack.dev/blog/announcing-1-0">v1.0</a> last week, and the dream of using Rust-based build tools to speed up the JS ecosystem is officially alive and well.</p><p><strong>How we got here:</strong> Early last year, a team of developers at ByteDance was running into performance problems while maintaining the company’s “many large, monolithic apps.” So they did what any good developers would do – they blamed webpack.</p><p>But they didn’t stop there. In March 2023, they launched Rspack v0.1 as a high-performance JavaScript bundler that’s written in Rust and aims to be fully compatible with the webpack ecosystem.</p><p>Fast forward to today, and Rspack now gets 100k weekly downloads and has introduced some key improvements that have it ready for production:</p><ul>
+<li>
+<p><strong>Better performance</strong> – New features like lazy compilation and other perf optimizations make Rspack 1.0 build times <a href="https://github.com/rspack-contrib/performance-compare">over 20x faster</a> than webpack 5.</p>
+</li>
+<li>
+<p><strong>Improved webpack compatibility</strong> – More than 80% of the 50 most downloaded webpack plugins can now be used in Rspack, getting it closer to becoming a true drop-in replacement for webpack.</p>
+</li>
+<li>
+<p><strong>Less complexity</strong> – They created a new toolchain called Rstack that includes separate projects like Rsbuild, Rspress, and Rslib that each target different use cases. This reduces the complexity of configuring an all-in-one tool like Rspack (or webpack), while still maintaining flexibility.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> Rspack has a pretty simple value prop for developers – if you already use webpack, we’re going to make it super easy for you to migrate to our bundler that’s faster, easier to use, and still fully compatible with the webpack API. Time will tell if that’ll be enough to convince the masses to give it a try.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/319" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F319" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Bytes%20breaks%20down%20everything%20you%20need%20to%20know%20about%20Rspack%201.0%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F319" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABytes%20breaks%20down%20everything%20you%20need%20to%20know%20about%20Rspack%201.0%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F319" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/qa-wolf-logo.png" alt="QA Wolf logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/air-quotes.jpg" alt="Chris Farley making air quotes" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">So what if our team doesn't `test our code` before we ship to prod?<!-- --> </p></div><h3><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024&amp;utm_source=bytes&amp;utm_medium=newsletter"><span role="img" aria-label="scissors">✂️</span> Cut your QA cycles down to 5 minutes with automated testing</a></h3><p>Are slow test cycles bottlenecking your team’s release velocity? With QA Wolf, your org can run entire test suites in minutes, giving you faster feedback and less bugs.</p><p><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024&amp;utm_source=bytes&amp;utm_medium=newsletter">QA Wolf</a> takes testing completely off your plate. They get you:</p><ul>
+<li><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles07032024&amp;utm_source=bytes&amp;utm_medium=newsletter">80% test coverage</a> in four months—not years</li>
+<li>24-hour maintenance and on-demand test creation</li>
+<li><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024&amp;utm_source=bytes&amp;utm_medium=newsletter">Unlimited parallel test runs</a></li>
+<li>Zero flakes, guaranteed</li>
+</ul><p>No more manual testing. No more slow QA cycles. No more bugs reaching production. Think of all the engineering time you’ll save 🥹.</p><p><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024&amp;utm_source=bytes&amp;utm_medium=newsletter">Schedule a demo to learn more</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getUser</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> user<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> user<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>email <span class="token operator">=</span> user<span class="token punctuation">.</span>email<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Nolen Royalty wrote about <a href="https://eieio.games/essays/the-secret-in-one-million-checkboxes/">the secret he found inside his One Million Checkboxes site</a> along with this <a href="https://www.youtube.com/watch?v=OI4DbECnp8A">9-minute video</a> that gives a TLDR. It might restore your faith in humanity, or at least your faith in teenagers on the internet with a lot of time on their hands.</p>
+</li>
+<li>
+<p>shadcn just introduced <a href="https://x.com/shadcn/status/1829646528149143992">a new CLI</a> that lets you “install anything from anywhere,” including themes, components, hooks, and more. And if you vote for Pedro, all your wildest dreams will come true.</p>
+</li>
+<li>
+<p>ViteConf is one month away! Get your <a href="https://viteconf.org/">free, virtual ticket</a> to the best (and biggest) online conference of the year — and be sure to check out their impressive lineup of speakers featuring open-source maintainers, AI experts, and other builders driving web development forward. [sponsored]</p>
+</li>
+<li>
+<p>Jan Hesters wrote this <a href="https://www.reactsquad.io/blog/understanding-generators-in-javascript">senior-level explanation to JavaScript generators</a>. But when I read this article to my grandma and her friends at the senior center, they were just as confused as I was.</p>
+</li>
+<li>
+<p>Michael Shilman wrote about <a href="https://storybook.js.org/blog/component-testing/">Why component testing is the future of UI testing</a>.</p>
+</li>
+<li>
+<p>Aaron Grider spoke about <a href="https://www.youtube.com/watch?v=tsR9eqmlrjs">Bringing real-time 3D to mobile with the Starlink app</a> using React Native.</p>
+</li>
+<li>
+<p>Andrew Clark pushed <a href="https://github.com/facebook/react/pull/30800">one of a series of PRs related to sibling prerendering</a> for React 19 that aims to address the Suspense behavior change controversy from back in June.</p>
+</li>
+<li>
+<p><a href="https://webunleashed.ca/">WEB UNLEASHED</a> is the ultimate front-end developer conference on Oct 10-11 in TORONTO and ONLINE. You can save 50% on tickets with the code <code>BYTES</code>, and learn from over 50 speakers – including Douglas Crockford, Wes Bos, Rachel Andrew, Harry Roberts, Chris Coyier, Stephanie Eckles, and more. [sponsored]</p>
+</li>
+<li>
+<p>Taylor “Daddy Waravel” Otwell gave a <a href="https://www.youtube.com/watch?v=AwWepVU5uWM">100-minute Laravel keynote</a> at last week’s Laracon where it was unanimously decided that you have to stop Laravel. The vibes too high, the joy too strong, they’ll kill you.</p>
+</li>
+<li>
+<p><a href="https://blog.spacehey.com/entry?id=1245177">SpaceHey</a> is a MySpace clone that just reached 1.2 million registered users. From what I can tell, at least 1.1 million of those users are scene kids who never grew up and are still blasting <em>My Chemical Romance</em> like it’s 2007. Love to see it 🥹.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"></div></div>
+<p>JavaScript doesn’t allow class constructors to be <code>async</code>. We have to do any async actions outside of a constructor. Static class methods can help with this.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getUser</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> user<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> user<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>email <span class="token operator">=</span> user<span class="token punctuation">.</span>email<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> me <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: I like rusty JavaScript","date":"2024-09-02","featuredImage":"/images/content/salad-fingers.jpg","description":"Teaching my grandma's friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in ~~humanity~~ the internet","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Teaching my grandma’s friends about JavaScript generators, soaking in the beauty of Laravel, and restoring my faith in \u003cdel\u003ehumanity\u003c/del\u003e the internet.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/319\"\u003e#319\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/salad-fingers.jpg\" alt=\"Salad Fingers' face\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMfw I don't have to wait 20 min for my app to build\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eI like rusty JavaScript\u003c/h3\u003e\u003cp\u003eRspack just launched \u003ca href=\"https://rspack.dev/blog/announcing-1-0\"\u003ev1.0\u003c/a\u003e last week, and the dream of using Rust-based build tools to speed up the JS ecosystem is officially alive and well.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHow we got here:\u003c/strong\u003e Early last year, a team of developers at ByteDance was running into performance problems while maintaining the company’s “many large, monolithic apps.” So they did what any good developers would do – they blamed webpack.\u003c/p\u003e\u003cp\u003eBut they didn’t stop there. In March 2023, they launched Rspack v0.1 as a high-performance JavaScript bundler that’s written in Rust and aims to be fully compatible with the webpack ecosystem.\u003c/p\u003e\u003cp\u003eFast forward to today, and Rspack now gets 100k weekly downloads and has introduced some key improvements that have it ready for production:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBetter performance\u003c/strong\u003e – New features like lazy compilation and other perf optimizations make Rspack 1.0 build times \u003ca href=\"https://github.com/rspack-contrib/performance-compare\"\u003eover 20x faster\u003c/a\u003e than webpack 5.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eImproved webpack compatibility\u003c/strong\u003e – More than 80% of the 50 most downloaded webpack plugins can now be used in Rspack, getting it closer to becoming a true drop-in replacement for webpack.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLess complexity\u003c/strong\u003e – They created a new toolchain called Rstack that includes separate projects like Rsbuild, Rspress, and Rslib that each target different use cases. This reduces the complexity of configuring an all-in-one tool like Rspack (or webpack), while still maintaining flexibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Rspack has a pretty simple value prop for developers – if you already use webpack, we’re going to make it super easy for you to migrate to our bundler that’s faster, easier to use, and still fully compatible with the webpack API. Time will tell if that’ll be enough to convince the masses to give it a try.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/319\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F319\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Bytes%20breaks%20down%20everything%20you%20need%20to%20know%20about%20Rspack%201.0%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F319\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ABytes%20breaks%20down%20everything%20you%20need%20to%20know%20about%20Rspack%201.0%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F319\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/qa-wolf-logo.png\" alt=\"QA Wolf logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/air-quotes.jpg\" alt=\"Chris Farley making air quotes\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eSo what if our team doesn't `test our code` before we ship to prod?\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003e\u003cspan role=\"img\" aria-label=\"scissors\"\u003e✂️\u003c/span\u003e Cut your QA cycles down to 5 minutes with automated testing\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eAre slow test cycles bottlenecking your team’s release velocity? With QA Wolf, your org can run entire test suites in minutes, giving you faster feedback and less bugs.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eQA Wolf\u003c/a\u003e takes testing completely off your plate. They get you:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles07032024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003e80% test coverage\u003c/a\u003e in four months—not years\u003c/li\u003e\n\u003cli\u003e24-hour maintenance and on-demand test creation\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eUnlimited parallel test runs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eZero flakes, guaranteed\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eNo more manual testing. No more slow QA cycles. No more bugs reaching production. Think of all the engineering time you’ll save 🥹.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles09022024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eSchedule a demo to learn more\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eUser\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euserId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003egetUser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euserId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eemail \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eemail\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token operator\"\u003e...\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eNolen Royalty wrote about \u003ca href=\"https://eieio.games/essays/the-secret-in-one-million-checkboxes/\"\u003ethe secret he found inside his One Million Checkboxes site\u003c/a\u003e along with this \u003ca href=\"https://www.youtube.com/watch?v=OI4DbECnp8A\"\u003e9-minute video\u003c/a\u003e that gives a TLDR. It might restore your faith in humanity, or at least your faith in teenagers on the internet with a lot of time on their hands.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eshadcn just introduced \u003ca href=\"https://x.com/shadcn/status/1829646528149143992\"\u003ea new CLI\u003c/a\u003e that lets you “install anything from anywhere,” including themes, components, hooks, and more. And if you vote for Pedro, all your wildest dreams will come true.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eViteConf is one month away! Get your \u003ca href=\"https://viteconf.org/\"\u003efree, virtual ticket\u003c/a\u003e to the best (and biggest) online conference of the year — and be sure to check out their impressive lineup of speakers featuring open-source maintainers, AI experts, and other builders driving web development forward. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJan Hesters wrote this \u003ca href=\"https://www.reactsquad.io/blog/understanding-generators-in-javascript\"\u003esenior-level explanation to JavaScript generators\u003c/a\u003e. But when I read this article to my grandma and her friends at the senior center, they were just as confused as I was.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMichael Shilman wrote about \u003ca href=\"https://storybook.js.org/blog/component-testing/\"\u003eWhy component testing is the future of UI testing\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAaron Grider spoke about \u003ca href=\"https://www.youtube.com/watch?v=tsR9eqmlrjs\"\u003eBringing real-time 3D to mobile with the Starlink app\u003c/a\u003e using React Native.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAndrew Clark pushed \u003ca href=\"https://github.com/facebook/react/pull/30800\"\u003eone of a series of PRs related to sibling prerendering\u003c/a\u003e for React 19 that aims to address the Suspense behavior change controversy from back in June.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://webunleashed.ca/\"\u003eWEB UNLEASHED\u003c/a\u003e is the ultimate front-end developer conference on Oct 10-11 in TORONTO and ONLINE. You can save 50% on tickets with the code \u003ccode\u003eBYTES\u003c/code\u003e, and learn from over 50 speakers – including Douglas Crockford, Wes Bos, Rachel Andrew, Harry Roberts, Chris Coyier, Stephanie Eckles, and more. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTaylor “Daddy Waravel” Otwell gave a \u003ca href=\"https://www.youtube.com/watch?v=AwWepVU5uWM\"\u003e100-minute Laravel keynote\u003c/a\u003e at last week’s Laracon where it was unanimously decided that you have to stop Laravel. The vibes too high, the joy too strong, they’ll kill you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://blog.spacehey.com/entry?id=1245177\"\u003eSpaceHey\u003c/a\u003e is a MySpace clone that just reached 1.2 million registered users. From what I can tell, at least 1.1 million of those users are scene kids who never grew up and are still blasting \u003cem\u003eMy Chemical Romance\u003c/em\u003e like it’s 2007. Love to see it 🥹.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eJavaScript doesn’t allow class constructors to be \u003ccode\u003easync\u003c/code\u003e. We have to do any async actions outside of a constructor. Static class methods can help with this.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eUser\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003estatic\u003c/span\u003e \u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token function\"\u003einit\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euserId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003egetUser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euserId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eUser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euser\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003econstructor\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eemail \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eemail\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e me \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e User\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003einit\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"319"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"319"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

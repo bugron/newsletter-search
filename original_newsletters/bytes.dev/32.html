@@ -1,0 +1,338 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #32 - Bring it on, coward</title><link rel="canonical" href="https://bytes.dev/archives/32"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Brave wants a decentralized web, JavaScript and Rust go to flavor town, and we learn about JavaScript&#x27;s prototype."/><meta property="og:url" content="https://bytes.dev/archives/32"/><meta property="og:title" content="Bytes #32 - Bring it on, coward"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/mel.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Brave wants a decentralized web, JavaScript and Rust go to flavor town, and we learn about JavaScript&#x27;s prototype."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #32 - Bring it on, coward"/><meta property="twitter:description" content="Brave wants a decentralized web, JavaScript and Rust go to flavor town, and we learn about JavaScript&#x27;s prototype."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/mel.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">Bring it on, coward</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->32<!-- -->.</span><span class="mr-6 font-bold">January 25, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Hopefully this brings you as much joy as Gamestock and BlackBerry share holders got today. thisisfine.gif</p>
+<h2>Brave browser wants to decentralize the web with a new protocol</h2>
+<p><img src="https://bytes.dev/images/content/mel.png" alt="Mel Gibson">
+</p><p class="image-alt">Brave heart(s) freedom</p><p></p>
+<p><strong>“They may take our lives…</strong> but they’ll never take away our free-and-open internet.” At least, not if Brave’s CEO Brendan Eich has anything to say about it (yes, <em>that</em> Brendan Eich). That’s because last week, <a href="https://brave.com/ipfs-support/">Brave became the first browser to offer native integration with IPFS</a> — a peer-to-peer hypermedia protocol that says it wants to <em>“surpass HTTP in order to build a better web for all of us.”</em></p>
+<p>Welcome to the revolution, <a href="https://www.youtube.com/watch?v=4DcGBE-F9hk">comrades.</a></p>
+<p><strong>How IPFS works:</strong> Instead of browsers accessing information on central servers like they do now with HTTP, IPFS accesses it on a network of “distributed nodes” — AKA users who can both receive <em>and host</em> content. Kinda like BitTorrent, but for the entire web.</p>
+<p><strong>IPFS benefits:</strong></p>
+<ul>
+<li>
+<p><strong>Faster &amp; cheaper —</strong> Since there’s no specified location for content, IPFS can download pieces of files from multiple computers simultaneously, which saves big on download time, bandwidth, and server costs for the original publishers.</p>
+</li>
+<li>
+<p><strong>Less centralized —</strong> Eliminating the need for centralized servers makes it significantly harder for governments or tech giants to censor web content. You can already use Brave &amp; IPFS to view thousands of websites that are banned by various governments around the world.</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>You probably don’t need to throw your AWS Certification in the trash just yet, since this is still the <em>early</em> days. But both Brave and IPFS stand to gain a lot with this partnership:</p>
+<ul>
+<li>IPFS gets primo access to Brave’s 24 million users (more users = more powerful network)</li>
+<li>Brave is undoubtedly hoping that IPFS will help entice more privacy-focused users onto its browser, so it can get some of that sweet hockeystick-growth juice that <a href="https://www.bleepingcomputer.com/news/technology/privacy-focused-search-engine-duckduckgo-is-growing-fast/">DuckDuckGo’s been sipping on </a></li>
+</ul>
+<p>The company behind IPFS is also behind FileCoin, the cryptocurrency with a <strong>$1B market cap</strong> (+/- $500m depending on which day you read this). So I guess they’re doing alright.</p>
+<hr>
+<h2>JavaScript + Rust = Boa?</h2>
+<p><img src="https://bytes.dev/images/content/flavor.png" alt="Going to flavor town">
+</p><p class="image-alt">Get in, we’re going to low-level JS FlavorTown</p><p></p>
+<p><strong>What happens when a TC39 delegate gets a wandering eye for a new programming language?</strong> Turns out, they <em>aren’t</em> actually brought before the committee, forced to turn in their badge and their gun, and violently exiled from JavaScript-land forever (kind of a letdown, tbh).</p>
+<p>In <a href="https://twitter.com/jason_williams">Jason Williams’</a> case, he simply figured out a way to marry his first and second loves by using Rust to build <a href="https://docs.rs/Boa/0.11.0/boa/index.html">a JavaScript engine named Boa</a>. As he started falling for Rust, he (like others in recent years) saw the benefits of bringing Rust to the JavaScript ecosystem and vice versa.</p>
+<p>Last week, Boa took a big step towards that goal when <a href="https://boa-dev.github.io/2021/01/14/boa-release-11.html">it released v0.11</a> — it’s biggest release yet.</p>
+<p><strong>Boa describes itself</strong> as an “experimental Javascript lexer, parser, and compiler” (AKA all the things that JavaScript engines do). It still isn’t fully conformant (nice word, right?) to the JavaScript Spec, but this v0.11 release took Spec conformance from 18% (back in October) up to 31% last week. A solid jump in 3 months. Boa is also seeing almost 6x faster execution after it switched to using to the <code>regress</code> engine for regular expressions.</p>
+<p>Faster execution and greater conformance are the name of the game if Boa ever wants more mainstream adoption, so these are both positive signals.</p>
+<h3>Who’s ever gonna use this?</h3>
+<ul>
+<li>Rust devs who want to include an embeddable JavaScript implementation in their Rust code</li>
+<li>JavaScript devs who are curious about the Rust and WASM’s hype and want an excuse to bring it into the browser</li>
+<li>Your obnoxious co-worker who always wants to flex about using bleeding edge tech</li>
+</ul>
+<p>But now that you’ve read this, you can start messing around on <a href="https://boa-dev.github.io/boa/">the Boa Playground</a> for a few minutes, and <em>you</em> could become that obnoxious co-worker. You’re welcome.</p>
+<hr>
+<h2>Spot the Bug (Answer Below)</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> animal <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  animal<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  animal<span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+
+  <span class="token keyword">return</span> animal
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">eat</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is eating.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>energy <span class="token operator">+=</span> amount
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token function">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+leo<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p><a href="https://animxyz.com/">AnimXYZ is a composable CSS animation toolkit</a> that’s powered by CSS variables and built for Vue, React, and SCSS. Not to be confused with “AnimeXYZ”, which would be a great name for an animation library that makes a tiny Naruto run across the bottom of your screen every time a new page loads.</p>
+</li>
+<li>
+<p>Fayaz compiled an interesting list of <a href="https://dev.to/fayaz/a-list-of-actually-useful-nocode-tools-and-i-am-not-talking-about-site-builders-3m4g">actually useful no-code tools for developers that aren’t site builders.</a></p>
+</li>
+<li>
+<p>You know how 50% of blog posts could have just been tweets? Well, Alex Kondov wrote a blog post so in-depth that it probably should’ve been a book. We present to you — <a href="https://alexkondov.com/tao-of-react/">The Tao of React: Software Design, Architecture &amp; Best Practices</a>. Just call it an e-book and charge $10 for it, Alex (and pay us 15% for being your e-publisher).</p>
+</li>
+<li>
+<p>If you’re looking for a good waste of time (who isn’t?), you may want to check out <a href="https://www.speedtyper.dev/">&lt;SpeedTyper /&gt; - a type racing application for programmers</a> that will definitely activate all of your repressed Mavis Beacon trauma from the elementary school computer lab. I’m currently sitting comfortably at #5. Bring it on, coward.</p>
+</li>
+<li>
+<p>Razvan <a href="https://medium.com/better-programming/i-almost-got-fired-for-choosing-react-in-our-enterprise-app-846ea840841c">wrote about</a> how he almost got fired for choosing React for his team’s enterprise app. (TL;DR — don’t outsource your React enterprise app to .NET developers, lol.)</p>
+</li>
+<li>
+<p>Jack Franklin from Google wrote about <a href="https://developers.google.com/web/updates/2021/01/puppeteer-typescript">migrating Puppeteer to TypeScript</a>. Word on the street is Geppetto is also migrating to TypeScript.</p>
+</li>
+<li>
+<p>Aleksandr also wrote a looong article on <a href="https://www.aleksandrhovhannisyan.com/blog/svg-tutorial-how-to-code-svg-icons-by-hand/">how to code SVG icons by hand</a> that makes me think I should probably just keep using other people’s libraries. (Shout out to people named Alex going above and beyond with these blog posts this week.)</p>
+</li>
+<li>
+<p>Adrian Twarog made a video demonstrating <a href="https://www.youtube.com/watch?v=-d-jrxy6YbE">10 examples of “clean” JavaScript code</a>. Did he miss a great opportunity to sing the OutKast classic, <em>“So fresh and so clean”</em> at some point during the video? 100% yes. But will we hold that against him forever? Also 100% yes.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug - Answer</h2>
+<p>Our call to <code>leo.eat</code> is going to fail. The reason for this is because the object returned from <code>Animal</code> isn’t delegating to <code>Animal.prototype</code> so <code>leo.eat</code> will be undefined.</p>
+<p>To fix this, we can use <code>Object.create</code> or a combination of the <code>this</code> keyword with <code>new</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> animal <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+  animal<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  animal<span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+
+  <span class="token keyword">return</span> animal
+<span class="token punctuation">}</span>
+
+<span class="token comment">// or</span>
+
+<span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+</code></pre>
+<p>For more details, check out <a href="https://ui.dev/beginners-guide-to-javascript-prototype">A Beginner’s Guide to JavaScript’s Prototype</a>.</p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bring it on, coward","date":"2021-01-25","description":"Brave wants a decentralized web, JavaScript and Rust go to flavor town, and we learn about JavaScript's prototype.","featuredImage":"https://bytes.dev/images/content/mel.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHopefully this brings you as much joy as Gamestock and BlackBerry share holders got today. thisisfine.gif\u003c/p\u003e\n\u003ch2\u003eBrave browser wants to decentralize the web with a new protocol\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/mel.png\" alt=\"Mel Gibson\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eBrave heart(s) freedom\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e“They may take our lives…\u003c/strong\u003e but they’ll never take away our free-and-open internet.” At least, not if Brave’s CEO Brendan Eich has anything to say about it (yes, \u003cem\u003ethat\u003c/em\u003e Brendan Eich). That’s because last week, \u003ca href=\"https://brave.com/ipfs-support/\"\u003eBrave became the first browser to offer native integration with IPFS\u003c/a\u003e — a peer-to-peer hypermedia protocol that says it wants to \u003cem\u003e“surpass HTTP in order to build a better web for all of us.”\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eWelcome to the revolution, \u003ca href=\"https://www.youtube.com/watch?v=4DcGBE-F9hk\"\u003ecomrades.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHow IPFS works:\u003c/strong\u003e Instead of browsers accessing information on central servers like they do now with HTTP, IPFS accesses it on a network of “distributed nodes” — AKA users who can both receive \u003cem\u003eand host\u003c/em\u003e content. Kinda like BitTorrent, but for the entire web.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIPFS benefits:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFaster \u0026amp; cheaper —\u003c/strong\u003e Since there’s no specified location for content, IPFS can download pieces of files from multiple computers simultaneously, which saves big on download time, bandwidth, and server costs for the original publishers.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLess centralized —\u003c/strong\u003e Eliminating the need for centralized servers makes it significantly harder for governments or tech giants to censor web content. You can already use Brave \u0026amp; IPFS to view thousands of websites that are banned by various governments around the world.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eYou probably don’t need to throw your AWS Certification in the trash just yet, since this is still the \u003cem\u003eearly\u003c/em\u003e days. But both Brave and IPFS stand to gain a lot with this partnership:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIPFS gets primo access to Brave’s 24 million users (more users = more powerful network)\u003c/li\u003e\n\u003cli\u003eBrave is undoubtedly hoping that IPFS will help entice more privacy-focused users onto its browser, so it can get some of that sweet hockeystick-growth juice that \u003ca href=\"https://www.bleepingcomputer.com/news/technology/privacy-focused-search-engine-duckduckgo-is-growing-fast/\"\u003eDuckDuckGo’s been sipping on \u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe company behind IPFS is also behind FileCoin, the cryptocurrency with a \u003cstrong\u003e$1B market cap\u003c/strong\u003e (+/- $500m depending on which day you read this). So I guess they’re doing alright.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJavaScript + Rust = Boa?\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/flavor.png\" alt=\"Going to flavor town\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eGet in, we’re going to low-level JS FlavorTown\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat happens when a TC39 delegate gets a wandering eye for a new programming language?\u003c/strong\u003e Turns out, they \u003cem\u003earen’t\u003c/em\u003e actually brought before the committee, forced to turn in their badge and their gun, and violently exiled from JavaScript-land forever (kind of a letdown, tbh).\u003c/p\u003e\n\u003cp\u003eIn \u003ca href=\"https://twitter.com/jason_williams\"\u003eJason Williams’\u003c/a\u003e case, he simply figured out a way to marry his first and second loves by using Rust to build \u003ca href=\"https://docs.rs/Boa/0.11.0/boa/index.html\"\u003ea JavaScript engine named Boa\u003c/a\u003e. As he started falling for Rust, he (like others in recent years) saw the benefits of bringing Rust to the JavaScript ecosystem and vice versa.\u003c/p\u003e\n\u003cp\u003eLast week, Boa took a big step towards that goal when \u003ca href=\"https://boa-dev.github.io/2021/01/14/boa-release-11.html\"\u003eit released v0.11\u003c/a\u003e — it’s biggest release yet.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBoa describes itself\u003c/strong\u003e as an “experimental Javascript lexer, parser, and compiler” (AKA all the things that JavaScript engines do). It still isn’t fully conformant (nice word, right?) to the JavaScript Spec, but this v0.11 release took Spec conformance from 18% (back in October) up to 31% last week. A solid jump in 3 months. Boa is also seeing almost 6x faster execution after it switched to using to the \u003ccode\u003eregress\u003c/code\u003e engine for regular expressions.\u003c/p\u003e\n\u003cp\u003eFaster execution and greater conformance are the name of the game if Boa ever wants more mainstream adoption, so these are both positive signals.\u003c/p\u003e\n\u003ch3\u003eWho’s ever gonna use this?\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eRust devs who want to include an embeddable JavaScript implementation in their Rust code\u003c/li\u003e\n\u003cli\u003eJavaScript devs who are curious about the Rust and WASM’s hype and want an excuse to bring it into the browser\u003c/li\u003e\n\u003cli\u003eYour obnoxious co-worker who always wants to flex about using bleeding edge tech\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eBut now that you’ve read this, you can start messing around on \u003ca href=\"https://boa-dev.github.io/boa/\"\u003ethe Boa Playground\u003c/a\u003e for a few minutes, and \u003cem\u003eyou\u003c/em\u003e could become that obnoxious co-worker. You’re welcome.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug (Answer Below)\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e animal \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e animal\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003eeat\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eamount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e is eating.\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e amount\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\nleo\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eeat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://animxyz.com/\"\u003eAnimXYZ is a composable CSS animation toolkit\u003c/a\u003e that’s powered by CSS variables and built for Vue, React, and SCSS. Not to be confused with “AnimeXYZ”, which would be a great name for an animation library that makes a tiny Naruto run across the bottom of your screen every time a new page loads.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFayaz compiled an interesting list of \u003ca href=\"https://dev.to/fayaz/a-list-of-actually-useful-nocode-tools-and-i-am-not-talking-about-site-builders-3m4g\"\u003eactually useful no-code tools for developers that aren’t site builders.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou know how 50% of blog posts could have just been tweets? Well, Alex Kondov wrote a blog post so in-depth that it probably should’ve been a book. We present to you — \u003ca href=\"https://alexkondov.com/tao-of-react/\"\u003eThe Tao of React: Software Design, Architecture \u0026amp; Best Practices\u003c/a\u003e. Just call it an e-book and charge $10 for it, Alex (and pay us 15% for being your e-publisher).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you’re looking for a good waste of time (who isn’t?), you may want to check out \u003ca href=\"https://www.speedtyper.dev/\"\u003e\u0026lt;SpeedTyper /\u0026gt; - a type racing application for programmers\u003c/a\u003e that will definitely activate all of your repressed Mavis Beacon trauma from the elementary school computer lab. I’m currently sitting comfortably at #5. Bring it on, coward.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRazvan \u003ca href=\"https://medium.com/better-programming/i-almost-got-fired-for-choosing-react-in-our-enterprise-app-846ea840841c\"\u003ewrote about\u003c/a\u003e how he almost got fired for choosing React for his team’s enterprise app. (TL;DR — don’t outsource your React enterprise app to .NET developers, lol.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJack Franklin from Google wrote about \u003ca href=\"https://developers.google.com/web/updates/2021/01/puppeteer-typescript\"\u003emigrating Puppeteer to TypeScript\u003c/a\u003e. Word on the street is Geppetto is also migrating to TypeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAleksandr also wrote a looong article on \u003ca href=\"https://www.aleksandrhovhannisyan.com/blog/svg-tutorial-how-to-code-svg-icons-by-hand/\"\u003ehow to code SVG icons by hand\u003c/a\u003e that makes me think I should probably just keep using other people’s libraries. (Shout out to people named Alex going above and beyond with these blog posts this week.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdrian Twarog made a video demonstrating \u003ca href=\"https://www.youtube.com/watch?v=-d-jrxy6YbE\"\u003e10 examples of “clean” JavaScript code\u003c/a\u003e. Did he miss a great opportunity to sing the OutKast classic, \u003cem\u003e“So fresh and so clean”\u003c/em\u003e at some point during the video? 100% yes. But will we hold that against him forever? Also 100% yes.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Answer\u003c/h2\u003e\n\u003cp\u003eOur call to \u003ccode\u003eleo.eat\u003c/code\u003e is going to fail. The reason for this is because the object returned from \u003ccode\u003eAnimal\u003c/code\u003e isn’t delegating to \u003ccode\u003eAnimal.prototype\u003c/code\u003e so \u003ccode\u003eleo.eat\u003c/code\u003e will be undefined.\u003c/p\u003e\n\u003cp\u003eTo fix this, we can use \u003ccode\u003eObject.create\u003c/code\u003e or a combination of the \u003ccode\u003ethis\u003c/code\u003e keyword with \u003ccode\u003enew\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e animal \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e Object\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreate\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e animal\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// or\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more details, check out \u003ca href=\"https://ui.dev/beginners-guide-to-javascript-prototype\"\u003eA Beginner’s Guide to JavaScript’s Prototype\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"32"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"32"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

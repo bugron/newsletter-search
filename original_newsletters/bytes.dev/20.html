@@ -1,0 +1,330 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #20 - MTV Cribs - Next.js Edition</title><link rel="canonical" href="https://bytes.dev/archives/20"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Next.js 10.0 launches, Reactime is rad, and a sneak peak of Remix."/><meta property="og:url" content="https://bytes.dev/archives/20"/><meta property="og:title" content="Bytes #20 - MTV Cribs - Next.js Edition"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/steve.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Next.js 10.0 launches, Reactime is rad, and a sneak peak of Remix."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #20 - MTV Cribs - Next.js Edition"/><meta property="twitter:description" content="Next.js 10.0 launches, Reactime is rad, and a sneak peak of Remix."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/steve.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">MTV Cribs - Next.js Edition</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->20<!-- -->.</span><span class="mr-6 font-bold">November 2, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>After much deliberation we’re excited to announce our favorite Halloween costumes this year. First place goes to Jack <a href="https://twitter.com/BudrykZack/status/1321464769350717443">dressed up as Rasputin</a> and Second place goes to Guillermo <a href="https://twitter.com/nikolasburk/status/1321136757245661185">dressed up as an Apple exec</a>. Speaking of Apple execs…</p>
+<h2><a href="https://nextjs.org/blog/next-10">Next.js 10.0 Released</a></h2>
+<p><img src="https://bytes.dev/images/content/steve.jpg" alt="Steve Jobs">
+</p><p class="image-alt">Steve Jobs giving the keynote at Next.js Conf 1989</p><p></p>
+<p><strong>Next.js turned 4 years old last week…</strong> and celebrated by releasing a feature-packed v10 at Next.js Conf. This release also gave us a good look at some new ways Vercel (Next’s parent co.) plans to make money — which is pretty important considering they’ve raised some bookoo bucks ($21m or .77 of a famo.us to be exact).</p>
+<p>There’s a lot to unpack here, so let’s <strong>get to the highlights.</strong></p>
+<ul>
+<li>
+<p><strong>New Image Component:</strong> Next.js worked with the Google Chrome Team to make the <code>next/image</code> component, which they describe as a “drop-in replacement for the HTML <code>&lt;img&gt;</code> element, evolved for the modern web.” This component automatically handles lazy loading, pre-loading of images, and correct sizing across devices.</p>
+</li>
+<li>
+<p><strong>Automatic Image Optimization:</strong> This lets Next.js serve images in modern formats like WebP, which is 30% smaller than JPEG. Best of all, it optimizes images on demand (as users request them), <em>instead of at build time.</em> In their words — “Unlike static-only solutions, your build times won’t go up, whether you’re shipping 10 images or 10 million images.” – ”@ me next time - Gatsby”</p>
+</li>
+<li>
+<p><strong>Internationalized Routing:</strong> Next.js 10 provides built-in support for internationalized routing and language detection, which should make internationalizing your projects a lot more automatic and a lot less painful. Hopefully, this makes it easier to build internationalized apps the way that <a href="https://youtu.be/a15nUK87Tzo?t=12">Mr. Worldwide himself would approve of.</a></p>
+</li>
+<li>
+<p><strong>Next.js Analytics:</strong> A new product (you have to pay for it) that tracks performance metrics continuously from the <em>actual devices</em> of your visitors. Every time you deploy, it automatically gives you a real-time performance score (as opposed to Lighthouse, which you have to run yourself).</p>
+</li>
+<li>
+<p><strong>Next.js Commerce:</strong> An “all-in-one starter kit for ecommerce sites” that was built with Tailwind and in collaboration with BigCommerce. It seems pretty easy to customize and promises to integrate with Shopify and others soon. Every page comes preset with the right SEO configuration and the data layer is already standardized for ecommerce.</p>
+</li>
+</ul>
+<p>For more details on Next 10, check out <a href="https://www.youtube.com/watch?v=1-NzQ9ObsfM">Guillermo Rauch’s Next.js Conf keynote from last week</a>. It’s the first keynote we’ve ever watched that also felt like an episode of <a href="https://www.youtube.com/watch?v=6ix3twBu17Y">MTV Cribs.</a></p>
+<h3>The Bottom Line</h3>
+<p>Is Vercel trying to become the Amazon of web development? You started out selling <em>books</em> (server-side rendering), and now you’re trying to sell me on… <em><a href="https://www.amazon.com/dp/B07HFC5W59">a Nicholas Cage rainbow pillowcase</a></em> (an analytics platform)??</p>
+<p>Well, it definitely worked out for Amazon. And Next.js’s monetization strategies seem like they’ll also add some real value while still allowing Vercel to create and maintain some great open-source projects.</p>
+<hr>
+<h2><a href="https://reactime.io/">Reactime - A Time Travel Tool for State Debugging</a></h2>
+<p><img src="https://bytes.dev/images/content/rico.jpg" alt="Uncle Rico">
+</p><p class="image-alt">I used to be able to throw a pigskin a quarter mile</p><p></p>
+<p>Reactime is an open-source Chrome extension that’s trying to make state debugging a little easier for React devs. It tracks and visualizes state changes and lets you “time travel” to previous states in your React app.</p>
+<p>It does this by taking a snapshot every time your app’s state changes, and it renders those snapshots into a visual hierarchy you can click through (or get in JSON format). Snapshots can also be diffed with the previous snapshot.</p>
+<p><strong>Under the hood:</strong> Reactime uses the React Fiber tree to access your app’s data. From there, it “traverses the Fiber nodes with a recursive, depth-first search algorithm” to extract all the meaningful data. Then, it shapes that data to fit the data structures of D3 and VISX, the libraries providing the visualization muscle.</p>
+<p>Reactime works if you’re using stateful components and prop drilling, and it recently opened up beta support for Hooks, Recoil, Context API, conditional state routing, and functional components.</p>
+<p>Reactime got on our radar last week after they released v6.0. For more info, you can check out <a href="https://medium.com/@CSVince/time-traveling-state-with-reactime-6-0-53fdc3ae2a20">the creator’s full blog post.</a></p>
+<p>We’re here for anything that makes state management more <em>manageable.</em></p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Last week, Alex (of ui.dev fame) did a <a href="https://www.youtube.com/watch?v=Kwijy7beeJ0">1-hour live stream</a> on the new React server generated framework, Remix. Does it live up to the hype and the (literal) price tag? Watch to find out.</p>
+</li>
+<li>
+<p>Felix wrote a great, in-depth article explaining <a href="https://felixgerschau.com/javascript-memory-management/">memory management in JavaScript</a>. If only he could help me manage to get the memories of <a href="https://bytes.dev/images/content/alex.jpg">this Halloween</a> out of my head.</p>
+</li>
+<li>
+<p><a href="https://recoiljs.org/blog/2020/10/30/0.1.1-released/">Recoil (Facebook’s new state management library) released v0.1.1 last week,</a>. A rare bright moment for the company during election season.</p>
+</li>
+<li>
+<p><a href="https://beizhedenglong.github.io/rough-charts/?path=/docs/roughcharts--page">Rough Charts</a> is a responsive, composable react charting library with a hand-drawn style. Perfect for visualizing what percentage of your calories came explicitly from candy corn last weekend.</p>
+</li>
+<li>
+<p>Ania made an <a href="https://www.youtube.com/watch?v=YSEsSs3hB6A">hour-long video tutorial on building Doodle Jump from scratch with pure JavaScript, HTML, and CSS.</a>. She’s funny, and we like funny.</p>
+</li>
+<li>
+<p>Jamie Coulter released <a href="https://codepen.io/jcoulterdesign/pen/WNxjVbW">“The Caretaker” - a pure CSS horror puzzle game with… no JavaScript?!</a> That really is some dark magic <span role="img" aria-label="man mage">🧙‍♂️</span>.</p>
+</li>
+<li>
+<p>Tom MacWright wrote about some <a href="https://macwright.com/2020/10/28/if-not-spas.html"><strong>Alternatives</strong> to SPAs (Single-Page Apps)</a>. Reminds us of <a href="https://twitter.com/mjackson/status/1319338900557492224">this spicy Tweet</a> from Michael Jackson.</p>
+</li>
+<li>
+<p>Tyler wrote (and recorded?) about <a href="https://ui.dev/react-router-v5-code-splitting">Code splitting with React, React.lazy, and React Router v5</a> to help you increase the performance of your React apps.</p>
+</li>
+</ol>
+<hr>
+<h2>JS Tip</h2>
+<blockquote>
+<p>Last week we asked if you preferred more long form posts or shorter, “spot the bug” type posts. Naturally, feedback was 50/50 so we’ll keep mixing it up.</p>
+</blockquote>
+<h3>NPM dependencies vs devDependencies</h3>
+<h4>tl;dr</h4>
+<p><code>dependencies</code> are required by your application at runtime. Packages like <code>react</code>, <code>redux</code>, and <code>lodash</code> are all examples of <code>dependencies</code>. <code>devDependencies</code> are only required to develop and or build your application. Packages like <code>babel</code>, <code>enzyme</code>, and <code>prettier</code> are examples of <code>devDependencies</code>.</p>
+<h4>npm install</h4>
+<p>The actual difference between <code>dependencies</code> and <code>devDependencies</code> are seen when you run <code>npm install</code>.</p>
+<p>If you run <code>npm install</code> from a directory that contains a <code>package.json</code> file (which you typically do after you clone a project, for example).</p>
+<blockquote>
+<p><span role="img" aria-label="check mark button">✅</span> All of the packages located in <code>dependencies</code> will be installed
+✅ All of the packages located in <code>devDependencies</code> will be installed</p>
+</blockquote>
+<p>If you run <code>npm install &lt;package-name&gt;</code> (which you typically do when you want to add a new package to your existing project), i.e. <code>npm install react</code>.</p>
+<blockquote>
+<p><span role="img" aria-label="check mark button">✅</span> All of the packages located in <code>dependencies</code> will be installed
+❌ None of the packages located in <code>devDependencies</code> will be installed</p>
+</blockquote>
+<h4>Transitive Dependencies</h4>
+<p>If package A depends on package B and package B depends on C, then package C is a transitive dependency to Package A. What that means is that in order for Package A to run properly, it needs Package B installed. However, in order for Package B to run properly, it needs package C installed. Why do I bring this up? Well <code>dependencies</code> and <code>devDependencies</code> treat transitive dependencies differently as well. When you <code>npm install</code> from a directory that contains a <code>package.json</code> file,</p>
+<blockquote>
+<p><code>dependencies</code> - <span role="img" aria-label="check mark button">✅</span> Downloads all transitive dependencies.
+<code>devDependencies</code> - ❌ Doesn’t download any transitive dependencies.</p>
+</blockquote>
+<h4>Specifying dependencies vs devDependencies</h4>
+<p>As of NPM 5, when you run <code>npm install &lt;package-name&gt;</code>, that package is automatically going to be saved inside of your <code>dependencies</code> in your <code>package.json</code> file. If you wanted to specify that the specific package should be included in <code>devDependencies</code> instead, you’d append the <code>--save-dev</code> flag.</p>
+<pre><code class="language-bash">npm install prettier --save-dev
+</code></pre>
+<h4>Installing on a production server</h4>
+<p>Often times you’ll need to install your project on a production server. When you do that, you don’t want to install <code>devDependencies</code> since you obviously won’t be needing them on your production server. To install <strong>only</strong> the <code>dependencies</code> (and not <code>devDependencies</code>), you can use the <code>--production</code> flag.</p>
+<pre><code class="language-bash">npm install --production
+</code></pre>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"MTV Cribs - Next.js Edition","date":"2020-11-02","description":"Next.js 10.0 launches, Reactime is rad, and a sneak peak of Remix.","featuredImage":"https://bytes.dev/images/content/steve.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eAfter much deliberation we’re excited to announce our favorite Halloween costumes this year. First place goes to Jack \u003ca href=\"https://twitter.com/BudrykZack/status/1321464769350717443\"\u003edressed up as Rasputin\u003c/a\u003e and Second place goes to Guillermo \u003ca href=\"https://twitter.com/nikolasburk/status/1321136757245661185\"\u003edressed up as an Apple exec\u003c/a\u003e. Speaking of Apple execs…\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://nextjs.org/blog/next-10\"\u003eNext.js 10.0 Released\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/steve.jpg\" alt=\"Steve Jobs\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eSteve Jobs giving the keynote at Next.js Conf 1989\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNext.js turned 4 years old last week…\u003c/strong\u003e and celebrated by releasing a feature-packed v10 at Next.js Conf. This release also gave us a good look at some new ways Vercel (Next’s parent co.) plans to make money — which is pretty important considering they’ve raised some bookoo bucks ($21m or .77 of a famo.us to be exact).\u003c/p\u003e\n\u003cp\u003eThere’s a lot to unpack here, so let’s \u003cstrong\u003eget to the highlights.\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew Image Component:\u003c/strong\u003e Next.js worked with the Google Chrome Team to make the \u003ccode\u003enext/image\u003c/code\u003e component, which they describe as a “drop-in replacement for the HTML \u003ccode\u003e\u0026lt;img\u0026gt;\u003c/code\u003e element, evolved for the modern web.” This component automatically handles lazy loading, pre-loading of images, and correct sizing across devices.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAutomatic Image Optimization:\u003c/strong\u003e This lets Next.js serve images in modern formats like WebP, which is 30% smaller than JPEG. Best of all, it optimizes images on demand (as users request them), \u003cem\u003einstead of at build time.\u003c/em\u003e In their words — “Unlike static-only solutions, your build times won’t go up, whether you’re shipping 10 images or 10 million images.” – ”@ me next time - Gatsby”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInternationalized Routing:\u003c/strong\u003e Next.js 10 provides built-in support for internationalized routing and language detection, which should make internationalizing your projects a lot more automatic and a lot less painful. Hopefully, this makes it easier to build internationalized apps the way that \u003ca href=\"https://youtu.be/a15nUK87Tzo?t=12\"\u003eMr. Worldwide himself would approve of.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNext.js Analytics:\u003c/strong\u003e A new product (you have to pay for it) that tracks performance metrics continuously from the \u003cem\u003eactual devices\u003c/em\u003e of your visitors. Every time you deploy, it automatically gives you a real-time performance score (as opposed to Lighthouse, which you have to run yourself).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNext.js Commerce:\u003c/strong\u003e An “all-in-one starter kit for ecommerce sites” that was built with Tailwind and in collaboration with BigCommerce. It seems pretty easy to customize and promises to integrate with Shopify and others soon. Every page comes preset with the right SEO configuration and the data layer is already standardized for ecommerce.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more details on Next 10, check out \u003ca href=\"https://www.youtube.com/watch?v=1-NzQ9ObsfM\"\u003eGuillermo Rauch’s Next.js Conf keynote from last week\u003c/a\u003e. It’s the first keynote we’ve ever watched that also felt like an episode of \u003ca href=\"https://www.youtube.com/watch?v=6ix3twBu17Y\"\u003eMTV Cribs.\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eIs Vercel trying to become the Amazon of web development? You started out selling \u003cem\u003ebooks\u003c/em\u003e (server-side rendering), and now you’re trying to sell me on… \u003cem\u003e\u003ca href=\"https://www.amazon.com/dp/B07HFC5W59\"\u003ea Nicholas Cage rainbow pillowcase\u003c/a\u003e\u003c/em\u003e (an analytics platform)??\u003c/p\u003e\n\u003cp\u003eWell, it definitely worked out for Amazon. And Next.js’s monetization strategies seem like they’ll also add some real value while still allowing Vercel to create and maintain some great open-source projects.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://reactime.io/\"\u003eReactime - A Time Travel Tool for State Debugging\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/rico.jpg\" alt=\"Uncle Rico\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eI used to be able to throw a pigskin a quarter mile\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eReactime is an open-source Chrome extension that’s trying to make state debugging a little easier for React devs. It tracks and visualizes state changes and lets you “time travel” to previous states in your React app.\u003c/p\u003e\n\u003cp\u003eIt does this by taking a snapshot every time your app’s state changes, and it renders those snapshots into a visual hierarchy you can click through (or get in JSON format). Snapshots can also be diffed with the previous snapshot.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eUnder the hood:\u003c/strong\u003e Reactime uses the React Fiber tree to access your app’s data. From there, it “traverses the Fiber nodes with a recursive, depth-first search algorithm” to extract all the meaningful data. Then, it shapes that data to fit the data structures of D3 and VISX, the libraries providing the visualization muscle.\u003c/p\u003e\n\u003cp\u003eReactime works if you’re using stateful components and prop drilling, and it recently opened up beta support for Hooks, Recoil, Context API, conditional state routing, and functional components.\u003c/p\u003e\n\u003cp\u003eReactime got on our radar last week after they released v6.0. For more info, you can check out \u003ca href=\"https://medium.com/@CSVince/time-traveling-state-with-reactime-6-0-53fdc3ae2a20\"\u003ethe creator’s full blog post.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWe’re here for anything that makes state management more \u003cem\u003emanageable.\u003c/em\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eLast week, Alex (of ui.dev fame) did a \u003ca href=\"https://www.youtube.com/watch?v=Kwijy7beeJ0\"\u003e1-hour live stream\u003c/a\u003e on the new React server generated framework, Remix. Does it live up to the hype and the (literal) price tag? Watch to find out.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFelix wrote a great, in-depth article explaining \u003ca href=\"https://felixgerschau.com/javascript-memory-management/\"\u003ememory management in JavaScript\u003c/a\u003e. If only he could help me manage to get the memories of \u003ca href=\"https://bytes.dev/images/content/alex.jpg\"\u003ethis Halloween\u003c/a\u003e out of my head.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://recoiljs.org/blog/2020/10/30/0.1.1-released/\"\u003eRecoil (Facebook’s new state management library) released v0.1.1 last week,\u003c/a\u003e. A rare bright moment for the company during election season.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://beizhedenglong.github.io/rough-charts/?path=/docs/roughcharts--page\"\u003eRough Charts\u003c/a\u003e is a responsive, composable react charting library with a hand-drawn style. Perfect for visualizing what percentage of your calories came explicitly from candy corn last weekend.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAnia made an \u003ca href=\"https://www.youtube.com/watch?v=YSEsSs3hB6A\"\u003ehour-long video tutorial on building Doodle Jump from scratch with pure JavaScript, HTML, and CSS.\u003c/a\u003e. She’s funny, and we like funny.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJamie Coulter released \u003ca href=\"https://codepen.io/jcoulterdesign/pen/WNxjVbW\"\u003e“The Caretaker” - a pure CSS horror puzzle game with… no JavaScript?!\u003c/a\u003e That really is some dark magic \u003cspan role=\"img\" aria-label=\"man mage\"\u003e🧙‍♂️\u003c/span\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTom MacWright wrote about some \u003ca href=\"https://macwright.com/2020/10/28/if-not-spas.html\"\u003e\u003cstrong\u003eAlternatives\u003c/strong\u003e to SPAs (Single-Page Apps)\u003c/a\u003e. Reminds us of \u003ca href=\"https://twitter.com/mjackson/status/1319338900557492224\"\u003ethis spicy Tweet\u003c/a\u003e from Michael Jackson.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTyler wrote (and recorded?) about \u003ca href=\"https://ui.dev/react-router-v5-code-splitting\"\u003eCode splitting with React, React.lazy, and React Router v5\u003c/a\u003e to help you increase the performance of your React apps.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Tip\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eLast week we asked if you preferred more long form posts or shorter, “spot the bug” type posts. Naturally, feedback was 50/50 so we’ll keep mixing it up.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch3\u003eNPM dependencies vs devDependencies\u003c/h3\u003e\n\u003ch4\u003etl;dr\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003edependencies\u003c/code\u003e are required by your application at runtime. Packages like \u003ccode\u003ereact\u003c/code\u003e, \u003ccode\u003eredux\u003c/code\u003e, and \u003ccode\u003elodash\u003c/code\u003e are all examples of \u003ccode\u003edependencies\u003c/code\u003e. \u003ccode\u003edevDependencies\u003c/code\u003e are only required to develop and or build your application. Packages like \u003ccode\u003ebabel\u003c/code\u003e, \u003ccode\u003eenzyme\u003c/code\u003e, and \u003ccode\u003eprettier\u003c/code\u003e are examples of \u003ccode\u003edevDependencies\u003c/code\u003e.\u003c/p\u003e\n\u003ch4\u003enpm install\u003c/h4\u003e\n\u003cp\u003eThe actual difference between \u003ccode\u003edependencies\u003c/code\u003e and \u003ccode\u003edevDependencies\u003c/code\u003e are seen when you run \u003ccode\u003enpm install\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eIf you run \u003ccode\u003enpm install\u003c/code\u003e from a directory that contains a \u003ccode\u003epackage.json\u003c/code\u003e file (which you typically do after you clone a project, for example).\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cspan role=\"img\" aria-label=\"check mark button\"\u003e✅\u003c/span\u003e All of the packages located in \u003ccode\u003edependencies\u003c/code\u003e will be installed\n✅ All of the packages located in \u003ccode\u003edevDependencies\u003c/code\u003e will be installed\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eIf you run \u003ccode\u003enpm install \u0026lt;package-name\u0026gt;\u003c/code\u003e (which you typically do when you want to add a new package to your existing project), i.e. \u003ccode\u003enpm install react\u003c/code\u003e.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cspan role=\"img\" aria-label=\"check mark button\"\u003e✅\u003c/span\u003e All of the packages located in \u003ccode\u003edependencies\u003c/code\u003e will be installed\n❌ None of the packages located in \u003ccode\u003edevDependencies\u003c/code\u003e will be installed\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch4\u003eTransitive Dependencies\u003c/h4\u003e\n\u003cp\u003eIf package A depends on package B and package B depends on C, then package C is a transitive dependency to Package A. What that means is that in order for Package A to run properly, it needs Package B installed. However, in order for Package B to run properly, it needs package C installed. Why do I bring this up? Well \u003ccode\u003edependencies\u003c/code\u003e and \u003ccode\u003edevDependencies\u003c/code\u003e treat transitive dependencies differently as well. When you \u003ccode\u003enpm install\u003c/code\u003e from a directory that contains a \u003ccode\u003epackage.json\u003c/code\u003e file,\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ccode\u003edependencies\u003c/code\u003e - \u003cspan role=\"img\" aria-label=\"check mark button\"\u003e✅\u003c/span\u003e Downloads all transitive dependencies.\n\u003ccode\u003edevDependencies\u003c/code\u003e - ❌ Doesn’t download any transitive dependencies.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch4\u003eSpecifying dependencies vs devDependencies\u003c/h4\u003e\n\u003cp\u003eAs of NPM 5, when you run \u003ccode\u003enpm install \u0026lt;package-name\u0026gt;\u003c/code\u003e, that package is automatically going to be saved inside of your \u003ccode\u003edependencies\u003c/code\u003e in your \u003ccode\u003epackage.json\u003c/code\u003e file. If you wanted to specify that the specific package should be included in \u003ccode\u003edevDependencies\u003c/code\u003e instead, you’d append the \u003ccode\u003e--save-dev\u003c/code\u003e flag.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003enpm install prettier --save-dev\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eInstalling on a production server\u003c/h4\u003e\n\u003cp\u003eOften times you’ll need to install your project on a production server. When you do that, you don’t want to install \u003ccode\u003edevDependencies\u003c/code\u003e since you obviously won’t be needing them on your production server. To install \u003cstrong\u003eonly\u003c/strong\u003e the \u003ccode\u003edependencies\u003c/code\u003e (and not \u003ccode\u003edevDependencies\u003c/code\u003e), you can use the \u003ccode\u003e--production\u003c/code\u003e flag.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003enpm install --production\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"20"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"20"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

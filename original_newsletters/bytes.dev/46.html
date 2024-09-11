@@ -1,0 +1,338 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #46 - RxJS is *not* a JavaScript prescription</title><link rel="canonical" href="https://bytes.dev/archives/46"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;re getting down with Prisma, RXJS flirting with other frameworks, and fake Rolexes."/><meta property="og:url" content="https://bytes.dev/archives/46"/><meta property="og:title" content="Bytes #46 - RxJS is *not* a JavaScript prescription"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/katie.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;re getting down with Prisma, RXJS flirting with other frameworks, and fake Rolexes."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #46 - RxJS is *not* a JavaScript prescription"/><meta property="twitter:description" content="This issue, we&#x27;re getting down with Prisma, RXJS flirting with other frameworks, and fake Rolexes."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/katie.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> RxJS is *not* a JavaScript prescription</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->46<!-- -->.</span><span class="mr-6 font-bold">May 3, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Last week we mentioned we’d match anyone that took up <a href="https://twitter.com/threepointone/status/1386268271524057093">Sunil’s offer</a> in an attempt to raise money for <a href="https://indiafightscorona.giveindia.org/">indiafightscorona.giveindia.org/</a>.</p>
+<p>Very happy to say we raised over $2,500. Here’s who helped - Glen Maddern, Justin Punzalan, Don Michael, Kevin Batdorf, Ben Adam, and a handful of others that asked to remain anonymous. Good job, team.</p>
+<hr>
+<h2>Prisma’s New Direction</h2>
+<p><img src="https://bytes.dev/images/content/katie.png" alt="Katy Perry">
+</p><p class="image-alt">And you’re gonna see (my backend) roar-r-r-r-r</p><p></p>
+<p><strong>Prisma is back again</strong> with a new suite of tools and a slightly new direction. After years of telling everyone that they definitely <em>weren’t</em> an ORM (object-relational mapping tool), their new tagline describes Prisma as “a next-generation ORM for Node.js and TypeScript.” <span role="img" aria-label="thinking face">🤔</span></p>
+<p>They’ve <a href="https://twitter.com/nikolasburk/status/1384908920301490176">made a few pivots</a> over the last couple years, and claim that the new ORM label is mostly to help developers understand what problems Prisma solves, even if its approach to solving those problems is fundamentally different from most ORMs.</p>
+<p>Here’s a quick rundown on the 3 main tools that now make up the <strong>Prisma Holy Trinity™:</strong></p>
+<ul>
+<li>
+<p><strong><a href="https://www.prisma.io/client">Prisma Client</a></strong> — An auto-generated and type-safe query builder for Node.js &amp; TypeScript that works across different languages and databases</p>
+</li>
+<li>
+<p><strong><a href="https://www.prisma.io/migrate">Prisma Migrate</a></strong> — A declarative data modeling tool that auto-generates fully customizable database schema migrations for you, so you don’t have to write the SQL by hand</p>
+</li>
+<li>
+<p><strong><a href="https://www.prisma.io/studio">Prisma Studio</a></strong> — A slick little UI that lets you view and edit your data</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>Prisma is one of those interesting companies that’s half, <em>“we’re a cute &amp; innovative open-source project”</em>, and half, <em>“we’ve raised $16 million from the biggest VCs in the world to build a billion-dollar empire</em>.”</p>
+<p>But hey, it’s loved and used by some awesome products and frameworks like RedwoodJS, Blitz.js, KeystoneJS, and many others. And if Prisma can help us all spend less time tearing our hair out writing SQL, it’ll always be worth a billi in our hearts.</p>
+<hr>
+<h2>RxJS releases v7.0</h2>
+<p><img src="https://bytes.dev/images/content/mario.png" alt="Mario">
+</p><p class="image-alt">A different kind of RxJS</p><p></p>
+<p><strong>RxJS is <em>not</em> a JavaScript prescription,</strong> but for the die-hard fans, maybe it kinda is?</p>
+<p>That’s my only explanation for why hundreds of people paid $300+ to watch RxJS 7.0 get released at last week’s <em>RxJS Live!</em> virtual conference, instead of just watching the full replay for free on YouTube 6 hours later.</p>
+<p>But hey, if there’s one thing 2021 has taught us, it’s that money isn’t real. Just ask the girl from the house fire meme who just <a href="https://www.npr.org/2021/04/30/992383825/disaster-girl-the-stuff-of-memes-sells-for-nearly-500-000-as-nft">banked half a mil</a>.</p>
+<p><strong>Quick review:</strong> RxJS is a reactive library for JavaScript that can be used for the frontend and backend (with Node.js). It uses Observables to make it easier to compose asynchronous or callback-based code and is a helpful tool for managing data and events within your app (i.e. mouse clicks, user input, etc.).</p>
+<p>RxJS 7.0 is the library’s first major release in 3 years and comes after a year-long beta period.</p>
+<p><strong>What’s new in lucky v7:</strong></p>
+<ul>
+<li>
+<p><strong>Better TypeScript typings</strong> — RxJS 6 targeted a much older version of TypeScript (which was annoying), but RxJS 7 now targets TS 4.2, which provides more consistency for using types like <code>Subject next()</code>, <code>toPromise()</code>, and others</p>
+</li>
+<li>
+<p><strong>New &amp; improved methods and operators</strong> — There are a ton of these (which you can check out <a href="https://rxjs.dev/deprecations/breaking-changes#operators">here</a>), but the overarching goal behind them was to to introduce better usability and consistency to the RxJS APIs</p>
+</li>
+<li>
+<p><strong>Way smaller</strong> — Even with all the new stuff, v7 is almost 50% smaller than v6. They did this through “slow, steady refactoring backed by thousands of tests”, as opposed to a single massive rewrite or architectural change</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>RxJS is still thought of as mostly an Angular tool by many, but TikTok’s React web app <a href="https://twitter.com/BenLesh/status/1388125014474567682">just saved 14.3KB</a> by upgrading to RxJS 7, so that we could get videos like <a href="https://www.tiktok.com/@kiki.tiel/video/6902455027269389570">this gem</a> to load faster than ever.</p>
+<p>Maybe v7 will see RxJS continue to expand its presence with other frameworks.</p>
+<hr>
+<h2>JS Trivia - Answer Below</h2>
+<p>How many times is the <code>reducer</code> function invoked?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">reducer</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> current</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token string">'invoked'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> prev <span class="token operator">+</span> current
+<span class="token punctuation">}</span>
+
+nums<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>reducer<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h3>What will building for the web look like in 5 years?</h3>
+<img class="section-image-avatar" src="https://ui.dev/images/events/brandon.jpg" alt="Brandon Bayer">
+<p>“It will be many times more productive to build fullstack web apps with Javascript frameworks (like Blitz) than with other languages like with Ruby on Rails or Laravel. Running fullstack apps on serverless architecture will be the norm and WAY easier than it is now.”</p>
+<blockquote>
+<p><a href="https://twitter.com/flybayer">Brandon Bayer</a> is the creator and maintainer of Blitz.js and will be giving a members-only demo this Thursday called “Building Fullstack Apps in Record Time with Blitz.js”.</p>
+</blockquote>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Addy Osmani wrote a great article about how to use <strong><a href="https://www.smashingmagazine.com/2021/04/humble-img-element-core-web-vitals/">the humble <code>&lt;img&gt;</code> tag</a></strong> to improve your site’s UX and Core Web Vitals score. This will sure come in handy once your leadership team figures out they can make “Core Web Vitals score” a KPI.</p>
+</li>
+<li>
+<p>Facebook’s engineering team wrote <strong><a href="https://engineering.fb.com/2021/04/29/developer-tools/rust/">a brief history of Rust at Facebook</a></strong> that we were pleasantly surprised to see starts with a tribute to Salad Fingers and his love for Rust and spoons.</p>
+</li>
+<li>
+<p><strong><a href="https://scribbletune.com/">Scribbletune 4.0</a></strong> is a Node module that helps you make sweet music with JavaScript and export them as MIDI files. It’ll also make you regret dropping out of Piano lessons in 4th grade when you can’t understand the docs.</p>
+</li>
+<li>
+<p>Stephanie Eckles wrote a fun and very in-depth guide to <strong><a href="https://www.smashingmagazine.com/2021/04/guide-supported-modern-css-pseudo-class-selectors/">CSS Pseudo-Class Selectors</a></strong>. Because, as my grandpa said when he passed down his fake Rolex to me, “if you can’t afford true class, your next best option is pseudo-class.”</p>
+</li>
+<li>
+<p>Caleb and Andrew wrote about how their team at Airtable <strong><a href="https://medium.com/airtable-eng/the-continual-evolution-of-airtables-codebase-migrating-a-million-lines-of-code-to-typescript-612c008baf5c">converted one million lines of code to TypeScript</a></strong>. All that work to refactor their app and yet they still use Medium for their blog. Bummer.</p>
+</li>
+<li>
+<p>ESM is now <strong><a href="https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c">natively supported in Node.js</a></strong>, and I just can’t wait to see what this is gonna do for my Scribbletune game.</p>
+</li>
+<li>
+<p>Marko shared some <strong><a href="https://markodenic.com/css-tips/">CSS tips you won’t find in most tutorials</a></strong>. You know what else you won’t find in most CSS tutorials? Me, unless I’m desperate.</p>
+</li>
+<li>
+<p><strong><a href="https://bomberjam.anthonysimmon.com/">Bomberjam</a></strong> is an AI programming challenge where you write your bot using one of six languages (including JavaScript) and fight against other players to try and reach first place on the leader board. This reminded me that I’ve had <a href="https://sedo.com/search/?keyword=codercombat.com">codercombat.com</a> for sale for years now. Bomberjam team HMU.</p>
+</li>
+</ol>
+<hr>
+<h2>JS Trivia - Answer</h2>
+<p>How many times is the <code>reducer</code> function invoked?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">reducer</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> current</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token string">'invoked'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> prev <span class="token operator">+</span> current
+<span class="token punctuation">}</span>
+
+nums<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>reducer<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Answer: Twice</strong></p>
+<p>If an initial value isn’t supplied, the first element in the array will be used as the initial value and the first invocation of the reducer function will be skipped.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: RxJS is *not* a JavaScript prescription","date":"2021-05-03","description":"This issue, we're getting down with Prisma, RXJS flirting with other frameworks, and fake Rolexes.","featuredImage":"https://bytes.dev/images/content/katie.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eLast week we mentioned we’d match anyone that took up \u003ca href=\"https://twitter.com/threepointone/status/1386268271524057093\"\u003eSunil’s offer\u003c/a\u003e in an attempt to raise money for \u003ca href=\"https://indiafightscorona.giveindia.org/\"\u003eindiafightscorona.giveindia.org/\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eVery happy to say we raised over $2,500. Here’s who helped - Glen Maddern, Justin Punzalan, Don Michael, Kevin Batdorf, Ben Adam, and a handful of others that asked to remain anonymous. Good job, team.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003ePrisma’s New Direction\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/katie.png\" alt=\"Katy Perry\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eAnd you’re gonna see (my backend) roar-r-r-r-r\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePrisma is back again\u003c/strong\u003e with a new suite of tools and a slightly new direction. After years of telling everyone that they definitely \u003cem\u003eweren’t\u003c/em\u003e an ORM (object-relational mapping tool), their new tagline describes Prisma as “a next-generation ORM for Node.js and TypeScript.” \u003cspan role=\"img\" aria-label=\"thinking face\"\u003e🤔\u003c/span\u003e\u003c/p\u003e\n\u003cp\u003eThey’ve \u003ca href=\"https://twitter.com/nikolasburk/status/1384908920301490176\"\u003emade a few pivots\u003c/a\u003e over the last couple years, and claim that the new ORM label is mostly to help developers understand what problems Prisma solves, even if its approach to solving those problems is fundamentally different from most ORMs.\u003c/p\u003e\n\u003cp\u003eHere’s a quick rundown on the 3 main tools that now make up the \u003cstrong\u003ePrisma Holy Trinity™:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.prisma.io/client\"\u003ePrisma Client\u003c/a\u003e\u003c/strong\u003e — An auto-generated and type-safe query builder for Node.js \u0026amp; TypeScript that works across different languages and databases\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.prisma.io/migrate\"\u003ePrisma Migrate\u003c/a\u003e\u003c/strong\u003e — A declarative data modeling tool that auto-generates fully customizable database schema migrations for you, so you don’t have to write the SQL by hand\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.prisma.io/studio\"\u003ePrisma Studio\u003c/a\u003e\u003c/strong\u003e — A slick little UI that lets you view and edit your data\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003ePrisma is one of those interesting companies that’s half, \u003cem\u003e“we’re a cute \u0026amp; innovative open-source project”\u003c/em\u003e, and half, \u003cem\u003e“we’ve raised $16 million from the biggest VCs in the world to build a billion-dollar empire\u003c/em\u003e.”\u003c/p\u003e\n\u003cp\u003eBut hey, it’s loved and used by some awesome products and frameworks like RedwoodJS, Blitz.js, KeystoneJS, and many others. And if Prisma can help us all spend less time tearing our hair out writing SQL, it’ll always be worth a billi in our hearts.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eRxJS releases v7.0\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/mario.png\" alt=\"Mario\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eA different kind of RxJS\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRxJS is \u003cem\u003enot\u003c/em\u003e a JavaScript prescription,\u003c/strong\u003e but for the die-hard fans, maybe it kinda is?\u003c/p\u003e\n\u003cp\u003eThat’s my only explanation for why hundreds of people paid $300+ to watch RxJS 7.0 get released at last week’s \u003cem\u003eRxJS Live!\u003c/em\u003e virtual conference, instead of just watching the full replay for free on YouTube 6 hours later.\u003c/p\u003e\n\u003cp\u003eBut hey, if there’s one thing 2021 has taught us, it’s that money isn’t real. Just ask the girl from the house fire meme who just \u003ca href=\"https://www.npr.org/2021/04/30/992383825/disaster-girl-the-stuff-of-memes-sells-for-nearly-500-000-as-nft\"\u003ebanked half a mil\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick review:\u003c/strong\u003e RxJS is a reactive library for JavaScript that can be used for the frontend and backend (with Node.js). It uses Observables to make it easier to compose asynchronous or callback-based code and is a helpful tool for managing data and events within your app (i.e. mouse clicks, user input, etc.).\u003c/p\u003e\n\u003cp\u003eRxJS 7.0 is the library’s first major release in 3 years and comes after a year-long beta period.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat’s new in lucky v7:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBetter TypeScript typings\u003c/strong\u003e — RxJS 6 targeted a much older version of TypeScript (which was annoying), but RxJS 7 now targets TS 4.2, which provides more consistency for using types like \u003ccode\u003eSubject next()\u003c/code\u003e, \u003ccode\u003etoPromise()\u003c/code\u003e, and others\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew \u0026amp; improved methods and operators\u003c/strong\u003e — There are a ton of these (which you can check out \u003ca href=\"https://rxjs.dev/deprecations/breaking-changes#operators\"\u003ehere\u003c/a\u003e), but the overarching goal behind them was to to introduce better usability and consistency to the RxJS APIs\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWay smaller\u003c/strong\u003e — Even with all the new stuff, v7 is almost 50% smaller than v6. They did this through “slow, steady refactoring backed by thousands of tests”, as opposed to a single massive rewrite or architectural change\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eRxJS is still thought of as mostly an Angular tool by many, but TikTok’s React web app \u003ca href=\"https://twitter.com/BenLesh/status/1388125014474567682\"\u003ejust saved 14.3KB\u003c/a\u003e by upgrading to RxJS 7, so that we could get videos like \u003ca href=\"https://www.tiktok.com/@kiki.tiel/video/6902455027269389570\"\u003ethis gem\u003c/a\u003e to load faster than ever.\u003c/p\u003e\n\u003cp\u003eMaybe v7 will see RxJS continue to expand its presence with other frameworks.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Trivia - Answer Below\u003c/h2\u003e\n\u003cp\u003eHow many times is the \u003ccode\u003ereducer\u003c/code\u003e function invoked?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e nums \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e6\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003ereducer\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprev\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e current\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'invoked'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e prev \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e current\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\nnums\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ereducer\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003eWhat will building for the web look like in 5 years?\u003c/h3\u003e\n\u003cimg class=\"section-image-avatar\" src=\"https://ui.dev/images/events/brandon.jpg\" alt=\"Brandon Bayer\"\u003e\n\u003cp\u003e“It will be many times more productive to build fullstack web apps with Javascript frameworks (like Blitz) than with other languages like with Ruby on Rails or Laravel. Running fullstack apps on serverless architecture will be the norm and WAY easier than it is now.”\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ca href=\"https://twitter.com/flybayer\"\u003eBrandon Bayer\u003c/a\u003e is the creator and maintainer of Blitz.js and will be giving a members-only demo this Thursday called “Building Fullstack Apps in Record Time with Blitz.js”.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eAddy Osmani wrote a great article about how to use \u003cstrong\u003e\u003ca href=\"https://www.smashingmagazine.com/2021/04/humble-img-element-core-web-vitals/\"\u003ethe humble \u003ccode\u003e\u0026lt;img\u0026gt;\u003c/code\u003e tag\u003c/a\u003e\u003c/strong\u003e to improve your site’s UX and Core Web Vitals score. This will sure come in handy once your leadership team figures out they can make “Core Web Vitals score” a KPI.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFacebook’s engineering team wrote \u003cstrong\u003e\u003ca href=\"https://engineering.fb.com/2021/04/29/developer-tools/rust/\"\u003ea brief history of Rust at Facebook\u003c/a\u003e\u003c/strong\u003e that we were pleasantly surprised to see starts with a tribute to Salad Fingers and his love for Rust and spoons.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://scribbletune.com/\"\u003eScribbletune 4.0\u003c/a\u003e\u003c/strong\u003e is a Node module that helps you make sweet music with JavaScript and export them as MIDI files. It’ll also make you regret dropping out of Piano lessons in 4th grade when you can’t understand the docs.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eStephanie Eckles wrote a fun and very in-depth guide to \u003cstrong\u003e\u003ca href=\"https://www.smashingmagazine.com/2021/04/guide-supported-modern-css-pseudo-class-selectors/\"\u003eCSS Pseudo-Class Selectors\u003c/a\u003e\u003c/strong\u003e. Because, as my grandpa said when he passed down his fake Rolex to me, “if you can’t afford true class, your next best option is pseudo-class.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCaleb and Andrew wrote about how their team at Airtable \u003cstrong\u003e\u003ca href=\"https://medium.com/airtable-eng/the-continual-evolution-of-airtables-codebase-migrating-a-million-lines-of-code-to-typescript-612c008baf5c\"\u003econverted one million lines of code to TypeScript\u003c/a\u003e\u003c/strong\u003e. All that work to refactor their app and yet they still use Medium for their blog. Bummer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eESM is now \u003cstrong\u003e\u003ca href=\"https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c\"\u003enatively supported in Node.js\u003c/a\u003e\u003c/strong\u003e, and I just can’t wait to see what this is gonna do for my Scribbletune game.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarko shared some \u003cstrong\u003e\u003ca href=\"https://markodenic.com/css-tips/\"\u003eCSS tips you won’t find in most tutorials\u003c/a\u003e\u003c/strong\u003e. You know what else you won’t find in most CSS tutorials? Me, unless I’m desperate.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://bomberjam.anthonysimmon.com/\"\u003eBomberjam\u003c/a\u003e\u003c/strong\u003e is an AI programming challenge where you write your bot using one of six languages (including JavaScript) and fight against other players to try and reach first place on the leader board. This reminded me that I’ve had \u003ca href=\"https://sedo.com/search/?keyword=codercombat.com\"\u003ecodercombat.com\u003c/a\u003e for sale for years now. Bomberjam team HMU.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Trivia - Answer\u003c/h2\u003e\n\u003cp\u003eHow many times is the \u003ccode\u003ereducer\u003c/code\u003e function invoked?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e nums \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\u003cspan class=\"token number\"\u003e6\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003ereducer\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eprev\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e current\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'invoked'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e prev \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e current\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\nnums\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ereducer\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eAnswer: Twice\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eIf an initial value isn’t supplied, the first element in the array will be used as the initial value and the first invocation of the reducer function will be skipped.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"46"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"46"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #212 - IDX Gon&#x27; Give It To Ya</title><link rel="canonical" href="https://bytes.dev/archives/212"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson."/><meta property="og:url" content="https://bytes.dev/archives/212"/><meta property="og:title" content="Bytes #212 - IDX Gon&#x27; Give It To Ya"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/coffee-cat.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #212 - IDX Gon&#x27; Give It To Ya"/><meta property="twitter:description" content="Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson."/><meta property="twitter:image" content="https://bytes.dev/images/content/coffee-cat.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> IDX Gon&#x27; Give It To Ya</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->212<!-- -->.</span><span class="mr-6 font-bold">August 10, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/212">#212</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/coffee-cat.jpg" alt="Looney Tunes cat drinking coffee and smoking cigarettes" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The only productivity tools we had back in my day<!-- --> </p></div><h3>Google wants to make you more productive</h3><p>And since they aren’t allowed to ship cigarettes directly to your door anymore, they did the next best thing they could by announcing <a href="https://idx.dev/">Project IDX</a> earlier this week.</p><p>It’s an experimental, new initiative that wants to make your entire app development workflow “faster and more frictionless,” by bringing it all into the cloud.</p><p>In a perfectly Googley world, here’s what that would look like:</p><p><strong>Step 1:</strong> Open a new browser tab on your device of choice (I’m a BlackBerry man myself), and navigate to the IDX online editor. Spin up a new project and <em>just start coding</em> in seconds, without wasting time on setup, permissions, etc.</p><p><strong>Step 2:</strong> Build your app with any popular framework you want (IDX already supports most of them), but in this hypothetical Google happy-place, you’ll probably want to use Angular or Flutter for maximum vibes.</p><p><strong>Step 3:</strong> Use Google’s generative programming AI, <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/code/code-models-overview">Codey</a>, to help you build faster. Preview your app across platforms with IDX’s built-in Android emulator, web preview, and iOS simulator.</p><p><strong>Step 4:</strong> Deploy to the web in a few clicks with Firebase hosting.</p><p><strong>Step 5:</strong> Wake up tomorrow and do it all again. #RiseandGrind.</p><p><strong>Ok, so how is IDX different from its brother-from-another-mother, Codespaces? Or its sister-from-another-mister, Stackblitz? Or its cousin from another dozen, Replit? Or its sibling from another nibbling, Codesandbox? OR JSFiddle, lol</strong></p><p>We haven’t gotten to try IDX yet, but they all feel pretty similar on the surface. Similar to Codespaces, IDX is built on <a href="https://github.com/microsoft/vscode">Code OSS</a>, and the Codey AI will probably feel similar to using Copilot.</p><p>But for IDX, the online IDE itself is only one part of the story.</p><p><a href="https://twitter.com/_davideast">David East</a>, the lead DevRel on the IDX team, told us that the project’s long-term plan is to cohesively weave together Google’s developer tools and platforms to “fill in all the common gaps” of building cross-platform apps. They want to make it faster to get started, faster to build, faster to test and preview, and faster to deploy on multiple platforms.</p><p><strong>Bottom Line:</strong> IDX is an ambitious project that could radically simplify the end-to-end experience of building apps.</p><p>Will that be enough to help it avoid being #KilledByGoogle in a year? Let’s hope so <span role="img" aria-label="folded hands">🙏</span>.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/212" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F212" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Loved%20this%20deep%20dive%20by%20%40bytesdotdev%20on%20Google%20IDX%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F212" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20deep%20dive%20by%20%40bytesdotdev%20on%20Google%20IDX%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F212" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/axiom-logo.png" alt="Axiom logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/kirby-food.jpg" alt="Kirby sucking up a lot of food." width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Ingest all the data.<!-- --> </p></div><h3><a href="https://axiom.co/?utm_campaign=uidev&amp;utm_source=bytes&amp;utm_medium=email&amp;utm_content=kirbyinhale">Axiom gives you all your event data, all the time, all in one place</a></h3><p>If you read enough programming newsletters, you’ve probably seen hundreds of ads for the same logging solutions.</p><p>But Axiom is different. Because their storage is significantly more affordable, they let you store <em>all</em> your app’s data (instead of just a sampling).</p><p><strong>How tho?</strong> Because their datastore <em>decouples</em> its stateless ingest pipeline from its querying pipeline, which means it requires minimal compute to store and query tons of data. (<a href="https://axiom.co/docs?utm_campaign=uidev&amp;utm_source=bytes&amp;utm_medium=email&amp;utm_content=kirbyinhale">See the docs</a>.)</p><p>That’s a big deal because it lets you:</p><ul>
+<li>
+<p>Query all your data <a href="https://axiom.co/?utm_campaign=uidev&amp;utm_source=bytes&amp;utm_medium=email&amp;utm_content=kirbyinhale">quickly and easily</a>, without having to move data from cold/archive to “hot.”</p>
+</li>
+<li>
+<p>Never worry about deleting any of your data from any source — logs, events, frontend, backends, etc.</p>
+</li>
+<li>
+<p>Get better insights, quicker debugging, and less hassle for your team.</p>
+</li>
+</ul><p><a href="https://axiom.co/pricing?utm_campaign=uidev&amp;utm_source=bytes&amp;utm_medium=email&amp;utm_content=kirbyinhale">Check out the free-forever plan</a> to try it yourself.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=081023-bytes-newsletter">Secureframe</a></h4><p><em>Want to get SOC 2 compliant in <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=081023-bytes-newsletter">weeks instead of months</a>? Book a free, personalized demo to learn how.</em></p></div></div>
+<p>This one is for the React heads.</p>
+<p>React’s <code>useRef</code> hook allows you to persist values between renders, without triggering a re-render of the component. Using only <code>React.useState</code>, can you ~re-create the functionality of <code>React.useRef</code>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://viteconf.org/23/ecosystem/bytes">Vite Conf 2023</a> is happening on October 5th, and if you click that link you can get a cool personalized ticket that has the Bytes logo on it. Everyone will be so jealous of you that Jordyn from junior high will probably hear about it and finally realize they made a huge mistake by letting you get away back in 2003.</p>
+</li>
+<li>
+<p>Darius Cepulis wrote an insightful article called <a href="https://www.mux.com/blog/what-are-react-server-components">Everything I wish I knew before moving 50,000 lines of code to React Server Components</a> about his team’s experience migrating Mux to RSC. I’ve quit jobs for less daunting tasks than that, Darius.</p>
+</li>
+<li>
+<p><a href="https://tryzero.com/?s=bytesnl">Zero</a> created an easy way to integrate 3rd-party API credentials into your project. Their SDK is available for TypeScript, Rust, Python, and Go. [sponsored]</p>
+</li>
+<li>
+<p>It turns out <a href="https://stackoverflow.blog/2023/08/08/insights-into-stack-overflows-traffic/">Stack Overflow’s traffic isn’t down by 50%</a>, and is only down ~5% from last year. This almost makes me think I shouldn’t just blindly trust everything I see on Twitter and YouTube. Almost.</p>
+</li>
+<li>
+<p>The React Docs just added this deep dive on <a href="https://react.dev/learn/typescript">Using TypeScript with React</a>. We featured this a few weeks ago when it was still a preview link, but we wanted to share it again now that it’s Facebook official.</p>
+</li>
+<li>
+<p>Andy Jiang wrote about <a href="https://deno.com/blog/node-config-hell">Node’s Config Hell Problem</a> on the Deno blog. And you’ll <em>never guess</em> which next-gen runtime was able to solve this problem.</p>
+</li>
+<li>
+<p>There’s a new section in the Next.js docs that goes deep on <a href="https://nextjs.org/docs/app/building-your-application/caching">Caching in Next</a>, not to be confused with “Caching in on Next” — which is the working title of Guillermo’s memoir.</p>
+</li>
+<li>
+<p>This <a href="https://stx.is/Join-Bitcoin-Dev-2">free introductory course</a> is designed to help beginners learn the fundamentals of Bitcoin and how to build full-stack decentralized apps on Bitcoin L2s. [sponsored]</p>
+</li>
+<li>
+<p>The Radix UI team just released <a href="https://www.radix-ui.com/">Radix themes</a> — an open-source component library with hundreds of variants, a handful of simple primitives for layout, and an extensive token system provided via CSS variables.</p>
+</li>
+<li>
+<p>Mark Erikson wrote about <a href="https://blog.isquaredsoftware.com/2023/08/esm-modernization-lessons/">His experience modernizing packages to ESM</a>. Mark is living proof that the OSS gods always save their toughest battles for their strongest soldiers. Love you, Mark 🫶.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=081023-bytes-newsletter">Secureframe</a></h4></div></div>
+<p>The marketing pitch for <code>React.useState</code> is that it allows you to add state to function components. This is true, but we can break it down even further. Fundamentally, the <code>useState</code> Hook gives you two things - a value that will persist across renders and an API to update that value and trigger a re-render.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValueAndReRender<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span>
+  <span class="token string">'initial value'</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>When building UI, both are necessary. Without the ability to persist the value across renders, you’d lose the ability to have dynamic data in your app. Without the ability to update the value and trigger a re-render, the UI would never update.</p>
+<p>Now, what if you had a use case where you weren’t dealing with any UI, so you didn’t care about re-rendering, but you did need to persist a value across renders? In this scenario, it’s like you need the half of <code>useState</code> that lets you persist a value across renders but not the other half that triggers a re-render — Something like this.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">usePersistentValue</span> <span class="token punctuation">(</span><span class="token parameter">initialValue</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">current</span><span class="token operator">:</span> initialValue
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Spoiler alert, the functionality of our custom <code>usePersistentValue</code> Hook is <strong>very</strong> similar to the built-in <code>React.useRef</code> Hook.</p>
+<p>If you want to add state to your component that persists across renders and can trigger a re-render when it’s updated, go with <code>useState</code> (or <code>useReducer</code>). If you want to add state to your component that persists across renders but doesn’t trigger a re-render when it’s updated, go with <code>useRef</code>.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: IDX Gon' Give It To Ya","date":"2023-08-10","featuredImage":"/images/content/coffee-cat.jpg","description":"Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Deno bullies Node, the OSS Gods reveal their will, and I almost learn a valuable lesson.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/212\"\u003e#212\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/coffee-cat.jpg\" alt=\"Looney Tunes cat drinking coffee and smoking cigarettes\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe only productivity tools we had back in my day\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eGoogle wants to make you more productive\u003c/h3\u003e\u003cp\u003eAnd since they aren’t allowed to ship cigarettes directly to your door anymore, they did the next best thing they could by announcing \u003ca href=\"https://idx.dev/\"\u003eProject IDX\u003c/a\u003e earlier this week.\u003c/p\u003e\u003cp\u003eIt’s an experimental, new initiative that wants to make your entire app development workflow “faster and more frictionless,” by bringing it all into the cloud.\u003c/p\u003e\u003cp\u003eIn a perfectly Googley world, here’s what that would look like:\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStep 1:\u003c/strong\u003e Open a new browser tab on your device of choice (I’m a BlackBerry man myself), and navigate to the IDX online editor. Spin up a new project and \u003cem\u003ejust start coding\u003c/em\u003e in seconds, without wasting time on setup, permissions, etc.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStep 2:\u003c/strong\u003e Build your app with any popular framework you want (IDX already supports most of them), but in this hypothetical Google happy-place, you’ll probably want to use Angular or Flutter for maximum vibes.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStep 3:\u003c/strong\u003e Use Google’s generative programming AI, \u003ca href=\"https://cloud.google.com/vertex-ai/docs/generative-ai/code/code-models-overview\"\u003eCodey\u003c/a\u003e, to help you build faster. Preview your app across platforms with IDX’s built-in Android emulator, web preview, and iOS simulator.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStep 4:\u003c/strong\u003e Deploy to the web in a few clicks with Firebase hosting.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eStep 5:\u003c/strong\u003e Wake up tomorrow and do it all again. #RiseandGrind.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eOk, so how is IDX different from its brother-from-another-mother, Codespaces? Or its sister-from-another-mister, Stackblitz? Or its cousin from another dozen, Replit? Or its sibling from another nibbling, Codesandbox? OR JSFiddle, lol\u003c/strong\u003e\u003c/p\u003e\u003cp\u003eWe haven’t gotten to try IDX yet, but they all feel pretty similar on the surface. Similar to Codespaces, IDX is built on \u003ca href=\"https://github.com/microsoft/vscode\"\u003eCode OSS\u003c/a\u003e, and the Codey AI will probably feel similar to using Copilot.\u003c/p\u003e\u003cp\u003eBut for IDX, the online IDE itself is only one part of the story.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://twitter.com/_davideast\"\u003eDavid East\u003c/a\u003e, the lead DevRel on the IDX team, told us that the project’s long-term plan is to cohesively weave together Google’s developer tools and platforms to “fill in all the common gaps” of building cross-platform apps. They want to make it faster to get started, faster to build, faster to test and preview, and faster to deploy on multiple platforms.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e IDX is an ambitious project that could radically simplify the end-to-end experience of building apps.\u003c/p\u003e\u003cp\u003eWill that be enough to help it avoid being #KilledByGoogle in a year? Let’s hope so \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/212\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F212\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Loved%20this%20deep%20dive%20by%20%40bytesdotdev%20on%20Google%20IDX%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F212\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20deep%20dive%20by%20%40bytesdotdev%20on%20Google%20IDX%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F212\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/axiom-logo.png\" alt=\"Axiom logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/kirby-food.jpg\" alt=\"Kirby sucking up a lot of food.\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eIngest all the data.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://axiom.co/?utm_campaign=uidev\u0026amp;utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_content=kirbyinhale\"\u003eAxiom gives you all your event data, all the time, all in one place\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eIf you read enough programming newsletters, you’ve probably seen hundreds of ads for the same logging solutions.\u003c/p\u003e\u003cp\u003eBut Axiom is different. Because their storage is significantly more affordable, they let you store \u003cem\u003eall\u003c/em\u003e your app’s data (instead of just a sampling).\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHow tho?\u003c/strong\u003e Because their datastore \u003cem\u003edecouples\u003c/em\u003e its stateless ingest pipeline from its querying pipeline, which means it requires minimal compute to store and query tons of data. (\u003ca href=\"https://axiom.co/docs?utm_campaign=uidev\u0026amp;utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_content=kirbyinhale\"\u003eSee the docs\u003c/a\u003e.)\u003c/p\u003e\u003cp\u003eThat’s a big deal because it lets you:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eQuery all your data \u003ca href=\"https://axiom.co/?utm_campaign=uidev\u0026amp;utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_content=kirbyinhale\"\u003equickly and easily\u003c/a\u003e, without having to move data from cold/archive to “hot.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNever worry about deleting any of your data from any source — logs, events, frontend, backends, etc.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGet better insights, quicker debugging, and less hassle for your team.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://axiom.co/pricing?utm_campaign=uidev\u0026amp;utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_content=kirbyinhale\"\u003eCheck out the free-forever plan\u003c/a\u003e to try it yourself.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=081023-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eWant to get SOC 2 compliant in \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=081023-bytes-newsletter\"\u003eweeks instead of months\u003c/a\u003e? Book a free, personalized demo to learn how.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eThis one is for the React heads.\u003c/p\u003e\n\u003cp\u003eReact’s \u003ccode\u003euseRef\u003c/code\u003e hook allows you to persist values between renders, without triggering a re-render of the component. Using only \u003ccode\u003eReact.useState\u003c/code\u003e, can you ~re-create the functionality of \u003ccode\u003eReact.useRef\u003c/code\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://viteconf.org/23/ecosystem/bytes\"\u003eVite Conf 2023\u003c/a\u003e is happening on October 5th, and if you click that link you can get a cool personalized ticket that has the Bytes logo on it. Everyone will be so jealous of you that Jordyn from junior high will probably hear about it and finally realize they made a huge mistake by letting you get away back in 2003.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDarius Cepulis wrote an insightful article called \u003ca href=\"https://www.mux.com/blog/what-are-react-server-components\"\u003eEverything I wish I knew before moving 50,000 lines of code to React Server Components\u003c/a\u003e about his team’s experience migrating Mux to RSC. I’ve quit jobs for less daunting tasks than that, Darius.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://tryzero.com/?s=bytesnl\"\u003eZero\u003c/a\u003e created an easy way to integrate 3rd-party API credentials into your project. Their SDK is available for TypeScript, Rust, Python, and Go. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt turns out \u003ca href=\"https://stackoverflow.blog/2023/08/08/insights-into-stack-overflows-traffic/\"\u003eStack Overflow’s traffic isn’t down by 50%\u003c/a\u003e, and is only down ~5% from last year. This almost makes me think I shouldn’t just blindly trust everything I see on Twitter and YouTube. Almost.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe React Docs just added this deep dive on \u003ca href=\"https://react.dev/learn/typescript\"\u003eUsing TypeScript with React\u003c/a\u003e. We featured this a few weeks ago when it was still a preview link, but we wanted to share it again now that it’s Facebook official.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAndy Jiang wrote about \u003ca href=\"https://deno.com/blog/node-config-hell\"\u003eNode’s Config Hell Problem\u003c/a\u003e on the Deno blog. And you’ll \u003cem\u003enever guess\u003c/em\u003e which next-gen runtime was able to solve this problem.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThere’s a new section in the Next.js docs that goes deep on \u003ca href=\"https://nextjs.org/docs/app/building-your-application/caching\"\u003eCaching in Next\u003c/a\u003e, not to be confused with “Caching in on Next” — which is the working title of Guillermo’s memoir.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThis \u003ca href=\"https://stx.is/Join-Bitcoin-Dev-2\"\u003efree introductory course\u003c/a\u003e is designed to help beginners learn the fundamentals of Bitcoin and how to build full-stack decentralized apps on Bitcoin L2s. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Radix UI team just released \u003ca href=\"https://www.radix-ui.com/\"\u003eRadix themes\u003c/a\u003e — an open-source component library with hundreds of variants, a handful of simple primitives for layout, and an extensive token system provided via CSS variables.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMark Erikson wrote about \u003ca href=\"https://blog.isquaredsoftware.com/2023/08/esm-modernization-lessons/\"\u003eHis experience modernizing packages to ESM\u003c/a\u003e. Mark is living proof that the OSS gods always save their toughest battles for their strongest soldiers. Love you, Mark 🫶.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=081023-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eThe marketing pitch for \u003ccode\u003eReact.useState\u003c/code\u003e is that it allows you to add state to function components. This is true, but we can break it down even further. Fundamentally, the \u003ccode\u003euseState\u003c/code\u003e Hook gives you two things - a value that will persist across renders and an API to update that value and trigger a re-render.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003evalue\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e setValueAndReRender\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003euseState\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token string\"\u003e'initial value'\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen building UI, both are necessary. Without the ability to persist the value across renders, you’d lose the ability to have dynamic data in your app. Without the ability to update the value and trigger a re-render, the UI would never update.\u003c/p\u003e\n\u003cp\u003eNow, what if you had a use case where you weren’t dealing with any UI, so you didn’t care about re-rendering, but you did need to persist a value across renders? In this scenario, it’s like you need the half of \u003ccode\u003euseState\u003c/code\u003e that lets you persist a value across renders but not the other half that triggers a re-render — Something like this.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eusePersistentValue\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003einitialValue\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e React\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003euseState\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token literal-property property\"\u003ecurrent\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e initialValue\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSpoiler alert, the functionality of our custom \u003ccode\u003eusePersistentValue\u003c/code\u003e Hook is \u003cstrong\u003every\u003c/strong\u003e similar to the built-in \u003ccode\u003eReact.useRef\u003c/code\u003e Hook.\u003c/p\u003e\n\u003cp\u003eIf you want to add state to your component that persists across renders and can trigger a re-render when it’s updated, go with \u003ccode\u003euseState\u003c/code\u003e (or \u003ccode\u003euseReducer\u003c/code\u003e). If you want to add state to your component that persists across renders but doesn’t trigger a re-render when it’s updated, go with \u003ccode\u003euseRef\u003c/code\u003e.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"212"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"212"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

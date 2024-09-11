@@ -1,0 +1,311 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #146 - underground, indie JavaScript APIs</title><link rel="canonical" href="https://bytes.dev/archives/146"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon"/><meta property="og:url" content="https://bytes.dev/archives/146"/><meta property="og:title" content="Bytes #146 - underground, indie JavaScript APIs"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/shrek-computer.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #146 - underground, indie JavaScript APIs"/><meta property="twitter:description" content="The CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon"/><meta property="twitter:image" content="https://bytes.dev/images/content/shrek-computer.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> underground, indie JavaScript APIs</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->146<!-- -->.</span><span class="mr-6 font-bold">December 19, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Today we’ve got the CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/146">#146</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/shrek-computer.jpg" alt="Shrek working at a computer" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you spend your weekend upgrading your bundler<!-- --> </p></div><h3>Vite 4.0 is here for the holidays</h3><p>You know those days where you get hungry right after you eat breakfast, and end up eating <del>lunch</del> second breakfast at 9:30am? Well, that’s the same energy Vite has when it comes to major releases.</p><p>Just five months after their last major release, they released <a href="https://vitejs.dev/blog/announcing-vite4.html">Vite v4</a> last week — and it didn’t feel very noteworthy at first. There are a few minor improvements like new support for SWC, but this release was mostly focused on upgrading to the <a href="https://rollupjs.org/guide/en/#migration">latest version of Rollup</a> to improve Vite’s internals.</p><p>The bigger story here is how Vite is now on its <em>fourth</em> major version in its first two years of existence. I know you need to break a few eggs in order to make omelets — but the big question for Vite is, was this upgrade worth yet another breaking change? Let’s examine.</p><p><strong>The case against breaking changes:</strong></p><ul>
+<li>
+<p><strong>Migrations suck:</strong> Getting stuck in upgrade hell is like being stuck on a rollercoaster that you volunteered to get on but now it’s against social norms to complain because after all, it was free and the operator is just doing their best&nbsp;but also you’re not feeling well and someone in front of you just threw up while the person behind you is mumbling something about SemVer. If upgrading a build tool like Vite becomes too painful, developers will eventually stop upgrading or switch to something else.</p>
+</li>
+<li>
+<p><strong>Ecosystem churn:</strong> When a tool like Vite makes a breaking change, plugin authors need to release updates, which churns the whole ecosystem. No one can escape.</p>
+</li>
+<li>
+<p><strong>Kills momentum:</strong> Vite has gone from 1m weekly downloads to over 2.5m in the last five months. Breaking changes risk killing some of that momentum and stranding various projects on different versions.</p>
+</li>
+</ul><p><strong>On the other hand…</strong></p><ul>
+<li>
+<p><strong>The timing was right:</strong> Vite 4’s breaking changes were pretty mild, and they timed their release for that “my-PM-is-still-on-vacation-and-I-don’t-know-what-to-work-on” gap between Thanksgiving and Christmas. It’s the most wonderful time of the year to do a little upgrade maintenance.</p>
+</li>
+<li>
+<p><strong>Go with the flow:</strong> The <a href="https://rollupjs.org/guide/en/#migration">Rollup 3 release</a> already has plugin authors thinking about how to upgrade, and since Vite exposes Rollup’s plugin API, the whole ecosystem upgraded without leaving anyone behind.</p>
+</li>
+<li>
+<p><strong>Investing for the future:</strong> Given Vite’s explosive growth, this could be a good moment for them to take a breath and get their foundation ready for the long run.</p>
+</li>
+</ul><p><strong>Bottom line:</strong> We all hate breaking changes. But with frameworks like SvelteKit, Astro, Nuxt, and others all building on top of Vite, putting in a little bit of work on the foundation seems like a good idea to support this next wave of growth.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/146" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F146" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Vite%204%20is%20its%20second%20major%20release%20this%20year.%20Was%20it%20worth%20it%3F%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F146" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AVite%204%20is%20its%20second%20major%20release%20this%20year.%20Was%20it%20worth%20it%3F%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F146" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="200" src="https://bytes.dev/images/content/fusionauth-logo.png" alt="FusionAuth Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/fusionsoft.jpg" alt="A skeleton admiring the clothes of medieval person" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">"You built all of this in an hour? Incredible."<!-- --> </p></div><h3><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a> is the holy grail</h3><p>Trying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws — it’s painful, complicated, and you’re one wrong step away from a complete disaster.</p><p>That’s why we’re huge fans of <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a>.</p><p>They’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, WebAuthn, user management, and security — and if you don’t know what one or more of these things are… you probably need it.</p><p>Their <a href="https://fusionauth.io/download?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Free Community version</a> is surprisingly robust (no credit card, no limits, and it’s free forever if you self host <span role="img" aria-label="folded hands">🙏</span>). That makes it great to learn with or use for side projects, but it also has a pretty seamless integration process for existing apps.</p><p>And if you ever get stuck, you can call their support line and talk to an <em>actual engineer</em> who really knows auth — instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).</p><p><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Check it out</a> and never worry about auth again.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/usemotion-logo-icon.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.ashbyhq.com/motion/4f5f6a29-3af0-4d79-99a4-988ff7c5ba05?utm_source=bytes">Senior Full Stack Engineer</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">Remote friendly</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">TS</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">$160-210k</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Motion is looking for experienced TypeScript engineers to build the next generation of productivity tools. You'll inform key frontend architectural decisions that help Motion scale the next 2 order of magnitudes, create delightful user-facing features, and improve application performance. We are an ambitious team of 15 people distributed remotely across North America.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.sanity.io/bytes">Sanity Studio</a></h4><p><em>Sanity is offering a <a href="https://www.sanity.io/bytes">boosted free plan</a> of their new studio product with increased API and bandwidth limits for all Bytes readers.</em></p></div></div>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>The CSS Working Group wants you to help them chose <a href="https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/">the best syntax to use for CSS nesting</a>. I’m a little surprised they decided to use the electoral college format, but I guess it makes sense that people in Florida and Ohio get to decide the outcome of every popular vote from now until the end of time.</p>
+</li>
+<li>
+<p>If you’ve ever felt bogged down by the limitations of your CMS, check out <a href="https://www.sanity.io/bytes">Sanity Studio</a> — an open-source, single-page application that you can fully tailor to your project’s needs using their new studio customization framework. And they’re offering a <a href="https://www.sanity.io/bytes">boosted</a> free plan to all Bytes readers right now <span role="img" aria-label="sparkles">✨</span>[sponsored]</p>
+</li>
+<li>
+<p>Evan Bacon (from the Expo Core Team) just open-sourced his own <a href="https://github.com/evanbacon/expo-mdx">React Native MDX library</a> for an upcoming Expo project. I just hope he was able to pull an Adam Neumann and sell the trademark back to Expo for a few million.</p>
+</li>
+<li>
+<p>In <a href="https://www.smashingmagazine.com/2022/09/javascript-api-guide/">JavaScript APIs You Don’t Know About</a>, Juan breaks down some underground, indie JS APIs you’re probably not familiar with. I’m more of a mainstream JS API guy myself but to each their own.</p>
+</li>
+<li>
+<p><a href="https://htmx.org/docs/">Htmx</a> is a library that allows you to access modern browser features directly from HTML, rather than using JavaScript. As an author of a JavaScript newsletter, sounds terrible.</p>
+</li>
+<li>
+<p>Gautier Ben Aïm wrote about how he and his team rebuilt their whole email stack from scratch and <a href="https://escape.tech/blog/sveltemails/">rendered their emails with SvelteKit</a>. Now <em>that</em> sounds like a fun company holiday party.</p>
+</li>
+<li>
+<p>Marius Obert wrote <a href="https://www.twilio.com/blog/comparing-nextjs-nestjs-nuxt-gatsby">a helpful comparison piece</a> of JavaScript backend frameworks like Next, Nust, Nuxt, Nest, Nextest, and Nuxter.</p>
+</li>
+<li>
+<p>Our friends at Remotion just launched <a href="https://www.githubunwrapped.com/">Github Unwrapped</a>, a site that generates a personalized year in review video based on your Github contribution history.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.sanity.io/bytes">Sanity Studio</a></h4></div></div>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The answer is <code>First</code>, <code>Fourth</code>, <code>Third</code>, <code>Second</code>.</p>
+<p>To fully understand this one you need an understanding of JavaScript’s event loop. Specifically, the Call Stack, Task Queue, Web APIs (for <code>setTimeout</code>), and the Job Queue. You could watch <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">this video</a>, which is perhaps the most famous JS conference talk ever given. Or you could just, not do that and enjoy your Monday instead - no judgement here.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: underground, indie JavaScript APIs","date":"2022-12-19","featuredImage":"/images/content/shrek-computer.jpg","description":"The CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eToday we’ve got the CSS Electoral College, Vite without one mention of it rhyming with feet, and some open source Bacon.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/146\"\u003e#146\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/shrek-computer.jpg\" alt=\"Shrek working at a computer\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you spend your weekend upgrading your bundler\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eVite 4.0 is here for the holidays\u003c/h3\u003e\u003cp\u003eYou know those days where you get hungry right after you eat breakfast, and end up eating \u003cdel\u003elunch\u003c/del\u003e second breakfast at 9:30am? Well, that’s the same energy Vite has when it comes to major releases.\u003c/p\u003e\u003cp\u003eJust five months after their last major release, they released \u003ca href=\"https://vitejs.dev/blog/announcing-vite4.html\"\u003eVite v4\u003c/a\u003e last week — and it didn’t feel very noteworthy at first. There are a few minor improvements like new support for SWC, but this release was mostly focused on upgrading to the \u003ca href=\"https://rollupjs.org/guide/en/#migration\"\u003elatest version of Rollup\u003c/a\u003e to improve Vite’s internals.\u003c/p\u003e\u003cp\u003eThe bigger story here is how Vite is now on its \u003cem\u003efourth\u003c/em\u003e major version in its first two years of existence. I know you need to break a few eggs in order to make omelets — but the big question for Vite is, was this upgrade worth yet another breaking change? Let’s examine.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eThe case against breaking changes:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMigrations suck:\u003c/strong\u003e Getting stuck in upgrade hell is like being stuck on a rollercoaster that you volunteered to get on but now it’s against social norms to complain because after all, it was free and the operator is just doing their best\u0026nbsp;but also you’re not feeling well and someone in front of you just threw up while the person behind you is mumbling something about SemVer. If upgrading a build tool like Vite becomes too painful, developers will eventually stop upgrading or switch to something else.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEcosystem churn:\u003c/strong\u003e When a tool like Vite makes a breaking change, plugin authors need to release updates, which churns the whole ecosystem. No one can escape.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eKills momentum:\u003c/strong\u003e Vite has gone from 1m weekly downloads to over 2.5m in the last five months. Breaking changes risk killing some of that momentum and stranding various projects on different versions.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eOn the other hand…\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eThe timing was right:\u003c/strong\u003e Vite 4’s breaking changes were pretty mild, and they timed their release for that “my-PM-is-still-on-vacation-and-I-don’t-know-what-to-work-on” gap between Thanksgiving and Christmas. It’s the most wonderful time of the year to do a little upgrade maintenance.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGo with the flow:\u003c/strong\u003e The \u003ca href=\"https://rollupjs.org/guide/en/#migration\"\u003eRollup 3 release\u003c/a\u003e already has plugin authors thinking about how to upgrade, and since Vite exposes Rollup’s plugin API, the whole ecosystem upgraded without leaving anyone behind.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInvesting for the future:\u003c/strong\u003e Given Vite’s explosive growth, this could be a good moment for them to take a breath and get their foundation ready for the long run.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom line:\u003c/strong\u003e We all hate breaking changes. But with frameworks like SvelteKit, Astro, Nuxt, and others all building on top of Vite, putting in a little bit of work on the foundation seems like a good idea to support this next wave of growth.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/146\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F146\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Vite%204%20is%20its%20second%20major%20release%20this%20year.%20Was%20it%20worth%20it%3F%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F146\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AVite%204%20is%20its%20second%20major%20release%20this%20year.%20Was%20it%20worth%20it%3F%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F146\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"200\" src=\"https://bytes.dev/images/content/fusionauth-logo.png\" alt=\"FusionAuth Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/fusionsoft.jpg\" alt=\"A skeleton admiring the clothes of medieval person\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003e\"You built all of this in an hour? Incredible.\"\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e is the holy grail\u003c/h3\u003e\u003cp\u003eTrying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws — it’s painful, complicated, and you’re one wrong step away from a complete disaster.\u003c/p\u003e\u003cp\u003eThat’s why we’re huge fans of \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e.\u003c/p\u003e\u003cp\u003eThey’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, WebAuthn, user management, and security — and if you don’t know what one or more of these things are… you probably need it.\u003c/p\u003e\u003cp\u003eTheir \u003ca href=\"https://fusionauth.io/download?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFree Community version\u003c/a\u003e is surprisingly robust (no credit card, no limits, and it’s free forever if you self host \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e). That makes it great to learn with or use for side projects, but it also has a pretty seamless integration process for existing apps.\u003c/p\u003e\u003cp\u003eAnd if you ever get stuck, you can call their support line and talk to an \u003cem\u003eactual engineer\u003c/em\u003e who really knows auth — instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eCheck it out\u003c/a\u003e and never worry about auth again.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/usemotion-logo-icon.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.ashbyhq.com/motion/4f5f6a29-3af0-4d79-99a4-988ff7c5ba05?utm_source=bytes\"\u003eSenior Full Stack Engineer\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eRemote friendly\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eTS\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e$160-210k\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eMotion is looking for experienced TypeScript engineers to build the next generation of productivity tools. You'll inform key frontend architectural decisions that help Motion scale the next 2 order of magnitudes, create delightful user-facing features, and improve application performance. We are an ambitious team of 15 people distributed remotely across North America.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.sanity.io/bytes\"\u003eSanity Studio\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eSanity is offering a \u003ca href=\"https://www.sanity.io/bytes\"\u003eboosted free plan\u003c/a\u003e of their new studio product with increased API and bandwidth limits for all Bytes readers.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eThe CSS Working Group wants you to help them chose \u003ca href=\"https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/\"\u003ethe best syntax to use for CSS nesting\u003c/a\u003e. I’m a little surprised they decided to use the electoral college format, but I guess it makes sense that people in Florida and Ohio get to decide the outcome of every popular vote from now until the end of time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you’ve ever felt bogged down by the limitations of your CMS, check out \u003ca href=\"https://www.sanity.io/bytes\"\u003eSanity Studio\u003c/a\u003e — an open-source, single-page application that you can fully tailor to your project’s needs using their new studio customization framework. And they’re offering a \u003ca href=\"https://www.sanity.io/bytes\"\u003eboosted\u003c/a\u003e free plan to all Bytes readers right now \u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003e[sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEvan Bacon (from the Expo Core Team) just open-sourced his own \u003ca href=\"https://github.com/evanbacon/expo-mdx\"\u003eReact Native MDX library\u003c/a\u003e for an upcoming Expo project. I just hope he was able to pull an Adam Neumann and sell the trademark back to Expo for a few million.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn \u003ca href=\"https://www.smashingmagazine.com/2022/09/javascript-api-guide/\"\u003eJavaScript APIs You Don’t Know About\u003c/a\u003e, Juan breaks down some underground, indie JS APIs you’re probably not familiar with. I’m more of a mainstream JS API guy myself but to each their own.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://htmx.org/docs/\"\u003eHtmx\u003c/a\u003e is a library that allows you to access modern browser features directly from HTML, rather than using JavaScript. As an author of a JavaScript newsletter, sounds terrible.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGautier Ben Aïm wrote about how he and his team rebuilt their whole email stack from scratch and \u003ca href=\"https://escape.tech/blog/sveltemails/\"\u003erendered their emails with SvelteKit\u003c/a\u003e. Now \u003cem\u003ethat\u003c/em\u003e sounds like a fun company holiday party.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarius Obert wrote \u003ca href=\"https://www.twilio.com/blog/comparing-nextjs-nestjs-nuxt-gatsby\"\u003ea helpful comparison piece\u003c/a\u003e of JavaScript backend frameworks like Next, Nust, Nuxt, Nest, Nextest, and Nuxter.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOur friends at Remotion just launched \u003ca href=\"https://www.githubunwrapped.com/\"\u003eGithub Unwrapped\u003c/a\u003e, a site that generates a personalized year in review video based on your Github contribution history.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.sanity.io/bytes\"\u003eSanity Studio\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe answer is \u003ccode\u003eFirst\u003c/code\u003e, \u003ccode\u003eFourth\u003c/code\u003e, \u003ccode\u003eThird\u003c/code\u003e, \u003ccode\u003eSecond\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo fully understand this one you need an understanding of JavaScript’s event loop. Specifically, the Call Stack, Task Queue, Web APIs (for \u003ccode\u003esetTimeout\u003c/code\u003e), and the Job Queue. You could watch \u003ca href=\"https://www.youtube.com/watch?v=8aGhZQkoFbQ\"\u003ethis video\u003c/a\u003e, which is perhaps the most famous JS conference talk ever given. Or you could just, not do that and enjoy your Monday instead - no judgement here.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"146"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"146"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

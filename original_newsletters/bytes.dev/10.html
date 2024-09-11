@@ -1,0 +1,336 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #10 - Testing? We talkin&#x27; &#x27;bout testing?</title><link rel="canonical" href="https://bytes.dev/archives/10"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Cypress releases v5, NPM releases v7, and we still can&#x27;t close out of Zoom."/><meta property="og:url" content="https://bytes.dev/archives/10"/><meta property="og:title" content="Bytes #10 - Testing? We talkin&#x27; &#x27;bout testing?"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/kobe5.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Cypress releases v5, NPM releases v7, and we still can&#x27;t close out of Zoom."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #10 - Testing? We talkin&#x27; &#x27;bout testing?"/><meta property="twitter:description" content="Cypress releases v5, NPM releases v7, and we still can&#x27;t close out of Zoom."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/kobe5.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase">Testing? We talkin&#x27; &#x27;bout testing?</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->10<!-- -->.</span><span class="mr-6 font-bold">August 24, 2020<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Last week we announced we were giving away some AirPods Pro if you tweeted your thoughts about Bytes and oh boy are you all very nice people. In fact, too nice. Our copywriters are now unionizing and demanding higher wages. Regardless, the winner is <a href="https://twitter.com/graysonhicks/status/1295456519312609282">Grayson</a>.</p>
+<p>We’ll be back next week with another giveaway.</p>
+<hr>
+<h2><a href="https://docs.cypress.io/guides/references/migration-guide.html#Migrating-to-Cypress-5-0">Cypress releases v5 to make testing a little less painful</a></h2>
+<p><img src="https://bytes.dev/images/content/kobe5.png" alt="Kobe Bryant">
+</p><p class="image-alt">Hey Kobe, what version of Cypress are we on now?</p><p></p>
+<p><strong>Remember that cool high school teacher you had…</strong> the one who would let you retake a test if you failed? Cypress wants to be like that cool teacher for your JavaScript code, and it will even redo tests for you without making you rewrite any of the test code.</p>
+<p><strong><a href="https://cypress.io/blog/2020/08/19/introducing-test-retries-in-cypress-5-0/?utm_content=137773401&amp;utm_medium=social&amp;utm_source=twitter&amp;hss_channel=tw-2774638535">Test retries</a></strong> is the hot new feature to come out of Cypress v5. With this update, Cypress will automatically retry failed tests as many times as you’d like prior to marking them as failed.</p>
+<p><strong>Why is that helpful?</strong></p>
+<p>Tests can fail for all types of reasons, and it doesn’t always mean that your code is buggy. Maybe you had a race condition or a random network failure, or maybe your integration dependencies temporarily went offline.</p>
+<p>Retrying tests before marking them as failed can help make sure that the test is failing because of a persistent error in your code and not because of some random outage. This should help save time and headaches, especially when E2E testing large applications.</p>
+<p>Most of the other new features are fairly minor, and <a href="https://docs.cypress.io/guides/references/changelog.html#5-0-0">you can check them out in the changelog</a>.</p>
+<h3>The bottom line</h3>
+<p>Cypress has grown fast since it first launched 5 years ago, quickly becoming the most popular E2E JavaScript testing framework out there (sorry, Selenium). Adding helpful new features like test retries should help increase Cypress’ popularity and grow its paying user base of enterprise users.</p>
+<p>Considering Cypress has raised $15m in VC, that fast growth will be important. But if they’re growth plan is to keep releasing new features that make E2E testing less terrible, we’re all for it.</p>
+<hr>
+<h2><a href="https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-major">npm v7 is now in beta and “it’s a big one”</a></h2>
+<p><img src="https://bytes.dev/images/content/npm7.jpg" alt="NPM v7">
+</p><p class="image-alt">You went and did it</p><p></p>
+<p><strong>The OG package manager</strong> released its v7 beta a couple weeks back and has released 4 more beta versions since then. The team (at least what’s left of it) is obviously being very intentional with rolling out this update, which makes sense since they’ve told us that it represents “a massive overhaul of most of npm’s functionality.”</p>
+<p>That means a lot of new features and breaking changes. We’ll cover a few here, <a href="https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-major">but you’ll have to check out the announcement</a> if you really want to nerd out on how v7 of the package manager will manage your packages.</p>
+<p><strong>New stuff:</strong></p>
+<ul>
+<li>Arborist – a new tree management and analysis utility</li>
+<li>Automatically installing <code>peerDependencies</code> to help you properly account for them</li>
+<li>Improving the performance and effectiveness of <code>npm audit</code></li>
+<li>Updates to the <code>package-lock.json</code> format</li>
+</ul>
+<h3>The bottom line</h3>
+<p>“For the massive majority of npm users, where your experience is ‘install my stuff, do the right thing, let me get back to work’, we are confident this update will be a big improvement to your development experience.”</p>
+<p>A big enough improvement to convert Yarn fans back to npm? I guess you’ll have to run <code>npm i -g npm@next-7</code> to see for yourself.</p>
+<hr>
+<h2>This week in history</h2>
+<p><img src="https://bytes.dev/images/content/zoom.png" alt="Zoom initial website">
+</p><p class="image-alt">You’re muted</p><p></p>
+<p>The first version of Zoom was released 8 years ago last week, along with this creepy landing page that demonstrates how a team of four faceless, human-ish blobs could use Zoom to host their own “Cloud HD video meeting.”</p>
+<p>From those humble (and weird) beginnings, Zoom now has over <em>300 million</em> daily active users. It’s obviously been a lifesaver during Covid and one day they’ll figure out the UX for ending a meeting without it being awkward.</p>
+<hr>
+<h2>Spot the Bug (Answer Below)</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> animal <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  animal<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  animal<span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+
+  <span class="token keyword">return</span> animal
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">eat</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is eating.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>energy <span class="token operator">+=</span> amount
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token function">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+leo<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool bits</h2>
+<ol>
+<li>
+<p>Sergii from the Airbnb team wrote about <a href="https://medium.com/airbnb-engineering/ts-migrate-a-tool-for-migrating-to-typescript-at-scale-cd23bfeb5cc">how they created the <code>ts-migrate</code> tool to migrate thousands of Airbnb JavaScript files to TypeScript</a>. Can’t wait for his next article on the tools he created to navigate Dante’s 7th circle of Hell.</p>
+</li>
+<li>
+<p>Nick wrote about <a href="https://tech.okcupid.com/why-we-decided-against-graphql-for-local-state-management/">why he and the rest of the OKCupid team decided against using GraphQL for local state management</a>. Or should I say local <em>date</em> management, eh?</p>
+</li>
+<li>
+<p>Did you know it takes 14 hours to drive from San Francisco to the Canadian border? In the same amount of time you can watch Ben Awad’s new <a href="https://www.youtube.com/watch?v=I6ypD7qv3Z8&amp;feature=emb_logo">14-hour fullstack React/GraphQL/TypeScript tutorial</a>.</p>
+</li>
+<li>
+<p><a href="https://ctjs.rocks/">ct.js is a new, 2D desktop game engine</a> that comes with some slick visual tools and a modular library. It’s free, open source, and ready to help you build the Duke Nukem sequel we’ve all been waiting for.</p>
+</li>
+<li>
+<p>Dave Ceddia wrote an in-depth article about <a href="https://daveceddia.com/react-confirmation-modal-state-machine/">building a confirmation modal in React with state machines</a> with lots of helpful visuals and code snippets.</p>
+</li>
+<li>
+<p>We can all agree that we need more static site generators in our lives. Ok maybe not, but <a href="https://github.com/elderjs/elderjs">Elder.js is different because it’s an SSG for Svelte with some nifty SEO benefits</a>. Only thing its missing is $30MM of venture capital money and a crushing dependence on artificial growth metrics.</p>
+</li>
+<li>
+<p>Tania Rascia wants to help you understand <a href="https://www.taniarascia.com/understanding-destructuring-rest-spread/">Destructuring, Rest Parameters, and Spread Syntax</a>, so she wrote this excellent deep dive for you.</p>
+</li>
+<li>
+<p>Tyler wrote an article <strong>and</strong> made a video about <a href="https://ui.dev/primitive-vs-reference-values-in-javascript">primitive vs. reference values in JavaScript</a>. Two for the price of one! And the price is free! Just like this newsletter. Dang, what a steal.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug - Answer</h2>
+<p>Our call to <code>leo.eat</code> is going to fail. The reason for this is because the object returned from <code>Animal</code> isn’t delegating to <code>Animal.prototype</code> so <code>leo.eat</code> will be undefined.</p>
+<p>To fix this, we can use <code>Object.create</code> or a combination of the <code>this</code> keyword with <code>new</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> animal <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+  animal<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  animal<span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+
+  <span class="token keyword">return</span> animal
+<span class="token punctuation">}</span>
+
+<span class="token comment">// or</span>
+
+<span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> energy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>energy <span class="token operator">=</span> energy
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+</code></pre>
+<p>For more details, check out <a href="https://ui.dev/beginners-guide-to-javascript-prototype/">A Beginner’s Guide to JavaScript’s Prototype</a>.</p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Testing? We talkin' 'bout testing?","date":"2020-08-24","description":"Cypress releases v5, NPM releases v7, and we still can't close out of Zoom.","featuredImage":"https://bytes.dev/images/content/kobe5.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eLast week we announced we were giving away some AirPods Pro if you tweeted your thoughts about Bytes and oh boy are you all very nice people. In fact, too nice. Our copywriters are now unionizing and demanding higher wages. Regardless, the winner is \u003ca href=\"https://twitter.com/graysonhicks/status/1295456519312609282\"\u003eGrayson\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eWe’ll be back next week with another giveaway.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://docs.cypress.io/guides/references/migration-guide.html#Migrating-to-Cypress-5-0\"\u003eCypress releases v5 to make testing a little less painful\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/kobe5.png\" alt=\"Kobe Bryant\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eHey Kobe, what version of Cypress are we on now?\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRemember that cool high school teacher you had…\u003c/strong\u003e the one who would let you retake a test if you failed? Cypress wants to be like that cool teacher for your JavaScript code, and it will even redo tests for you without making you rewrite any of the test code.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://cypress.io/blog/2020/08/19/introducing-test-retries-in-cypress-5-0/?utm_content=137773401\u0026amp;utm_medium=social\u0026amp;utm_source=twitter\u0026amp;hss_channel=tw-2774638535\"\u003eTest retries\u003c/a\u003e\u003c/strong\u003e is the hot new feature to come out of Cypress v5. With this update, Cypress will automatically retry failed tests as many times as you’d like prior to marking them as failed.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy is that helpful?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eTests can fail for all types of reasons, and it doesn’t always mean that your code is buggy. Maybe you had a race condition or a random network failure, or maybe your integration dependencies temporarily went offline.\u003c/p\u003e\n\u003cp\u003eRetrying tests before marking them as failed can help make sure that the test is failing because of a persistent error in your code and not because of some random outage. This should help save time and headaches, especially when E2E testing large applications.\u003c/p\u003e\n\u003cp\u003eMost of the other new features are fairly minor, and \u003ca href=\"https://docs.cypress.io/guides/references/changelog.html#5-0-0\"\u003eyou can check them out in the changelog\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003eCypress has grown fast since it first launched 5 years ago, quickly becoming the most popular E2E JavaScript testing framework out there (sorry, Selenium). Adding helpful new features like test retries should help increase Cypress’ popularity and grow its paying user base of enterprise users.\u003c/p\u003e\n\u003cp\u003eConsidering Cypress has raised $15m in VC, that fast growth will be important. But if they’re growth plan is to keep releasing new features that make E2E testing less terrible, we’re all for it.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca href=\"https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-major\"\u003enpm v7 is now in beta and “it’s a big one”\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/npm7.jpg\" alt=\"NPM v7\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eYou went and did it\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eThe OG package manager\u003c/strong\u003e released its v7 beta a couple weeks back and has released 4 more beta versions since then. The team (at least what’s left of it) is obviously being very intentional with rolling out this update, which makes sense since they’ve told us that it represents “a massive overhaul of most of npm’s functionality.”\u003c/p\u003e\n\u003cp\u003eThat means a lot of new features and breaking changes. We’ll cover a few here, \u003ca href=\"https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-major\"\u003ebut you’ll have to check out the announcement\u003c/a\u003e if you really want to nerd out on how v7 of the package manager will manage your packages.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNew stuff:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eArborist – a new tree management and analysis utility\u003c/li\u003e\n\u003cli\u003eAutomatically installing \u003ccode\u003epeerDependencies\u003c/code\u003e to help you properly account for them\u003c/li\u003e\n\u003cli\u003eImproving the performance and effectiveness of \u003ccode\u003enpm audit\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eUpdates to the \u003ccode\u003epackage-lock.json\u003c/code\u003e format\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe bottom line\u003c/h3\u003e\n\u003cp\u003e“For the massive majority of npm users, where your experience is ‘install my stuff, do the right thing, let me get back to work’, we are confident this update will be a big improvement to your development experience.”\u003c/p\u003e\n\u003cp\u003eA big enough improvement to convert Yarn fans back to npm? I guess you’ll have to run \u003ccode\u003enpm i -g npm@next-7\u003c/code\u003e to see for yourself.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThis week in history\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/zoom.png\" alt=\"Zoom initial website\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eYou’re muted\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eThe first version of Zoom was released 8 years ago last week, along with this creepy landing page that demonstrates how a team of four faceless, human-ish blobs could use Zoom to host their own “Cloud HD video meeting.”\u003c/p\u003e\n\u003cp\u003eFrom those humble (and weird) beginnings, Zoom now has over \u003cem\u003e300 million\u003c/em\u003e daily active users. It’s obviously been a lifesaver during Covid and one day they’ll figure out the UX for ending a meeting without it being awkward.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug (Answer Below)\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e animal \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e animal\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003eeat\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eamount\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e is eating.\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e amount\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\nleo\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eeat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eSergii from the Airbnb team wrote about \u003ca href=\"https://medium.com/airbnb-engineering/ts-migrate-a-tool-for-migrating-to-typescript-at-scale-cd23bfeb5cc\"\u003ehow they created the \u003ccode\u003ets-migrate\u003c/code\u003e tool to migrate thousands of Airbnb JavaScript files to TypeScript\u003c/a\u003e. Can’t wait for his next article on the tools he created to navigate Dante’s 7th circle of Hell.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNick wrote about \u003ca href=\"https://tech.okcupid.com/why-we-decided-against-graphql-for-local-state-management/\"\u003ewhy he and the rest of the OKCupid team decided against using GraphQL for local state management\u003c/a\u003e. Or should I say local \u003cem\u003edate\u003c/em\u003e management, eh?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDid you know it takes 14 hours to drive from San Francisco to the Canadian border? In the same amount of time you can watch Ben Awad’s new \u003ca href=\"https://www.youtube.com/watch?v=I6ypD7qv3Z8\u0026amp;feature=emb_logo\"\u003e14-hour fullstack React/GraphQL/TypeScript tutorial\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://ctjs.rocks/\"\u003ect.js is a new, 2D desktop game engine\u003c/a\u003e that comes with some slick visual tools and a modular library. It’s free, open source, and ready to help you build the Duke Nukem sequel we’ve all been waiting for.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDave Ceddia wrote an in-depth article about \u003ca href=\"https://daveceddia.com/react-confirmation-modal-state-machine/\"\u003ebuilding a confirmation modal in React with state machines\u003c/a\u003e with lots of helpful visuals and code snippets.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWe can all agree that we need more static site generators in our lives. Ok maybe not, but \u003ca href=\"https://github.com/elderjs/elderjs\"\u003eElder.js is different because it’s an SSG for Svelte with some nifty SEO benefits\u003c/a\u003e. Only thing its missing is $30MM of venture capital money and a crushing dependence on artificial growth metrics.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTania Rascia wants to help you understand \u003ca href=\"https://www.taniarascia.com/understanding-destructuring-rest-spread/\"\u003eDestructuring, Rest Parameters, and Spread Syntax\u003c/a\u003e, so she wrote this excellent deep dive for you.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTyler wrote an article \u003cstrong\u003eand\u003c/strong\u003e made a video about \u003ca href=\"https://ui.dev/primitive-vs-reference-values-in-javascript\"\u003eprimitive vs. reference values in JavaScript\u003c/a\u003e. Two for the price of one! And the price is free! Just like this newsletter. Dang, what a steal.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Answer\u003c/h2\u003e\n\u003cp\u003eOur call to \u003ccode\u003eleo.eat\u003c/code\u003e is going to fail. The reason for this is because the object returned from \u003ccode\u003eAnimal\u003c/code\u003e isn’t delegating to \u003ccode\u003eAnimal.prototype\u003c/code\u003e so \u003ccode\u003eleo.eat\u003c/code\u003e will be undefined.\u003c/p\u003e\n\u003cp\u003eTo fix this, we can use \u003ccode\u003eObject.create\u003c/code\u003e or a combination of the \u003ccode\u003ethis\u003c/code\u003e keyword with \u003ccode\u003enew\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e animal \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e Object\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ecreate\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  animal\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e animal\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// or\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e energy\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eenergy \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e energy\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e7\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more details, check out \u003ca href=\"https://ui.dev/beginners-guide-to-javascript-prototype/\"\u003eA Beginner’s Guide to JavaScript’s Prototype\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"10"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"10"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

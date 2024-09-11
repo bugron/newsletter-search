@@ -1,0 +1,348 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #111 - React Query is single and ready to mingle</title><link rel="canonical" href="https://bytes.dev/archives/111"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got open source rebrands, dinosaurs that aren&#x27;t extinct anymore, and a new film from the Jordan Peele of Web Dev."/><meta property="og:url" content="https://bytes.dev/archives/111"/><meta property="og:title" content="Bytes #111 - React Query is single and ready to mingle"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/datemike.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got open source rebrands, dinosaurs that aren&#x27;t extinct anymore, and a new film from the Jordan Peele of Web Dev."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #111 - React Query is single and ready to mingle"/><meta property="twitter:description" content="This issue, we&#x27;ve got open source rebrands, dinosaurs that aren&#x27;t extinct anymore, and a new film from the Jordan Peele of Web Dev."/><meta property="twitter:image" content="https://bytes.dev/images/content/datemike.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> React Query is single and ready to mingle</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->111<!-- -->.</span><span class="mr-6 font-bold">August 1, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week we’ve got open source rebrands, dinosaurs that aren’t extinct anymore, and a new film from the Jordan Peele of Web Dev.</p>
+<p>Welcome to #111.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/datemike.jpg" alt="Michael Scott as Date Mike">
+</p><p class="image-alt">Hi, I’m TanStack. Nice to meet me.</p><p></p>
+<h2>The Artist Formerly known as React Query</h2>
+<p>When you’re the most popular data fetching library in the React ecosystem, it’s tempting to get complacent — but the RQ team is not about that life.</p>
+<p>They pushed the boundaries again last week when they released <a href="https://tanstack.com/blog/announcing-tanstack-query-v4">React Query v4</a> and revealed some big news: they’re officially <em>single and ready to mingle</em> (with the rest of the JS ecosystem).</p>
+<p>That’s a tastefully euphemistic way of saying that React Query is now framework agnostic, with “adapters” for each specific JS framework. They’ve already got a built-in React adapter, and adapters for Vue, Solid, and Svelte are in the works.</p>
+<p>And to prove they’re not playing favorites, they changed their name from React Query to TanStack Query — kind of like when Prince changed their name to Ƭ̵̬̊ and became a legend forever (even if it created a <del>little</del> lot of confusion at first).</p>
+<p>In addition to getting developers to unironically say “TanStack” in daily life, the technical improvements in v4 are impressive.</p>
+<ul>
+<li>
+<p><strong>Offline support:</strong> In v4, Query no longer assumes an active network connection and works for any type of async data — and it has a <a href="https://tanstack.com/query/v4/docs/guides/network-mode">Network mode</a> that lets you develop offline first.</p>
+</li>
+<li>
+<p><strong>Performance improvements:</strong> Tracked queries help optimize renders and gives you a nice performance boost.</p>
+</li>
+<li>
+<p><strong>Persistence:</strong> You now have a lot more control over where you are storing data, and things like local storage work out of the box.</p>
+</li>
+<li>
+<p><strong>First class React 18 support:</strong> <em>TanStack</em> Query might be framework agnostic, but it hasn’t forgotten about its first love. The React adapter now uses <code>useSyncExternalStore</code> to ensure compatibility with <a href="https://www.youtube.com/watch?v=NZoRlVi3MjQ">concurrent mode</a>.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> With this release, TanStack Query seems like the ideal solution for handling async data for just about any front-end application. We like it so much that we made a <a href="https://ui.dev/react-query">full course</a> about it if you want to give us your money <span role="img" aria-label="money-mouth face">🤑</span>.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/ross.jpg" alt="Ross from friends with text saying humor based on my pain.">
+</p><p class="image-alt">Laughing about building notifications so we don’t cry [sponsored]</p><p></p>
+<h2><a href="https://www.courier.com/?utm_campaign=General-Content-Distribution&amp;utm_source=email&amp;utm_medium=bytes-weekly-7-11&amp;utm_content=homepage">Courier</a> gave my team so much time for activities</h2>
+<p>Newton’s 3rd law of motion clearly states that, “building app notifications always takes 5x longer than you think.”</p>
+<p>And that might be understating it now that we have so many different platforms to worry about (email, SMS, web and mobile push, Slack, and tons more).</p>
+<p>That’s what makes Courier so amazing. They give you complete notification infrastructure with <a href="https://www.courier.com/docs/?utm_campaign=General-Content-Distribution&amp;utm_source=email&amp;utm_medium=bytes-weekly-7-11&amp;utm_content=homepage">one API</a> that you can set up in an afternoon.</p>
+<p>That API integrates with over 50 notification channels, and it handles everything — templating, routing, automations, even logging and analytics. It’s your PM’s *wildest* dream come true.</p>
+<p>Courier is used by Fortune 500 companies and startups like Lattice and LaunchDarkly to save an average of 480 engineering hours a year. That’s a lot more time for <del>hide and go seek Fridays</del> team building.</p>
+<p>The best part? Courier lets you send your first 10,000 notifications of every month for free (no credit card required).</p>
+<p><a href="https://www.courier.com/?utm_campaign=General-Content-Distribution&amp;utm_source=email&amp;utm_medium=bytes-weekly-7-11&amp;utm_content=homepage">Check it out.</a> <span role="img" aria-label="backhand index pointing left">👈</span></p>
+<hr>
+<p><img src="https://bytes.dev/images/content/barney.jpg" alt="Barney emerging from the woods">
+</p><p class="image-alt">Docusaurus v2 emerging from its 3-year alpha/beta period</p><p></p>
+<h2>Doc shop talk</h2>
+<p>It’s taken 4 years, 75 alphas, and 22 betas, but it’s finally here.</p>
+<p>No, we’re not talking about React 18 (for once). We’re talking about Docusaurus — another Meta-backed open source project that <a href="https://docusaurus.io/blog/2022/08/01/announcing-docusaurus-2.0">just launched v2</a> of its static site generator for building documentation sites.</p>
+<p><strong>How we got here:</strong> The hardest part of creating a doc site is obviously <em>*writing*</em> good docs. But back in 2017, developers at “the artist formerly known as Facebook” realized there might be a better approach to building the actual websites than just copy-pasting the same Jekyll template over and over again.</p>
+<p>So they built their own SSG with a unique <a href="https://twitter.com/sebastienlorber/status/1452722577785425926">value prop</a> — get your doc site online in 10 minutes so you can focus on writing the content (with Markdown), but provide enough flexibility to go back later and truly customize it with your own branding, design, and features (with React).</p>
+<p>Fast forward a few years, and Docusaurus is probably <a href="https://npmtrends.com/@docusaurus/core-vs-@redwoodjs/core-vs-@remix-run/react-vs-gatsby">a lot more popular</a> than you think, even when compared to more “all-purpose” React frameworks.</p>
+<p><strong>What’s new in v2:</strong></p>
+<ul>
+<li>
+<p>React is now used on the client (not just the server like v1), which enables a more modern navigation</p>
+</li>
+<li>
+<p>MDX support, so you can create interactive React components in your docs</p>
+</li>
+<li>
+<p>More theming flexibility and a new system of plugins make customization a lot easier</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> Docusaurus v2 just went live on ProductHunt — so go <a href="https://www.producthunt.com/posts/docusaurus-2-0?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-docusaurus-2-0">show them some love</a> with an upvote, so that something besides a Chrome extension that steals an ungodly amount of personal data can win product of the day for once.</p>
+<hr>
+<h2>JS Tip — Sponsored by <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a></h2>
+<p><em>This is a complete auth solution that just works. Check out their <a href="https://fusionauth.io/download?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">free community version</a> to see why it’s got over 10 million downloads.</em></p>
+<p>How can we improve this code?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Bartek Iwańczuk (from the Deno team) wrote about <a href="https://deno.com/blog/roll-your-own-javascript-runtime">How to roll your own JavaScript runtime</a>. Reminds me a lot of when my dad taught me how to roll my own cigarettes. Man, sometimes I really miss the fourth grade.</p>
+</li>
+<li>
+<p>Adam Argyle made a 30-minute GUI Challenge video on <a href="https://www.youtube.com/watch?v=CXJv6zM003M">building Carousels in CSS</a>. And if he makes a few more short horror films like that, he’ll have earned a new official job title at Google — The Jordan Peele of Web Dev.</p>
+</li>
+<li>
+<p><a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=dev1">CarbonQA</a> provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs <span role="img" aria-label="folded hands">🙏</span> [sponsored]</p>
+</li>
+<li>
+<p><a href="https://blueboat.io/">Blueboat</a> is a new, serverless JS runtime with enhancements for data-intensive applications that clearly was very inspired by Bartek’s article (that’s a joke). Can’t tell if we’re living through the runtime renaissance or the runtime dark ages right now, but at this pace we’ll have more runtimes than websites soon (math checks out).</p>
+</li>
+<li>
+<p>Apoorv Goyal wrote about what it’s like <a href="https://apoorvgoyal.hashnode.dev/my-first-application-with-chiselstrike">building an app with ChiselStrike</a> — a new, modern take on BaaS.</p>
+</li>
+<li>
+<p>Michael Lynch wrote about how he <a href="https://mtlynch.io/tinypilot-redesign/">regrets his $46k website redesign</a> and provided some valuable insight on working with contractors and agencies. But hey, at least he didn’t pay a consulting firm $32 Million for a website that <a href="https://www.henricodolfing.com/2019/10/case-study-hertz-accenture-website.html">never even went live</a> like Hertz did. Gotta find that silver lining somewhere.</p>
+</li>
+<li>
+<p><a href="https://grafbase.com/blog/announcing-grafbase">GrafBase</a> is an edge-native data platform that gives you instant serverless GraphQL backends. Ok, but why do they call it GrafBase tho? I don’t get it.]</p>
+</li>
+<li>
+<p>The Liveblocks team wrote about <a href="https://liveblocks.io/blog/how-to-build-undo-redo-in-a-multiplayer-environment">how they built undo/redo for a multiplayer environment</a> — a process they describe as “notoriously tough” and “fraught with difficulty.” Sounds a lot like the job of trying to manage the <a href="https://twitter.com/numetal_moment/status/1552800633144561664">Sleezer Tour</a> back in 2000, which would’ve been co-headlined by the two most influential bands of the 21st Century. “Fraught with difficulty” indeed.</p>
+</li>
+</ol>
+<hr>
+<h2>JS Tip — Sponsored by <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a></h2>
+<p>How can we improve this code?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> order <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Because <code>processOrder</code> doesn’t depend on the result of <code>updateAnalytics</code>, we can parallelize the two invocations.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">completeCheckout</span><span class="token punctuation">(</span><span class="token parameter">orderId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>_<span class="token punctuation">,</span> order<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">updateAnalytics</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">processOrder</span><span class="token punctuation">(</span>orderId<span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> order<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: React Query is single and ready to mingle","date":"2022-08-01","featuredImage":"/images/content/datemike.jpg","description":"This issue, we've got open source rebrands, dinosaurs that aren't extinct anymore, and a new film from the Jordan Peele of Web Dev."},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week we’ve got open source rebrands, dinosaurs that aren’t extinct anymore, and a new film from the Jordan Peele of Web Dev.\u003c/p\u003e\n\u003cp\u003eWelcome to #111.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/datemike.jpg\" alt=\"Michael Scott as Date Mike\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eHi, I’m TanStack. Nice to meet me.\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eThe Artist Formerly known as React Query\u003c/h2\u003e\n\u003cp\u003eWhen you’re the most popular data fetching library in the React ecosystem, it’s tempting to get complacent — but the RQ team is not about that life.\u003c/p\u003e\n\u003cp\u003eThey pushed the boundaries again last week when they released \u003ca href=\"https://tanstack.com/blog/announcing-tanstack-query-v4\"\u003eReact Query v4\u003c/a\u003e and revealed some big news: they’re officially \u003cem\u003esingle and ready to mingle\u003c/em\u003e (with the rest of the JS ecosystem).\u003c/p\u003e\n\u003cp\u003eThat’s a tastefully euphemistic way of saying that React Query is now framework agnostic, with “adapters” for each specific JS framework. They’ve already got a built-in React adapter, and adapters for Vue, Solid, and Svelte are in the works.\u003c/p\u003e\n\u003cp\u003eAnd to prove they’re not playing favorites, they changed their name from React Query to TanStack Query — kind of like when Prince changed their name to Ƭ̵̬̊ and became a legend forever (even if it created a \u003cdel\u003elittle\u003c/del\u003e lot of confusion at first).\u003c/p\u003e\n\u003cp\u003eIn addition to getting developers to unironically say “TanStack” in daily life, the technical improvements in v4 are impressive.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOffline support:\u003c/strong\u003e In v4, Query no longer assumes an active network connection and works for any type of async data — and it has a \u003ca href=\"https://tanstack.com/query/v4/docs/guides/network-mode\"\u003eNetwork mode\u003c/a\u003e that lets you develop offline first.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePerformance improvements:\u003c/strong\u003e Tracked queries help optimize renders and gives you a nice performance boost.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePersistence:\u003c/strong\u003e You now have a lot more control over where you are storing data, and things like local storage work out of the box.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFirst class React 18 support:\u003c/strong\u003e \u003cem\u003eTanStack\u003c/em\u003e Query might be framework agnostic, but it hasn’t forgotten about its first love. The React adapter now uses \u003ccode\u003euseSyncExternalStore\u003c/code\u003e to ensure compatibility with \u003ca href=\"https://www.youtube.com/watch?v=NZoRlVi3MjQ\"\u003econcurrent mode\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e With this release, TanStack Query seems like the ideal solution for handling async data for just about any front-end application. We like it so much that we made a \u003ca href=\"https://ui.dev/react-query\"\u003efull course\u003c/a\u003e about it if you want to give us your money \u003cspan role=\"img\" aria-label=\"money-mouth face\"\u003e🤑\u003c/span\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/ross.jpg\" alt=\"Ross from friends with text saying humor based on my pain.\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eLaughing about building notifications so we don’t cry [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://www.courier.com/?utm_campaign=General-Content-Distribution\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-weekly-7-11\u0026amp;utm_content=homepage\"\u003eCourier\u003c/a\u003e gave my team so much time for activities\u003c/h2\u003e\n\u003cp\u003eNewton’s 3rd law of motion clearly states that, “building app notifications always takes 5x longer than you think.”\u003c/p\u003e\n\u003cp\u003eAnd that might be understating it now that we have so many different platforms to worry about (email, SMS, web and mobile push, Slack, and tons more).\u003c/p\u003e\n\u003cp\u003eThat’s what makes Courier so amazing. They give you complete notification infrastructure with \u003ca href=\"https://www.courier.com/docs/?utm_campaign=General-Content-Distribution\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-weekly-7-11\u0026amp;utm_content=homepage\"\u003eone API\u003c/a\u003e that you can set up in an afternoon.\u003c/p\u003e\n\u003cp\u003eThat API integrates with over 50 notification channels, and it handles everything — templating, routing, automations, even logging and analytics. It’s your PM’s *wildest* dream come true.\u003c/p\u003e\n\u003cp\u003eCourier is used by Fortune 500 companies and startups like Lattice and LaunchDarkly to save an average of 480 engineering hours a year. That’s a lot more time for \u003cdel\u003ehide and go seek Fridays\u003c/del\u003e team building.\u003c/p\u003e\n\u003cp\u003eThe best part? Courier lets you send your first 10,000 notifications of every month for free (no credit card required).\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.courier.com/?utm_campaign=General-Content-Distribution\u0026amp;utm_source=email\u0026amp;utm_medium=bytes-weekly-7-11\u0026amp;utm_content=homepage\"\u003eCheck it out.\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"backhand index pointing left\"\u003e👈\u003c/span\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/barney.jpg\" alt=\"Barney emerging from the woods\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eDocusaurus v2 emerging from its 3-year alpha/beta period\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eDoc shop talk\u003c/h2\u003e\n\u003cp\u003eIt’s taken 4 years, 75 alphas, and 22 betas, but it’s finally here.\u003c/p\u003e\n\u003cp\u003eNo, we’re not talking about React 18 (for once). We’re talking about Docusaurus — another Meta-backed open source project that \u003ca href=\"https://docusaurus.io/blog/2022/08/01/announcing-docusaurus-2.0\"\u003ejust launched v2\u003c/a\u003e of its static site generator for building documentation sites.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHow we got here:\u003c/strong\u003e The hardest part of creating a doc site is obviously \u003cem\u003e*writing*\u003c/em\u003e good docs. But back in 2017, developers at “the artist formerly known as Facebook” realized there might be a better approach to building the actual websites than just copy-pasting the same Jekyll template over and over again.\u003c/p\u003e\n\u003cp\u003eSo they built their own SSG with a unique \u003ca href=\"https://twitter.com/sebastienlorber/status/1452722577785425926\"\u003evalue prop\u003c/a\u003e — get your doc site online in 10 minutes so you can focus on writing the content (with Markdown), but provide enough flexibility to go back later and truly customize it with your own branding, design, and features (with React).\u003c/p\u003e\n\u003cp\u003eFast forward a few years, and Docusaurus is probably \u003ca href=\"https://npmtrends.com/@docusaurus/core-vs-@redwoodjs/core-vs-@remix-run/react-vs-gatsby\"\u003ea lot more popular\u003c/a\u003e than you think, even when compared to more “all-purpose” React frameworks.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat’s new in v2:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eReact is now used on the client (not just the server like v1), which enables a more modern navigation\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMDX support, so you can create interactive React components in your docs\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMore theming flexibility and a new system of plugins make customization a lot easier\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Docusaurus v2 just went live on ProductHunt — so go \u003ca href=\"https://www.producthunt.com/posts/docusaurus-2-0?utm_source=badge-featured\u0026amp;utm_medium=badge\u0026amp;utm_souce=badge-docusaurus-2-0\"\u003eshow them some love\u003c/a\u003e with an upvote, so that something besides a Chrome extension that steals an ungodly amount of personal data can win product of the day for once.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Tip — Sponsored by \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eThis is a complete auth solution that just works. Check out their \u003ca href=\"https://fusionauth.io/download?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003efree community version\u003c/a\u003e to see why it’s got over 10 million downloads.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eHow can we improve this code?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBartek Iwańczuk (from the Deno team) wrote about \u003ca href=\"https://deno.com/blog/roll-your-own-javascript-runtime\"\u003eHow to roll your own JavaScript runtime\u003c/a\u003e. Reminds me a lot of when my dad taught me how to roll my own cigarettes. Man, sometimes I really miss the fourth grade.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAdam Argyle made a 30-minute GUI Challenge video on \u003ca href=\"https://www.youtube.com/watch?v=CXJv6zM003M\"\u003ebuilding Carousels in CSS\u003c/a\u003e. And if he makes a few more short horror films like that, he’ll have earned a new official job title at Google — The Jordan Peele of Web Dev.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=dev1\"\u003eCarbonQA\u003c/a\u003e provides QA services geared for dev teams. They’ll boost your team’s morale sky-high by… breaking your code repeatedly. But the good news is that you’ll never have to waste time on testing again. They work in your tools, talk with your team on Slack, and let your devs be devs \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://blueboat.io/\"\u003eBlueboat\u003c/a\u003e is a new, serverless JS runtime with enhancements for data-intensive applications that clearly was very inspired by Bartek’s article (that’s a joke). Can’t tell if we’re living through the runtime renaissance or the runtime dark ages right now, but at this pace we’ll have more runtimes than websites soon (math checks out).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eApoorv Goyal wrote about what it’s like \u003ca href=\"https://apoorvgoyal.hashnode.dev/my-first-application-with-chiselstrike\"\u003ebuilding an app with ChiselStrike\u003c/a\u003e — a new, modern take on BaaS.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMichael Lynch wrote about how he \u003ca href=\"https://mtlynch.io/tinypilot-redesign/\"\u003eregrets his $46k website redesign\u003c/a\u003e and provided some valuable insight on working with contractors and agencies. But hey, at least he didn’t pay a consulting firm $32 Million for a website that \u003ca href=\"https://www.henricodolfing.com/2019/10/case-study-hertz-accenture-website.html\"\u003enever even went live\u003c/a\u003e like Hertz did. Gotta find that silver lining somewhere.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://grafbase.com/blog/announcing-grafbase\"\u003eGrafBase\u003c/a\u003e is an edge-native data platform that gives you instant serverless GraphQL backends. Ok, but why do they call it GrafBase tho? I don’t get it.]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe Liveblocks team wrote about \u003ca href=\"https://liveblocks.io/blog/how-to-build-undo-redo-in-a-multiplayer-environment\"\u003ehow they built undo/redo for a multiplayer environment\u003c/a\u003e — a process they describe as “notoriously tough” and “fraught with difficulty.” Sounds a lot like the job of trying to manage the \u003ca href=\"https://twitter.com/numetal_moment/status/1552800633144561664\"\u003eSleezer Tour\u003c/a\u003e back in 2000, which would’ve been co-headlined by the two most influential bands of the 21st Century. “Fraught with difficulty” indeed.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Tip — Sponsored by \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eHow can we improve this code?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e order \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBecause \u003ccode\u003eprocessOrder\u003c/code\u003e doesn’t depend on the result of \u003ccode\u003eupdateAnalytics\u003c/code\u003e, we can parallelize the two invocations.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003easync\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ecompleteCheckout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eorderId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e_\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003eawait\u003c/span\u003e Promise\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eall\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eupdateAnalytics\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"token function\"\u003eprocessOrder\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eorderId\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e order\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"111"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"111"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

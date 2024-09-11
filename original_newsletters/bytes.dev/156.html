@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #156 - Astro 2 Takes Flight</title><link rel="canonical" href="https://bytes.dev/archives/156"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Revenge of the type nerds, more cowbell, and no take-backsies"/><meta property="og:url" content="https://bytes.dev/archives/156"/><meta property="og:title" content="Bytes #156 - Astro 2 Takes Flight"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/astro-dog.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Revenge of the type nerds, more cowbell, and no take-backsies"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #156 - Astro 2 Takes Flight"/><meta property="twitter:description" content="Revenge of the type nerds, more cowbell, and no take-backsies"/><meta property="twitter:image" content="https://bytes.dev/images/content/astro-dog.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Astro 2 Takes Flight</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->156<!-- -->.</span><span class="mr-6 font-bold">January 26, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Hi friends,</p>
+<p>We don’t have any hot takes about the moral supremacy of using camel_case, but we do have some revenge of the type nerds, more cowbell, and one big no take-backsies.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/156">#156</a></p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/astro-dog.jpg" alt="Dog pushing two dog figurines together" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Now kiss<!-- --> </p></div><h3>Astro 2 Takes Flight</h3><p>The last time we wrote about Astro, our favorite <a href="https://bytes.dev/archives/113">Diet JavaScript</a> framework had just released v1 and was using its islands architecture to help us all shed some unwanted bits. Now, the space crew is back again with one more mission –&nbsp;help you command your lawless Markdown.</p><p>If you work on a <del>large</del> content or ecomm site, you’re intimately familiar with the… limitations of markdown. It’s not necessarily that markdown is bad, it’s that the tooling around it sucks –&nbsp;and by sucks we mean it’s non-existent.</p><p>That is, until now.</p><p>The idea is simple, what if we had a TypeScript like experience, but for Markdown? It doesn’t take a ton of creativity to realize what that would enable –&nbsp;validation, type safety, autocomplete, SEO recommendations, inline type errors, and maybe some positive affirmations if we’re lucky.</p><p>This is exactly what Astro 2’s <a href="https://astro.build/blog/introducing-content-collections/">Content Collections API</a> enables&nbsp;and, as someone who spends more time in markdown files than I do sleeping, it’s exciting.</p><p>But that’s not the only thing Astro 2 had up its booster, it also comes with:</p><ul>
+<li>
+<p>Hybrid rendering combines SSR and SSG to give you flexibility and great performance.</p>
+</li>
+<li>
+<p>A redesigned error overlay makes debugging issues a little easier and more aesthetically pleasing.</p>
+</li>
+<li>
+<p>Some nice improvements to Hot Module Reloading, plus an upgrade to Vite 4.0.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> Aligning itself with the die-hard type nerds is a smart way for Astro to keep the hype rocket humming <em>*(tRPC nods approvingly)*</em> and we’re here for it.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/156" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F156" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20Bytes%20team%20breaks%20down%20%40astrodotbuild%202.0%20and%20their...%20type-safe%20Markdown%3F%3F%20%F0%9F%A4%AF%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F156" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20Bytes%20team%20breaks%20down%20%40astrodotbuild%202.0%20and%20their...%20type-safe%20Markdown%3F%3F%20%F0%9F%A4%AF%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F156" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/reactdatagrid-logo.png" alt="React Data Grid logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/dog-blessing.jpg" alt="One dog putting his paw on another dog's head" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">May the odds be in your favor<!-- --> </p></div><h3><span role="img" aria-label="police car light">🚨</span> <a href="https://github.com/inovua/reactdatagrid">React Data Grid</a> MacBook Pro Giveaway 🚨</h3><p>TLDR — React Data Grid is giving away a brand new, 14-inch MacBook Pro M2 to one Bytes reader who <a href="https://github.com/inovua/reactdatagrid">stars their GitHub repo</a> in the next week.</p><p>That’s it. Just <a href="https://github.com/inovua/reactdatagrid">star the repo</a>, and you’ll be automatically entered to win a $2,000 laptop. Like NSYNC says, “No strings attached.”</p><p>And the good news is, they’re definitely worth the star. The RDG team has been <em>*obsessed*</em> with building the world’s best data grid for years, and we think they did a great job:</p><ul>
+<li>
+<p>Extensive virtualization gives you the best possible performance, no matter how big the dataset. That’s one reason it’s used by huge companies like Netflix and Bridgestone.</p>
+</li>
+<li>
+<p>It’s pure React, not just a wrapper — so it’s easy to work with inside your codebase.</p>
+</li>
+<li>
+<p>There’s tons of functionality baked in, so you can do anything you’d ever need.</p>
+</li>
+</ul><p>But even if you don’t care about any of that, and you hate data grids, and you think React is an anti-pattern because you miss Backbone.js — it doesn’t matter. Just <a href="https://github.com/inovua/reactdatagrid">star the repo</a> between now and Feb. 4th, and you’ll still be entered to win the MacBook Pro.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/jobs.png" alt="The Job Board Logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Job Board</h2></div><div class="bg-alt" style="padding:24px;border-radius:16px;margin-bottom:20px"><table style="text-align:left"><tbody><tr><td style="width:40px;padding-top:16px"><img src="https://bytes.dev/images/content/usemotion-logo-icon.png" width="40px" height="40px" style="width:40px;height:40px"></td><td style="padding-left:24px"><a style="font-size:18px" href="https://jobs.ashbyhq.com/motion/4f5f6a29-3af0-4d79-99a4-988ff7c5ba05?utm_source=bytes">Senior Full Stack Engineer</a></td></tr><tr><td></td><td style="padding-left:24px"><table style="border-collapse:collapse;border-spacing:0px"><tbody><tr><td style="padding-left:0px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">Remote friendly</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">TS</div></td><td style="padding-left:8px;padding-top:0px;padding-bottom:0px"><div style="padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25">$160-210k</div></td></tr></tbody></table></td></tr><tr><td></td><td style="padding-left:24px"><p style="font-size:14px">Motion is looking for experienced TypeScript engineers to build the next generation of productivity tools. You'll inform key frontend architectural decisions that help Motion scale the next 2 order of magnitudes, create delightful user-facing features, and improve application performance. We are an ambitious team of 15 people distributed remotely across North America.</p></td></tr></tbody></table></div><a href="https://bytes.dev/advertise" target="_blank" style="text-align:center;display:block">Have a job you want to fill?</a>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement&amp;utm_medium=newsletter&amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices">Datadog</a></h4><p><em>Their free <a href="https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement&amp;utm_medium=newsletter&amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices">Frontend Testing Best Practices Guide</a> covers just about everything you’ll ever need to know about frontend testing. Now you’ve got no excuse for flakey tests.</em></p></div></div>
+<p>Did you know that the anchor element can do more than just navigate to a url?</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://bytes.dev<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Read Bytes!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>We’ve got three specific use cases. Can you guess them?</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Right on cue, Alex MacArthur wrote a blog post called <a href="https://www.macarthur.me/posts/what-i-like-about-astro">What I Like About Astro</a>. Speaking of, we’re still waiting for one of you to write a nice article called, “What I like about Bytes.”</p>
+</li>
+<li>
+<p>Callstack created <a href="https://www.callstack.com/campaigns/download-the-ultimate-guide-to-react-native-optimization?utm_campaign=RN_Performance&amp;utm_source=email&amp;utm_content=bytes_quick_link_sponsor">The Ultimate Guide to React Native Optimization</a> — and they really do mean “ultimate”. This ebook is 207 pages long and is better than half the courses on Udemy. It’s also *free* and written by React Native Core Contributors, so you know it’s legit. [sponsored]</p>
+</li>
+<li>
+<p>Mokshit Jain created <a href="https://github.com/mokshit06/typewind">Typewind</a>, which (as you probably guessed) is a type-safe version of Tailwind. The type nerds’ power is consolidating.</p>
+</li>
+<li>
+<p>Andrew Clark from the React Core Team wrote a <em>controversial</em> tweet thread about <a href="https://twitter.com/acdlite/status/1617611126514266112">“If you use React, you should be using a React framework.”</a>. He then clarified that ”<a href="https://twitter.com/acdlite/status/1617717183341289472?cxt=HHwWgIDTwaHNpPMsAAAA">You should clean your ass after pooping</a>“.</p>
+</li>
+<li>
+<p>Vladimir Klepov wrote an in-depth article about <a href="https://blog.thoughtspile.tech/2023/01/23/typescript-sets/">Making sense of TypeScript using Set Theory</a>. But before you can really understand TypeScript or Set Theory, you need to understand Game Theory, and you can’t really understand Game Theory without understanding Mimetic Theory, and all of these theories are worthless until you understand Heliocentric Theory. So you might as well just start with Copernicus if you want to get good at TypeScript.</p>
+</li>
+<li>
+<p><a href="https://github.com/koskimas/kysely">Kysely</a> is a type-safe SQL query builder. Like I said, you either align yourself with the type nerds or you’re getting left behind.</p>
+</li>
+<li>
+<p>Darius Cepulis wrote on the Mux blog about <a href="https://www.mux.com/blog/the-building-blocks-of-great-docs">The building blocks of great docs</a>. Speaking of which, word on the street is that the new React docs are <a href="https://twitter.com/dan_abramov/status/1617858054908973056?s=20&amp;t=HF1jwx7T24W8Kg5mdF34AQ">almost <em>done</em> done</a> for real this time <em>(*drink*)</em>. But technically, Dan never said “no take-backsies” — so yeah, we’re probably still a few months out.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement&amp;utm_medium=newsletter&amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices">Datadog</a></h4></div></div>
+<ol>
+<li>Anchor tags can send POST requests</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- sends a POST request with the body of PING to url --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">ping</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://api.iwanttotrackyou.com<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Click Me
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="2">
+<li>Links can download files (if they are on the same origin or use  the <code>data:</code> or <code>blob:</code> directive).</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data:,Hello%2C%20World%21<span class="token punctuation">"</span></span> <span class="token attr-name">download</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>helloworld.txt<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Download
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<ol start="3">
+<li>Links can open your email client (and populate the email’s content)</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mailto:tyler@ui.dev?subject=Re%3A%20My%20third%20nipple&amp;body=%F0%9F%91%8B<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Hi 👋
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>And that’s all folks. Thanks for reading <span role="img" aria-label="red heart">❤️</span>.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Astro 2 Takes Flight","date":"2023-01-26","featuredImage":"/images/content/astro-dog.jpg","description":"Revenge of the type nerds, more cowbell, and no take-backsies","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eHi friends,\u003c/p\u003e\n\u003cp\u003eWe don’t have any hot takes about the moral supremacy of using camel_case, but we do have some revenge of the type nerds, more cowbell, and one big no take-backsies.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/156\"\u003e#156\u003c/a\u003e\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/astro-dog.jpg\" alt=\"Dog pushing two dog figurines together\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eNow kiss\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eAstro 2 Takes Flight\u003c/h3\u003e\u003cp\u003eThe last time we wrote about Astro, our favorite \u003ca href=\"https://bytes.dev/archives/113\"\u003eDiet JavaScript\u003c/a\u003e framework had just released v1 and was using its islands architecture to help us all shed some unwanted bits. Now, the space crew is back again with one more mission –\u0026nbsp;help you command your lawless Markdown.\u003c/p\u003e\u003cp\u003eIf you work on a \u003cdel\u003elarge\u003c/del\u003e content or ecomm site, you’re intimately familiar with the… limitations of markdown. It’s not necessarily that markdown is bad, it’s that the tooling around it sucks –\u0026nbsp;and by sucks we mean it’s non-existent.\u003c/p\u003e\u003cp\u003eThat is, until now.\u003c/p\u003e\u003cp\u003eThe idea is simple, what if we had a TypeScript like experience, but for Markdown? It doesn’t take a ton of creativity to realize what that would enable –\u0026nbsp;validation, type safety, autocomplete, SEO recommendations, inline type errors, and maybe some positive affirmations if we’re lucky.\u003c/p\u003e\u003cp\u003eThis is exactly what Astro 2’s \u003ca href=\"https://astro.build/blog/introducing-content-collections/\"\u003eContent Collections API\u003c/a\u003e enables\u0026nbsp;and, as someone who spends more time in markdown files than I do sleeping, it’s exciting.\u003c/p\u003e\u003cp\u003eBut that’s not the only thing Astro 2 had up its booster, it also comes with:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eHybrid rendering combines SSR and SSG to give you flexibility and great performance.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA redesigned error overlay makes debugging issues a little easier and more aesthetically pleasing.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSome nice improvements to Hot Module Reloading, plus an upgrade to Vite 4.0.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Aligning itself with the die-hard type nerds is a smart way for Astro to keep the hype rocket humming \u003cem\u003e*(tRPC nods approvingly)*\u003c/em\u003e and we’re here for it.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/156\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F156\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20Bytes%20team%20breaks%20down%20%40astrodotbuild%202.0%20and%20their...%20type-safe%20Markdown%3F%3F%20%F0%9F%A4%AF%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F156\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20Bytes%20team%20breaks%20down%20%40astrodotbuild%202.0%20and%20their...%20type-safe%20Markdown%3F%3F%20%F0%9F%A4%AF%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F156\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/reactdatagrid-logo.png\" alt=\"React Data Grid logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/dog-blessing.jpg\" alt=\"One dog putting his paw on another dog's head\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMay the odds be in your favor\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003cspan role=\"img\" aria-label=\"police car light\"\u003e🚨\u003c/span\u003e \u003ca href=\"https://github.com/inovua/reactdatagrid\"\u003eReact Data Grid\u003c/a\u003e MacBook Pro Giveaway 🚨\u003c/h3\u003e\u003cp\u003eTLDR — React Data Grid is giving away a brand new, 14-inch MacBook Pro M2 to one Bytes reader who \u003ca href=\"https://github.com/inovua/reactdatagrid\"\u003estars their GitHub repo\u003c/a\u003e in the next week.\u003c/p\u003e\u003cp\u003eThat’s it. Just \u003ca href=\"https://github.com/inovua/reactdatagrid\"\u003estar the repo\u003c/a\u003e, and you’ll be automatically entered to win a $2,000 laptop. Like NSYNC says, “No strings attached.”\u003c/p\u003e\u003cp\u003eAnd the good news is, they’re definitely worth the star. The RDG team has been \u003cem\u003e*obsessed*\u003c/em\u003e with building the world’s best data grid for years, and we think they did a great job:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eExtensive virtualization gives you the best possible performance, no matter how big the dataset. That’s one reason it’s used by huge companies like Netflix and Bridgestone.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt’s pure React, not just a wrapper — so it’s easy to work with inside your codebase.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThere’s tons of functionality baked in, so you can do anything you’d ever need.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eBut even if you don’t care about any of that, and you hate data grids, and you think React is an anti-pattern because you miss Backbone.js — it doesn’t matter. Just \u003ca href=\"https://github.com/inovua/reactdatagrid\"\u003estar the repo\u003c/a\u003e between now and Feb. 4th, and you’ll still be entered to win the MacBook Pro.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/jobs.png\" alt=\"The Job Board Logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Job Board\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;border-radius:16px;margin-bottom:20px\"\u003e\u003ctable style=\"text-align:left\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"width:40px;padding-top:16px\"\u003e\u003cimg src=\"https://bytes.dev/images/content/usemotion-logo-icon.png\" width=\"40px\" height=\"40px\" style=\"width:40px;height:40px\"\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ca style=\"font-size:18px\" href=\"https://jobs.ashbyhq.com/motion/4f5f6a29-3af0-4d79-99a4-988ff7c5ba05?utm_source=bytes\"\u003eSenior Full Stack Engineer\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003ctable style=\"border-collapse:collapse;border-spacing:0px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-left:0px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eRemote friendly\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003eTS\u003c/div\u003e\u003c/td\u003e\u003ctd style=\"padding-left:8px;padding-top:0px;padding-bottom:0px\"\u003e\u003cdiv style=\"padding:6px;background-color:#fcba28;color:#231F20;border-radius:4px;font-size:12px;font-weight:bold;line-height:1.25\"\u003e$160-210k\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003c/td\u003e\u003ctd style=\"padding-left:24px\"\u003e\u003cp style=\"font-size:14px\"\u003eMotion is looking for experienced TypeScript engineers to build the next generation of productivity tools. You'll inform key frontend architectural decisions that help Motion scale the next 2 order of magnitudes, create delightful user-facing features, and improve application performance. We are an ambitious team of 15 people distributed remotely across North America.\u003c/p\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003ca href=\"https://bytes.dev/advertise\" target=\"_blank\" style=\"text-align:center;display:block\"\u003eHave a job you want to fill?\u003c/a\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices\"\u003eDatadog\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir free \u003ca href=\"https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices\"\u003eFrontend Testing Best Practices Guide\u003c/a\u003e covers just about everything you’ll ever need to know about frontend testing. Now you’ve got no excuse for flakey tests.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eDid you know that the anchor element can do more than just navigate to a url?\u003c/p\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ea\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ehref\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ehttps://bytes.dev\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003eRead Bytes!\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ea\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe’ve got three specific use cases. Can you guess them?\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eRight on cue, Alex MacArthur wrote a blog post called \u003ca href=\"https://www.macarthur.me/posts/what-i-like-about-astro\"\u003eWhat I Like About Astro\u003c/a\u003e. Speaking of, we’re still waiting for one of you to write a nice article called, “What I like about Bytes.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCallstack created \u003ca href=\"https://www.callstack.com/campaigns/download-the-ultimate-guide-to-react-native-optimization?utm_campaign=RN_Performance\u0026amp;utm_source=email\u0026amp;utm_content=bytes_quick_link_sponsor\"\u003eThe Ultimate Guide to React Native Optimization\u003c/a\u003e — and they really do mean “ultimate”. This ebook is 207 pages long and is better than half the courses on Udemy. It’s also *free* and written by React Native Core Contributors, so you know it’s legit. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMokshit Jain created \u003ca href=\"https://github.com/mokshit06/typewind\"\u003eTypewind\u003c/a\u003e, which (as you probably guessed) is a type-safe version of Tailwind. The type nerds’ power is consolidating.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAndrew Clark from the React Core Team wrote a \u003cem\u003econtroversial\u003c/em\u003e tweet thread about \u003ca href=\"https://twitter.com/acdlite/status/1617611126514266112\"\u003e“If you use React, you should be using a React framework.”\u003c/a\u003e. He then clarified that ”\u003ca href=\"https://twitter.com/acdlite/status/1617717183341289472?cxt=HHwWgIDTwaHNpPMsAAAA\"\u003eYou should clean your ass after pooping\u003c/a\u003e“.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVladimir Klepov wrote an in-depth article about \u003ca href=\"https://blog.thoughtspile.tech/2023/01/23/typescript-sets/\"\u003eMaking sense of TypeScript using Set Theory\u003c/a\u003e. But before you can really understand TypeScript or Set Theory, you need to understand Game Theory, and you can’t really understand Game Theory without understanding Mimetic Theory, and all of these theories are worthless until you understand Heliocentric Theory. So you might as well just start with Copernicus if you want to get good at TypeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/koskimas/kysely\"\u003eKysely\u003c/a\u003e is a type-safe SQL query builder. Like I said, you either align yourself with the type nerds or you’re getting left behind.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDarius Cepulis wrote on the Mux blog about \u003ca href=\"https://www.mux.com/blog/the-building-blocks-of-great-docs\"\u003eThe building blocks of great docs\u003c/a\u003e. Speaking of which, word on the street is that the new React docs are \u003ca href=\"https://twitter.com/dan_abramov/status/1617858054908973056?s=20\u0026amp;t=HF1jwx7T24W8Kg5mdF34AQ\"\u003ealmost \u003cem\u003edone\u003c/em\u003e done\u003c/a\u003e for real this time \u003cem\u003e(*drink*)\u003c/em\u003e. But technically, Dan never said “no take-backsies” — so yeah, we’re probably still a few months out.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/resources/frontend-testing-best-practices/?utm_source=advertisement\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-bytesdev-apm-ww-frontend-testing-best-practices\"\u003eDatadog\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003col\u003e\n\u003cli\u003eAnchor tags can send POST requests\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token comment\"\u003e\u0026lt;!-- sends a POST request with the body of PING to url --\u0026gt;\u003c/span\u003e\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ea\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ehref\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e#\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003eping\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ehttps://api.iwanttotrackyou.com\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  Click Me\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ea\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eLinks can download files (if they are on the same origin or use  the \u003ccode\u003edata:\u003c/code\u003e or \u003ccode\u003eblob:\u003c/code\u003e directive).\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ea\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ehref\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003edata:,Hello%2C%20World%21\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003edownload\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003ehelloworld.txt\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  Download\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ea\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eLinks can open your email client (and populate the email’s content)\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre class=\"language-html\"\u003e\u003ccode class=\"language-html\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;\u003c/span\u003ea\u003c/span\u003e \u003cspan class=\"token attr-name\"\u003ehref\u003c/span\u003e\u003cspan class=\"token attr-value\"\u003e\u003cspan class=\"token punctuation attr-equals\"\u003e=\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003emailto:tyler@ui.dev?subject=Re%3A%20My%20third%20nipple\u0026amp;body=%F0%9F%91%8B\u003cspan class=\"token punctuation\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n  Hi 👋\n\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token tag\"\u003e\u003cspan class=\"token punctuation\"\u003e\u0026lt;/\u003c/span\u003ea\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd that’s all folks. Thanks for reading \u003cspan role=\"img\" aria-label=\"red heart\"\u003e❤️\u003c/span\u003e.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"156"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"156"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

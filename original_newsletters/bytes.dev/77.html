@@ -1,0 +1,364 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #77 - Spot the bug</title><link rel="canonical" href="https://bytes.dev/archives/77"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got Strapi making big moves, a new way to pretend like you&#x27;re good at CSS, and a detailed breakdown on why your Spotify Wrapped results make you superior to all of your family and friends."/><meta property="og:url" content="https://bytes.dev/archives/77"/><meta property="og:title" content="Bytes #77 - Spot the bug"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/horse.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got Strapi making big moves, a new way to pretend like you&#x27;re good at CSS, and a detailed breakdown on why your Spotify Wrapped results make you superior to all of your family and friends."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #77 - Spot the bug"/><meta property="twitter:description" content="This issue, we&#x27;ve got Strapi making big moves, a new way to pretend like you&#x27;re good at CSS, and a detailed breakdown on why your Spotify Wrapped results make you superior to all of your family and friends."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/horse.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Spot the bug</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->77<!-- -->.</span><span class="mr-6 font-bold">December 6, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><span role="img" aria-label="police car light">🚨</span> <strong>Announcement:</strong> This Wednesday at 4pm PT, we’ll be doing an hour-long workshop for ui.dev subscribers on React Native with <a href="https://twitter.com/ccheever">Charlie Cheever</a>, the co-founder of Quora and Expo. Grab a <a href="https://platform.ui.dev/trial/building-mobile-apps-with-react-native-and-expo">free ui.dev trial</a> if you want to join.</p>
+<p>This week, we’ve got Strapi making big moves, a new way to pretend like you’re good at CSS, and a detailed breakdown on why your <em>Spotify Wrapped</em> results make you superior to all of your family and friends. Welcome to #77.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/horse.png" alt="beating a dead horse meme">
+</p><p class="image-alt">Live look at tech Twitter humor</p><p></p>
+<h2>Open Props — A new way to pretend you know CSS</h2>
+<p><strong>Unless your name rhymes with <em>Bosh Bumeau</em>…</strong> chances are that CSS isn’t your passion.</p>
+<p>That’s why the good webLord gave us frameworks like Bootstrap and Tailwind — so we could make our apps look pretty, while simultaneously learning as little CSS as possible.</p>
+<p><strong>But there’s a tradeoff:</strong> Bootstrap sits at 164kb minified (<span role="img" aria-label="face screaming in fear">😱</span>), and Tailwind requires a complicated setup process and build step (don’t ask how big its CDN bundle is).</p>
+<p>Enter, <a href="https://open-props.style">Open Props</a> by Adam Argyle. It’s a brand new collection of CSS variables that you can use within your own CSS files. These variables represent design tokens for things like colors, fonts, sizes, shapes, media queries, animations, and some other fancy stuff. In other words, <em>Tailwind: The Good Parts.</em></p>
+<p><strong>Here’s what else makes Open Props cool:</strong></p>
+<ul>
+<li>
+<p>A much smaller bundle size (23kb including a normalize stylesheet), which can be shrunk even more by only including the utilities you need.</p>
+</li>
+<li>
+<p>The variables give you a consistent, harmonious layout and design.</p>
+</li>
+<li>
+<p>You can import it directly from the CDN (no build step required) or install it as a dependency in your project.</p>
+</li>
+<li>
+<p>Since it’s just CSS variables, you can still write whatever other CSS you want. Open Props isn’t quite as clingy as a full-fledged CSS framework (or Wayne Campbell’s <a href="https://youtu.be/RJRvPmONjVY?t=14">Ex</a>).</p>
+</li>
+</ul>
+<p><strong>The inside scoop:</strong></p>
+<blockquote>
+<p>“First I shipped Hack Packs from <a href="https://www.transition.style/">transition.style</a>, which were ‘just the props’ of the library so folks could create their own transitions. That idea of shipping just props felt more valuable than the library itself, but wasn’t a popular concept. Open Props hopes to make shipping just props mainstream and common practice.” — Adam Argyle</p>
+</blockquote>
+<p><strong>Bottom Line:</strong> Ok Adam, playtime’s over — it’s time to go raise $15m to build Open Props Inc. with your own “proprietary” hosting service. I don’t make the rules.</p>
+<p>We’ll see you next week when Tailwind v3 comes out and we’re back to saying only nice things.</p>
+<hr>
+<h2>Spot the Bug (answer below)</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Animal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="https://bytes.dev/images/content/raygun.png" alt="raygun">
+</p><p class="image-alt">The only pair programmer I’ll allow [sponsored]</p><p></p>
+<h2><a href="https://raygun.com/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=homepage">Raygun</a> gives you X-ray vision</h2>
+<p>…into your Core Web Vitals. Now stop looking at me like that.</p>
+<p>Raygun is a <a href="https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=rum">super powerful tool</a> that makes it quick and easy to identify and resolve the errors and performance issues that make your users hate you.</p>
+<p>They’ve also got first-class support for <a href="https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=rum">monitoring Core Web Vitals</a> — so you can easily figure out how to improve whatever metrics Google is judging us on these days. <em>(I’m more than just a number, @Addy Osmani.)</em></p>
+<p>Raygun lets you check out your CWV scores in real time with real-user insights you can trust – not some generic dataset or “synthetics” (AKA “fake data”). You can see who experienced a poor score and drill into individual sessions <em>and page requests</em> to find out why <span role="img" aria-label="exploding head">🤯</span>.</p>
+<p><a href="https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=rum">Start a 14-day free trial</a> of Raygun, and give your team something they’ll <em>actually</em> want for the Holidays — a simple, pain-free way to monitor Core Web Vitals and front-end performance.</p>
+<p><a href="https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=ui-dev&amp;utm_content=rum">Try it out.</a> Thank me later.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/plug.png" alt="plugin man">
+</p><p class="image-alt"> Y’all talkin’ about plugins?</p><p></p>
+<h2>Strapi v4 — Now with (better) plugins</h2>
+<p><strong>Strap in…</strong> (had to) because everyone’s favorite tool for building custom API’s is back with another major release.</p>
+<p><strong>Quick Review:</strong> Strapi is an open-source, headless JavaScript CMS that’s built on Node.js. It’s been a go-to tool for the last few years when creating REST and GraphQL API’s that can be consumed from any client. You can host all the data yourself, or you can pay Strapi-the-company<span role="img" aria-label="trade mark">™️</span> to host it for you.</p>
+<p><strong>Side Note:</strong> It seems like there might be something to this approach of, <em>use-your-popular-OSS-project-to-market-your-paid-hosting-product.</em> Have <a href="https://vercel.com/pricing">any</a> other <a href="https://www.gatsbyjs.com/products/cloud/">devtool</a> startups ever <a href="https://hasura.io/pricing/">tried</a> doing <a href="https://remix.run/blog/seed-funding-for-remix">this</a> before??</p>
+<p><strong>What’s new in Strapi v4:</strong></p>
+<ul>
+<li>
+<p><strong>A “deeply re-worked core”</strong> — No, I’m not talking about that one time you did <a href="https://youtu.be/0P-CRX2j_bo?t=6">Ab Ripper X</a> in your college dorm room. The all-new Strapi core improves performance and lets you build more powerful API’s, while making Strapi itself a lot more extendable and customizable (see below).</p>
+</li>
+<li>
+<p><strong>New <a href="https://docs.strapi.io/developer-docs/latest/developer-resources/plugin-api-reference/server.html">Plugin API</a></strong> — This makes it way easier to create and maintain Strapi plugins, so that you can customize and integrate with other tools. You can also use the plugins created by other Strapi stans <em>(Strapists?)</em>.</p>
+</li>
+<li>
+<p><strong>New <a href="https://design-system.strapi.io/">Design System</a></strong> — This new components library is meant to provide some design consistency for plugin creators (and users), so that it’s easier to build and use plugins without having to worry about building a pretty UI for it.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> The headless CMS space is more crowded than ever — there’s Ghost, Prismic, Netlify CMS, Keystone, and lots more. Strapi is still the <a href="https://jamstack.org/headless-cms/">most popular</a> option for now, but it’ll be interesting to see if these new features are enough to keep it that way over the long term.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p><a href="https://podrocket.logrocket.com/">PodRocket</a> is a good web dev podcast where the LogRocket team interviews some big-time <del>JavaScript celebs</del> <em>industry experts</em> about technologies they’ve created. They talked to <a href="https://podrocket.logrocket.com/vercel">Guillermo Rauch</a> about Next.js, <a href="https://podrocket.logrocket.com/rich-harris">Rich Harris</a> about Svelte, and lots more. If you love Bytes, I’ve got a feeling you’ll like this pod too. [Sponsored]</p>
+</li>
+<li>
+<p>CodeSandbox just released <a href="https://codesandbox.io/post/sandpack-announcement">Sandpack</a> — an open-source, in-browser bundler that powers CodeSandbox. That means you can create your own CodeSandbox for any project you want. It also means that you don’t have to <a href="https://www.youtube.com/watch?v=2tLf1JO5bvE">hate sand</a> anymore — even if it is coarse and rough and irritating.</p>
+</li>
+<li>
+<p><a href="https://www.floating-ui.com/">Floating UI</a> is a new, slimmed-down positioning library for tooltips, popovers, dropdowns, and more. Sound like PopperJS? Well it’s created by the same person, but this library is somehow only 600 bytes (or 4,800 bits if you’re on the metric system).</p>
+</li>
+<li>
+<p><a href="https://github.com/AsyncBanana/microdiff">MicroDiff</a> is a zero dependency object and array comparison library that claims to be twice as fast as most other object diff libraries. Did we verify that claim? No. But do we stand by it? Also, no.</p>
+</li>
+<li>
+<p>Ben Awad gave Dan Abramov an hour-long <a href="https://www.youtube.com/watch?v=XEt09iK8IXs">technical coding interview</a>. Besides re-defining state management, being on the React core team, and a great hairline –&nbsp;he’s just like the rest of us.</p>
+</li>
+<li>
+<p><a href="https://github.com/medusajs/medusa">Medusa</a> is an open-source Shopify alternative, which should finally give me the push I need to get my custom doily e-comm business up and running.</p>
+</li>
+<li>
+<p>Igor Minar wrote about how <a href="https://blog.angular.io/thank-you-angular-d90d70f2e9d8">he’s stepping away from Angular</a> after 12 years of being one of the project’s core leaders. Coincidentally, after 0 years of being one of the project’s core leaders, we’ve also stepped away from Angular.</p>
+</li>
+<li>
+<p>Marcin Kulik wrote about the process of <a href="https://blog.asciinema.org/post/smaller-faster/">Rewriting asciinema</a> in Rust and SolidJS to make it 4x smaller and 50x faster. And since we know that no one verifies these claims, I just want to point out that I can run a 4.4s 40-yard dash.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug - Problem/Solution</h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Animal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Arrow functions don’t have their own <code>this</code>. This leads to three errors in our code.</p>
+<p>First, we’re adding properties to <code>this</code> in the constructor function. Again, because Arrow Functions don’t have their own <code>this</code>, you can’t do that.</p>
+<p>Second, we can’t use the <code>new</code> keyword with an Arrow Function. This will throw a <code>X is not a constructor</code> error.</p>
+<p>Third, we can’t add a property on a function’s prototype if that function is an arrow function, again, because there’s no <code>this</code>.</p>
+<p>Here’s the solution -</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Animal</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">birthday</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> leo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'Leo'</span><span class="token punctuation">,</span> <span class="token string">'Lion'</span><span class="token punctuation">)</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Spot the bug","date":"2021-12-06","description":"This issue, we've got Strapi making big moves, a new way to pretend like you're good at CSS, and a detailed breakdown on why your Spotify Wrapped results make you superior to all of your family and friends.","featuredImage":"https://bytes.dev/images/content/horse.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cspan role=\"img\" aria-label=\"police car light\"\u003e🚨\u003c/span\u003e \u003cstrong\u003eAnnouncement:\u003c/strong\u003e This Wednesday at 4pm PT, we’ll be doing an hour-long workshop for ui.dev subscribers on React Native with \u003ca href=\"https://twitter.com/ccheever\"\u003eCharlie Cheever\u003c/a\u003e, the co-founder of Quora and Expo. Grab a \u003ca href=\"https://platform.ui.dev/trial/building-mobile-apps-with-react-native-and-expo\"\u003efree ui.dev trial\u003c/a\u003e if you want to join.\u003c/p\u003e\n\u003cp\u003eThis week, we’ve got Strapi making big moves, a new way to pretend like you’re good at CSS, and a detailed breakdown on why your \u003cem\u003eSpotify Wrapped\u003c/em\u003e results make you superior to all of your family and friends. Welcome to #77.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/horse.png\" alt=\"beating a dead horse meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eLive look at tech Twitter humor\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eOpen Props — A new way to pretend you know CSS\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eUnless your name rhymes with \u003cem\u003eBosh Bumeau\u003c/em\u003e…\u003c/strong\u003e chances are that CSS isn’t your passion.\u003c/p\u003e\n\u003cp\u003eThat’s why the good webLord gave us frameworks like Bootstrap and Tailwind — so we could make our apps look pretty, while simultaneously learning as little CSS as possible.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBut there’s a tradeoff:\u003c/strong\u003e Bootstrap sits at 164kb minified (\u003cspan role=\"img\" aria-label=\"face screaming in fear\"\u003e😱\u003c/span\u003e), and Tailwind requires a complicated setup process and build step (don’t ask how big its CDN bundle is).\u003c/p\u003e\n\u003cp\u003eEnter, \u003ca href=\"https://open-props.style\"\u003eOpen Props\u003c/a\u003e by Adam Argyle. It’s a brand new collection of CSS variables that you can use within your own CSS files. These variables represent design tokens for things like colors, fonts, sizes, shapes, media queries, animations, and some other fancy stuff. In other words, \u003cem\u003eTailwind: The Good Parts.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHere’s what else makes Open Props cool:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eA much smaller bundle size (23kb including a normalize stylesheet), which can be shrunk even more by only including the utilities you need.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe variables give you a consistent, harmonious layout and design.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can import it directly from the CDN (no build step required) or install it as a dependency in your project.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSince it’s just CSS variables, you can still write whatever other CSS you want. Open Props isn’t quite as clingy as a full-fledged CSS framework (or Wayne Campbell’s \u003ca href=\"https://youtu.be/RJRvPmONjVY?t=14\"\u003eEx\u003c/a\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eThe inside scoop:\u003c/strong\u003e\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e“First I shipped Hack Packs from \u003ca href=\"https://www.transition.style/\"\u003etransition.style\u003c/a\u003e, which were ‘just the props’ of the library so folks could create their own transitions. That idea of shipping just props felt more valuable than the library itself, but wasn’t a popular concept. Open Props hopes to make shipping just props mainstream and common practice.” — Adam Argyle\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Ok Adam, playtime’s over — it’s time to go raise $15m to build Open Props Inc. with your own “proprietary” hosting service. I don’t make the rules.\u003c/p\u003e\n\u003cp\u003eWe’ll see you next week when Tailwind v3 comes out and we’re back to saying only nice things.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug (answer below)\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/raygun.png\" alt=\"raygun\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe only pair programmer I’ll allow [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://raygun.com/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=homepage\"\u003eRaygun\u003c/a\u003e gives you X-ray vision\u003c/h2\u003e\n\u003cp\u003e…into your Core Web Vitals. Now stop looking at me like that.\u003c/p\u003e\n\u003cp\u003eRaygun is a \u003ca href=\"https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=rum\"\u003esuper powerful tool\u003c/a\u003e that makes it quick and easy to identify and resolve the errors and performance issues that make your users hate you.\u003c/p\u003e\n\u003cp\u003eThey’ve also got first-class support for \u003ca href=\"https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=rum\"\u003emonitoring Core Web Vitals\u003c/a\u003e — so you can easily figure out how to improve whatever metrics Google is judging us on these days. \u003cem\u003e(I’m more than just a number, @Addy Osmani.)\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eRaygun lets you check out your CWV scores in real time with real-user insights you can trust – not some generic dataset or “synthetics” (AKA “fake data”). You can see who experienced a poor score and drill into individual sessions \u003cem\u003eand page requests\u003c/em\u003e to find out why \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=rum\"\u003eStart a 14-day free trial\u003c/a\u003e of Raygun, and give your team something they’ll \u003cem\u003eactually\u003c/em\u003e want for the Holidays — a simple, pain-free way to monitor Core Web Vitals and front-end performance.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raygun.com/platform/real-user-monitoring?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=ui-dev\u0026amp;utm_content=rum\"\u003eTry it out.\u003c/a\u003e Thank me later.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/plug.png\" alt=\"plugin man\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e Y’all talkin’ about plugins?\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eStrapi v4 — Now with (better) plugins\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eStrap in…\u003c/strong\u003e (had to) because everyone’s favorite tool for building custom API’s is back with another major release.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick Review:\u003c/strong\u003e Strapi is an open-source, headless JavaScript CMS that’s built on Node.js. It’s been a go-to tool for the last few years when creating REST and GraphQL API’s that can be consumed from any client. You can host all the data yourself, or you can pay Strapi-the-company\u003cspan role=\"img\" aria-label=\"trade mark\"\u003e™️\u003c/span\u003e to host it for you.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSide Note:\u003c/strong\u003e It seems like there might be something to this approach of, \u003cem\u003euse-your-popular-OSS-project-to-market-your-paid-hosting-product.\u003c/em\u003e Have \u003ca href=\"https://vercel.com/pricing\"\u003eany\u003c/a\u003e other \u003ca href=\"https://www.gatsbyjs.com/products/cloud/\"\u003edevtool\u003c/a\u003e startups ever \u003ca href=\"https://hasura.io/pricing/\"\u003etried\u003c/a\u003e doing \u003ca href=\"https://remix.run/blog/seed-funding-for-remix\"\u003ethis\u003c/a\u003e before??\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat’s new in Strapi v4:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eA “deeply re-worked core”\u003c/strong\u003e — No, I’m not talking about that one time you did \u003ca href=\"https://youtu.be/0P-CRX2j_bo?t=6\"\u003eAb Ripper X\u003c/a\u003e in your college dorm room. The all-new Strapi core improves performance and lets you build more powerful API’s, while making Strapi itself a lot more extendable and customizable (see below).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew \u003ca href=\"https://docs.strapi.io/developer-docs/latest/developer-resources/plugin-api-reference/server.html\"\u003ePlugin API\u003c/a\u003e\u003c/strong\u003e — This makes it way easier to create and maintain Strapi plugins, so that you can customize and integrate with other tools. You can also use the plugins created by other Strapi stans \u003cem\u003e(Strapists?)\u003c/em\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew \u003ca href=\"https://design-system.strapi.io/\"\u003eDesign System\u003c/a\u003e\u003c/strong\u003e — This new components library is meant to provide some design consistency for plugin creators (and users), so that it’s easier to build and use plugins without having to worry about building a pretty UI for it.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e The headless CMS space is more crowded than ever — there’s Ghost, Prismic, Netlify CMS, Keystone, and lots more. Strapi is still the \u003ca href=\"https://jamstack.org/headless-cms/\"\u003emost popular\u003c/a\u003e option for now, but it’ll be interesting to see if these new features are enough to keep it that way over the long term.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://podrocket.logrocket.com/\"\u003ePodRocket\u003c/a\u003e is a good web dev podcast where the LogRocket team interviews some big-time \u003cdel\u003eJavaScript celebs\u003c/del\u003e \u003cem\u003eindustry experts\u003c/em\u003e about technologies they’ve created. They talked to \u003ca href=\"https://podrocket.logrocket.com/vercel\"\u003eGuillermo Rauch\u003c/a\u003e about Next.js, \u003ca href=\"https://podrocket.logrocket.com/rich-harris\"\u003eRich Harris\u003c/a\u003e about Svelte, and lots more. If you love Bytes, I’ve got a feeling you’ll like this pod too. [Sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCodeSandbox just released \u003ca href=\"https://codesandbox.io/post/sandpack-announcement\"\u003eSandpack\u003c/a\u003e — an open-source, in-browser bundler that powers CodeSandbox. That means you can create your own CodeSandbox for any project you want. It also means that you don’t have to \u003ca href=\"https://www.youtube.com/watch?v=2tLf1JO5bvE\"\u003ehate sand\u003c/a\u003e anymore — even if it is coarse and rough and irritating.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.floating-ui.com/\"\u003eFloating UI\u003c/a\u003e is a new, slimmed-down positioning library for tooltips, popovers, dropdowns, and more. Sound like PopperJS? Well it’s created by the same person, but this library is somehow only 600 bytes (or 4,800 bits if you’re on the metric system).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/AsyncBanana/microdiff\"\u003eMicroDiff\u003c/a\u003e is a zero dependency object and array comparison library that claims to be twice as fast as most other object diff libraries. Did we verify that claim? No. But do we stand by it? Also, no.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBen Awad gave Dan Abramov an hour-long \u003ca href=\"https://www.youtube.com/watch?v=XEt09iK8IXs\"\u003etechnical coding interview\u003c/a\u003e. Besides re-defining state management, being on the React core team, and a great hairline –\u0026nbsp;he’s just like the rest of us.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/medusajs/medusa\"\u003eMedusa\u003c/a\u003e is an open-source Shopify alternative, which should finally give me the push I need to get my custom doily e-comm business up and running.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIgor Minar wrote about how \u003ca href=\"https://blog.angular.io/thank-you-angular-d90d70f2e9d8\"\u003ehe’s stepping away from Angular\u003c/a\u003e after 12 years of being one of the project’s core leaders. Coincidentally, after 0 years of being one of the project’s core leaders, we’ve also stepped away from Angular.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMarcin Kulik wrote about the process of \u003ca href=\"https://blog.asciinema.org/post/smaller-faster/\"\u003eRewriting asciinema\u003c/a\u003e in Rust and SolidJS to make it 4x smaller and 50x faster. And since we know that no one verifies these claims, I just want to point out that I can run a 4.4s 40-yard dash.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug - Problem/Solution\u003c/h2\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eArrow functions don’t have their own \u003ccode\u003ethis\u003c/code\u003e. This leads to three errors in our code.\u003c/p\u003e\n\u003cp\u003eFirst, we’re adding properties to \u003ccode\u003ethis\u003c/code\u003e in the constructor function. Again, because Arrow Functions don’t have their own \u003ccode\u003ethis\u003c/code\u003e, you can’t do that.\u003c/p\u003e\n\u003cp\u003eSecond, we can’t use the \u003ccode\u003enew\u003c/code\u003e keyword with an Arrow Function. This will throw a \u003ccode\u003eX is not a constructor\u003c/code\u003e error.\u003c/p\u003e\n\u003cp\u003eThird, we can’t add a property on a function’s prototype if that function is an arrow function, again, because there’s no \u003ccode\u003ethis\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eHere’s the solution -\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003eAnimal\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ename\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e type\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e name\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003etype \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e type\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprototype\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function-variable function\"\u003ebirthday\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eage\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e leo \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eAnimal\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Leo'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Lion'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"77"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"77"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

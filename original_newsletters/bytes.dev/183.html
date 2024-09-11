@@ -1,0 +1,300 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #183 - We heard you like containers...</title><link rel="canonical" href="https://bytes.dev/archives/183"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="A new way to not understand RegEx, JavaScript cartography, and my dad&#x27;s new family."/><meta property="og:url" content="https://bytes.dev/archives/183"/><meta property="og:title" content="Bytes #183 - We heard you like containers..."/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/cupboard-man.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="A new way to not understand RegEx, JavaScript cartography, and my dad&#x27;s new family."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #183 - We heard you like containers..."/><meta property="twitter:description" content="A new way to not understand RegEx, JavaScript cartography, and my dad&#x27;s new family."/><meta property="twitter:image" content="https://bytes.dev/images/content/cupboard-man.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> We heard you like containers...</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->183<!-- -->.</span><span class="mr-6 font-bold">May 1, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> A new way to not understand RegEx, JavaScript cartography, and my dad’s new family.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/183">#183</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/cupboard-man.jpg" alt="Man hiding in cupboard" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Is that Node.js hiding in my browser?<!-- --> </p></div><h3>We heard you like containers…</h3><p>Unless you live a healthy, balanced, fulfilling life –&nbsp;you probably saw that Stackblitz recently announced that WebContainers now run on Safari, iOS, and iPadOS. Also dependent on the current state of your mental health, you may or may not have just wondered “wtf are WebContainers?”</p><p>Thankfully, for you, it’s my job to obsess over micro changes in the web dev ecosystem so you can continue to live your best life. Let’s break it down.</p><p>Stackblitz <a href="https://blog.stackblitz.com/posts/introducing-webcontainers/">announced</a> WebContainers back in 2021. You can think of them as a micro-operating system, based on WebAssembly, designed to run a Node.js server inside your browser. Node in the browser –&nbsp;rad.</p><p>In February of this year Stackblitz <a href="https://blog.stackblitz.com/posts/webcontainer-api-is-here/">announced</a> the WebContainer API, allowing developers (like the <a href="https://learn.svelte.dev/tutorial/welcome-to-svelte">Svelte Team</a>) to build their own apps on top of the tech. Also rad.</p><p>This sounds great, except for one massive problem –&nbsp;iOS (and Safari and oh also iPadOS).</p><p>The Stackblitz team, like the rest of us, loves bleeding edge tech. But one thing they don’t tell you about the bleeding edge is you’re the one doing the bleeding. One tradeoff they chose to make when building WebContainers was to use WASM threads and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer"><code>SharedArrayBuffer</code></a> (a modern JS feature which uses multiple JS threads to share the same memory space). This meant, unfortunately, limited iOS support since <del>Safari is the new IE</del> Safari hadn’t implemented them yet.</p><p>That is, until now. Safari was recently released from the Silicon Valley Correctional Facility and with that new lease on life started shipping some features –&nbsp;including WASM threads and <code>SharedArrayBuffer</code>. This, of course, means <a href="https://blog.stackblitz.com/posts/webcontainers-are-now-supported-on-safari/">WebContainers are now supported on Safari</a>.</p><p><strong>Bottom line:</strong> This is a huge win for the web platform and those of us wanting to sound smart at pool parties this summer by telling people we run Node in the browser.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/183" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F183" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20by%20%40bytesdotdev%20on%20%40stackblitz%20adding%20Safari%20support%20for%20the%20Web%20Containers%20API%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F183" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20by%20%40bytesdotdev%20on%20%40stackblitz%20adding%20Safari%20support%20for%20the%20Web%20Containers%20API%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F183" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/postman-logo.png" alt="postman logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/morshu.jpg" alt="Shopkeeper from Zelda" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Need some tools for your quest?<!-- --> </p></div><h3><a href="https://www.postman.com/?utm_source=bytes_newsletter&amp;utm_medium=bytes&amp;utm_campaign=email&amp;utm_term=may_01_2023&amp;utm_content=postman_cta">Postman</a> is a one-stop shop for APIs</h3><p>It’s basically like the shopkeeper from <em>Zelda</em> (shoutout Morshu) — but instead of selling you mushrooms and elixirs, it gives you <del>power-ups</del> tools that simplify every step of the API building process.</p><p>So step inside, traveler, and let me give you a tour:</p><ul>
+<li>
+<p>Postman’s <a href="https://www.postman.com/explore?utm_source=bytes_newsletter&amp;utm_medium=bytes&amp;utm_campaign=email&amp;utm_term=may_01_2023&amp;utm_content=public_api_network_cta">Public API Network</a> is a completely free resource where you can discover and test thousands of public APIs. And it’s a great way to get inspo for your next project by seeing what millions of other Postman users have built.</p>
+</li>
+<li>
+<p>Once you know what you want to build, their <em>*very*</em> comprehensive set of <a href="https://www.postman.com/product/tools/?utm_source=bytes_newsletter&amp;utm_medium=bytes&amp;utm_campaign=email&amp;utm_term=may_01_2023&amp;utm_content=api_tools_cta">API Tools</a> will help you speed up every phase of the API lifecycle — design, testing, documentation, mocking, and more.</p>
+</li>
+<li>
+<p><a href="https://www.postman.com/product/workspaces/?utm_source=bytes_newsletter&amp;utm_medium=bytes&amp;utm_campaign=email&amp;utm_term=may_01_2023&amp;utm_content=postman_workspces_cta">Postman Workspaces</a> help you easily organize your API work and collaborate with teammates and other developers.</p>
+</li>
+</ul><p><a href="https://www.postman.com/?utm_source=bytes_newsletter&amp;utm_medium=bytes&amp;utm_campaign=email&amp;utm_term=may_01_2023&amp;utm_content=check_it_out_cta">Check it out</a> — and see why over 25 million developers love using Postman.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=041323-bytes-newsletter">Secureframe</a></h4><p><em>They automated the entire process for SOC 2 compliance, so it takes weeks instead of months. Check out their <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=041323-bytes-newsletter">free, personalized demo</a>.</em></p></div></div>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Ryan Dahl gave a <a href="https://youtu.be/LVEGRj3RZSA?t=14">30-minute talk about Deno 2.0</a> at the <em>Node</em> Congress conference. It reminded me of that time my dad came back for Thanksgiving one year to tell us about how great his new family was. Fun times.</p>
+</li>
+<li>
+<p>Are you tired of doing QA testing? Check out CarbonQA’s <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=may1">high-quality QA services for dev teams</a>, so you’ll never have to do it yourself again. [sponsored]</p>
+</li>
+<li>
+<p>Chris Schmitz wrote an article on the Highlight blog about <a href="https://www.highlight.io/blog/typesafe-tailwind">Building a Type-Safe Tailwind with vanilla-extract</a>. Score another one for the type nerds.</p>
+</li>
+<li>
+<p><a href="https://regexgpt.app/">RegExGPT</a> lets you generate regex patterns by inputting an example of the text you’d like to transform and the expected result. Then you select the programming language you want for the output, click “generate”, and <em>voila!</em> — you still don’t understand RegEx.</p>
+</li>
+<li>
+<p>The CSS Working Group accepted Justin Fagnani’s <a href="https://github.com/w3c/csswg-drafts/issues/5629">multiple stylesheets per file proposal</a>, which means we’ll be able to bundle CSS modules soon(ish).</p>
+</li>
+<li>
+<p>Microsoft just released <a href="https://devblogs.microsoft.com/react-native/2023-04-27-announcing-macos-71/">v0.71 of React Native macOS</a> — their framework for building native MacOS apps with React. So nice to see all of our tech overlords come together on this one.</p>
+</li>
+<li>
+<p>Ivica Batainic wrote a blog post introducing <a href="https://infinum.com/blog/panda-css-css-in-js-without-runtime-overhead/">Panda CSS</a> — a CSS-in-JS solution without the runtime overhead.</p>
+</li>
+<li>
+<p>Alex MacArthur wrote an article called, <a href="https://www.macarthur.me/posts/maps-for-dom-nodes">Why I Like Using Maps (and WeakMaps) for Handling DOM Nodes</a>. Personally, I’ve always liked using maps because of the fun song from Dora the Explorer and because of all those posters I had of Willem Blaeu on my wall when I was a kid.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://secureframe.com/request-demo-4?utm_source=partner&amp;utm_medium=newsletter&amp;utm_campaign=041323-bytes-newsletter">Secureframe</a></h4></div></div>
+<p>In what order will the logs below show up in the console?</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">res</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Fourth'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>First</code>, <code>Fourth</code>, <code>Third</code>, <code>Second</code>.</p>
+<p>To fully understand this one you need an understanding of JavaScript’s event loop –&nbsp;specifically, the Call Stack, Task Queue, Web APIs (for <code>setTimeout</code>), and the Job Queue. Turns out, that’s a little much to cover here so do some Googling and uh GLHF.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: We heard you like containers...","date":"2023-05-01","featuredImage":"/images/content/cupboard-man.jpg","description":"A new way to not understand RegEx, JavaScript cartography, and my dad's new family.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e A new way to not understand RegEx, JavaScript cartography, and my dad’s new family.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/183\"\u003e#183\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/cupboard-man.jpg\" alt=\"Man hiding in cupboard\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eIs that Node.js hiding in my browser?\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eWe heard you like containers…\u003c/h3\u003e\u003cp\u003eUnless you live a healthy, balanced, fulfilling life –\u0026nbsp;you probably saw that Stackblitz recently announced that WebContainers now run on Safari, iOS, and iPadOS. Also dependent on the current state of your mental health, you may or may not have just wondered “wtf are WebContainers?”\u003c/p\u003e\u003cp\u003eThankfully, for you, it’s my job to obsess over micro changes in the web dev ecosystem so you can continue to live your best life. Let’s break it down.\u003c/p\u003e\u003cp\u003eStackblitz \u003ca href=\"https://blog.stackblitz.com/posts/introducing-webcontainers/\"\u003eannounced\u003c/a\u003e WebContainers back in 2021. You can think of them as a micro-operating system, based on WebAssembly, designed to run a Node.js server inside your browser. Node in the browser –\u0026nbsp;rad.\u003c/p\u003e\u003cp\u003eIn February of this year Stackblitz \u003ca href=\"https://blog.stackblitz.com/posts/webcontainer-api-is-here/\"\u003eannounced\u003c/a\u003e the WebContainer API, allowing developers (like the \u003ca href=\"https://learn.svelte.dev/tutorial/welcome-to-svelte\"\u003eSvelte Team\u003c/a\u003e) to build their own apps on top of the tech. Also rad.\u003c/p\u003e\u003cp\u003eThis sounds great, except for one massive problem –\u0026nbsp;iOS (and Safari and oh also iPadOS).\u003c/p\u003e\u003cp\u003eThe Stackblitz team, like the rest of us, loves bleeding edge tech. But one thing they don’t tell you about the bleeding edge is you’re the one doing the bleeding. One tradeoff they chose to make when building WebContainers was to use WASM threads and \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer\"\u003e\u003ccode\u003eSharedArrayBuffer\u003c/code\u003e\u003c/a\u003e (a modern JS feature which uses multiple JS threads to share the same memory space). This meant, unfortunately, limited iOS support since \u003cdel\u003eSafari is the new IE\u003c/del\u003e Safari hadn’t implemented them yet.\u003c/p\u003e\u003cp\u003eThat is, until now. Safari was recently released from the Silicon Valley Correctional Facility and with that new lease on life started shipping some features –\u0026nbsp;including WASM threads and \u003ccode\u003eSharedArrayBuffer\u003c/code\u003e. This, of course, means \u003ca href=\"https://blog.stackblitz.com/posts/webcontainers-are-now-supported-on-safari/\"\u003eWebContainers are now supported on Safari\u003c/a\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom line:\u003c/strong\u003e This is a huge win for the web platform and those of us wanting to sound smart at pool parties this summer by telling people we run Node in the browser.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/183\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F183\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20by%20%40bytesdotdev%20on%20%40stackblitz%20adding%20Safari%20support%20for%20the%20Web%20Containers%20API%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F183\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20by%20%40bytesdotdev%20on%20%40stackblitz%20adding%20Safari%20support%20for%20the%20Web%20Containers%20API%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F183\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/postman-logo.png\" alt=\"postman logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/morshu.jpg\" alt=\"Shopkeeper from Zelda\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eNeed some tools for your quest?\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.postman.com/?utm_source=bytes_newsletter\u0026amp;utm_medium=bytes\u0026amp;utm_campaign=email\u0026amp;utm_term=may_01_2023\u0026amp;utm_content=postman_cta\"\u003ePostman\u003c/a\u003e is a one-stop shop for APIs\u003c/h3\u003e\u003cp\u003eIt’s basically like the shopkeeper from \u003cem\u003eZelda\u003c/em\u003e (shoutout Morshu) — but instead of selling you mushrooms and elixirs, it gives you \u003cdel\u003epower-ups\u003c/del\u003e tools that simplify every step of the API building process.\u003c/p\u003e\u003cp\u003eSo step inside, traveler, and let me give you a tour:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ePostman’s \u003ca href=\"https://www.postman.com/explore?utm_source=bytes_newsletter\u0026amp;utm_medium=bytes\u0026amp;utm_campaign=email\u0026amp;utm_term=may_01_2023\u0026amp;utm_content=public_api_network_cta\"\u003ePublic API Network\u003c/a\u003e is a completely free resource where you can discover and test thousands of public APIs. And it’s a great way to get inspo for your next project by seeing what millions of other Postman users have built.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOnce you know what you want to build, their \u003cem\u003e*very*\u003c/em\u003e comprehensive set of \u003ca href=\"https://www.postman.com/product/tools/?utm_source=bytes_newsletter\u0026amp;utm_medium=bytes\u0026amp;utm_campaign=email\u0026amp;utm_term=may_01_2023\u0026amp;utm_content=api_tools_cta\"\u003eAPI Tools\u003c/a\u003e will help you speed up every phase of the API lifecycle — design, testing, documentation, mocking, and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.postman.com/product/workspaces/?utm_source=bytes_newsletter\u0026amp;utm_medium=bytes\u0026amp;utm_campaign=email\u0026amp;utm_term=may_01_2023\u0026amp;utm_content=postman_workspces_cta\"\u003ePostman Workspaces\u003c/a\u003e help you easily organize your API work and collaborate with teammates and other developers.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://www.postman.com/?utm_source=bytes_newsletter\u0026amp;utm_medium=bytes\u0026amp;utm_campaign=email\u0026amp;utm_term=may_01_2023\u0026amp;utm_content=check_it_out_cta\"\u003eCheck it out\u003c/a\u003e — and see why over 25 million developers love using Postman.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=041323-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey automated the entire process for SOC 2 compliance, so it takes weeks instead of months. Check out their \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=041323-bytes-newsletter\"\u003efree, personalized demo\u003c/a\u003e.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Dahl gave a \u003ca href=\"https://youtu.be/LVEGRj3RZSA?t=14\"\u003e30-minute talk about Deno 2.0\u003c/a\u003e at the \u003cem\u003eNode\u003c/em\u003e Congress conference. It reminded me of that time my dad came back for Thanksgiving one year to tell us about how great his new family was. Fun times.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAre you tired of doing QA testing? Check out CarbonQA’s \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=may1\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e, so you’ll never have to do it yourself again. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eChris Schmitz wrote an article on the Highlight blog about \u003ca href=\"https://www.highlight.io/blog/typesafe-tailwind\"\u003eBuilding a Type-Safe Tailwind with vanilla-extract\u003c/a\u003e. Score another one for the type nerds.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://regexgpt.app/\"\u003eRegExGPT\u003c/a\u003e lets you generate regex patterns by inputting an example of the text you’d like to transform and the expected result. Then you select the programming language you want for the output, click “generate”, and \u003cem\u003evoila!\u003c/em\u003e — you still don’t understand RegEx.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe CSS Working Group accepted Justin Fagnani’s \u003ca href=\"https://github.com/w3c/csswg-drafts/issues/5629\"\u003emultiple stylesheets per file proposal\u003c/a\u003e, which means we’ll be able to bundle CSS modules soon(ish).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMicrosoft just released \u003ca href=\"https://devblogs.microsoft.com/react-native/2023-04-27-announcing-macos-71/\"\u003ev0.71 of React Native macOS\u003c/a\u003e — their framework for building native MacOS apps with React. So nice to see all of our tech overlords come together on this one.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIvica Batainic wrote a blog post introducing \u003ca href=\"https://infinum.com/blog/panda-css-css-in-js-without-runtime-overhead/\"\u003ePanda CSS\u003c/a\u003e — a CSS-in-JS solution without the runtime overhead.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex MacArthur wrote an article called, \u003ca href=\"https://www.macarthur.me/posts/maps-for-dom-nodes\"\u003eWhy I Like Using Maps (and WeakMaps) for Handling DOM Nodes\u003c/a\u003e. Personally, I’ve always liked using maps because of the fun song from Dora the Explorer and because of all those posters I had of Willem Blaeu on my wall when I was a kid.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://secureframe.com/request-demo-4?utm_source=partner\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=041323-bytes-newsletter\"\u003eSecureframe\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eIn what order will the logs below show up in the console?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'First'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Second'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003ePromise\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003eres\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Third'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ethen\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003econsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elog\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e'Fourth'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eFirst\u003c/code\u003e, \u003ccode\u003eFourth\u003c/code\u003e, \u003ccode\u003eThird\u003c/code\u003e, \u003ccode\u003eSecond\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo fully understand this one you need an understanding of JavaScript’s event loop –\u0026nbsp;specifically, the Call Stack, Task Queue, Web APIs (for \u003ccode\u003esetTimeout\u003c/code\u003e), and the Job Queue. Turns out, that’s a little much to cover here so do some Googling and uh GLHF.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"183"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"183"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

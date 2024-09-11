@@ -1,0 +1,335 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #268 - Is JSR the chosen one?</title><link rel="canonical" href="https://bytes.dev/archives/268"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Why `is-number` gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel&#x27;s AI buzzword bingo."/><meta property="og:url" content="https://bytes.dev/archives/268"/><meta property="og:title" content="Bytes #268 - Is JSR the chosen one?"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/npm-jsr.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Why `is-number` gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel&#x27;s AI buzzword bingo."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #268 - Is JSR the chosen one?"/><meta property="twitter:description" content="Why `is-number` gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel&#x27;s AI buzzword bingo."/><meta property="twitter:image" content="https://bytes.dev/images/content/npm-jsr.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Is JSR the chosen one?</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->268<!-- -->.</span><span class="mr-6 font-bold">March 4, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Why <code>is-number</code> gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel’s AI buzzword bingo.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/268">#268</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/npm-jsr.jpg" alt="The big worm from spongebob with the npm logo, and the big worm from Dune with the jsr logo" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Bless the Maker and his water<!-- --> </p></div><h3>Is JSR the chosen one?</h3><p>After <del>generations of prophecy</del> <em>a few weeks of buzz</em>, Deno finally just released an open beta of <a href="https://jsr.io/#why-jsr">JSR</a>, its open-source package registry for modern JavaScript and TypeScript.</p><p>JSR stands for “JavaScript Registry”, but it <em>might</em> have been more appropriate to call it TSR, considering the first line of their website states that “JSR is designed for TypeScript.” I’m no branding expert, but this feels like that time I learned that the first KFC was actually <a href="https://www.atlasobscura.com/places/first-kfc-restaurant-m">started in Utah</a> and not Kentucky.</p><p>But the bigger question on everyone’s mind is <strong><em>why</em> do we need a new package registry?</strong></p><p>Ryan Dahl knows better than anyone how much the JS ecosystem has changed since npm (and Node) were created back in 2009. Since then, we’ve seen the emergence of hugely impactful technologies like TypeScript, ES modules, and new JS runtimes — but npm wasn’t built with any of these in mind.</p><p>So the Deno crew decided to build a new registry themselves that, much like KFC’s <a href="https://www.thesouthafrican.com/lifestyle/kfc-50th-birthday-kentucky-town-zinger-doughnut-burger-twitter-reviews-photos/">donut chicken sandwich</a>, embraces the full power of modernity. Here’s how:</p><ul>
+<li>
+<p><strong>Native TypeScript support</strong> — I already gave this one away, but JSR does a lot of work <a href="https://deno.com/blog/jsr_open_beta#publishing-to-jsr">behind the scenes</a> to let you author your package in TypeScript and publish TS source directly to JSR, without a build step.</p>
+</li>
+<li>
+<p><strong>ES modules only</strong> — Like Paul Atreides once told the Fremen army, “Be the change you wish to see in the world.”</p>
+</li>
+<li>
+<p><strong>Works with any runtime</strong> — JSR wants to <em>just work</em> everywhere JavaScript works, without requiring authors to transpile and distribute typings manually. It already works with Node, Deno, Bun, Cloudflare Workers, and other npm environments, and plans to continue expanding support.</p>
+</li>
+<li>
+<p><strong>Built on npm</strong> — Like TypeScript’s relationship to JavaScript, JSR is a <em>superset</em> of npm, not a fork. That means it’s designed to <a href="https://jsr.io/docs/npm-compatibility">interoperate with npm-based projects</a>, and JSR modules can import dependencies from npm.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> In many ways, the motivations behind JSR feel similar to Ryan’s <a href="https://www.youtube.com/watch?v=M3BM9TB-8yA">motivations</a> for building Deno as a more modern, secure, and TypeScript-friendly version of Node. It’s too early to tell if either project will reach the critical mass of users to truly “fix” the problems of their predecessors, but early returns for JSR look super promising.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20on%20why%20%40deno_land's%20JSR%20could%20become%20the%20TypeScript%20of%20npm%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20on%20why%20%40deno_land's%20JSR%20could%20become%20the%20TypeScript%20of%20npm%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F268" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/postman-logo.png" alt="Postman logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/patrick-brain.jpg" alt="Patrick Star with a big brain" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you convince your boss to send you to POST/CON<!-- --> </p></div><h3><a href="https://www.postman.com/postcon/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march42024&amp;utm_content=primary-placement">POST/CON 24 full agenda revealed!</a> <span role="img" aria-label="eyes">👀</span></h3><p>If designing and consuming APIs is a big part of your job, attending POST/CON 24 on April 30-May 1, 2024, is a no-brainer.</p><p>Postman just dropped the full agenda (<a href="https://www.postman.com/postcon/agenda/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march42024&amp;utm_content=primary-placement">see here</a>), and it’s stacked. Here are a few highlights:</p><ul>
+<li>Hands-on labs teaching you new strategies and tools to enhance API development</li>
+<li>A full afternoon of talks dedicated to helping you <a href="https://www.postman.com/postcon/agenda/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march42024&amp;utm_content=primary-placement">take your APIs public</a> and market them to developers</li>
+<li>Workshops on improving developer experience by scaling API collaboration across your organization</li>
+</ul><p><a href="https://www.postman.com/postcon/agenda/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=q1-newsletter-sponsorships&amp;utm_term=march42024&amp;utm_content=primary-placement">Claim your 30% discount on tickets</a> if you register before March 26.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/tip.png" alt="Tip logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Tip</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://getstream.io/video/?utm_source=Bytes&amp;utm_medium=promoted_newsletter&amp;utm_content=developer&amp;utm_campaign=newsletter_content_ad_mar4">Stream</a></h4><p><em>Their <a href="https://getstream.io/video/sdk/react/?utm_source=Bytes&amp;utm_medium=promoted_newsletter&amp;utm_content=developer&amp;utm_campaign=newsletter_content_ad_mar4">React SDK for Video &amp; Audio</a> makes it easy to build video conferencing like Zoom, voice calls like telegram, or livestreaming like Twitch — and you can try it all out for free.</em></p></div></div>
+<p>JavaScript has a new(ish) <code>Intl</code> API. You may be thinking “Internationalization? I only have users in the US, why would I use this?“. You fool, take a look. Here’s what it can do.</p>
+<p>Format Dates: Similar to the <code>toLocaleDateString</code> method on the <code>Date</code> object, you can use this to format Dates, but with <code>Intl</code> you get some extra options like <code>timeZone</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>DateTimeFormat</span><span class="token punctuation">(</span><span class="token string">"en-US"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">timeZone</span><span class="token operator">:</span> <span class="token string">"America/Los_Angeles"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">minute</span><span class="token operator">:</span> <span class="token string">"numeric"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">hour</span><span class="token operator">:</span> <span class="token string">"numeric"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 9:45 AM (returns the current time in that timeZone)</span>
+</code></pre>
+<p>Format Numbers:  You can also use <code>Intl</code> to format Numbers.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>NumberFormat</span><span class="token punctuation">(</span><span class="token string">"en-GB"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"unit"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">unit</span><span class="token operator">:</span> <span class="token string">"liter"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">unitDisplay</span><span class="token operator">:</span> <span class="token string">"long"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// '1 litre'</span>
+</code></pre>
+<p>Or in America, we refer to this as a <a href="https://www.youtube.com/watch?v=0zgTcrZ5030">“Large Farva”</a>.</p>
+<p>Format Lists: As Oxford comma maximalists, we appreciate that it can render lists properly too.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Motorcycle"</span><span class="token punctuation">,</span> <span class="token string">"Bus"</span><span class="token punctuation">,</span> <span class="token string">"Car"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>ListFormat</span><span class="token punctuation">(</span>
+  <span class="token string">"en-US"</span><span class="token punctuation">,</span> 
+  <span class="token punctuation">{</span> <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"long"</span><span class="token punctuation">,</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"conjunction"</span> <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'Motorcycle, Bus, and Car'</span>
+</code></pre>
+<p>Text Segmentation:</p>
+<p>The last feature we’ll highlight (there are <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">more</a>) is language specific text segmentation. Doing a <code>str.split('')</code> on non-english strings is a good way to introduce bugs.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">"吾輩は猫である。名前はたぬき。"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">table</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ['吾輩は猫である。名前はたぬき。']</span>
+<span class="token comment">// The two sentences are not correctly segmented.</span>
+
+<span class="token keyword">const</span> segmenterJa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>Segmenter</span><span class="token punctuation">(</span><span class="token string">"ja-JP"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+  <span class="token literal-property property">granularity</span><span class="token operator">:</span> <span class="token string">"word"</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> segments <span class="token operator">=</span> segmenterJa<span class="token punctuation">.</span><span class="token function">segment</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">table</span><span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>segments<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [</span>
+<span class="token comment">//   {</span>
+<span class="token comment">//     segment: "吾輩",</span>
+<span class="token comment">//     index: 0,</span>
+<span class="token comment">//     input: "吾輩は猫である。名前はたぬき。",</span>
+<span class="token comment">//     isWordLike: true,</span>
+<span class="token comment">//   },</span>
+<span class="token comment">// ];</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://vercel.com/blog/ai-sdk-3-generative-ui">Vercel’s AI SDK 3.0</a> open-sources the generative UI tech of their v0 tool and allows you to “give LLMs rich, component-based interfaces” using React Server Components. That last sentence had so many buzzwords in it that I feel like I need to lie down for a minute.</p>
+</li>
+<li>
+<p>Ok, we’re back. Roy Anger wrote a helpful guide on <a href="https://dub.sh/p22W1RE">How to add an onboarding flow to your application with Clerk</a>. It shows how to use Next.js Middleware and Clerk’s customizable session tokens to create a strong onboarding experience that will make your users actually want to stick around. [sponsored]</p>
+</li>
+<li>
+<p>Chris Haynes wrote about <a href="https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/">Streaming HTML out of order without JavaScript</a>.</p>
+</li>
+<li>
+<p>Vjeux wrote about his experience <a href="https://blog.vjeux.com/2024/project/12-years-at-meta.html">working at Meta for the past 12 years</a>, including his work on React Native, Prettier, and trying to help Americans learn how to correctly pronounce French words. 2/3 ain’t bad.</p>
+</li>
+<li>
+<p>ICYMI <a href="https://developer.apple.com/support/dma-and-apps-in-the-eu/">Apple isn’t going to remove PWA support on iOS in the EU after all</a>.</p>
+</li>
+<li>
+<p>Radosław Miernik wrote about their experience <a href="https://radekmie.dev/blog/on-getting-paid-for-open-source/">Getting paid for open source</a> and the various financing models they’ve tried.</p>
+</li>
+<li>
+<p>Datadog just released a free ebook on <a href="https://www.datadoghq.com/bytes/">How to monitor AWS container environments at scale</a>. [sponsored]</p>
+</li>
+<li>
+<p>Shubham Jain wrote a quick post called, <a href="https://shubhamjain.co/2024/02/29/why-is-number-package-have-59m-downloads/">Why Does <code>is-number</code> Package Have 59M Weekly Downloads?</a> Well, let me answer your question with another question: Why does this 2-hour video of <a href="https://www.youtube.com/watch?v=I8nE9QJliwQ">miniature cooking recipes</a> have 59M views? Because humankind is unknowable.</p>
+</li>
+<li>
+<p><a href="https://github.com/electric-sql/pglite">PGlite</a> is a WASM + Postgres build that’s packaged into a TypeScript client library, enabling you to run Postgres in the browser, Node.js, and Bun.</p>
+</li>
+<li>
+<p>Have you ever wondered how George Lucas just happened to think of a cinematic universe that centers on a desert planet, a “chosen one” trying to avenge the death of his father, space swords, and a pseudo-religious order that can wield a mysterious force to control others — a decade after <em>Dune</em> came out? Yeah me neither. But if you’ve ever wondered <a href="https://www.thisdot.co/blog/css-hooks-a-new-way-to-style-your-react-apps">How to use CSS Hooks to style your React app</a>, Jamie Kuppens has you covered.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: Is JSR the chosen one?","date":"2024-03-04","featuredImage":"/images/content/npm-jsr.jpg","description":"Why `is-number` gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel's AI buzzword bingo.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Why \u003ccode\u003eis-number\u003c/code\u003e gets 59 million weekly downloads, how to (sometimes) get paid for open source, and Vercel’s AI buzzword bingo.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/268\"\u003e#268\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/npm-jsr.jpg\" alt=\"The big worm from spongebob with the npm logo, and the big worm from Dune with the jsr logo\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eBless the Maker and his water\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eIs JSR the chosen one?\u003c/h3\u003e\u003cp\u003eAfter \u003cdel\u003egenerations of prophecy\u003c/del\u003e \u003cem\u003ea few weeks of buzz\u003c/em\u003e, Deno finally just released an open beta of \u003ca href=\"https://jsr.io/#why-jsr\"\u003eJSR\u003c/a\u003e, its open-source package registry for modern JavaScript and TypeScript.\u003c/p\u003e\u003cp\u003eJSR stands for “JavaScript Registry”, but it \u003cem\u003emight\u003c/em\u003e have been more appropriate to call it TSR, considering the first line of their website states that “JSR is designed for TypeScript.” I’m no branding expert, but this feels like that time I learned that the first KFC was actually \u003ca href=\"https://www.atlasobscura.com/places/first-kfc-restaurant-m\"\u003estarted in Utah\u003c/a\u003e and not Kentucky.\u003c/p\u003e\u003cp\u003eBut the bigger question on everyone’s mind is \u003cstrong\u003e\u003cem\u003ewhy\u003c/em\u003e do we need a new package registry?\u003c/strong\u003e\u003c/p\u003e\u003cp\u003eRyan Dahl knows better than anyone how much the JS ecosystem has changed since npm (and Node) were created back in 2009. Since then, we’ve seen the emergence of hugely impactful technologies like TypeScript, ES modules, and new JS runtimes — but npm wasn’t built with any of these in mind.\u003c/p\u003e\u003cp\u003eSo the Deno crew decided to build a new registry themselves that, much like KFC’s \u003ca href=\"https://www.thesouthafrican.com/lifestyle/kfc-50th-birthday-kentucky-town-zinger-doughnut-burger-twitter-reviews-photos/\"\u003edonut chicken sandwich\u003c/a\u003e, embraces the full power of modernity. Here’s how:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNative TypeScript support\u003c/strong\u003e — I already gave this one away, but JSR does a lot of work \u003ca href=\"https://deno.com/blog/jsr_open_beta#publishing-to-jsr\"\u003ebehind the scenes\u003c/a\u003e to let you author your package in TypeScript and publish TS source directly to JSR, without a build step.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eES modules only\u003c/strong\u003e — Like Paul Atreides once told the Fremen army, “Be the change you wish to see in the world.”\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWorks with any runtime\u003c/strong\u003e — JSR wants to \u003cem\u003ejust work\u003c/em\u003e everywhere JavaScript works, without requiring authors to transpile and distribute typings manually. It already works with Node, Deno, Bun, Cloudflare Workers, and other npm environments, and plans to continue expanding support.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBuilt on npm\u003c/strong\u003e — Like TypeScript’s relationship to JavaScript, JSR is a \u003cem\u003esuperset\u003c/em\u003e of npm, not a fork. That means it’s designed to \u003ca href=\"https://jsr.io/docs/npm-compatibility\"\u003einteroperate with npm-based projects\u003c/a\u003e, and JSR modules can import dependencies from npm.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e In many ways, the motivations behind JSR feel similar to Ryan’s \u003ca href=\"https://www.youtube.com/watch?v=M3BM9TB-8yA\"\u003emotivations\u003c/a\u003e for building Deno as a more modern, secure, and TypeScript-friendly version of Node. It’s too early to tell if either project will reach the critical mass of users to truly “fix” the problems of their predecessors, but early returns for JSR look super promising.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Loved%20this%20breakdown%20on%20why%20%40deno_land's%20JSR%20could%20become%20the%20TypeScript%20of%20npm%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ALoved%20this%20breakdown%20on%20why%20%40deno_land's%20JSR%20could%20become%20the%20TypeScript%20of%20npm%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F268\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/postman-logo.png\" alt=\"Postman logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/patrick-brain.jpg\" alt=\"Patrick Star with a big brain\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you convince your boss to send you to POST/CON\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.postman.com/postcon/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march42024\u0026amp;utm_content=primary-placement\"\u003ePOST/CON 24 full agenda revealed!\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"eyes\"\u003e👀\u003c/span\u003e\u003c/h3\u003e\u003cp\u003eIf designing and consuming APIs is a big part of your job, attending POST/CON 24 on April 30-May 1, 2024, is a no-brainer.\u003c/p\u003e\u003cp\u003ePostman just dropped the full agenda (\u003ca href=\"https://www.postman.com/postcon/agenda/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march42024\u0026amp;utm_content=primary-placement\"\u003esee here\u003c/a\u003e), and it’s stacked. Here are a few highlights:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003eHands-on labs teaching you new strategies and tools to enhance API development\u003c/li\u003e\n\u003cli\u003eA full afternoon of talks dedicated to helping you \u003ca href=\"https://www.postman.com/postcon/agenda/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march42024\u0026amp;utm_content=primary-placement\"\u003etake your APIs public\u003c/a\u003e and market them to developers\u003c/li\u003e\n\u003cli\u003eWorkshops on improving developer experience by scaling API collaboration across your organization\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://www.postman.com/postcon/agenda/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=q1-newsletter-sponsorships\u0026amp;utm_term=march42024\u0026amp;utm_content=primary-placement\"\u003eClaim your 30% discount on tickets\u003c/a\u003e if you register before March 26.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/tip.png\" alt=\"Tip logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Tip\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://getstream.io/video/?utm_source=Bytes\u0026amp;utm_medium=promoted_newsletter\u0026amp;utm_content=developer\u0026amp;utm_campaign=newsletter_content_ad_mar4\"\u003eStream\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir \u003ca href=\"https://getstream.io/video/sdk/react/?utm_source=Bytes\u0026amp;utm_medium=promoted_newsletter\u0026amp;utm_content=developer\u0026amp;utm_campaign=newsletter_content_ad_mar4\"\u003eReact SDK for Video \u0026amp; Audio\u003c/a\u003e makes it easy to build video conferencing like Zoom, voice calls like telegram, or livestreaming like Twitch — and you can try it all out for free.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eJavaScript has a new(ish) \u003ccode\u003eIntl\u003c/code\u003e API. You may be thinking “Internationalization? I only have users in the US, why would I use this?“. You fool, take a look. Here’s what it can do.\u003c/p\u003e\n\u003cp\u003eFormat Dates: Similar to the \u003ccode\u003etoLocaleDateString\u003c/code\u003e method on the \u003ccode\u003eDate\u003c/code\u003e object, you can use this to format Dates, but with \u003ccode\u003eIntl\u003c/code\u003e you get some extra options like \u003ccode\u003etimeZone\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e date \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eDate\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eDate\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003enow\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eIntl\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eDateTimeFormat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"en-US\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003etimeZone\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"America/Los_Angeles\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eminute\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"numeric\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ehour\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"numeric\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eformat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003edate\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token comment\"\u003e// 9:45 AM (returns the current time in that timeZone)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFormat Numbers:  You can also use \u003ccode\u003eIntl\u003c/code\u003e to format Numbers.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eIntl\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eNumberFormat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"en-GB\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003estyle\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"unit\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eunit\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"liter\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eunitDisplay\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"long\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eformat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// '1 litre'\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr in America, we refer to this as a \u003ca href=\"https://www.youtube.com/watch?v=0zgTcrZ5030\"\u003e“Large Farva”\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eFormat Lists: As Oxford comma maximalists, we appreciate that it can render lists properly too.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e list \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Motorcycle\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Bus\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Car\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eIntl\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eListFormat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token string\"\u003e\"en-US\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003estyle\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"long\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003etype\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"conjunction\"\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eformat\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003elist\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// 'Motorcycle, Bus, and Car'\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eText Segmentation:\u003c/p\u003e\n\u003cp\u003eThe last feature we’ll highlight (there are \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl\"\u003emore\u003c/a\u003e) is language specific text segmentation. Doing a \u003ccode\u003estr.split('')\u003c/code\u003e on non-english strings is a good way to introduce bugs.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e str \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"吾輩は猫である。名前はたぬき。\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etable\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003estr\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esplit\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\" \"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// ['吾輩は猫である。名前はたぬき。']\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// The two sentences are not correctly segmented.\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e segmenterJa \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eIntl\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eSegmenter\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"ja-JP\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \n  \u003cspan class=\"token literal-property property\"\u003egranularity\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"word\"\u003c/span\u003e \n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e segments \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e segmenterJa\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esegment\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003estr\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etable\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eArray\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efrom\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003esegments\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// [\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//   {\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//     segment: \"吾輩\",\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//     index: 0,\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//     input: \"吾輩は猫である。名前はたぬき。\",\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//     isWordLike: true,\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e//   },\u003c/span\u003e\n\u003cspan class=\"token comment\"\u003e// ];\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://vercel.com/blog/ai-sdk-3-generative-ui\"\u003eVercel’s AI SDK 3.0\u003c/a\u003e open-sources the generative UI tech of their v0 tool and allows you to “give LLMs rich, component-based interfaces” using React Server Components. That last sentence had so many buzzwords in it that I feel like I need to lie down for a minute.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOk, we’re back. Roy Anger wrote a helpful guide on \u003ca href=\"https://dub.sh/p22W1RE\"\u003eHow to add an onboarding flow to your application with Clerk\u003c/a\u003e. It shows how to use Next.js Middleware and Clerk’s customizable session tokens to create a strong onboarding experience that will make your users actually want to stick around. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eChris Haynes wrote about \u003ca href=\"https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/\"\u003eStreaming HTML out of order without JavaScript\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVjeux wrote about his experience \u003ca href=\"https://blog.vjeux.com/2024/project/12-years-at-meta.html\"\u003eworking at Meta for the past 12 years\u003c/a\u003e, including his work on React Native, Prettier, and trying to help Americans learn how to correctly pronounce French words. 2/3 ain’t bad.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eICYMI \u003ca href=\"https://developer.apple.com/support/dma-and-apps-in-the-eu/\"\u003eApple isn’t going to remove PWA support on iOS in the EU after all\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRadosław Miernik wrote about their experience \u003ca href=\"https://radekmie.dev/blog/on-getting-paid-for-open-source/\"\u003eGetting paid for open source\u003c/a\u003e and the various financing models they’ve tried.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDatadog just released a free ebook on \u003ca href=\"https://www.datadoghq.com/bytes/\"\u003eHow to monitor AWS container environments at scale\u003c/a\u003e. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eShubham Jain wrote a quick post called, \u003ca href=\"https://shubhamjain.co/2024/02/29/why-is-number-package-have-59m-downloads/\"\u003eWhy Does \u003ccode\u003eis-number\u003c/code\u003e Package Have 59M Weekly Downloads?\u003c/a\u003e Well, let me answer your question with another question: Why does this 2-hour video of \u003ca href=\"https://www.youtube.com/watch?v=I8nE9QJliwQ\"\u003eminiature cooking recipes\u003c/a\u003e have 59M views? Because humankind is unknowable.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/electric-sql/pglite\"\u003ePGlite\u003c/a\u003e is a WASM + Postgres build that’s packaged into a TypeScript client library, enabling you to run Postgres in the browser, Node.js, and Bun.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHave you ever wondered how George Lucas just happened to think of a cinematic universe that centers on a desert planet, a “chosen one” trying to avenge the death of his father, space swords, and a pseudo-religious order that can wield a mysterious force to control others — a decade after \u003cem\u003eDune\u003c/em\u003e came out? Yeah me neither. But if you’ve ever wondered \u003ca href=\"https://www.thisdot.co/blog/css-hooks-a-new-way-to-style-your-react-apps\"\u003eHow to use CSS Hooks to style your React app\u003c/a\u003e, Jamie Kuppens has you covered.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"268"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"268"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

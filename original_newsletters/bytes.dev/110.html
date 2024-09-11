@@ -1,0 +1,379 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #110 - C++ kind of sucks, actually.</title><link rel="canonical" href="https://bytes.dev/archives/110"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got Google&#x27;s succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005"/><meta property="og:url" content="https://bytes.dev/archives/110"/><meta property="og:title" content="Bytes #110 - C++ kind of sucks, actually."/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/crown.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got Google&#x27;s succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005"/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #110 - C++ kind of sucks, actually."/><meta property="twitter:description" content="This issue, we&#x27;ve got Google&#x27;s succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005"/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/crown.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> C++ kind of sucks, actually.</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->110<!-- -->.</span><span class="mr-6 font-bold">July 25, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week, we’ve got Google’s succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005. Welcome to #110.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/crown.jpg" alt="Wrestlers giving up the crown">
+</p><p class="image-alt">Live footage of the C++ succession ceremony</p><p></p>
+<h2>Google wants to build the TypeScript of C++</h2>
+<p>It all went down last week in Toronto at a C++ Conference (yes those are real, I checked).</p>
+<p>Chandler Carruth (leader of the C++, Clang, and LLVM teams at Google) stepped onstage to give <a href="https://www.youtube.com/watch?v=omrY53kbVoA">the keynote speech</a>, slowly locked eyes with everyone in the audience, and delivered the news: “C++ kind of sucks, actually.”</p>
+<p>Ok, he didn’t say it <em>quite</em> like that. But he did say that the language is “falling short” of its <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2137r0.html#goals">stated goals</a> — which include software and language evolution, creating code that is easy to write and understand, and more.</p>
+<p><strong>Why though?</strong> Just like your parents, most C++ issues stem from the fact that it’s pretty old and unwilling/unable to change (still love you, mom).</p>
+<p>The language is bogged down by <em>decades</em> of technical debt, but it needs to focus on backwards compatibility (at the expense of incremental improvements) to make sure it doesn’t break all of the low-level systems that use it to power… <em>(*checks notes*)</em> most of the modern world.</p>
+<p>After outlining all of the C++ problems, Chandler (aka <a href="https://www.pokemon.com/us/pokedex/chansey">Chan-C</a>) also offered a solution that he’d been cooking up with his friends at Google: an experimental “successor language” to C++ called <a href="https://github.com/carbon-language/carbon-lang">Carbon</a>.</p>
+<p>This approach is similar to JavaScript → TypeScript and Java → Kotlin: it’s designed for tight interop with C++ and large-scale adoption/migration, while giving Carbon the freedom to make improvements much faster.</p>
+<p><strong>Highlights:</strong></p>
+<ul>
+<li>
+<p>Performance matching C++, so it doesn’t sacrifice any speed</p>
+</li>
+<li>
+<p>Simplified grammar and keywords, so it’s a lot easier to learn and use</p>
+</li>
+<li>
+<p>Seamless, bidirectional interoperability with C++</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> There are lots of great options for modern, low-level programming languages out there (Rust, Go, Kotlin, and more). But the C++ ecosystem isn’t going away anytime soon, especially now that Google has stepped in the ring. Stay tuned.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/pringles.jpg" alt="Cat stuck in a pringles can">
+</p><p class="image-alt">“Looks like I got stuck hand-rolling auth again” [sponsored]</p><p></p>
+<h2><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a> is the holy grail</h2>
+<p>Trying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws – it’s painful, complicated, and you’re one wrong step away from a complete disaster.</p>
+<p>That’s why we’re huge fans of <a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">FusionAuth</a>.</p>
+<p>They’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, user management, and security – and if you don’t know what one or more of these things are… you probably need it.</p>
+<p>Their <a href="https://fusionauth.io/download?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Free Community version</a> is surprisingly robust (no credit card, no limits, and it’s free forever if you self host <span role="img" aria-label="folded hands">🙏</span>). That makes it great to learn with or use for side projects, but it’s also got a pretty seamless integration process for existing apps.</p>
+<p>And if you ever get stuck, you can call their support line and talk to an <em>actual engineer</em> who really knows auth – instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).</p>
+<p><a href="https://fusionauth.io/?utm_campaign=Newsletter%20Ads&amp;utm_source=bytes&amp;utm_medium=referral&amp;utm_term=premier">Check it out</a> and never worry about auth again.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/meeting.jpg" alt="Succession characters sitting in a circle">
+</p><p class="image-alt">Design system support group</p><p></p>
+<h2>Radix releases v1.0 so you can stop pretending to build your own</h2>
+<p>Remember ~2 years ago when every frontend dev wanted to work on design systems, only to realize it’s basically like working in the basement of <a href="https://lumon-industries.com/">Lumon Industries</a>?</p>
+<p>Fortunately, Radix UI (Latin for <a href="https://youtu.be/Pk-kbjw0Y8U?t=7">round</a>) just released v1 of their set of primitive, un-styled React UI components — so we can all stop pretending to build our own <span role="img" aria-label="folded hands">🙏</span>.</p>
+<p><strong>What makes Radix so good?</strong> Every React app does styling differently, which can make certain component libraries a no-go. Radix, however, is unstyled, which makes it easy to adopt and customize.</p>
+<p>Each component encapsulates the markup and core UI behaviors while ensuring that accessibility features like keyboard navigation, focus management and screen readers work out of the box (aka all the things your PM would cut from the scope because “we need to move fast and break things”).</p>
+<p>Basically, Radix let’s you live your life, while they <a href="https://www.modulz.app/blog/modulz-acquired-by-workos">earn the finger traps</a> for providing some top-tier goodies out of the box:</p>
+<ul>
+<li>
+<p>26 different components, including essentials like tooltips and modals (popovers), but also has primitives like Portal to help you compose your own components.</p>
+</li>
+<li>
+<p>Great SSR support for React 18, which ensures that fast TTI for screen readers.</p>
+</li>
+<li>
+<p>Small bundle size — you can adopt the components one at a time and save some bits.</p>
+</li>
+<li>
+<p>Nice add ons including an <a href="https://icons.radix-ui.com/">accessible icon library</a> and <a href="https://www.radix-ui.com/colors">color palette generator</a>.</p>
+</li>
+<li>
+<p>Works with any styling or animation solution, but the team build their own zero runtime <a href="https://stitches.dev/">css-in-js</a> solution too.</p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> You know a component library must be great if big bois like Vercel, Linear, and Supabase were already using it <em>before</em> Radix had released v1. Excited to see where it goes from here <span role="img" aria-label="rocket">🚀</span>.</p>
+<hr>
+<h2>Spot the Bug — Sponsored by <a href="https://appwrite.io/?utm_source=newsletter&amp;utm_medium=homepage&amp;utm_campaign=bytes">Appwrite</a></h2>
+<p><em>Their secure, open-source backend asa service gives you all the core APIs you need to build anything you can think of.</em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">reduceLanguages</span> <span class="token punctuation">(</span><span class="token parameter">str<span class="token punctuation">,</span> lang<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>languages<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lang<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lang<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Tyler"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">27</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">languages</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"JavaScript"</span><span class="token punctuation">,</span> <span class="token string">"Ruby"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> hello <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello, my name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and I know</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> langs <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>languages<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>reduceLanguages<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> hello <span class="token operator">+</span> langs<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> greeting <span class="token operator">=</span> user<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://boards.greenhouse.io/phantom45/jobs/4009816005?gh_jid=4009816005&amp;gh_src=72da407d5us">Frontend software engineer at Phantom</a></h3>
+<p>Phantom is looking for frontend engineers who enjoy massive ownership and freedom, and who want to work with a variety of technologies, including React, TypeScript, and React Query. You’ll be directly impacting the development of their flagship mobile app and working closely with the founders to improve the product. The role is fully remote.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Ryan Carniato wrote about <a href="https://dev.to/this-is-learning/the-cost-of-consistency-in-ui-frameworks-4agi">The Cost of Consistency in UI Frameworks</a>. FWIW, “The Cost of Consistency” also sounds like the title of a (ghost-written) self-help book by a college football coach who’s about to get busted for doing something super illegal.</p>
+</li>
+<li>
+<p><a href="https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes&amp;utm_medium=paid-referral&amp;utm_campaign=bytes-presenting-sponsor&amp;utm_term=qa-uat-use-case">BugHerd</a> simplifies Website QA and UAT testing for everyone and sends website feedback to one central location for easy management. As a result, one team was able to <a href="https://bugherd.com/customers/customer-success-stories-manifest-digital?utm_source=bytes&amp;utm_medium=paid-referral&amp;utm_campaign=bytes-presenting-sponsor&amp;utm_term=manifest-case-study">reduce bug ticket management time by 75%</a> <span role="img" aria-label="exploding head">🤯</span> [sponsored]</p>
+</li>
+<li>
+<p>Kelly Lampotang and Bonnie Nguyen wrote about <a href="https://engineering.fb.com/2022/07/18/developer-tools/building-text-animations-for-instagram-stories/">Building text animations for Instagram Stories</a> at Meta. Those text animations have really helped take my inspirational quote + stock image IG stories to the next level: <em>“For the strength <span role="img" aria-label="flexed biceps">💪</span> of the wolf is the pack <span role="img" aria-label="people with bunny ears">👯</span>️, and the strength of the pack is the wolf <span role="img" aria-label="wolf">🐺</span>.”</em> Smash that follow button for more pure alpha inspo.</p>
+</li>
+<li>
+<p>The PyTorch team partnered with Expo to create <a href="https://pytorch.org/blog/introducing-the-playtorch-app/">PlayTorch</a> — a new app and SDK for easily prototyping “AI-powered experiences.” I’m not really sure what that means, but I’m sure it’s good, right? Right??</p>
+</li>
+<li>
+<p>Kara Erickson spoke about the <a href="https://www.vuemastery.com/conferences/vueconf-us-2022/nuxtjs-and-chrome/">NuxtJS and Chrome collaboration</a> that she works on as a member of the Chrome Aurora team. What a coincidence, “Chrome Aurora” is also the wolf name that all of my brother wolves gave me in that virtual pack I joined in that chat room back in 2005.</p>
+</li>
+<li>
+<p>Baldur Bjarnason wrote an article called, <a href="https://www.baldurbjarnason.com/2022/more-better-web-apps/">I don’t care how you web dev; I just need more better web apps</a>. <em>Why would you say something so controversial, yet so brave?</em></p>
+</li>
+<li>
+<p><a href="https://github.com/apvarun/awesome-bun">Awesome Bun</a> is a repo full of “awesome things related to Bun” — just in case you weren’t entirely sure what phase of the hype cycle we’re in. (First one to get the Bun logo tattooed on their face wins a free hoodie!)</p>
+</li>
+<li>
+<p><a href="https://you.com/">You.com</a> <em>(S-tier domain flex)</em> is a new search engine that’s looking to target developers with features like code snippets in the search results and AI-assisted autocomplete for code searches. Here’s an <a href="https://you.com/search?q=pop%20in%20javascript&amp;fromSearchBar=true&amp;tbm=youcode">example</a>. It was very forward-thinking of them to get Kelly Clarkson to write and record their <a href="https://youtu.be/Ra-Om7UMSJc?t=42">product theme song</a> back in 2004.</p>
+</li>
+</ol>
+<hr>
+<h2>Spot the Bug Solution — Sponsored by <a href="https://appwrite.io/?utm_source=newsletter&amp;utm_medium=homepage&amp;utm_campaign=bytes">Appwrite</a></h2>
+<p>If you run the original code, you’ll get “Uncaught TypeError: Cannot read properties of undefined (reading ‘length’)“. The only place we’re using <code>.length</code> is inside our <code>reduceLanguages</code> function, so we can infer that <code>this.languages</code> is <code>undefined</code> and we’re incorrectly using the <code>this</code> keyword.</p>
+<p>Whenever you’re trying to figure out what the <code>this</code> keyword is referencing, you need to look at where the function using the <code>this</code> keyword is being invoked. In our example, we don’t know since it’s in the implementation of <code>reduce</code>. To make sure <code>reduceLanguages</code> gets invoked in the right context and therefor has the correct <code>this</code> binding, we have two choices. First, the old school way - using <code>.bind</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> hello <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello, my name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and I know</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> langs <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>languages<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token function">reduceLanguages</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> hello <span class="token operator">+</span> langs<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Second, the better way - using an arrow function.</p>
+<pre class="language-js"><code class="language-js"><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> hello <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello, my name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and I know</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> langs <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>languages<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">str<span class="token punctuation">,</span> lang<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>languages<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lang<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lang<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>   
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> hello <span class="token operator">+</span> langs<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The reason this works is because with arrow functions, <code>this</code> is determined <em>lexically</em>. Arrow functions don’t have their own <code>this</code>. Instead, just like with variable lookups, the JavaScript interpreter will look to the enclosing (parent) scope to determine what <code>this</code> should reference.</p>
+<p>Want to read more? Check out <a href="https://ui.dev/this-keyword-call-apply-bind-javascript">Understanding the “this” keyword, call, apply, and bind in JavaScript</a>.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: C++ kind of sucks, actually.","date":"2022-07-25","description":"This issue, we've got Google's succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005","featuredImage":"https://bytes.dev/images/content/crown.jpg"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week, we’ve got Google’s succession plans, Bun tattoos, and my virtual wolfpack chatroom from 2005. Welcome to #110.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/crown.jpg\" alt=\"Wrestlers giving up the crown\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eLive footage of the C++ succession ceremony\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eGoogle wants to build the TypeScript of C++\u003c/h2\u003e\n\u003cp\u003eIt all went down last week in Toronto at a C++ Conference (yes those are real, I checked).\u003c/p\u003e\n\u003cp\u003eChandler Carruth (leader of the C++, Clang, and LLVM teams at Google) stepped onstage to give \u003ca href=\"https://www.youtube.com/watch?v=omrY53kbVoA\"\u003ethe keynote speech\u003c/a\u003e, slowly locked eyes with everyone in the audience, and delivered the news: “C++ kind of sucks, actually.”\u003c/p\u003e\n\u003cp\u003eOk, he didn’t say it \u003cem\u003equite\u003c/em\u003e like that. But he did say that the language is “falling short” of its \u003ca href=\"https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2137r0.html#goals\"\u003estated goals\u003c/a\u003e — which include software and language evolution, creating code that is easy to write and understand, and more.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy though?\u003c/strong\u003e Just like your parents, most C++ issues stem from the fact that it’s pretty old and unwilling/unable to change (still love you, mom).\u003c/p\u003e\n\u003cp\u003eThe language is bogged down by \u003cem\u003edecades\u003c/em\u003e of technical debt, but it needs to focus on backwards compatibility (at the expense of incremental improvements) to make sure it doesn’t break all of the low-level systems that use it to power… \u003cem\u003e(*checks notes*)\u003c/em\u003e most of the modern world.\u003c/p\u003e\n\u003cp\u003eAfter outlining all of the C++ problems, Chandler (aka \u003ca href=\"https://www.pokemon.com/us/pokedex/chansey\"\u003eChan-C\u003c/a\u003e) also offered a solution that he’d been cooking up with his friends at Google: an experimental “successor language” to C++ called \u003ca href=\"https://github.com/carbon-language/carbon-lang\"\u003eCarbon\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThis approach is similar to JavaScript → TypeScript and Java → Kotlin: it’s designed for tight interop with C++ and large-scale adoption/migration, while giving Carbon the freedom to make improvements much faster.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHighlights:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ePerformance matching C++, so it doesn’t sacrifice any speed\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSimplified grammar and keywords, so it’s a lot easier to learn and use\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSeamless, bidirectional interoperability with C++\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e There are lots of great options for modern, low-level programming languages out there (Rust, Go, Kotlin, and more). But the C++ ecosystem isn’t going away anytime soon, especially now that Google has stepped in the ring. Stay tuned.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/pringles.jpg\" alt=\"Cat stuck in a pringles can\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003e“Looks like I got stuck hand-rolling auth again” [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e is the holy grail\u003c/h2\u003e\n\u003cp\u003eTrying to build authentication from scratch is like trying to hold in diarrhea while meeting your future in-laws – it’s painful, complicated, and you’re one wrong step away from a complete disaster.\u003c/p\u003e\n\u003cp\u003eThat’s why we’re huge fans of \u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFusionAuth\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThey’re a complete auth solution that takes care of all the gross stuff like SSO, MFA, user management, and security – and if you don’t know what one or more of these things are… you probably need it.\u003c/p\u003e\n\u003cp\u003eTheir \u003ca href=\"https://fusionauth.io/download?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eFree Community version\u003c/a\u003e is surprisingly robust (no credit card, no limits, and it’s free forever if you self host \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e). That makes it great to learn with or use for side projects, but it’s also got a pretty seamless integration process for existing apps.\u003c/p\u003e\n\u003cp\u003eAnd if you ever get stuck, you can call their support line and talk to an \u003cem\u003eactual engineer\u003c/em\u003e who really knows auth – instead of just typing your questions into a support chat box that no one will read (like some other auth companies I know).\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://fusionauth.io/?utm_campaign=Newsletter%20Ads\u0026amp;utm_source=bytes\u0026amp;utm_medium=referral\u0026amp;utm_term=premier\"\u003eCheck it out\u003c/a\u003e and never worry about auth again.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/meeting.jpg\" alt=\"Succession characters sitting in a circle\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eDesign system support group\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eRadix releases v1.0 so you can stop pretending to build your own\u003c/h2\u003e\n\u003cp\u003eRemember ~2 years ago when every frontend dev wanted to work on design systems, only to realize it’s basically like working in the basement of \u003ca href=\"https://lumon-industries.com/\"\u003eLumon Industries\u003c/a\u003e?\u003c/p\u003e\n\u003cp\u003eFortunately, Radix UI (Latin for \u003ca href=\"https://youtu.be/Pk-kbjw0Y8U?t=7\"\u003eround\u003c/a\u003e) just released v1 of their set of primitive, un-styled React UI components — so we can all stop pretending to build our own \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat makes Radix so good?\u003c/strong\u003e Every React app does styling differently, which can make certain component libraries a no-go. Radix, however, is unstyled, which makes it easy to adopt and customize.\u003c/p\u003e\n\u003cp\u003eEach component encapsulates the markup and core UI behaviors while ensuring that accessibility features like keyboard navigation, focus management and screen readers work out of the box (aka all the things your PM would cut from the scope because “we need to move fast and break things”).\u003c/p\u003e\n\u003cp\u003eBasically, Radix let’s you live your life, while they \u003ca href=\"https://www.modulz.app/blog/modulz-acquired-by-workos\"\u003eearn the finger traps\u003c/a\u003e for providing some top-tier goodies out of the box:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e26 different components, including essentials like tooltips and modals (popovers), but also has primitives like Portal to help you compose your own components.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGreat SSR support for React 18, which ensures that fast TTI for screen readers.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSmall bundle size — you can adopt the components one at a time and save some bits.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNice add ons including an \u003ca href=\"https://icons.radix-ui.com/\"\u003eaccessible icon library\u003c/a\u003e and \u003ca href=\"https://www.radix-ui.com/colors\"\u003ecolor palette generator\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWorks with any styling or animation solution, but the team build their own zero runtime \u003ca href=\"https://stitches.dev/\"\u003ecss-in-js\u003c/a\u003e solution too.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e You know a component library must be great if big bois like Vercel, Linear, and Supabase were already using it \u003cem\u003ebefore\u003c/em\u003e Radix had released v1. Excited to see where it goes from here \u003cspan role=\"img\" aria-label=\"rocket\"\u003e🚀\u003c/span\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug — Sponsored by \u003ca href=\"https://appwrite.io/?utm_source=newsletter\u0026amp;utm_medium=homepage\u0026amp;utm_campaign=bytes\"\u003eAppwrite\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eTheir secure, open-source backend asa service gives you all the core APIs you need to build anything you can think of.\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003ereduceLanguages\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003estr\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e lang\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e i\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elanguages\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003estr\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e and \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003elang\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e.\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003estr\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003elang\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e,\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Tyler\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003eage\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e27\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token literal-property property\"\u003elanguages\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"JavaScript\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Ruby\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"Python\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003egreet\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token string\"\u003eHello, my name is \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e and I know\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n    \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e langs \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elanguages\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ereduceLanguages\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e langs\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e greeting \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003egreet\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://boards.greenhouse.io/phantom45/jobs/4009816005?gh_jid=4009816005\u0026amp;gh_src=72da407d5us\"\u003eFrontend software engineer at Phantom\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003ePhantom is looking for frontend engineers who enjoy massive ownership and freedom, and who want to work with a variety of technologies, including React, TypeScript, and React Query. You’ll be directly impacting the development of their flagship mobile app and working closely with the founders to improve the product. The role is fully remote.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eRyan Carniato wrote about \u003ca href=\"https://dev.to/this-is-learning/the-cost-of-consistency-in-ui-frameworks-4agi\"\u003eThe Cost of Consistency in UI Frameworks\u003c/a\u003e. FWIW, “The Cost of Consistency” also sounds like the title of a (ghost-written) self-help book by a college football coach who’s about to get busted for doing something super illegal.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://bugherd.com/use-case/uat-qa-testing?utm_source=bytes\u0026amp;utm_medium=paid-referral\u0026amp;utm_campaign=bytes-presenting-sponsor\u0026amp;utm_term=qa-uat-use-case\"\u003eBugHerd\u003c/a\u003e simplifies Website QA and UAT testing for everyone and sends website feedback to one central location for easy management. As a result, one team was able to \u003ca href=\"https://bugherd.com/customers/customer-success-stories-manifest-digital?utm_source=bytes\u0026amp;utm_medium=paid-referral\u0026amp;utm_campaign=bytes-presenting-sponsor\u0026amp;utm_term=manifest-case-study\"\u003ereduce bug ticket management time by 75%\u003c/a\u003e \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKelly Lampotang and Bonnie Nguyen wrote about \u003ca href=\"https://engineering.fb.com/2022/07/18/developer-tools/building-text-animations-for-instagram-stories/\"\u003eBuilding text animations for Instagram Stories\u003c/a\u003e at Meta. Those text animations have really helped take my inspirational quote + stock image IG stories to the next level: \u003cem\u003e“For the strength \u003cspan role=\"img\" aria-label=\"flexed biceps\"\u003e💪\u003c/span\u003e of the wolf is the pack \u003cspan role=\"img\" aria-label=\"people with bunny ears\"\u003e👯\u003c/span\u003e️, and the strength of the pack is the wolf \u003cspan role=\"img\" aria-label=\"wolf\"\u003e🐺\u003c/span\u003e.”\u003c/em\u003e Smash that follow button for more pure alpha inspo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe PyTorch team partnered with Expo to create \u003ca href=\"https://pytorch.org/blog/introducing-the-playtorch-app/\"\u003ePlayTorch\u003c/a\u003e — a new app and SDK for easily prototyping “AI-powered experiences.” I’m not really sure what that means, but I’m sure it’s good, right? Right??\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKara Erickson spoke about the \u003ca href=\"https://www.vuemastery.com/conferences/vueconf-us-2022/nuxtjs-and-chrome/\"\u003eNuxtJS and Chrome collaboration\u003c/a\u003e that she works on as a member of the Chrome Aurora team. What a coincidence, “Chrome Aurora” is also the wolf name that all of my brother wolves gave me in that virtual pack I joined in that chat room back in 2005.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBaldur Bjarnason wrote an article called, \u003ca href=\"https://www.baldurbjarnason.com/2022/more-better-web-apps/\"\u003eI don’t care how you web dev; I just need more better web apps\u003c/a\u003e. \u003cem\u003eWhy would you say something so controversial, yet so brave?\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/apvarun/awesome-bun\"\u003eAwesome Bun\u003c/a\u003e is a repo full of “awesome things related to Bun” — just in case you weren’t entirely sure what phase of the hype cycle we’re in. (First one to get the Bun logo tattooed on their face wins a free hoodie!)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://you.com/\"\u003eYou.com\u003c/a\u003e \u003cem\u003e(S-tier domain flex)\u003c/em\u003e is a new search engine that’s looking to target developers with features like code snippets in the search results and AI-assisted autocomplete for code searches. Here’s an \u003ca href=\"https://you.com/search?q=pop%20in%20javascript\u0026amp;fromSearchBar=true\u0026amp;tbm=youcode\"\u003eexample\u003c/a\u003e. It was very forward-thinking of them to get Kelly Clarkson to write and record their \u003ca href=\"https://youtu.be/Ra-Om7UMSJc?t=42\"\u003eproduct theme song\u003c/a\u003e back in 2004.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003eSpot the Bug Solution — Sponsored by \u003ca href=\"https://appwrite.io/?utm_source=newsletter\u0026amp;utm_medium=homepage\u0026amp;utm_campaign=bytes\"\u003eAppwrite\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eIf you run the original code, you’ll get “Uncaught TypeError: Cannot read properties of undefined (reading ‘length’)“. The only place we’re using \u003ccode\u003e.length\u003c/code\u003e is inside our \u003ccode\u003ereduceLanguages\u003c/code\u003e function, so we can infer that \u003ccode\u003ethis.languages\u003c/code\u003e is \u003ccode\u003eundefined\u003c/code\u003e and we’re incorrectly using the \u003ccode\u003ethis\u003c/code\u003e keyword.\u003c/p\u003e\n\u003cp\u003eWhenever you’re trying to figure out what the \u003ccode\u003ethis\u003c/code\u003e keyword is referencing, you need to look at where the function using the \u003ccode\u003ethis\u003c/code\u003e keyword is being invoked. In our example, we don’t know since it’s in the implementation of \u003ccode\u003ereduce\u003c/code\u003e. To make sure \u003ccode\u003ereduceLanguages\u003c/code\u003e gets invoked in the right context and therefor has the correct \u003ccode\u003ethis\u003c/code\u003e binding, we have two choices. First, the old school way - using \u003ccode\u003e.bind\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token function\"\u003egreet\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token string\"\u003eHello, my name is \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e and I know\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e langs \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elanguages\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduceLanguages\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ebind\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e langs\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSecond, the better way - using an arrow function.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token function\"\u003egreet\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token string\"\u003eHello, my name is \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003e\u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003ename\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e and I know\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e langs \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elanguages\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003estr\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e lang\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e i\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003eif\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e===\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elanguages\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003estr\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e and \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003elang\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e.\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token template-string\"\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003estr\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e \u003c/span\u003e\u003cspan class=\"token interpolation\"\u003e\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e${\u003c/span\u003elang\u003cspan class=\"token interpolation-punctuation punctuation\"\u003e}\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token string\"\u003e,\u003c/span\u003e\u003cspan class=\"token template-punctuation string\"\u003e`\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e   \n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e hello \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e langs\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe reason this works is because with arrow functions, \u003ccode\u003ethis\u003c/code\u003e is determined \u003cem\u003elexically\u003c/em\u003e. Arrow functions don’t have their own \u003ccode\u003ethis\u003c/code\u003e. Instead, just like with variable lookups, the JavaScript interpreter will look to the enclosing (parent) scope to determine what \u003ccode\u003ethis\u003c/code\u003e should reference.\u003c/p\u003e\n\u003cp\u003eWant to read more? Check out \u003ca href=\"https://ui.dev/this-keyword-call-apply-bind-javascript\"\u003eUnderstanding the “this” keyword, call, apply, and bind in JavaScript\u003c/a\u003e.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"110"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"110"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

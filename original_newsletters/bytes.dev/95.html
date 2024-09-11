@@ -1,0 +1,330 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #95 - You Can throw Anything In JavaScript</title><link rel="canonical" href="https://bytes.dev/archives/95"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we&#x27;ve got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job."/><meta property="og:url" content="https://bytes.dev/archives/95"/><meta property="og:title" content="Bytes #95 - You Can throw Anything In JavaScript"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/jenny.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we&#x27;ve got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #95 - You Can throw Anything In JavaScript"/><meta property="twitter:description" content="This issue, we&#x27;ve got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/jenny.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> You Can throw Anything In JavaScript</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->95<!-- -->.</span><span class="mr-6 font-bold">April 11, 2022<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>This week we’ve got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job.</p>
+<p>Welcome to #95.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/jenny.png" alt="Jenny Craig Meme">
+</p><p class="image-alt">Shed those bits</p><p></p>
+<h2>Astro’s launch week</h2>
+<p>Astro just wrapped up their first “launch week” (get it? cause Rockets? ok), where they announced the release of the the “Astro v1 Beta”, “SSR with Astro”, “Themes &amp; Integrations” and some other stuff we already forgot about.</p>
+<p>In case you missed the last time we talked about Astro, the TLDR is they are on a mission to be the <a href="https://www.youtube.com/watch?v=PLxesVFWhCE">Jenny Craig of JavaScript</a>, and help you shed those unwanted bytes.</p>
+<p><strong>What does “Astro v1 Beta” do?</strong> Well, like DevRels, we’re still not entirely sure. But they are promising no more breaking changes (until v2). Astro also launched Themes &amp; Integrations (AKA starter templates and plugins) and announced financial support for for the maintainers of some of their dependencies.</p>
+<p>The biggest announcement, however, was that Astro now has (experimental) support for Server Side Rendering. Previously, Astro only had support for SSG (static site generation), so dynamic data had to be fetched at build time or on the client from one of those “islands of interactivity.” With SSR, Astro now lets you build more dynamic websites without sacrificing performance. This new offering also includes API routes (for REST apis, user uploads, serving assets, etc.) — similar to Next or Remix.</p>
+<p><strong>So what makes Astro different?</strong> For starters, Astro is BYOF (bring your own framework) so you can use React, Vue, Svelte (or all of them?) for your site. The team also claims that, unlike other frameworks, Astro is “designed to run on the server” - which is good enough evidence for us.</p>
+<p><strong>Bottom line:</strong> Astro seems like an ideal fit for things like the aspirational rewrite of your personal blog, e-commerce sites, docs, and other websites that don’t need too much client-side JavaScript (which, they’d argue, is <em>most</em> sites). Call 1-800-94-JENNY today, and start losing those unwanted bytes.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/cursed-cookie.png" alt="Cursed Cookie meme">
+</p><p class="image-alt">When you build your own chat app from scratch [sponsored]</p><p></p>
+<h2>Stream is how smart developers build chat apps</h2>
+<p>Building a chat app from scratch in 2022 is like trying to make Pop-Tarts <a href="https://www.youtube.com/watch?v=jYqRiKu7gY0">from scratch</a> — overly complex and completely unnecessary thanks to glorious technology.</p>
+<p>That’s because most developers just <a href="https://getstream.io/try-for-free/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial.">use Stream</a> It’s the #1 chat-messaging and activity feed platform in the world — because it handles all of the mess that comes with building chat apps for you.</p>
+<p><strong>bUt WilL iT SCaLe?</strong> Don’t ask me, ask Match.com – they use Stream to let their 22 million members send each other heartfelt messages like, <em>“You up?”</em> every single <del>day</del> night. So next time you drunkenly message that person who ghosted you 7 months ago, you can thank (or curse) Stream for making it all possible.</p>
+<p>CodePen, Imgur, SoundCloud and a bunch of other companies have built apps with Stream too. Chances are, you’ve already used Stream as a user without even realizing it <span role="img" aria-label="exploding head">🤯</span>.</p>
+<p><a href="https://getstream.io/try-for-free/?utm_source=Bytes&amp;utm_medium=Promoted_Newsletter&amp;utm_content=Developer&amp;utm_campaign=Bytes_Feb2022_ChatTrial">Check out the free trial</a> and I guarantee you’ll be shocked by how straightforward (and flexible) the API is.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/bros.png" alt="Step Brothers Meme">
+</p><p class="image-alt">Dad, what are you doing? It’s launch week!</p><p></p>
+<h2>Redwood’s launch week</h2>
+<p>Redwood didn’t want to feel left out, so they just had their own launch week too. Like Astro, this was one of those launch weeks that probably could’ve been an email (or blog post) — but hey, we all gotta find reasons to celebrate.</p>
+<p>The big news coming out of all the festivities was that after three years of work, <a href="https://community.redwoodjs.com/t/redwood-1-0-is-now-available/2958">RedwoodJS 1.0 was finally released</a>.</p>
+<p>So what exactly is RedwoodJS, where did it come from, and what does its future hold? Let’s dive in.</p>
+<ul>
+<li>
+<p>Redwood’s pitch is that it weaves together the “best parts” of React, GraphQL, Prisma, TypeScript, Jest, and Storybook to give you a full-stack framework that’s ready to go right out of the box. Abstracting away most of the different tech stack choices like this comes with a lot of upside and a lot of tradeoffs — kind of like eating at In-N-Out instead of Cheesecake Factory. Both great, but very different.</p>
+</li>
+<li>
+<p>Redwood was created by Tom Preston-Warner, who was also co-founded GitHub and created Jekyll, TOML, and the SemVer specification. Tom also looks a little bit like <em>Tom-from-MySpace</em>, but our research team has confirmed that they are in fact two different people.</p>
+</li>
+<li>
+<p>The future looks promising for Redwood. Last week, Tom also committed $1m to fund the project going forward and another $1m fund for investing in startups built on Redwood (#LaunchWeek <span role="img" aria-label="rocket">🚀</span>). If you’re wondering where these millions are coming from, let me remind you that <a href="https://www.celebritynetworth.com/richest-businessmen/ceos/tom-preston-werner-net-worth/">this man co-founded GitHub.</a></p>
+</li>
+</ul>
+<p><strong>Bottom Line:</strong> Redwood is focused on helping developers who want to build side projects and startups ASAP, rather than obsessing over all the technical details. It’s too early to tell how far that philosophy will take Redwood in the ever-changing hierarchy of JavaScript frameworks — but at least we know they probably won’t run out of money anytime soon.</p>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug — Sponsored by <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">PostHog</a></h2>
+<p><em>PostHog is an open-source product analytics suite you can self-host. Heatmaps, Recordings, Funnels <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">and more</a> — all in a platform where you can build your own TypeScript plugins!</em></p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+  _milesDriven <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token function">drive</span><span class="token punctuation">(</span><span class="token parameter">distance</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_milesDriven <span class="token operator">+=</span> distance
+  <span class="token punctuation">}</span>
+  <span class="token function">getMilesDriven</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_milesDriven
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p><a href="https://bun.sh/">Bun</a> is a new JSX/TypeScript transpiler + bundler + dev server + runtime that’s supposed to be “100x faster” than existing tools because it’s built in Zig (a real programming language, I checked). Bun’s millennial pink branding tricked me into thinking I had just signed up for a weekly cinnamon roll subscription from an Instagram ad — but now I’m just hungry. And I have a new startup idea.</p>
+</li>
+<li>
+<p>BeJS Conf is happening in Belgium on May 13th, and they’ve got <a href="https://www.bejs.io/conf?utm_source=bytes&amp;utm_campaign=NewsletterAds&amp;utm_medium=speakers">a ton of cool speakers</a> from the TC39 Committee and core team members of trendy JS frameworks. Plus, Brussels is pretty incredible in the Spring (or so I’m told). [sponsored]</p>
+</li>
+<li>
+<p>Ben Nadel wrote about how <a href="https://www.bennadel.com/blog/4210-you-can-throw-anything-in-javascript-and-other-async-await-considerations.htm">You Can <code>throw()</code> Anything In JavaScript</a>. How much does Ben wanna bet I can throw a football over one of them mountains?</p>
+</li>
+<li>
+<p>Rome officially announced <a href="https://rome.tools/blog/2022/04/05/rome-formatter-release">their new, super fast Formatter</a> for JavaScript and TypeScript last week. It promises to be mostly compatible with Prettier.</p>
+</li>
+<li>
+<p><a href="https://turborepo.org/blog/turbo-1-2-0">Turborepo 1.2</a> was just released with a new Task Filtering API, an improved internal scheduler and graph, and more. We still don’t know what Turborepo does or what those things mean either - so you’re in good company.</p>
+</li>
+<li>
+<p>Yoni Goldberg just updated his very comprehensive <a href="https://github.com/goldbergyoni/javascript-testing-best-practices">JavaScript &amp; Node.js testing best practices</a>, because he’s tired of you breaking prod.</p>
+</li>
+<li>
+<p><a href="https://pnpm.io/">pnpm</a> is an NPM alternative that prides itself on being efficient, deterministic, and strict. Just like my third-grade teacher.</p>
+</li>
+<li>
+<p><a href="https://openai.com/dall-e-2/">DALL·E 2</a> is a new AI system from OpenAI that can create images and art from a description in natural language. Am I worried that this “machine” is going to come after my livelihood of making niche JavaScript memes? Of course I am. But I’ll spend the rest of my days fighting it like I’m Garry Kasparov facing off against Deep Blue. Round 2 of <em>The Battle for Humanity</em> starts now.</p>
+</li>
+</ol>
+<hr>
+<h2><span role="img" aria-label="microscope">🔬</span> Spot the Bug Solution — Sponsored by <a href="https://posthog.com/?utm_source=bytes&amp;utm_medium=newsletter">PostHog</a></h2>
+<p>Historically - in JavaScript, because we lacked the ability to have private class fields, we’d mark them with an underscore and hope for the best. Now, thanks to recently added <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields">Private Class features</a>, we can now mark class fields as <code>private</code> by using the <code>#</code> prefix.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+  #milesDriven <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token function">drive</span><span class="token punctuation">(</span><span class="token parameter">distance</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>#milesDriven <span class="token operator">+=</span> distance
+  <span class="token punctuation">}</span>
+  <span class="token function">getMilesDriven</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>#milesDriven
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> tesla <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tesla<span class="token punctuation">.</span><span class="token function">drive</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+tesla<span class="token punctuation">.</span><span class="token function">getMilesDriven</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 10</span>
+tesla<span class="token punctuation">.</span>milesDriven <span class="token comment">// undefined</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: You Can throw Anything In JavaScript","date":"2022-04-11","description":"This issue, we've got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job.","featuredImage":"https://bytes.dev/images/content/jenny.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eThis week we’ve got a launch week hangover, In-N-Out vs. Cheesecake Factory, and an AI that thinks it can take my job.\u003c/p\u003e\n\u003cp\u003eWelcome to #95.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/jenny.png\" alt=\"Jenny Craig Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eShed those bits\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eAstro’s launch week\u003c/h2\u003e\n\u003cp\u003eAstro just wrapped up their first “launch week” (get it? cause Rockets? ok), where they announced the release of the the “Astro v1 Beta”, “SSR with Astro”, “Themes \u0026amp; Integrations” and some other stuff we already forgot about.\u003c/p\u003e\n\u003cp\u003eIn case you missed the last time we talked about Astro, the TLDR is they are on a mission to be the \u003ca href=\"https://www.youtube.com/watch?v=PLxesVFWhCE\"\u003eJenny Craig of JavaScript\u003c/a\u003e, and help you shed those unwanted bytes.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat does “Astro v1 Beta” do?\u003c/strong\u003e Well, like DevRels, we’re still not entirely sure. But they are promising no more breaking changes (until v2). Astro also launched Themes \u0026amp; Integrations (AKA starter templates and plugins) and announced financial support for for the maintainers of some of their dependencies.\u003c/p\u003e\n\u003cp\u003eThe biggest announcement, however, was that Astro now has (experimental) support for Server Side Rendering. Previously, Astro only had support for SSG (static site generation), so dynamic data had to be fetched at build time or on the client from one of those “islands of interactivity.” With SSR, Astro now lets you build more dynamic websites without sacrificing performance. This new offering also includes API routes (for REST apis, user uploads, serving assets, etc.) — similar to Next or Remix.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSo what makes Astro different?\u003c/strong\u003e For starters, Astro is BYOF (bring your own framework) so you can use React, Vue, Svelte (or all of them?) for your site. The team also claims that, unlike other frameworks, Astro is “designed to run on the server” - which is good enough evidence for us.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBottom line:\u003c/strong\u003e Astro seems like an ideal fit for things like the aspirational rewrite of your personal blog, e-commerce sites, docs, and other websites that don’t need too much client-side JavaScript (which, they’d argue, is \u003cem\u003emost\u003c/em\u003e sites). Call 1-800-94-JENNY today, and start losing those unwanted bytes.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/cursed-cookie.png\" alt=\"Cursed Cookie meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eWhen you build your own chat app from scratch [sponsored]\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eStream is how smart developers build chat apps\u003c/h2\u003e\n\u003cp\u003eBuilding a chat app from scratch in 2022 is like trying to make Pop-Tarts \u003ca href=\"https://www.youtube.com/watch?v=jYqRiKu7gY0\"\u003efrom scratch\u003c/a\u003e — overly complex and completely unnecessary thanks to glorious technology.\u003c/p\u003e\n\u003cp\u003eThat’s because most developers just \u003ca href=\"https://getstream.io/try-for-free/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial.\"\u003euse Stream\u003c/a\u003e It’s the #1 chat-messaging and activity feed platform in the world — because it handles all of the mess that comes with building chat apps for you.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ebUt WilL iT SCaLe?\u003c/strong\u003e Don’t ask me, ask Match.com – they use Stream to let their 22 million members send each other heartfelt messages like, \u003cem\u003e“You up?”\u003c/em\u003e every single \u003cdel\u003eday\u003c/del\u003e night. So next time you drunkenly message that person who ghosted you 7 months ago, you can thank (or curse) Stream for making it all possible.\u003c/p\u003e\n\u003cp\u003eCodePen, Imgur, SoundCloud and a bunch of other companies have built apps with Stream too. Chances are, you’ve already used Stream as a user without even realizing it \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://getstream.io/try-for-free/?utm_source=Bytes\u0026amp;utm_medium=Promoted_Newsletter\u0026amp;utm_content=Developer\u0026amp;utm_campaign=Bytes_Feb2022_ChatTrial\"\u003eCheck out the free trial\u003c/a\u003e and I guarantee you’ll be shocked by how straightforward (and flexible) the API is.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/bros.png\" alt=\"Step Brothers Meme\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eDad, what are you doing? It’s launch week!\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eRedwood’s launch week\u003c/h2\u003e\n\u003cp\u003eRedwood didn’t want to feel left out, so they just had their own launch week too. Like Astro, this was one of those launch weeks that probably could’ve been an email (or blog post) — but hey, we all gotta find reasons to celebrate.\u003c/p\u003e\n\u003cp\u003eThe big news coming out of all the festivities was that after three years of work, \u003ca href=\"https://community.redwoodjs.com/t/redwood-1-0-is-now-available/2958\"\u003eRedwoodJS 1.0 was finally released\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSo what exactly is RedwoodJS, where did it come from, and what does its future hold? Let’s dive in.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eRedwood’s pitch is that it weaves together the “best parts” of React, GraphQL, Prisma, TypeScript, Jest, and Storybook to give you a full-stack framework that’s ready to go right out of the box. Abstracting away most of the different tech stack choices like this comes with a lot of upside and a lot of tradeoffs — kind of like eating at In-N-Out instead of Cheesecake Factory. Both great, but very different.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRedwood was created by Tom Preston-Warner, who was also co-founded GitHub and created Jekyll, TOML, and the SemVer specification. Tom also looks a little bit like \u003cem\u003eTom-from-MySpace\u003c/em\u003e, but our research team has confirmed that they are in fact two different people.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe future looks promising for Redwood. Last week, Tom also committed $1m to fund the project going forward and another $1m fund for investing in startups built on Redwood (#LaunchWeek \u003cspan role=\"img\" aria-label=\"rocket\"\u003e🚀\u003c/span\u003e). If you’re wondering where these millions are coming from, let me remind you that \u003ca href=\"https://www.celebritynetworth.com/richest-businessmen/ceos/tom-preston-werner-net-worth/\"\u003ethis man co-founded GitHub.\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Redwood is focused on helping developers who want to build side projects and startups ASAP, rather than obsessing over all the technical details. It’s too early to tell how far that philosophy will take Redwood in the ever-changing hierarchy of JavaScript frameworks — but at least we know they probably won’t run out of money anytime soon.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug — Sponsored by \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ePostHog\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003ePostHog is an open-source product analytics suite you can self-host. Heatmaps, Recordings, Funnels \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eand more\u003c/a\u003e — all in a platform where you can build your own TypeScript plugins!\u003c/em\u003e\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eCar\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  _milesDriven \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003edrive\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003edistance\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_milesDriven \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e distance\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003egetMilesDriven\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e_milesDriven\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://bun.sh/\"\u003eBun\u003c/a\u003e is a new JSX/TypeScript transpiler + bundler + dev server + runtime that’s supposed to be “100x faster” than existing tools because it’s built in Zig (a real programming language, I checked). Bun’s millennial pink branding tricked me into thinking I had just signed up for a weekly cinnamon roll subscription from an Instagram ad — but now I’m just hungry. And I have a new startup idea.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBeJS Conf is happening in Belgium on May 13th, and they’ve got \u003ca href=\"https://www.bejs.io/conf?utm_source=bytes\u0026amp;utm_campaign=NewsletterAds\u0026amp;utm_medium=speakers\"\u003ea ton of cool speakers\u003c/a\u003e from the TC39 Committee and core team members of trendy JS frameworks. Plus, Brussels is pretty incredible in the Spring (or so I’m told). [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBen Nadel wrote about how \u003ca href=\"https://www.bennadel.com/blog/4210-you-can-throw-anything-in-javascript-and-other-async-await-considerations.htm\"\u003eYou Can \u003ccode\u003ethrow()\u003c/code\u003e Anything In JavaScript\u003c/a\u003e. How much does Ben wanna bet I can throw a football over one of them mountains?\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRome officially announced \u003ca href=\"https://rome.tools/blog/2022/04/05/rome-formatter-release\"\u003etheir new, super fast Formatter\u003c/a\u003e for JavaScript and TypeScript last week. It promises to be mostly compatible with Prettier.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://turborepo.org/blog/turbo-1-2-0\"\u003eTurborepo 1.2\u003c/a\u003e was just released with a new Task Filtering API, an improved internal scheduler and graph, and more. We still don’t know what Turborepo does or what those things mean either - so you’re in good company.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYoni Goldberg just updated his very comprehensive \u003ca href=\"https://github.com/goldbergyoni/javascript-testing-best-practices\"\u003eJavaScript \u0026amp; Node.js testing best practices\u003c/a\u003e, because he’s tired of you breaking prod.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://pnpm.io/\"\u003epnpm\u003c/a\u003e is an NPM alternative that prides itself on being efficient, deterministic, and strict. Just like my third-grade teacher.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://openai.com/dall-e-2/\"\u003eDALL·E 2\u003c/a\u003e is a new AI system from OpenAI that can create images and art from a description in natural language. Am I worried that this “machine” is going to come after my livelihood of making niche JavaScript memes? Of course I am. But I’ll spend the rest of my days fighting it like I’m Garry Kasparov facing off against Deep Blue. Round 2 of \u003cem\u003eThe Battle for Humanity\u003c/em\u003e starts now.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003cspan role=\"img\" aria-label=\"microscope\"\u003e🔬\u003c/span\u003e Spot the Bug Solution — Sponsored by \u003ca href=\"https://posthog.com/?utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003ePostHog\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eHistorically - in JavaScript, because we lacked the ability to have private class fields, we’d mark them with an underscore and hope for the best. Now, thanks to recently added \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields\"\u003ePrivate Class features\u003c/a\u003e, we can now mark class fields as \u003ccode\u003eprivate\u003c/code\u003e by using the \u003ccode\u003e#\u003c/code\u003e prefix.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eCar\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  #milesDriven \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003edrive\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003edistance\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e#milesDriven \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e distance\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003egetMilesDriven\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token keyword\"\u003ethis\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e#milesDriven\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e tesla \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token keyword\"\u003enew\u003c/span\u003e \u003cspan class=\"token class-name\"\u003eCar\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\ntesla\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003edrive\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\ntesla\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003egetMilesDriven\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// 10\u003c/span\u003e\ntesla\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003emilesDriven \u003cspan class=\"token comment\"\u003e// undefined\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"95"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"95"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

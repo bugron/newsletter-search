@@ -1,0 +1,288 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #180 - Node 20 coming in hot</title><link rel="canonical" href="https://bytes.dev/archives/180"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Nodelers vs Denosaurs, npm install hot-singles-near-me, and How to Train Your ~~Dragon~~ Large Language Models."/><meta property="og:url" content="https://bytes.dev/archives/180"/><meta property="og:title" content="Bytes #180 - Node 20 coming in hot"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/nodelers.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Nodelers vs Denosaurs, npm install hot-singles-near-me, and How to Train Your ~~Dragon~~ Large Language Models."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #180 - Node 20 coming in hot"/><meta property="twitter:description" content="Nodelers vs Denosaurs, npm install hot-singles-near-me, and How to Train Your ~~Dragon~~ Large Language Models."/><meta property="twitter:image" content="https://bytes.dev/images/content/nodelers.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Node 20 coming in hot</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->180<!-- -->.</span><span class="mr-6 font-bold">April 20, 2023<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Nodelers vs Denosaurs, <code>npm install hot-singles-near-me</code>, and How to Train Your <del>Dragon</del> Large Language Models.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/180">#180</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/nodelers.jpg" alt="bald aliens from star wars playing clarinet with the node logo on their heads" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Nodelers in their natural habitat.<!-- --> </p></div><h3>Node 20 coming in hot</h3><p>Node.js is kind of like my vacuum cleaner: it’s not the most powerful piece of technology in the world, but it’s been in my life for a long time, and it (mostly) gets the job done. Oh, and I haven’t upgraded it for years.</p><p>But it’s time for you to forget everything you <em>thought</em> you knew about Node, because <a href="https://nodejs.org/en/blog/release/v20.0.0">v20 just came out</a> with some game-changing new features that you might actually use/notice. Ok, don’t actually forget everything you know, but the new stuff is pretty exciting:</p><ul>
+<li>
+<p><strong>New (experimental) permission model</strong> — This lets you restrict access to specific machine resources during program execution, so you can prevent your app from accessing or modifying sensitive data or running potentially harmful code. It’s a big milestone for Node in addressing some of its well-documented security issues.</p>
+</li>
+<li>
+<p><strong>Stable Test Runner</strong> — The <code>node:test</code> module might be old news for hardcore Node fans <em>(Nodelers?)</em> who have been using the experimental version for a while now. But for the rest of us, this now-stable core module gives you a limited subset of the functionality provided by testing frameworks like Jest right inside of Node.</p>
+</li>
+<li>
+<p><strong>Single Executable Apps</strong> — You can now compile applications into a single executable, along with <a href="https://twitter.com/wesbos/status/1648362070818140165">the entire Node.js core</a>. This allows you to run Node apps on systems where Node isn’t installed. Just remember if you <em>don’t</em> like this, make sure to <a href="https://twitter.com/wesbos/status/1648745919540604929">let Wes know</a>. He personally built this feature, Node, and JavaScript by himself.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> Deno stans might feel tempted to brag and say that “Deno has already had all of these features for years.” And they’d be right.</p><p>But Node’s dominant market share means that it can afford to take a little longer introducing new stuff, and most developers will probably just stick with it — because even if they’re not <em>true</em> Nodelers, they might just be too lazy to switch it out for a whole new vacuum cleaner.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/180" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F180" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Really%20enjoyed%20this%20story%20from%20%40bytesdotdev%20about%20how%20Node%20is...%20like%20my%20vacuum%20cleaner.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F180" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AReally%20enjoyed%20this%20story%20from%20%40bytesdotdev%20about%20how%20Node%20is...%20like%20my%20vacuum%20cleaner.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F180" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/propelauth-logo.png" alt="propelauth logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/motorcross.jpg" alt="Guy on motorcross bike with wheels falling off" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Your auth solution after signing up your first enterprise customer.<!-- --> </p></div><h3><a href="https://www.propelauth.com/?utm_source=bytes&amp;utm_campaign=q223&amp;utm_medium=apr20">PropelAuth</a> is the smart way to scale your auth</h3><p>If you’re a startup, what’s the last thing on Earth you want to do? Make a business deal with Elizabeth Holmes and SBF.</p><p>But the <em>second</em> to last thing you want to do? Waste engineering time building additional functionality on top of your auth provider <span role="img" aria-label="skull">💀</span>.</p><p>That’s what’s nice about PropelAuth. They make it super easy to <a href="https://www.propelauth.com/post/case-study-artemis/?utm_source=bytes&amp;utm_campaign=q223&amp;utm_medium=apr20">go live quickly</a>, but they’re specifically designed for B2B products — so you get all the enterprise auth features you’ll ever need, right out of the box:</p><ul>
+<li>
+<p><a href="https://docs.propelauth.com/overview?utm_source=bytes&amp;utm_campaign=q223&amp;utm_medium=apr20">Self-service portals</a> let your end users sign up for your product, invite coworkers, manage permissions, and set up enterprise SSO/SAML.</p>
+</li>
+<li>
+<p>It handles all transactional emails, 2FA enrollment, and RBAC.</p>
+</li>
+<li>
+<p>Everything is hosted on your own domain, using whatever backend you like.</p>
+</li>
+</ul><p>PropelAuth <em>just works</em> on day 1, and it keeps <em>just working</em> as you scale to the moon.</p><p><a href="https://www.propelauth.com/free-until-funded-startup-plan/?utm_source=bytes&amp;utm_campaign=q223&amp;utm_medium=apr20">Check out their “Free Until Funded Plan”</a> — it’s completely free for startups until you’ve raised $1m in funding.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/tip.png" alt="Tip logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Tip</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.sleuth.io/sleuth-tv-live-goals?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=bytes">Sleuth</a></h4><p><em>Their new Goals and Automation feature helps you track clear goals and objectives around deployments so you can crush your quarterly objectives. Check out <a href="https://www.sleuth.io/sleuth-tv-live-goals?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=bytes">Sleuth TV Live on May 4th</a> to learn more.</em></p></div></div>
+<p>Did you know that Chrome DevTools has some magical shortcuts powered by the <code>$</code>? Here are some of the most useful ones:</p>
+<p><code>$()</code> - is an alias for <code>document.querySelector()</code>. It allows you to select the first element that matches a given CSS selector. For example, <code>$('div')</code> would return the first div element on the page.</p>
+<p><code>$$()</code> - is an alias for <code>document.querySelectorAll()</code>. It returns an array of all elements that match a given CSS selector. For example, <code>$$('div')</code> would return all div elements on the page.</p>
+<p><code>$0, $1, $2, ... $n</code> - are references to the elements you have recently selected in the Elements panel. <code>$0</code> represents the most recently selected element, $1 represents the second most recent, and so on.</p>
+<p><code>$_</code> - represents the value of the most recently evaluated expression in the console.</p>
+<p><code>$x()</code> - allows you to query the DOM using XPath expressions. For example, <code>$x("//div")</code> would return all div elements on the page.</p>
+<p><a href="https://www.youtube.com/watch?v=vYa2RspSTKA">C.R.E.A.M.</a> - Wycliff Jean <span role="img" aria-label="handshake">🤝</span> Chrome DevTools</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>In <a href="https://cult.honeypot.io/reads/deno-vs-node-main-differences/">Deno vs. Node</a>, Piumi writes about why developers have been slow to adopt Deno, and why so many of us still identify as Nodelers.</p>
+</li>
+<li>
+<p>Replit wrote about <a href="https://blog.replit.com/llm-training">How to train your own Large Language Models</a>. It’s also the title of the highly educational <em>How to Train Your Dragon</em> remake that I’ve been working on to get my toddler ready to go to his AI bootcamp this summer.</p>
+</li>
+<li>
+<p>CarbonQA provides <a href="https://carbonqa.com/?utm_source=bytes&amp;utm_medium=email&amp;utm_campaign=cool_bits&amp;utm_content=apr20">high-quality QA services for dev teams</a>, so you’ll never have to do it yourself again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]</p>
+</li>
+<li>
+<p>Rich Harris gave a 34-minute talk called, <a href="https://www.youtube.com/watch?v=uXCipjbcQfM">Hot takes on the web</a>. His Stephen A. Smith impression still needs a little work, but it’s getting better.</p>
+</li>
+<li>
+<p>Yoav Balasiano created a VSCode extension called <a href="https://github.com/yoavbls/pretty-ts-errors">Pretty TypeScript Errors</a>, which (I learned the hard way) helps make your TS errors “prettier and more human-readable”, but it does <strong>not</strong> make them <em>Pretty Little Liars</em> themed.</p>
+</li>
+<li>
+<p><a href="https://vitejs.dev/blog/announcing-vite4-3.html">Vite 4.3</a> just came out, and <em>(spoiler alert!)</em> they say it’s fast.</p>
+</li>
+<li>
+<p>Lars Wirzenius wrote his first-person account of <a href="https://lwn.net/Articles/928581/">The early days of Linux</a> while he was at the University of Helsinki with Linus “I-maybe-used-to-be-nice?” Torvalds.</p>
+</li>
+<li>
+<p>GitHub just introduced <a href="https://github.blog/2023-04-19-introducing-npm-package-provenance/">npm package provenance</a> — which gives users a verifiable way to link a package back to its source repo and the specific build instructions used to publish it. This should help improve npm security, but I still haven’t heard back from Nat Friedman on why <code>npm install hot-singles-near-me</code> isn’t working.</p>
+</li>
+</ol></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,299</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212299,"post":{"data":{"title":"Bytes: Node 20 coming in hot","date":"2023-04-20","featuredImage":"/images/content/nodelers.jpg","description":"Nodelers vs Denosaurs, npm install hot-singles-near-me, and How to Train Your ~~Dragon~~ Large Language Models.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Nodelers vs Denosaurs, \u003ccode\u003enpm install hot-singles-near-me\u003c/code\u003e, and How to Train Your \u003cdel\u003eDragon\u003c/del\u003e Large Language Models.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/180\"\u003e#180\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/nodelers.jpg\" alt=\"bald aliens from star wars playing clarinet with the node logo on their heads\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eNodelers in their natural habitat.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eNode 20 coming in hot\u003c/h3\u003e\u003cp\u003eNode.js is kind of like my vacuum cleaner: it’s not the most powerful piece of technology in the world, but it’s been in my life for a long time, and it (mostly) gets the job done. Oh, and I haven’t upgraded it for years.\u003c/p\u003e\u003cp\u003eBut it’s time for you to forget everything you \u003cem\u003ethought\u003c/em\u003e you knew about Node, because \u003ca href=\"https://nodejs.org/en/blog/release/v20.0.0\"\u003ev20 just came out\u003c/a\u003e with some game-changing new features that you might actually use/notice. Ok, don’t actually forget everything you know, but the new stuff is pretty exciting:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eNew (experimental) permission model\u003c/strong\u003e — This lets you restrict access to specific machine resources during program execution, so you can prevent your app from accessing or modifying sensitive data or running potentially harmful code. It’s a big milestone for Node in addressing some of its well-documented security issues.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eStable Test Runner\u003c/strong\u003e — The \u003ccode\u003enode:test\u003c/code\u003e module might be old news for hardcore Node fans \u003cem\u003e(Nodelers?)\u003c/em\u003e who have been using the experimental version for a while now. But for the rest of us, this now-stable core module gives you a limited subset of the functionality provided by testing frameworks like Jest right inside of Node.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSingle Executable Apps\u003c/strong\u003e — You can now compile applications into a single executable, along with \u003ca href=\"https://twitter.com/wesbos/status/1648362070818140165\"\u003ethe entire Node.js core\u003c/a\u003e. This allows you to run Node apps on systems where Node isn’t installed. Just remember if you \u003cem\u003edon’t\u003c/em\u003e like this, make sure to \u003ca href=\"https://twitter.com/wesbos/status/1648745919540604929\"\u003elet Wes know\u003c/a\u003e. He personally built this feature, Node, and JavaScript by himself.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Deno stans might feel tempted to brag and say that “Deno has already had all of these features for years.” And they’d be right.\u003c/p\u003e\u003cp\u003eBut Node’s dominant market share means that it can afford to take a little longer introducing new stuff, and most developers will probably just stick with it — because even if they’re not \u003cem\u003etrue\u003c/em\u003e Nodelers, they might just be too lazy to switch it out for a whole new vacuum cleaner.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/180\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F180\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Really%20enjoyed%20this%20story%20from%20%40bytesdotdev%20about%20how%20Node%20is...%20like%20my%20vacuum%20cleaner.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F180\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AReally%20enjoyed%20this%20story%20from%20%40bytesdotdev%20about%20how%20Node%20is...%20like%20my%20vacuum%20cleaner.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F180\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/propelauth-logo.png\" alt=\"propelauth logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/motorcross.jpg\" alt=\"Guy on motorcross bike with wheels falling off\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eYour auth solution after signing up your first enterprise customer.\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.propelauth.com/?utm_source=bytes\u0026amp;utm_campaign=q223\u0026amp;utm_medium=apr20\"\u003ePropelAuth\u003c/a\u003e is the smart way to scale your auth\u003c/h3\u003e\u003cp\u003eIf you’re a startup, what’s the last thing on Earth you want to do? Make a business deal with Elizabeth Holmes and SBF.\u003c/p\u003e\u003cp\u003eBut the \u003cem\u003esecond\u003c/em\u003e to last thing you want to do? Waste engineering time building additional functionality on top of your auth provider \u003cspan role=\"img\" aria-label=\"skull\"\u003e💀\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eThat’s what’s nice about PropelAuth. They make it super easy to \u003ca href=\"https://www.propelauth.com/post/case-study-artemis/?utm_source=bytes\u0026amp;utm_campaign=q223\u0026amp;utm_medium=apr20\"\u003ego live quickly\u003c/a\u003e, but they’re specifically designed for B2B products — so you get all the enterprise auth features you’ll ever need, right out of the box:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://docs.propelauth.com/overview?utm_source=bytes\u0026amp;utm_campaign=q223\u0026amp;utm_medium=apr20\"\u003eSelf-service portals\u003c/a\u003e let your end users sign up for your product, invite coworkers, manage permissions, and set up enterprise SSO/SAML.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIt handles all transactional emails, 2FA enrollment, and RBAC.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEverything is hosted on your own domain, using whatever backend you like.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003ePropelAuth \u003cem\u003ejust works\u003c/em\u003e on day 1, and it keeps \u003cem\u003ejust working\u003c/em\u003e as you scale to the moon.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.propelauth.com/free-until-funded-startup-plan/?utm_source=bytes\u0026amp;utm_campaign=q223\u0026amp;utm_medium=apr20\"\u003eCheck out their “Free Until Funded Plan”\u003c/a\u003e — it’s completely free for startups until you’ve raised $1m in funding.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/tip.png\" alt=\"Tip logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Tip\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.sleuth.io/sleuth-tv-live-goals?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=bytes\"\u003eSleuth\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eTheir new Goals and Automation feature helps you track clear goals and objectives around deployments so you can crush your quarterly objectives. Check out \u003ca href=\"https://www.sleuth.io/sleuth-tv-live-goals?utm_source=newsletter\u0026amp;utm_medium=email\u0026amp;utm_campaign=bytes\"\u003eSleuth TV Live on May 4th\u003c/a\u003e to learn more.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eDid you know that Chrome DevTools has some magical shortcuts powered by the \u003ccode\u003e$\u003c/code\u003e? Here are some of the most useful ones:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$()\u003c/code\u003e - is an alias for \u003ccode\u003edocument.querySelector()\u003c/code\u003e. It allows you to select the first element that matches a given CSS selector. For example, \u003ccode\u003e$('div')\u003c/code\u003e would return the first div element on the page.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$$()\u003c/code\u003e - is an alias for \u003ccode\u003edocument.querySelectorAll()\u003c/code\u003e. It returns an array of all elements that match a given CSS selector. For example, \u003ccode\u003e$$('div')\u003c/code\u003e would return all div elements on the page.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$0, $1, $2, ... $n\u003c/code\u003e - are references to the elements you have recently selected in the Elements panel. \u003ccode\u003e$0\u003c/code\u003e represents the most recently selected element, $1 represents the second most recent, and so on.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$_\u003c/code\u003e - represents the value of the most recently evaluated expression in the console.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$x()\u003c/code\u003e - allows you to query the DOM using XPath expressions. For example, \u003ccode\u003e$x(\"//div\")\u003c/code\u003e would return all div elements on the page.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=vYa2RspSTKA\"\u003eC.R.E.A.M.\u003c/a\u003e - Wycliff Jean \u003cspan role=\"img\" aria-label=\"handshake\"\u003e🤝\u003c/span\u003e Chrome DevTools\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIn \u003ca href=\"https://cult.honeypot.io/reads/deno-vs-node-main-differences/\"\u003eDeno vs. Node\u003c/a\u003e, Piumi writes about why developers have been slow to adopt Deno, and why so many of us still identify as Nodelers.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReplit wrote about \u003ca href=\"https://blog.replit.com/llm-training\"\u003eHow to train your own Large Language Models\u003c/a\u003e. It’s also the title of the highly educational \u003cem\u003eHow to Train Your Dragon\u003c/em\u003e remake that I’ve been working on to get my toddler ready to go to his AI bootcamp this summer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCarbonQA provides \u003ca href=\"https://carbonqa.com/?utm_source=bytes\u0026amp;utm_medium=email\u0026amp;utm_campaign=cool_bits\u0026amp;utm_content=apr20\"\u003ehigh-quality QA services for dev teams\u003c/a\u003e, so you’ll never have to do it yourself again. They work in your tools, talk with your team on Slack, and let your devs be devs. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRich Harris gave a 34-minute talk called, \u003ca href=\"https://www.youtube.com/watch?v=uXCipjbcQfM\"\u003eHot takes on the web\u003c/a\u003e. His Stephen A. Smith impression still needs a little work, but it’s getting better.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYoav Balasiano created a VSCode extension called \u003ca href=\"https://github.com/yoavbls/pretty-ts-errors\"\u003ePretty TypeScript Errors\u003c/a\u003e, which (I learned the hard way) helps make your TS errors “prettier and more human-readable”, but it does \u003cstrong\u003enot\u003c/strong\u003e make them \u003cem\u003ePretty Little Liars\u003c/em\u003e themed.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://vitejs.dev/blog/announcing-vite4-3.html\"\u003eVite 4.3\u003c/a\u003e just came out, and \u003cem\u003e(spoiler alert!)\u003c/em\u003e they say it’s fast.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLars Wirzenius wrote his first-person account of \u003ca href=\"https://lwn.net/Articles/928581/\"\u003eThe early days of Linux\u003c/a\u003e while he was at the University of Helsinki with Linus “I-maybe-used-to-be-nice?” Torvalds.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGitHub just introduced \u003ca href=\"https://github.blog/2023-04-19-introducing-npm-package-provenance/\"\u003enpm package provenance\u003c/a\u003e — which gives users a verifiable way to link a package back to its source repo and the specific build instructions used to publish it. This should help improve npm security, but I still haven’t heard back from Nat Friedman on why \u003ccode\u003enpm install hot-singles-near-me\u003c/code\u003e isn’t working.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"180"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"180"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

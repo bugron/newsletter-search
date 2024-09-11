@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #40 - The engine, not the juice</title><link rel="canonical" href="https://bytes.dev/archives/40"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, we have Elon Musk dubbing himself TechnoKing last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: DOMLord. Sorry Mom."/><meta property="og:url" content="https://bytes.dev/archives/40"/><meta property="og:title" content="Bytes #40 - The engine, not the juice"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/daphne.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, we have Elon Musk dubbing himself TechnoKing last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: DOMLord. Sorry Mom."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #40 - The engine, not the juice"/><meta property="twitter:description" content="This issue, we have Elon Musk dubbing himself TechnoKing last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: DOMLord. Sorry Mom."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/daphne.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The engine, not the juice</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->40<!-- -->.</span><span class="mr-6 font-bold">March 22, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Elon Musk dubbing himself <a href="https://mashable.com/article/elon-musk-tesla-technoking/">TechnoKing</a> last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: <strong>DOMLord</strong>. Sorry Mom.</p>
+<hr>
+<h2>V8 releases v9</h2>
+<p><img src="https://bytes.dev/images/content/daphne.png" alt="Daphne">
+</p><p class="image-alt">The new symbol for speed</p><p></p>
+<p><strong>V8 (the engine, not the juice)</strong> released v9.0 last week with some notable improvements. It’s still in beta while it waits to coordinate its release with Chrome 90, but you can give it a whirl today if you’re feeling spicy.</p>
+<p><strong>How did we get here?</strong> V8 is Google’s open source JavaScript and WebAssembly engine that was created back in 2008 by Lars Bak—who also invented Dart (and a bunch of other stuff).</p>
+<p>Presumably Lars liked fast cars, all of which were probably powered by V8 engines.</p>
+<p>While a fine name for 2008, V8 doesn’t quite hold the same oomph it used to. <strong>That’s why we’re <a href="https://www.change.org/bytes-to-daphne">introducing a new petition</a> to change the name of V8 to <a href="https://twitter.com/JoeBriggsEsq/status/1372348676723511301">Daphne</a> — the ultimate symbol for speed and power in 2021</strong>.</p>
+<p>What’s the use of having a large newsletter if you don’t use it to foster the change you want to see in the world?</p>
+<p><strong>What’s new in Daphne 9.0:</strong></p>
+<ul>
+<li>
+<p><strong><a href="https://v8.dev/features/regexp-match-indices">New match indices for regex</a></strong> — For the 4 of you reading this who understand Regex - A new <code>indices</code> array for regex lets you store the start and end positions of each matched capture group.</p>
+</li>
+<li>
+<p><strong><a href="https://v8.dev/blog/fast-super">Faster <code>super</code> property access</a></strong> — The <code>super</code> keyword is a nice way to access the properties and functions on an object’s parent, but it was always slow because it was implemented via a runtime call… <em>until now.</em> V8v9 now uses the inline cache system instead, which makes <code>super</code> property access way faster.</p>
+</li>
+<li>
+<p><strong><a href="https://docs.google.com/document/d/1mXxYnYN77tK-R1JOVo6tFG3jNpMzfueQN1Zp5h3r9aM/edit#heading=h.z7cfruiwxfup">Faster JS-to-Wasm Calls</a></strong> — When JavaScript calls an exported WebAssembly function, the call has to go through a JS-to-Wasm wrapper in order to make it work. Unsurprisingly, this makes those calls quite a bit slower. v9.0 mitigates this issue by inlining the JS-to-Wasm wrapper code at the call site.</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>Don’t forget to sign the petition - <strong><a href="https://www.change.org/bytes-to-daphne">#V8toDaphne</a></strong></p>
+<hr>
+<h2>The Bleeding Edge — Clio</h2>
+<p><img src="https://bytes.dev/images/content/bobby.png" alt="Bobby">
+</p><p class="image-alt">Show me the bleeding edge of the web <span role="img" aria-label="crystal ball">🔮</span></p><p></p>
+<p><strong>We’re highlighting</strong> a <em>very</em> new project today, so buckle up and put on your Bill Nye bow tie.</p>
+<p><strong><a href="https://clio-lang.org/">Clio</a></strong> is a new, functional programming language that targets distributed systems and compiles to JavaScript.</p>
+<p>We can break Clio down into three main parts:</p>
+<ul>
+<li>
+<p>By embracing <strong>functional programming</strong>, Clio developers are smarter, better looking, and generally more correct than their non-functional counterparts.</p>
+</li>
+<li>
+<p><strong>Distributed systems</strong> take the computing tasks that would be done by one computer, and spreads them out over many computers so that they can execute faster and without relying on any single computing unit. Clio uses “multiple CPUs and CPU cores (parallelism) by default” and features a pretty clean syntax — so you can write your code like normal and it’ll automatically be executed in a distributed/parallel fashion.</p>
+</li>
+<li>
+<p><strong>Compiling to JavaScript</strong> makes Clio “fast, easy to port, and easy to extend.” It also allows Clio to take advantage of JavaScript’s ecosystem of tools and libraries, running anywhere JavaScript can.</p>
+</li>
+</ul>
+<p>Check out this tutorial on <a href="https://medium.com/@pouyae/making-a-reactive-to-do-app-with-clio-ac7bf8b93959">How to Make a Reactive To-do App With Clio</a> from its creator, <a href="https://twitter.com/pouya_eghbali">Pouya Eghbali</a>.</p>
+<h3>Don’t Get Sued</h3>
+<p>If the name <em>Clio</em> sounds familiar to you, that’s because it’s also the name of a bunch of other things, including Renault’s best-selling subcompact car and a SaaS company that makes software for law firms.</p>
+<p>So, we’ll tell the Clio team the same thing we tell ourselves every week when we start writing Bytes: <em>have fun out there, but try not to get sued.</em></p>
+<hr>
+<h2>JS Quiz - Answer below</h2>
+<p>What will be logged to the console after the code is finished executing?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">first</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jordyn'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">second</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Jake'</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Tyler'</span>
+<span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Jack Franklin (from the Chrome DevTools team) wrote an in-depth article <strong><a href="https://www.jackfranklin.co.uk/blog/comparing-svelte-and-react-javascript/">comparing Svelte and React</a>.</strong> The best part is, at the end of the article he officially endorsed the <a href="https://www.change.org/bytes-to-daphne">#V8toDaphne</a> name change.</p>
+</li>
+<li>
+<p>NASA’s next-gen <strong><a href="https://github.com/nasa/openmct">mission control system</a></strong> is open source and written in JavaScript. Take that, team TypeScript.</p>
+</li>
+<li>
+<p><strong><a href="https://meshgradient.com/">Mesh</a></strong> is a simple tool for creating pretty gradients. Now all we need is a tool for creating spinning globes and we’ll have successfully replaced 50% of startup landing pages.</p>
+</li>
+<li>
+<p>Alex Kotliarskyi (who works on React Native at Facebook) wrote about the <strong><a href="https://frantic.im/react-api-evolution">the evolution of the React API</a></strong> since its earliest days. Tyler (who is currently typing this) took a similar approach in <a href="http://ui.dev/why-react-hooks">Why React Hooks</a>.</p>
+</li>
+<li>
+<p>Kevin Peters wrote about his <strong><a href="https://www.kevinpeters.net/the-fastest-way-to-understand-new-code-bases">#1 tip</a></strong> for getting yourself familiar with a new JavaScript codebase. Surprisingly the tip was not to change your prettier config file in order to quickly establish dominance as the #1 contributor to the project.</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/101arrowz/isoworker">Isoworker</a></strong> is a tool for universal multi-threading with main-thread dependencies in JavaScript. Don’t worry, I don’t understand what that means either.</p>
+</li>
+<li>
+<p>Luke created <strong><a href="https://github.com/lukeed/worktop">Worktop</a></strong> — a next gen web framework for Cloudflare Workers that might just be cool enough to also earn him the nickname of <strong>DOMLord</strong>. We’ll consider it.</p>
+</li>
+<li>
+<p>A pseudonymous blogger who only goes by T0ST wrote an in-depth article on <strong><a href="https://nee.lv/2021/02/28/How-I-cut-GTA-Online-loading-times-by-70/">how they cut GTA Online loading times by 70%</a>.</strong> And no, it wasn’t because they forgot to run React in production mode.</p>
+</li>
+</ol>
+<p><strong><a href="https://www.change.org/bytes-to-daphne">#V8toDaphne</a></strong> ❤</p>
+<hr>
+<h2>JS Quiz - Answer</h2>
+<p>We get <code>undefined</code>, <code>Jordyn</code>, <code>Jake</code>, then <code>Tyler</code>. What this shows us is that you can think of each new Execution Context as having its own unique variable environment. Even though there are other Execution Contexts that contain the variable name, the JavaScript engine will first look to the current Execution Context for that variable.</p>
+<p>For more info (and to see <a href="https://ui.dev/post-images/unique-scopes.gif">a cool GIF</a> on how the JS interpreter evaluates the code above that I would include here but honestly I’m not sure how different email clients support GIFs), visit <a href="https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript">The Ultimate Guide to Hoisting, Scopes, and Closures in JavaScript</a></p>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,302</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212302,"post":{"data":{"title":"Bytes: The engine, not the juice","date":"2021-03-22","description":"This issue, we have Elon Musk dubbing himself TechnoKing last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: DOMLord. Sorry Mom.","featuredImage":"https://bytes.dev/images/content/daphne.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eElon Musk dubbing himself \u003ca href=\"https://mashable.com/article/elon-musk-tesla-technoking/\"\u003eTechnoKing\u003c/a\u003e last week inspired me to legally change my name to what I always call myself after a pushing a fat PR: \u003cstrong\u003eDOMLord\u003c/strong\u003e. Sorry Mom.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eV8 releases v9\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/daphne.png\" alt=\"Daphne\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe new symbol for speed\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eV8 (the engine, not the juice)\u003c/strong\u003e released v9.0 last week with some notable improvements. It’s still in beta while it waits to coordinate its release with Chrome 90, but you can give it a whirl today if you’re feeling spicy.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eHow did we get here?\u003c/strong\u003e V8 is Google’s open source JavaScript and WebAssembly engine that was created back in 2008 by Lars Bak—who also invented Dart (and a bunch of other stuff).\u003c/p\u003e\n\u003cp\u003ePresumably Lars liked fast cars, all of which were probably powered by V8 engines.\u003c/p\u003e\n\u003cp\u003eWhile a fine name for 2008, V8 doesn’t quite hold the same oomph it used to. \u003cstrong\u003eThat’s why we’re \u003ca href=\"https://www.change.org/bytes-to-daphne\"\u003eintroducing a new petition\u003c/a\u003e to change the name of V8 to \u003ca href=\"https://twitter.com/JoeBriggsEsq/status/1372348676723511301\"\u003eDaphne\u003c/a\u003e — the ultimate symbol for speed and power in 2021\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eWhat’s the use of having a large newsletter if you don’t use it to foster the change you want to see in the world?\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat’s new in Daphne 9.0:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://v8.dev/features/regexp-match-indices\"\u003eNew match indices for regex\u003c/a\u003e\u003c/strong\u003e — For the 4 of you reading this who understand Regex - A new \u003ccode\u003eindices\u003c/code\u003e array for regex lets you store the start and end positions of each matched capture group.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://v8.dev/blog/fast-super\"\u003eFaster \u003ccode\u003esuper\u003c/code\u003e property access\u003c/a\u003e\u003c/strong\u003e — The \u003ccode\u003esuper\u003c/code\u003e keyword is a nice way to access the properties and functions on an object’s parent, but it was always slow because it was implemented via a runtime call… \u003cem\u003euntil now.\u003c/em\u003e V8v9 now uses the inline cache system instead, which makes \u003ccode\u003esuper\u003c/code\u003e property access way faster.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://docs.google.com/document/d/1mXxYnYN77tK-R1JOVo6tFG3jNpMzfueQN1Zp5h3r9aM/edit#heading=h.z7cfruiwxfup\"\u003eFaster JS-to-Wasm Calls\u003c/a\u003e\u003c/strong\u003e — When JavaScript calls an exported WebAssembly function, the call has to go through a JS-to-Wasm wrapper in order to make it work. Unsurprisingly, this makes those calls quite a bit slower. v9.0 mitigates this issue by inlining the JS-to-Wasm wrapper code at the call site.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eDon’t forget to sign the petition - \u003cstrong\u003e\u003ca href=\"https://www.change.org/bytes-to-daphne\"\u003e#V8toDaphne\u003c/a\u003e\u003c/strong\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThe Bleeding Edge — Clio\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/bobby.png\" alt=\"Bobby\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eShow me the bleeding edge of the web \u003cspan role=\"img\" aria-label=\"crystal ball\"\u003e🔮\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWe’re highlighting\u003c/strong\u003e a \u003cem\u003every\u003c/em\u003e new project today, so buckle up and put on your Bill Nye bow tie.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://clio-lang.org/\"\u003eClio\u003c/a\u003e\u003c/strong\u003e is a new, functional programming language that targets distributed systems and compiles to JavaScript.\u003c/p\u003e\n\u003cp\u003eWe can break Clio down into three main parts:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eBy embracing \u003cstrong\u003efunctional programming\u003c/strong\u003e, Clio developers are smarter, better looking, and generally more correct than their non-functional counterparts.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDistributed systems\u003c/strong\u003e take the computing tasks that would be done by one computer, and spreads them out over many computers so that they can execute faster and without relying on any single computing unit. Clio uses “multiple CPUs and CPU cores (parallelism) by default” and features a pretty clean syntax — so you can write your code like normal and it’ll automatically be executed in a distributed/parallel fashion.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCompiling to JavaScript\u003c/strong\u003e makes Clio “fast, easy to port, and easy to extend.” It also allows Clio to take advantage of JavaScript’s ecosystem of tools and libraries, running anywhere JavaScript can.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCheck out this tutorial on \u003ca href=\"https://medium.com/@pouyae/making-a-reactive-to-do-app-with-clio-ac7bf8b93959\"\u003eHow to Make a Reactive To-do App With Clio\u003c/a\u003e from its creator, \u003ca href=\"https://twitter.com/pouya_eghbali\"\u003ePouya Eghbali\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003eDon’t Get Sued\u003c/h3\u003e\n\u003cp\u003eIf the name \u003cem\u003eClio\u003c/em\u003e sounds familiar to you, that’s because it’s also the name of a bunch of other things, including Renault’s best-selling subcompact car and a SaaS company that makes software for law firms.\u003c/p\u003e\n\u003cp\u003eSo, we’ll tell the Clio team the same thing we tell ourselves every week when we start writing Bytes: \u003cem\u003ehave fun out there, but try not to get sued.\u003c/em\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer below\u003c/h2\u003e\n\u003cp\u003eWhat will be logged to the console after the code is finished executing?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003efirst\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jordyn'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esecond\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Jake'\u003c/span\u003e\n\n  console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e name \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Tyler'\u003c/span\u003e\n\u003cspan class=\"token function\"\u003efirst\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token function\"\u003esecond\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\nconsole\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ename\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eJack Franklin (from the Chrome DevTools team) wrote an in-depth article \u003cstrong\u003e\u003ca href=\"https://www.jackfranklin.co.uk/blog/comparing-svelte-and-react-javascript/\"\u003ecomparing Svelte and React\u003c/a\u003e.\u003c/strong\u003e The best part is, at the end of the article he officially endorsed the \u003ca href=\"https://www.change.org/bytes-to-daphne\"\u003e#V8toDaphne\u003c/a\u003e name change.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNASA’s next-gen \u003cstrong\u003e\u003ca href=\"https://github.com/nasa/openmct\"\u003emission control system\u003c/a\u003e\u003c/strong\u003e is open source and written in JavaScript. Take that, team TypeScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://meshgradient.com/\"\u003eMesh\u003c/a\u003e\u003c/strong\u003e is a simple tool for creating pretty gradients. Now all we need is a tool for creating spinning globes and we’ll have successfully replaced 50% of startup landing pages.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex Kotliarskyi (who works on React Native at Facebook) wrote about the \u003cstrong\u003e\u003ca href=\"https://frantic.im/react-api-evolution\"\u003ethe evolution of the React API\u003c/a\u003e\u003c/strong\u003e since its earliest days. Tyler (who is currently typing this) took a similar approach in \u003ca href=\"http://ui.dev/why-react-hooks\"\u003eWhy React Hooks\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKevin Peters wrote about his \u003cstrong\u003e\u003ca href=\"https://www.kevinpeters.net/the-fastest-way-to-understand-new-code-bases\"\u003e#1 tip\u003c/a\u003e\u003c/strong\u003e for getting yourself familiar with a new JavaScript codebase. Surprisingly the tip was not to change your prettier config file in order to quickly establish dominance as the #1 contributor to the project.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/101arrowz/isoworker\"\u003eIsoworker\u003c/a\u003e\u003c/strong\u003e is a tool for universal multi-threading with main-thread dependencies in JavaScript. Don’t worry, I don’t understand what that means either.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLuke created \u003cstrong\u003e\u003ca href=\"https://github.com/lukeed/worktop\"\u003eWorktop\u003c/a\u003e\u003c/strong\u003e — a next gen web framework for Cloudflare Workers that might just be cool enough to also earn him the nickname of \u003cstrong\u003eDOMLord\u003c/strong\u003e. We’ll consider it.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eA pseudonymous blogger who only goes by T0ST wrote an in-depth article on \u003cstrong\u003e\u003ca href=\"https://nee.lv/2021/02/28/How-I-cut-GTA-Online-loading-times-by-70/\"\u003ehow they cut GTA Online loading times by 70%\u003c/a\u003e.\u003c/strong\u003e And no, it wasn’t because they forgot to run React in production mode.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://www.change.org/bytes-to-daphne\"\u003e#V8toDaphne\u003c/a\u003e\u003c/strong\u003e ❤\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz - Answer\u003c/h2\u003e\n\u003cp\u003eWe get \u003ccode\u003eundefined\u003c/code\u003e, \u003ccode\u003eJordyn\u003c/code\u003e, \u003ccode\u003eJake\u003c/code\u003e, then \u003ccode\u003eTyler\u003c/code\u003e. What this shows us is that you can think of each new Execution Context as having its own unique variable environment. Even though there are other Execution Contexts that contain the variable name, the JavaScript engine will first look to the current Execution Context for that variable.\u003c/p\u003e\n\u003cp\u003eFor more info (and to see \u003ca href=\"https://ui.dev/post-images/unique-scopes.gif\"\u003ea cool GIF\u003c/a\u003e on how the JS interpreter evaluates the code above that I would include here but honestly I’m not sure how different email clients support GIFs), visit \u003ca href=\"https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript\"\u003eThe Ultimate Guide to Hoisting, Scopes, and Closures in JavaScript\u003c/a\u003e\u003c/p\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"40"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"40"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

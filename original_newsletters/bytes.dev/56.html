@@ -1,0 +1,313 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #56 - Grief is just love with no place to go</title><link rel="canonical" href="https://bytes.dev/archives/56"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="This issue, Put on your Scuba Steve mask, because we&#x27;re diving into the low-level programming deep end today. Just stick close to your buddy, and we&#x27;ll all be fine."/><meta property="og:url" content="https://bytes.dev/archives/56"/><meta property="og:title" content="Bytes #56 - Grief is just love with no place to go"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.devhttps://bytes.dev/images/content/loud.png"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="This issue, Put on your Scuba Steve mask, because we&#x27;re diving into the low-level programming deep end today. Just stick close to your buddy, and we&#x27;ll all be fine."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #56 - Grief is just love with no place to go"/><meta property="twitter:description" content="This issue, Put on your Scuba Steve mask, because we&#x27;re diving into the low-level programming deep end today. Just stick close to your buddy, and we&#x27;ll all be fine."/><meta property="twitter:image" content="https://bytes.devhttps://bytes.dev/images/content/loud.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Grief is just love with no place to go</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->56<!-- -->.</span><span class="mr-6 font-bold">July 12, 2021<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>Put on your Scuba Steve mask, because we’re diving into the low-level programming deep end today. Just stick close to <a href="https://www.youtube.com/watch?v=NXYMhClL4lU">your buddy</a>, and we’ll all be fine. Welcome to Issue 56.</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/loud.png" alt="Loud Noises">
+</p><p class="image-alt">LOUD NOISES</p><p></p>
+<h2>Elementary Audio — A new way to make sounds with your computer</h2>
+<p>We’re going to go out on a limb here and say that most of you probably haven’t spent much time building audio software – and we don’t blame you. Building apps like synthesizers, processors, and sound filters has historically been a hairy, time-consuming process that required a <em>lot</em> of C++ (gross).</p>
+<p>But all that may be changing thanks to <a href="https://www.elementary.audio/">Elementary Audio</a> – a brand new way to write functional, declarative audio apps in JavaScript.</p>
+<p><strong>Quick background:</strong> Elementary was created by Nick Thompson, who worked on the Instagram team at Facebook while also contributing to React. After leaving ZuckTown, he started working on different audio applications and learned firsthand how frustrating that world of imperative, object oriented code could be.</p>
+<p>Nick wanted to make the audio software world more accessible for JavaScript developers, so he spent the last few years building Elementary – a JavaScript runtime <em>and</em> framework for writing native audio apps that’s “heavily inspired by React.”</p>
+<p><strong>A few cool features:</strong></p>
+<ul>
+<li>
+<p><strong>Functional and reactive</strong> — Like React, you write your signal processing blocks as pure, declarative functions of your app state, and Elementary handles the rest</p>
+</li>
+<li>
+<p><strong>Built on Node.js</strong> — Which means you can easily use all of your favorite libraries and tools with Elementary</p>
+</li>
+<li>
+<p><strong>Cross-platform compatibility</strong> — Unlike the <a href="https://www.youtube.com/watch?v=laCjGMhASp8">Web Audio API</a> (which is built directly into the browser), Elementary can also be used to build native audio apps for desktop, mobile, embedded systems, and more</p>
+</li>
+</ul>
+<h3>The Bottom Line</h3>
+<p>By opening up the audio software world to JavaScript developers, Elementary might just usher in an audio app renaissance – which might mean we’re also in for a dubstep/DJ renaissance. <code>&lt;Skrillex /&gt;</code> anyone?</p>
+<hr>
+<p><img src="https://bytes.dev/images/content/rustyspoon.png" alt="Salad Fingers">
+</p><p class="image-alt">The feeling of Rust against my salad fingers</p><p></p>
+<h2>TWIH — Rust turns 11</h2>
+<p><strong>Your favorite programmers favorite programming language</strong> was officially unveiled to the world exactly 11 years ago last week, on July 7th (the luckiest day of the year). That’s when <a href="https://twitter.com/graydon_pub">Graydon Hoare</a> stepped on stage at the 2010 Mozilla Summit and shared his <a href="http://venge.net/graydon/talks/intro-talk-2.pdf">bold vision</a> for a “slightly less annoying” programming language that he’d been working on since 2006.</p>
+<p>Fast forward to today, and Rust has been voted the #1 “most loved” programming language in the Stack Overflow Developer Survey for the last 5 years in a row.</p>
+<p>If you’re like us, you’ve probably wondered why Rust consistently gets that <em>Beyonce-level</em> of love and hype. Turns out, there are <strong>3 main reasons:</strong></p>
+<ul>
+<li>
+<p><strong>Performance</strong> — Rust is a low-level systems language with similar syntax to C++, but significantly faster and safer. Rust also has no garbage collector, no runtime, and is super memory efficient.</p>
+</li>
+<li>
+<p><strong>Reliability</strong> It’s statically typed, which (amongst <em>many</em> other things) allows you to move bugs from run time to compile time.</p>
+</li>
+<li>
+<p><strong>Community</strong> — The <a href="https://www.rustaceans.org/">Rustaceans</a> are basically like the <a href="https://www.usbtsarmy.com/">BTS Army</a> of software development, but with a lot less teen angst (<del>thankfully</del> sadly). They’re super passionate about spreading the Gospel of Rust™, and they’ve created lots of helpful dev tools and useful resources for helping others get started.</p>
+</li>
+</ul>
+<h3>What’s next?</h3>
+<p>Now that Rust can <a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm">compile to Web Assembly</a>, its next big frontier could be web development. People are already discovering cool ways for <a href="https://itnext.io/deep-dive-into-rust-for-node-js-developers-5faace6dc71f">Node.js developers</a> to use Rust, new possibilities for React/JavaScript developers to use Rust <a href="https://www.youtube.com/watch?v=CMB6AlE1QuI">in the browser</a>, and what <a href="https://www.youtube.com/watch?v=CMB6AlE1QuI">the future of serverless</a> looks like with Rust and Wasm.</p>
+<p>Rust is a great language, but we’ve seen lots of other great languages never reach mainstream adoption for building web apps (<span role="img" aria-label="waving hand">👋</span> Elm, Reason). Will Rust be able to break through? I guess we’ll check back in another 11 years.</p>
+<hr>
+<h2>Jobs</h2>
+<h3><a href="https://jobs.lever.co/close.io/10a1e32b-1a59-48dc-b8f4-e6f0dfae4e20?lever-origin=applied&amp;lever-source%5B%5D=ReactNewsletter">2x Sr. Frontend Engineers - React | 100% Remote</a></h3>
+<p>Close.com is looking for two experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. They are a 100% globally distributed team of ~45 high-performing, happy people that are dedicated to building a product our customers love.</p>
+<hr>
+<h2>JS Quiz</h2>
+<p>What’s the result of running this code?</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">[</span><span class="token string">"👨"</span><span class="token punctuation">,</span> <span class="token string">"‍"</span><span class="token punctuation">,</span> <span class="token string">"👩"</span><span class="token punctuation">,</span> <span class="token string">"‍"</span><span class="token punctuation">,</span> <span class="token string">"👧"</span><span class="token punctuation">,</span> <span class="token string">"‍"</span><span class="token punctuation">,</span> <span class="token string">"👦"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Run it and see for yourself <span role="img" aria-label="exploding head">🤯</span><span role="img" aria-label="exploding head">🤯</span><span role="img" aria-label="exploding head">🤯</span>.</p>
+<hr>
+<h2>Cool Bits</h2>
+<ol>
+<li>
+<p>Have you ever though about how grief is really just love with no place to go? No? Oh. Well have you ever thought about how <code>useRef</code> is really just <code>useState</code> without a re-render? I have, and I wrote about it in <a href="https://ui.dev/useref/">Understanding React’s useRef Hook</a>.</p>
+</li>
+<li>
+<p>Dan “Tell-us-how-you-really-feel” Abramov wrote about how <a href="https://overreacted.io/npm-audit-broken-by-design/"><code>npm audit</code> is broken</a>, why it’s “a stain on the entire npm ecosystem,” and what changes could save it. If the big wigs at Microsoft don’t listen, Dan will have no choice but to officially <a href="https://www.youtube.com/watch?v=87qstckIwqs">declare dishonor</a> on them and their cows.</p>
+</li>
+<li>
+<p>Jack made a <a href="https://www.youtube.com/watch?v=yZDvE0mP4Y4">20-minute video</a> on how to use Deno Deploy to easily make cloud functions. Kind of like Bob Ross, except these “happy little clouds” are made with software, instead of oil paints and love.</p>
+</li>
+<li>
+<p><a href="https://github.com/useaurora/aurora">Aurora</a> is a new website analytics tool that’s 100% cookie-free. We would’ve voted for naming it something more fun like <code>Cookie-Crisp</code>, but nobody’s perfect.</p>
+</li>
+<li>
+<p>Ramona wrote about <a href="https://www.smashingmagazine.com/2021/07/frontend-testing-pitfalls/">Six common testing pitfalls</a> and how to avoid to avoid them. It’s almost as fun as playing <a href="https://youtu.be/DA4V-n8Ft3g?t=5">Pitfall</a> with teenage Jack Black in the ’80s.</p>
+</li>
+<li>
+<p>Jonathan created <a href="https://marketplace.visualstudio.com/items?itemName=vsls-contrib.gistfs&amp;WT.mc_id=devcloud-00000-cxa">GistPad</a> – a VS Code extension that lets you view and edit your GitHub Gist directly in VS Code, as if they were local files.</p>
+</li>
+<li>
+<p><a href="https://github.com/bretgeek/vibejs">VibeJS</a> is a small, component-based JavaScript library that’s (kind of) an alternative to larger libraries like React and Vue. Plus, it’s already got a built-in theme song — <em>Script don’t kill my Vibe</em>.</p>
+</li>
+<li>
+<p>Chris Coyier wrote a tutorial on <a href="https://css-tricks.com/a-look-at-building-with-astro/">Building with Astro</a> – a new static-site generator that ships zero JavaScript by default. Coincidentally, “Building with Astro” could also be the adorable name for a new HGTV series where a labradoodle named Astro renovates and flips old homes.</p>
+</li>
+</ol>
+<hr></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: Grief is just love with no place to go","date":"2021-07-12","description":"This issue, Put on your Scuba Steve mask, because we're diving into the low-level programming deep end today. Just stick close to your buddy, and we'll all be fine.","featuredImage":"https://bytes.dev/images/content/loud.png"},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003ePut on your Scuba Steve mask, because we’re diving into the low-level programming deep end today. Just stick close to \u003ca href=\"https://www.youtube.com/watch?v=NXYMhClL4lU\"\u003eyour buddy\u003c/a\u003e, and we’ll all be fine. Welcome to Issue 56.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/loud.png\" alt=\"Loud Noises\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eLOUD NOISES\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eElementary Audio — A new way to make sounds with your computer\u003c/h2\u003e\n\u003cp\u003eWe’re going to go out on a limb here and say that most of you probably haven’t spent much time building audio software – and we don’t blame you. Building apps like synthesizers, processors, and sound filters has historically been a hairy, time-consuming process that required a \u003cem\u003elot\u003c/em\u003e of C++ (gross).\u003c/p\u003e\n\u003cp\u003eBut all that may be changing thanks to \u003ca href=\"https://www.elementary.audio/\"\u003eElementary Audio\u003c/a\u003e – a brand new way to write functional, declarative audio apps in JavaScript.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eQuick background:\u003c/strong\u003e Elementary was created by Nick Thompson, who worked on the Instagram team at Facebook while also contributing to React. After leaving ZuckTown, he started working on different audio applications and learned firsthand how frustrating that world of imperative, object oriented code could be.\u003c/p\u003e\n\u003cp\u003eNick wanted to make the audio software world more accessible for JavaScript developers, so he spent the last few years building Elementary – a JavaScript runtime \u003cem\u003eand\u003c/em\u003e framework for writing native audio apps that’s “heavily inspired by React.”\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eA few cool features:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFunctional and reactive\u003c/strong\u003e — Like React, you write your signal processing blocks as pure, declarative functions of your app state, and Elementary handles the rest\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBuilt on Node.js\u003c/strong\u003e — Which means you can easily use all of your favorite libraries and tools with Elementary\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCross-platform compatibility\u003c/strong\u003e — Unlike the \u003ca href=\"https://www.youtube.com/watch?v=laCjGMhASp8\"\u003eWeb Audio API\u003c/a\u003e (which is built directly into the browser), Elementary can also be used to build native audio apps for desktop, mobile, embedded systems, and more\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Bottom Line\u003c/h3\u003e\n\u003cp\u003eBy opening up the audio software world to JavaScript developers, Elementary might just usher in an audio app renaissance – which might mean we’re also in for a dubstep/DJ renaissance. \u003ccode\u003e\u0026lt;Skrillex /\u0026gt;\u003c/code\u003e anyone?\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cimg src=\"https://bytes.dev/images/content/rustyspoon.png\" alt=\"Salad Fingers\"\u003e\n\u003c/p\u003e\u003cp class=\"image-alt\"\u003eThe feeling of Rust against my salad fingers\u003c/p\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2\u003eTWIH — Rust turns 11\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eYour favorite programmers favorite programming language\u003c/strong\u003e was officially unveiled to the world exactly 11 years ago last week, on July 7th (the luckiest day of the year). That’s when \u003ca href=\"https://twitter.com/graydon_pub\"\u003eGraydon Hoare\u003c/a\u003e stepped on stage at the 2010 Mozilla Summit and shared his \u003ca href=\"http://venge.net/graydon/talks/intro-talk-2.pdf\"\u003ebold vision\u003c/a\u003e for a “slightly less annoying” programming language that he’d been working on since 2006.\u003c/p\u003e\n\u003cp\u003eFast forward to today, and Rust has been voted the #1 “most loved” programming language in the Stack Overflow Developer Survey for the last 5 years in a row.\u003c/p\u003e\n\u003cp\u003eIf you’re like us, you’ve probably wondered why Rust consistently gets that \u003cem\u003eBeyonce-level\u003c/em\u003e of love and hype. Turns out, there are \u003cstrong\u003e3 main reasons:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePerformance\u003c/strong\u003e — Rust is a low-level systems language with similar syntax to C++, but significantly faster and safer. Rust also has no garbage collector, no runtime, and is super memory efficient.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReliability\u003c/strong\u003e It’s statically typed, which (amongst \u003cem\u003emany\u003c/em\u003e other things) allows you to move bugs from run time to compile time.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCommunity\u003c/strong\u003e — The \u003ca href=\"https://www.rustaceans.org/\"\u003eRustaceans\u003c/a\u003e are basically like the \u003ca href=\"https://www.usbtsarmy.com/\"\u003eBTS Army\u003c/a\u003e of software development, but with a lot less teen angst (\u003cdel\u003ethankfully\u003c/del\u003e sadly). They’re super passionate about spreading the Gospel of Rust™, and they’ve created lots of helpful dev tools and useful resources for helping others get started.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eWhat’s next?\u003c/h3\u003e\n\u003cp\u003eNow that Rust can \u003ca href=\"https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm\"\u003ecompile to Web Assembly\u003c/a\u003e, its next big frontier could be web development. People are already discovering cool ways for \u003ca href=\"https://itnext.io/deep-dive-into-rust-for-node-js-developers-5faace6dc71f\"\u003eNode.js developers\u003c/a\u003e to use Rust, new possibilities for React/JavaScript developers to use Rust \u003ca href=\"https://www.youtube.com/watch?v=CMB6AlE1QuI\"\u003ein the browser\u003c/a\u003e, and what \u003ca href=\"https://www.youtube.com/watch?v=CMB6AlE1QuI\"\u003ethe future of serverless\u003c/a\u003e looks like with Rust and Wasm.\u003c/p\u003e\n\u003cp\u003eRust is a great language, but we’ve seen lots of other great languages never reach mainstream adoption for building web apps (\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Elm, Reason). Will Rust be able to break through? I guess we’ll check back in another 11 years.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJobs\u003c/h2\u003e\n\u003ch3\u003e\u003ca href=\"https://jobs.lever.co/close.io/10a1e32b-1a59-48dc-b8f4-e6f0dfae4e20?lever-origin=applied\u0026amp;lever-source%5B%5D=ReactNewsletter\"\u003e2x Sr. Frontend Engineers - React | 100% Remote\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eClose.com is looking for two experienced individuals that have a solid understanding of React and want to help design, implement and launch major user-facing features. They are a 100% globally distributed team of ~45 high-performing, happy people that are dedicated to building a product our customers love.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eJS Quiz\u003c/h2\u003e\n\u003cp\u003eWhat’s the result of running this code?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"👨\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"‍\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"👩\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"‍\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"👧\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"‍\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"👦\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e''\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eRun it and see for yourself \u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e\u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e\u003cspan role=\"img\" aria-label=\"exploding head\"\u003e🤯\u003c/span\u003e.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eCool Bits\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eHave you ever though about how grief is really just love with no place to go? No? Oh. Well have you ever thought about how \u003ccode\u003euseRef\u003c/code\u003e is really just \u003ccode\u003euseState\u003c/code\u003e without a re-render? I have, and I wrote about it in \u003ca href=\"https://ui.dev/useref/\"\u003eUnderstanding React’s useRef Hook\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDan “Tell-us-how-you-really-feel” Abramov wrote about how \u003ca href=\"https://overreacted.io/npm-audit-broken-by-design/\"\u003e\u003ccode\u003enpm audit\u003c/code\u003e is broken\u003c/a\u003e, why it’s “a stain on the entire npm ecosystem,” and what changes could save it. If the big wigs at Microsoft don’t listen, Dan will have no choice but to officially \u003ca href=\"https://www.youtube.com/watch?v=87qstckIwqs\"\u003edeclare dishonor\u003c/a\u003e on them and their cows.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJack made a \u003ca href=\"https://www.youtube.com/watch?v=yZDvE0mP4Y4\"\u003e20-minute video\u003c/a\u003e on how to use Deno Deploy to easily make cloud functions. Kind of like Bob Ross, except these “happy little clouds” are made with software, instead of oil paints and love.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/useaurora/aurora\"\u003eAurora\u003c/a\u003e is a new website analytics tool that’s 100% cookie-free. We would’ve voted for naming it something more fun like \u003ccode\u003eCookie-Crisp\u003c/code\u003e, but nobody’s perfect.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRamona wrote about \u003ca href=\"https://www.smashingmagazine.com/2021/07/frontend-testing-pitfalls/\"\u003eSix common testing pitfalls\u003c/a\u003e and how to avoid to avoid them. It’s almost as fun as playing \u003ca href=\"https://youtu.be/DA4V-n8Ft3g?t=5\"\u003ePitfall\u003c/a\u003e with teenage Jack Black in the ’80s.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJonathan created \u003ca href=\"https://marketplace.visualstudio.com/items?itemName=vsls-contrib.gistfs\u0026amp;WT.mc_id=devcloud-00000-cxa\"\u003eGistPad\u003c/a\u003e – a VS Code extension that lets you view and edit your GitHub Gist directly in VS Code, as if they were local files.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/bretgeek/vibejs\"\u003eVibeJS\u003c/a\u003e is a small, component-based JavaScript library that’s (kind of) an alternative to larger libraries like React and Vue. Plus, it’s already got a built-in theme song — \u003cem\u003eScript don’t kill my Vibe\u003c/em\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eChris Coyier wrote a tutorial on \u003ca href=\"https://css-tricks.com/a-look-at-building-with-astro/\"\u003eBuilding with Astro\u003c/a\u003e – a new static-site generator that ships zero JavaScript by default. Coincidentally, “Building with Astro” could also be the adorable name for a new HGTV series where a labradoodle named Astro renovates and flips old homes.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"56"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"56"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #267 - The Data Issue</title><link rel="canonical" href="https://bytes.dev/archives/267"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that _won&#x27;t_ ruin your childhood."/><meta property="og:url" content="https://bytes.dev/archives/267"/><meta property="og:title" content="Bytes #267 - The Data Issue"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/bullseye.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that _won&#x27;t_ ruin your childhood."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #267 - The Data Issue"/><meta property="twitter:description" content="The JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that _won&#x27;t_ ruin your childhood."/><meta property="twitter:image" content="https://bytes.dev/images/content/bullseye.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_buildManifest.js" defer=""></script><script src="/_next/static/dY9LIRQQ58VhV_MFEhYS7/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The Data Issue</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->267<!-- -->.</span><span class="mr-6 font-bold">February 29, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p>We just got the results back from the State of Data 2024 survey, and Directus gave us permission to <del>tear them apart</del> discuss them respectfully in today’s issue.</p>
+<p><em>Who’s Directus?</em> They’re the open-source backend platform (25k <a href="https://github.com/directus/directus">GitHub stars</a>) who put the survey together. If you were lucky enough to win one of the prizes for completing the survey, they’ll email you directly.</p>
+<p>We’re also covering the JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that <em>won’t</em> ruin your childhood.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/267">#267</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/bullseye.jpg" alt="Woody from Toy Story riding on Bullseye the horse" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me racing to tell everyone I know that SQL is making a comeback<!-- --> </p></div><h3>How JavaScript developers work with data</h3><p>For eons, humans have looked up at the stars and asked themselves universal questions like, <em>Are we alone in the universe?</em> <em>Does free will actually exist?</em> <em>What database do most JavaScript developers use in production?</em></p><p>I’m told that the best way to get answers to those first two is by experimenting with DMT. But unfortunately, getting answers to that last question isn’t so simple.</p><p>That’s why <a href="https://directus.io/">Directus</a> created this State of Data survey a couple months ago — because they (along with us) were curious about how professional JavaScript developers are working with data in 2024. So without further ado, let’s dive into our top five takeaways from the survey:</p><p><strong>1. Postgres wins the popularity contest.</strong> Currently used by over 63% of respondents, Postgres ran away with the title of <em>DB Homecoming Queen</em>, edging out second-place MySQL (47%) by a wide margin. When you think about Postgres’ vibrant ecosystem of extensions, active open source community, and first-class JSON support, it makes sense to see how the JS community has fully embraced it.</p><p><strong>2. Developers like their data <em>relational</em>.</strong> Over 57% of respondents expressed a preference for relational DBs, and the only NoSQL DBs to crack the top 10 were MongoDB (3rd), Redis (4th), ElasticSearch (9th) and DynamoDB (10th). Unless you’re Amazon trying to squeeze every ounce of performance out of your database on Prime Day, the upfront costs of designing the optimal data model for NoSQL make relational DBs look a lot more attractive.</p><p><strong>3. Everyone needs a database, but no one wants to manage them.</strong> Rather than run their own DB servers, developers are overwhelmingly opting for solutions hosted by AWS, GCP, or service providers like Supabase or PlanetScale. It turns out that no one wants to deal with <a href="https://www.youtube.com/watch?v=RfiQYRn7fBg">the problems</a> that come with maintaining their own databases, and we don’t blame you.</p><p><strong>4. REST is back, baby.</strong> Let’s be honest, it never <em>really</em> left, but for a while, the JS community flirted with GraphQL or with running their “realtime” database directly from their client side code. But it now feels like we’ve traveled through the full midwit meme and landed right back at wrapping our DBs with a RESTful API, as 94% of respondents selected it as their preferred way to work with APIs.</p><p><strong>5. Developers don’t really care about cost.</strong> CFOs are clenching their cheeks reading this, but most developers don’t view cost as a primary factor when choosing a database hosting solution (shocking, I know). It turns out that developers tend to be a lot more concerned with performance, reliability, and ease of use — at least until they get promoted to the VP level and their bonus gets tied to cost savings <span role="img" aria-label="loudly crying face">😭</span>.</p><p><strong>Bottom Line:</strong> You might see some slightly different answers here if you polled an audience of pure-play backend developers. But as JavaScript continues to eat the world, the lines between frontend, backend, and fullstack are looking blurrier than ever — so it’s even more interesting (imo) to see what tools non-traditional backend developers prefer to use in 2024.</p><p>If you want more interesting insights, we’ll post a link to the full survey results when they’re publicly available next week.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/267" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F267" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20State%20of%20Data%20survey%20results%20just%20came%20in%20from%20%40directus%2C%20and%20%40bytesdotdev%20broke%20it%20all%20down.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F267" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20State%20of%20Data%20survey%20results%20just%20came%20in%20from%20%40directus%2C%20and%20%40bytesdotdev%20broke%20it%20all%20down.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F267" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/multiple-logo.png" alt="Multiple logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/mulan-bowing.jpg" alt="People bowing to Mulan" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When you show your team how to do load testing straight from the CLI<!-- --> </p></div><h3><a href="https://www.multiple.dev/?ref=bytes">Multiple lets you load test anything in 10 minutes</a></h3><p>And you can do it all with JavaScript, npm packages — or the brand-new Multiple CLI. Here’s how:</p><ul>
+<li>
+<p>Use the CLI to create, run, and debug load tests, and get results from the command line (<a href="https://docs.multiple.dev/cli/cli-quick-start/?ref=bytes">see the docs</a>)</p>
+</li>
+<li>
+<p>Test any stack - like HTTP, WebSockets, GraphQL, GRPC, Kafka, auth, and more</p>
+</li>
+<li>
+<p><a href="https://www.multiple.dev/?ref=bytes">Track performance across builds</a> to stop slow code from shipping</p>
+</li>
+</ul><p>Multiple made a <em>big</em> splash when it first launched (front page of Hacker News), because developers loved its JavaScript-centric approach to load testing. And this new CLI should take things to the next level.</p><p><a href="https://www.npmjs.com/package/@multiple/mx-cli/?ref=bytes">Download the CLI from npm</a> to try it out for free — and never worry about outages or cloud cost spikes again.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Spot the Bug — Sponsored by <a href="https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization">Callstack</a></h4><p><em>They just released the 2024 version of their free <a href="https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization">Ultimate Guide to React Native Optimization</a> ebook that’s written by top RN experts and covers everything you need to know about RN performance.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token parameter">user<span class="token punctuation">,</span> fallback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> user <span class="token operator">&amp;&amp;</span> user<span class="token punctuation">.</span>id <span class="token operator">??</span> fallback<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://directus.io/tv/100-apps-100-hours">100 Apps in 100 Hours</a> is a cool video series where Bryant Gillespie tries to rebuild popular apps like Airbnb and Doordash in under an hour. And unlike the new live-action <em>Avatar the Last Airbender</em> on Netflix, it won’t ruin your childhood.</p>
+</li>
+<li>
+<p><a href="https://parceljs.org/blog/v2-12-0/">Parcel v2.12.0</a> adds support for macros, which let you generate code at build time using regular JavaScript functions. It also comes with better CSS bundling support, improved performance, and a new online REPL.</p>
+</li>
+<li>
+<p>Alex Lunakepio is an absolute mad lad who created <a href="https://github.com/Lunakepio/Mario-Kart-3.js">Mario-Kart-3.js</a> — an open-source, 3D version of Mario-Kart built with React that runs entirely in the browser.</p>
+</li>
+<li>
+<p>Coherence created a Platform-as-a-Service with <a href="https://www.withcoherence.com/?utm_campaign=newsletter%202.1.24&amp;utm_medium=advertising&amp;utm_source=bytes">automated environments and pipelines</a> that let you easily deploy and scale your cloud infrastructure using AWS or GCP. It gives you a similar experience to platforms like Vercel and Heroku, but much more flexible and with no vendor lock-in. [sponsored]</p>
+</li>
+<li>
+<p>David Bushell wrote about his <a href="https://dbushell.com/2024/02/16/jsr-first-impression/">First impressions of jsr</a>, after he was blessed enough to be invited off the waitlist to try Deno’s new package manager, which features TypeScript support and npm compatibility.</p>
+</li>
+<li>
+<p><a href="https://directus.pizza">directus.pizza</a> is a live instance of the Directus platform for you to <del>try to break</del> play with. You can also poke around their <a href="https://github.com/directus/directus">GitHub repo</a> to see if it really is worth the 25k stars.</p>
+</li>
+<li>
+<p>Sarah Gooding wrote about how <a href="https://socket.dev/blog/openjs-improve-interoperability-of-javascript-package-metadata">OpenJS formed a new industry group to improve JS package metadata  interoperability</a>. The group is called the Package Metadata Interoperability Collab Space, or PMICS for short. If you have a hard time remembering that, just think of how your <em>PM</em> always gives you the <em>ick.</em></p>
+</li>
+<li>
+<p>Eric Simons wrote about how he spent way too much time creating this <a href="https://blog.stackblitz.com/posts/eval-shirt/?utm_source=Bytes&amp;utm_medium=secondary">Self-rendering t-shirt</a>, where the StackBlitz lightning bolt logo on the shirt is constructed with <em>*actually valid*</em> JavaScript code that’s the source code of the image itself. [sponsored]</p>
+</li>
+<li>
+<p>TkDodo wrote about <a href="https://tkdodo.eu/blog/avoiding-hydration-mismatches-with-use-sync-external-store">Avoiding Hydration Mismatches with useSyncExternalStore</a>.</p>
+</li>
+<li>
+<p>Deno shared their <a href="https://deno.com/blog/2024-survey-results-and-roadmap">2024 roadmap</a>, and I was surprised to see that they had to push back the fight between their dino mascot and Node’s rocket turtle mascot to next year. I guess we’ll have to wait a little longer for the <em>Runtime Mascot Royal Rumble.</em></p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization">Callstack</a></h4></div></div>
+<p>The <code>??</code> operator has higher precedence than the <code>&amp;&amp;</code> operator. This means that the expression <code>user &amp;&amp; user.id ?? fallback</code> is equivalent to <code>user &amp;&amp; (user.id ?? fallback)</code>. This is not what we want. We want to return <code>fallback</code> if <code>user</code> is <code>null</code> or <code>undefined</code>, and <code>user.id</code> otherwise.</p>
+<p>To fix this, we need to use parentheses to change the order of evaluation:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token parameter">user<span class="token punctuation">,</span> fallback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>user <span class="token operator">&amp;&amp;</span> user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token operator">??</span> fallback<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>or even better, just use optional chaining:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token parameter">user<span class="token punctuation">,</span> fallback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> user<span class="token operator">?.</span>id <span class="token operator">??</span> fallback<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="130" src="https://bytes.dev/images/content/ben-haynes.jpg" alt="one question interview logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">One Question Interview</h2></div><h3>Why do you think we’re currently seeing a transition from NoSQL back to SQL, and do you think this trend will continue into the future?</h3><p>In one word: reliability. Not in the “the DB doesn’t crash” sense, but that you know what you’re getting. Obviously that goes beyond the obvious “knowing the structure of the data”, but more so that SQL is standardized and has been proven over decades. Engineers know it well, it’s fully documented, and there are many flavors available (distributed, edge, Aurora, etc) to support most use cases. In the end, I just don’t think many large enterprises moved fast enough to significantly switch to NoSQL… and now that the initial wave has subsided, they’re opting to stay on SQL due to its vast resources and number of developers available.</p><p>–&nbsp;Benjamin Haynes, <a href="https://directus.io/">Directus</a> Founder &amp; CEO</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">212,301</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":212301,"post":{"data":{"title":"Bytes: The Data Issue","date":"2024-02-29","featuredImage":"/images/content/bullseye.jpg","description":"The JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that _won't_ ruin your childhood.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003eWe just got the results back from the State of Data 2024 survey, and Directus gave us permission to \u003cdel\u003etear them apart\u003c/del\u003e discuss them respectfully in today’s issue.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eWho’s Directus?\u003c/em\u003e They’re the open-source backend platform (25k \u003ca href=\"https://github.com/directus/directus\"\u003eGitHub stars\u003c/a\u003e) who put the survey together. If you were lucky enough to win one of the prizes for completing the survey, they’ll email you directly.\u003c/p\u003e\n\u003cp\u003eWe’re also covering the JS runtime mascot royal rumble, MarioKart in the browser, and a new video series that \u003cem\u003ewon’t\u003c/em\u003e ruin your childhood.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/267\"\u003e#267\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/bullseye.jpg\" alt=\"Woody from Toy Story riding on Bullseye the horse\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe racing to tell everyone I know that SQL is making a comeback\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eHow JavaScript developers work with data\u003c/h3\u003e\u003cp\u003eFor eons, humans have looked up at the stars and asked themselves universal questions like, \u003cem\u003eAre we alone in the universe?\u003c/em\u003e \u003cem\u003eDoes free will actually exist?\u003c/em\u003e \u003cem\u003eWhat database do most JavaScript developers use in production?\u003c/em\u003e\u003c/p\u003e\u003cp\u003eI’m told that the best way to get answers to those first two is by experimenting with DMT. But unfortunately, getting answers to that last question isn’t so simple.\u003c/p\u003e\u003cp\u003eThat’s why \u003ca href=\"https://directus.io/\"\u003eDirectus\u003c/a\u003e created this State of Data survey a couple months ago — because they (along with us) were curious about how professional JavaScript developers are working with data in 2024. So without further ado, let’s dive into our top five takeaways from the survey:\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e1. Postgres wins the popularity contest.\u003c/strong\u003e Currently used by over 63% of respondents, Postgres ran away with the title of \u003cem\u003eDB Homecoming Queen\u003c/em\u003e, edging out second-place MySQL (47%) by a wide margin. When you think about Postgres’ vibrant ecosystem of extensions, active open source community, and first-class JSON support, it makes sense to see how the JS community has fully embraced it.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e2. Developers like their data \u003cem\u003erelational\u003c/em\u003e.\u003c/strong\u003e Over 57% of respondents expressed a preference for relational DBs, and the only NoSQL DBs to crack the top 10 were MongoDB (3rd), Redis (4th), ElasticSearch (9th) and DynamoDB (10th). Unless you’re Amazon trying to squeeze every ounce of performance out of your database on Prime Day, the upfront costs of designing the optimal data model for NoSQL make relational DBs look a lot more attractive.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e3. Everyone needs a database, but no one wants to manage them.\u003c/strong\u003e Rather than run their own DB servers, developers are overwhelmingly opting for solutions hosted by AWS, GCP, or service providers like Supabase or PlanetScale. It turns out that no one wants to deal with \u003ca href=\"https://www.youtube.com/watch?v=RfiQYRn7fBg\"\u003ethe problems\u003c/a\u003e that come with maintaining their own databases, and we don’t blame you.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e4. REST is back, baby.\u003c/strong\u003e Let’s be honest, it never \u003cem\u003ereally\u003c/em\u003e left, but for a while, the JS community flirted with GraphQL or with running their “realtime” database directly from their client side code. But it now feels like we’ve traveled through the full midwit meme and landed right back at wrapping our DBs with a RESTful API, as 94% of respondents selected it as their preferred way to work with APIs.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e5. Developers don’t really care about cost.\u003c/strong\u003e CFOs are clenching their cheeks reading this, but most developers don’t view cost as a primary factor when choosing a database hosting solution (shocking, I know). It turns out that developers tend to be a lot more concerned with performance, reliability, and ease of use — at least until they get promoted to the VP level and their bonus gets tied to cost savings \u003cspan role=\"img\" aria-label=\"loudly crying face\"\u003e😭\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e You might see some slightly different answers here if you polled an audience of pure-play backend developers. But as JavaScript continues to eat the world, the lines between frontend, backend, and fullstack are looking blurrier than ever — so it’s even more interesting (imo) to see what tools non-traditional backend developers prefer to use in 2024.\u003c/p\u003e\u003cp\u003eIf you want more interesting insights, we’ll post a link to the full survey results when they’re publicly available next week.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/267\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F267\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20State%20of%20Data%20survey%20results%20just%20came%20in%20from%20%40directus%2C%20and%20%40bytesdotdev%20broke%20it%20all%20down.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F267\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20State%20of%20Data%20survey%20results%20just%20came%20in%20from%20%40directus%2C%20and%20%40bytesdotdev%20broke%20it%20all%20down.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F267\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/multiple-logo.png\" alt=\"Multiple logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/mulan-bowing.jpg\" alt=\"People bowing to Mulan\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen you show your team how to do load testing straight from the CLI\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.multiple.dev/?ref=bytes\"\u003eMultiple lets you load test anything in 10 minutes\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eAnd you can do it all with JavaScript, npm packages — or the brand-new Multiple CLI. Here’s how:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eUse the CLI to create, run, and debug load tests, and get results from the command line (\u003ca href=\"https://docs.multiple.dev/cli/cli-quick-start/?ref=bytes\"\u003esee the docs\u003c/a\u003e)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTest any stack - like HTTP, WebSockets, GraphQL, GRPC, Kafka, auth, and more\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.multiple.dev/?ref=bytes\"\u003eTrack performance across builds\u003c/a\u003e to stop slow code from shipping\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eMultiple made a \u003cem\u003ebig\u003c/em\u003e splash when it first launched (front page of Hacker News), because developers loved its JavaScript-centric approach to load testing. And this new CLI should take things to the next level.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.npmjs.com/package/@multiple/mx-cli/?ref=bytes\"\u003eDownload the CLI from npm\u003c/a\u003e to try it out for free — and never worry about outages or cloud cost spikes again.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSpot the Bug — Sponsored by \u003ca href=\"https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization\"\u003eCallstack\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey just released the 2024 version of their free \u003ca href=\"https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization\"\u003eUltimate Guide to React Native Optimization\u003c/a\u003e ebook that’s written by top RN experts and covers everything you need to know about RN performance.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fallback\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e user \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e??\u003c/span\u003e fallback\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://directus.io/tv/100-apps-100-hours\"\u003e100 Apps in 100 Hours\u003c/a\u003e is a cool video series where Bryant Gillespie tries to rebuild popular apps like Airbnb and Doordash in under an hour. And unlike the new live-action \u003cem\u003eAvatar the Last Airbender\u003c/em\u003e on Netflix, it won’t ruin your childhood.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://parceljs.org/blog/v2-12-0/\"\u003eParcel v2.12.0\u003c/a\u003e adds support for macros, which let you generate code at build time using regular JavaScript functions. It also comes with better CSS bundling support, improved performance, and a new online REPL.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAlex Lunakepio is an absolute mad lad who created \u003ca href=\"https://github.com/Lunakepio/Mario-Kart-3.js\"\u003eMario-Kart-3.js\u003c/a\u003e — an open-source, 3D version of Mario-Kart built with React that runs entirely in the browser.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCoherence created a Platform-as-a-Service with \u003ca href=\"https://www.withcoherence.com/?utm_campaign=newsletter%202.1.24\u0026amp;utm_medium=advertising\u0026amp;utm_source=bytes\"\u003eautomated environments and pipelines\u003c/a\u003e that let you easily deploy and scale your cloud infrastructure using AWS or GCP. It gives you a similar experience to platforms like Vercel and Heroku, but much more flexible and with no vendor lock-in. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDavid Bushell wrote about his \u003ca href=\"https://dbushell.com/2024/02/16/jsr-first-impression/\"\u003eFirst impressions of jsr\u003c/a\u003e, after he was blessed enough to be invited off the waitlist to try Deno’s new package manager, which features TypeScript support and npm compatibility.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://directus.pizza\"\u003edirectus.pizza\u003c/a\u003e is a live instance of the Directus platform for you to \u003cdel\u003etry to break\u003c/del\u003e play with. You can also poke around their \u003ca href=\"https://github.com/directus/directus\"\u003eGitHub repo\u003c/a\u003e to see if it really is worth the 25k stars.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSarah Gooding wrote about how \u003ca href=\"https://socket.dev/blog/openjs-improve-interoperability-of-javascript-package-metadata\"\u003eOpenJS formed a new industry group to improve JS package metadata  interoperability\u003c/a\u003e. The group is called the Package Metadata Interoperability Collab Space, or PMICS for short. If you have a hard time remembering that, just think of how your \u003cem\u003ePM\u003c/em\u003e always gives you the \u003cem\u003eick.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEric Simons wrote about how he spent way too much time creating this \u003ca href=\"https://blog.stackblitz.com/posts/eval-shirt/?utm_source=Bytes\u0026amp;utm_medium=secondary\"\u003eSelf-rendering t-shirt\u003c/a\u003e, where the StackBlitz lightning bolt logo on the shirt is constructed with \u003cem\u003e*actually valid*\u003c/em\u003e JavaScript code that’s the source code of the image itself. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTkDodo wrote about \u003ca href=\"https://tkdodo.eu/blog/avoiding-hydration-mismatches-with-use-sync-external-store\"\u003eAvoiding Hydration Mismatches with useSyncExternalStore\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDeno shared their \u003ca href=\"https://deno.com/blog/2024-survey-results-and-roadmap\"\u003e2024 roadmap\u003c/a\u003e, and I was surprised to see that they had to push back the fight between their dino mascot and Node’s rocket turtle mascot to next year. I guess we’ll have to wait a little longer for the \u003cem\u003eRuntime Mascot Royal Rumble.\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization\"\u003eCallstack\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eThe \u003ccode\u003e??\u003c/code\u003e operator has higher precedence than the \u003ccode\u003e\u0026amp;\u0026amp;\u003c/code\u003e operator. This means that the expression \u003ccode\u003euser \u0026amp;\u0026amp; user.id ?? fallback\u003c/code\u003e is equivalent to \u003ccode\u003euser \u0026amp;\u0026amp; (user.id ?? fallback)\u003c/code\u003e. This is not what we want. We want to return \u003ccode\u003efallback\u003c/code\u003e if \u003ccode\u003euser\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e or \u003ccode\u003eundefined\u003c/code\u003e, and \u003ccode\u003euser.id\u003c/code\u003e otherwise.\u003c/p\u003e\n\u003cp\u003eTo fix this, we need to use parentheses to change the order of evaluation:\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fallback\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003euser \u003cspan class=\"token operator\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e user\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eid\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e??\u003c/span\u003e fallback\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor even better, just use optional chaining:\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003egetId\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003euser\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fallback\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e user\u003cspan class=\"token operator\"\u003e?.\u003c/span\u003eid \u003cspan class=\"token operator\"\u003e??\u003c/span\u003e fallback\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"130\" src=\"https://bytes.dev/images/content/ben-haynes.jpg\" alt=\"one question interview logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eOne Question Interview\u003c/h2\u003e\u003c/div\u003e\u003ch3\u003eWhy do you think we’re currently seeing a transition from NoSQL back to SQL, and do you think this trend will continue into the future?\u003c/h3\u003e\u003cp\u003eIn one word: reliability. Not in the “the DB doesn’t crash” sense, but that you know what you’re getting. Obviously that goes beyond the obvious “knowing the structure of the data”, but more so that SQL is standardized and has been proven over decades. Engineers know it well, it’s fully documented, and there are many flavors available (distributed, edge, Aurora, etc) to support most use cases. In the end, I just don’t think many large enterprises moved fast enough to significantly switch to NoSQL… and now that the initial wave has subsided, they’re opting to stay on SQL due to its vast resources and number of developers available.\u003c/p\u003e\u003cp\u003e–\u0026nbsp;Benjamin Haynes, \u003ca href=\"https://directus.io/\"\u003eDirectus\u003c/a\u003e Founder \u0026amp; CEO\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"267"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"267"},"buildId":"dY9LIRQQ58VhV_MFEhYS7","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
