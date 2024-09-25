@@ -1,0 +1,296 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #325 - Welcome to Browser-Land</title><link rel="canonical" href="https://bytes.dev/archives/325"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Deno officially enters The Land Before Time cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma."/><meta property="og:url" content="https://bytes.dev/archives/325"/><meta property="og:title" content="Bytes #325 - Welcome to Browser-Land"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/willy-wonka-face.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Deno officially enters The Land Before Time cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #325 - Welcome to Browser-Land"/><meta property="twitter:description" content="Deno officially enters The Land Before Time cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma."/><meta property="twitter:image" content="https://bytes.dev/images/content/willy-wonka-face.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/4cfe03ce098bd055.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4cfe03ce098bd055.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-2eac51a0f0ef9b48.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/lbUg4uuwdMHAXV8paKQMP/_buildManifest.js" defer=""></script><script src="/_next/static/lbUg4uuwdMHAXV8paKQMP/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Welcome to Browser-Land</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->325<!-- -->.</span><span class="mr-6 font-bold">September 23, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Deno officially enters <em>The Land Before Time</em> cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/325">#325</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/willy-wonka-face.jpg" alt="Willy Wonka doing a scary smile" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">The last thing you remember seeing before waking up with a chest tattoo that says #UseThePlatform<!-- --> </p></div><h3>Welcome to Browser-Land</h3><p>It’s a magical place where all of your wildest dreams come true – as long as your dreams are to learn about new browser features and nothing else.</p><p>Today, we’re taking a closer look at what just landed in <a href="https://developer.chrome.com/blog/new-in-chrome-129">Chrome 129</a>. So please keep you arms and legs inside the tram at all times – and remember to not take any flash photography if you see Una Kravets or Bramus out in the wild.</p><p><strong>Let the tour begin:</strong></p><ul>
+<li>
+<p><strong>A new <code>scheduler.yield()</code> API</strong> lets you break up long tasks into smaller chunks by explicitly yielding back to the main thread. The biggest benefit of this approach, compared to existing options like <code>yieldToMain()</code>, is <em>continuation</em> – which means that if you yield in the middle of a set of tasks, the other scheduled tasks will continue in the same order after the yield point.</p>
+</li>
+<li>
+<p><strong>A new CSS property, <code>interpolate-size</code></strong> opens up a new set of CSS animations with intrinsic sizing keywords, instead of requiring explicit sizes. Yes, this means we can finally animate <code>height: auto</code>.</p>
+</li>
+<li>
+<p><strong>Changes to CSS anchor positioning</strong> consist of renaming <code>inset-area</code> to <code>position-area</code> and a few other syntax/naming changes. This is less fun than the other features, but we wanted to mention it because you’ll need to change your code ASAP if you’re using any of the old terms.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> I used to read about new Chrome features and think, “Looks cool, but wake me up when the other browsers support it.” I still kind of feel that way, but thanks to the Interop Project, we’re getting cross-browser support for new features faster than ever.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/325" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F325" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=Why%20the%20new%20scheduler.yield()%20API%20is%20a%20big%20deal%2C%20and%20other%20news%20from%20the%20Chrome%20129%20release%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F325" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20the%20new%20scheduler.yield()%20API%20is%20a%20big%20deal%2C%20and%20other%20news%20from%20the%20Chrome%20129%20release%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F325" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/neon-logo.png" alt="Neon logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/hero-cera.jpg" alt="Michael Cera waving while dressed up as Captain America" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When my co-workers call me a hero for setting up our whole db in an hour<!-- --> </p></div><h3><a href="https://fyi.neon.tech/bytes">Ship faster with Postgres on Neon</a></h3><p>Postgres is the world’s most popular open-source database – but it’s also easy to get stuck battling complex configs, maintenance, and scaling issues.</p><p>That’s where Neon can help. They offer fully managed Postgres with unique features to help you build and scale faster:</p><ul>
+<li>
+<p>Your DB <a href="https://neon.tech/docs/introduction/autoscaling/?ref=bytes">automatically adapts</a> to your app’s workload, eliminating the need for over-provisioning or manual resource allocation.</p>
+</li>
+<li>
+<p>You can instantly create ready-to-use Development/Preview/Test databases (with both schema and data) that automatically shut down when unused. (<a href="https://neon.tech/docs/introduction/autoscaling/?ref=bytes">See the docs</a>.)</p>
+</li>
+<li>
+<p>You can restore your database in seconds to any point in the past 30 days, 24 hours, or even 1 minute ago.</p>
+</li>
+</ul><p><a href="https://fyi.neon.tech/bytes">Get started with the robust free tier</a>, and provision your Postgres database in under a second – seriously, it’s that fast.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev&amp;utm_medium=newsletter&amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes">Datadog</a></h4><p><em>They created this free <a href="https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev&amp;utm_medium=newsletter&amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes">Synthetic Monitoring Brief</a> that shows you how to create browser and API tests that are intelligent and self-maintaining, with no code required.</em></p></div></div>
+<p>What does this evaluate to?</p>
+<pre class="language-js"><code class="language-js">Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">length</span><span class="token operator">:</span> <span class="token number">26</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>We opened up a <a href="https://ui.dev/c/react?s=bytes">free preview</a> of <a href="https://react.gg?s=bytes">react.gg</a>, our interactive course for mastering modern React.</p>
+</li>
+<li>
+<p>TkDodo wrote about how <a href="https://tkdodo.eu/blog/component-composition-is-great-btw">Component Composition is great btw</a>.</p>
+</li>
+<li>
+<p>The new <a href="https://developereconomics.net/?member_id=bytes&amp;utm_medium=nl_ad_1">Developer Nation survey</a> is a win-win: when you take it, they donate to charity and send you a virtual goodie bag packed with resources. Plus, you get a chance to win a Samsung Galaxy Watch 7, a Portable Projector, a RODE NT-USB Mini Microphone, Raspberry Pi 5s, and lots more. <a href="https://developereconomics.net/?member_id=bytes&amp;utm_medium=nl_ad_1">Start now</a>. [sponsored]</p>
+</li>
+<li>
+<p>Bun now allows you to <a href="https://bun.sh/blog/compile-and-run-c-in-js">compile and run C in JavaScript</a> (experimentally). Their scientists were so preoccupied with whether or not they could, they didn’t stop to think if they should.</p>
+</li>
+<li>
+<p>Tony Alaribe wrote an article on the htmx blog called, <a href="https://htmx.org/essays/you-cant/">You can’t build interactive web apps except as Single Page Applications… and other myths</a>. I’m a little upset he didn’t take time to clear up the myth that I “wet my pants” on the first day of 6th grade, when I <em>clearly</em> just spilled water on them – but I’ll get over it eventually.</p>
+</li>
+<li>
+<p><a href="https://github.com/pmndrs/valtio/releases/tag/v2.0.0">Valtio released v2.0</a> of its proxy-state manager for React and Vanilla JS.</p>
+</li>
+<li>
+<p>Stytch gives you <a href="https://stytch.com/?utm_source=bytes.dev&amp;utm_medium=paid_sponsorship&amp;utm_content=bytes.dev-09-23-2024&amp;utm_campaign=bytes.dev-q3-2024">complete auth infrastructure</a> (not just widgets), plus built-in fraud and risk prevention in a single, API-first platform. So you’ll never have to hack together multiple auth and security tools again <span role="img" aria-label="folded hands">🙏</span>. [sponsored]</p>
+</li>
+<li>
+<p>Austin Whyte wrote an in-depth post about how his team at Discord <a href="https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent">reduced WebSocket traffic by 40%</a>.</p>
+</li>
+<li>
+<p>The <a href="https://deno.com/blog/v2.0-release-candidate">Deno 2.0 release candidate</a> just dropped. I haven’t been this excited for a cute, animated dinosaur release since the 11th <em>Land Before Time</em> movie came out.</p>
+</li>
+<li>
+<p>Cloudflare just announced <a href="https://www.cloudflare.com/press-releases/2024/cloudflare-helps-content-creators-regain-control-of-content-from-ai/">a new marketplace that will let websites charge AI bots for scraping</a>. I can’t wait until OpenAI sends me a check for $0.78 after training its models to recognize the connection between htmx and my most traumatic middle school memories. Long live late-stage capitalism.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev&amp;utm_medium=newsletter&amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes">Datadog</a></h4></div></div>
+<p>What does this evaluate to?</p>
+<pre class="language-js"><code class="language-js">Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">length</span><span class="token operator">:</span> <span class="token number">26</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The English alphabet as a string –&nbsp;</p>
+<p><code>a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z</code></p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">211,767</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":211767,"post":{"data":{"title":"Bytes: Welcome to Browser-Land","date":"2024-09-23","featuredImage":"/images/content/willy-wonka-face.jpg","description":"Deno officially enters The Land Before Time cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Deno officially enters \u003cem\u003eThe Land Before Time\u003c/em\u003e cinematic universe, Discord reduces its WebSocket traffic by 40%, and I wait for OpenAI to send me a check for monetizing my middle school trauma.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/325\"\u003e#325\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/willy-wonka-face.jpg\" alt=\"Willy Wonka doing a scary smile\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eThe last thing you remember seeing before waking up with a chest tattoo that says #UseThePlatform\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eWelcome to Browser-Land\u003c/h3\u003e\u003cp\u003eIt’s a magical place where all of your wildest dreams come true – as long as your dreams are to learn about new browser features and nothing else.\u003c/p\u003e\u003cp\u003eToday, we’re taking a closer look at what just landed in \u003ca href=\"https://developer.chrome.com/blog/new-in-chrome-129\"\u003eChrome 129\u003c/a\u003e. So please keep you arms and legs inside the tram at all times – and remember to not take any flash photography if you see Una Kravets or Bramus out in the wild.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eLet the tour begin:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eA new \u003ccode\u003escheduler.yield()\u003c/code\u003e API\u003c/strong\u003e lets you break up long tasks into smaller chunks by explicitly yielding back to the main thread. The biggest benefit of this approach, compared to existing options like \u003ccode\u003eyieldToMain()\u003c/code\u003e, is \u003cem\u003econtinuation\u003c/em\u003e – which means that if you yield in the middle of a set of tasks, the other scheduled tasks will continue in the same order after the yield point.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eA new CSS property, \u003ccode\u003einterpolate-size\u003c/code\u003e\u003c/strong\u003e opens up a new set of CSS animations with intrinsic sizing keywords, instead of requiring explicit sizes. Yes, this means we can finally animate \u003ccode\u003eheight: auto\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eChanges to CSS anchor positioning\u003c/strong\u003e consist of renaming \u003ccode\u003einset-area\u003c/code\u003e to \u003ccode\u003eposition-area\u003c/code\u003e and a few other syntax/naming changes. This is less fun than the other features, but we wanted to mention it because you’ll need to change your code ASAP if you’re using any of the old terms.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e I used to read about new Chrome features and think, “Looks cool, but wake me up when the other browsers support it.” I still kind of feel that way, but thanks to the Interop Project, we’re getting cross-browser support for new features faster than ever.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/325\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F325\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=Why%20the%20new%20scheduler.yield()%20API%20is%20a%20big%20deal%2C%20and%20other%20news%20from%20the%20Chrome%20129%20release%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F325\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AWhy%20the%20new%20scheduler.yield()%20API%20is%20a%20big%20deal%2C%20and%20other%20news%20from%20the%20Chrome%20129%20release%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F325\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/neon-logo.png\" alt=\"Neon logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/hero-cera.jpg\" alt=\"Michael Cera waving while dressed up as Captain America\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen my co-workers call me a hero for setting up our whole db in an hour\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://fyi.neon.tech/bytes\"\u003eShip faster with Postgres on Neon\u003c/a\u003e\u003c/h3\u003e\u003cp\u003ePostgres is the world’s most popular open-source database – but it’s also easy to get stuck battling complex configs, maintenance, and scaling issues.\u003c/p\u003e\u003cp\u003eThat’s where Neon can help. They offer fully managed Postgres with unique features to help you build and scale faster:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eYour DB \u003ca href=\"https://neon.tech/docs/introduction/autoscaling/?ref=bytes\"\u003eautomatically adapts\u003c/a\u003e to your app’s workload, eliminating the need for over-provisioning or manual resource allocation.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can instantly create ready-to-use Development/Preview/Test databases (with both schema and data) that automatically shut down when unused. (\u003ca href=\"https://neon.tech/docs/introduction/autoscaling/?ref=bytes\"\u003eSee the docs\u003c/a\u003e.)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can restore your database in seconds to any point in the past 30 days, 24 hours, or even 1 minute ago.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://fyi.neon.tech/bytes\"\u003eGet started with the robust free tier\u003c/a\u003e, and provision your Postgres database in under a second – seriously, it’s that fast.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes\"\u003eDatadog\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey created this free \u003ca href=\"https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes\"\u003eSynthetic Monitoring Brief\u003c/a\u003e that shows you how to create browser and API tests that are intelligent and self-maintaining, with no code required.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat does this evaluate to?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003eArray\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efrom\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003elength\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ex\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e i\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e \u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoString\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e36\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\", \"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eWe opened up a \u003ca href=\"https://ui.dev/c/react?s=bytes\"\u003efree preview\u003c/a\u003e of \u003ca href=\"https://react.gg?s=bytes\"\u003ereact.gg\u003c/a\u003e, our interactive course for mastering modern React.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTkDodo wrote about how \u003ca href=\"https://tkdodo.eu/blog/component-composition-is-great-btw\"\u003eComponent Composition is great btw\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe new \u003ca href=\"https://developereconomics.net/?member_id=bytes\u0026amp;utm_medium=nl_ad_1\"\u003eDeveloper Nation survey\u003c/a\u003e is a win-win: when you take it, they donate to charity and send you a virtual goodie bag packed with resources. Plus, you get a chance to win a Samsung Galaxy Watch 7, a Portable Projector, a RODE NT-USB Mini Microphone, Raspberry Pi 5s, and lots more. \u003ca href=\"https://developereconomics.net/?member_id=bytes\u0026amp;utm_medium=nl_ad_1\"\u003eStart now\u003c/a\u003e. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBun now allows you to \u003ca href=\"https://bun.sh/blog/compile-and-run-c-in-js\"\u003ecompile and run C in JavaScript\u003c/a\u003e (experimentally). Their scientists were so preoccupied with whether or not they could, they didn’t stop to think if they should.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTony Alaribe wrote an article on the htmx blog called, \u003ca href=\"https://htmx.org/essays/you-cant/\"\u003eYou can’t build interactive web apps except as Single Page Applications… and other myths\u003c/a\u003e. I’m a little upset he didn’t take time to clear up the myth that I “wet my pants” on the first day of 6th grade, when I \u003cem\u003eclearly\u003c/em\u003e just spilled water on them – but I’ll get over it eventually.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/pmndrs/valtio/releases/tag/v2.0.0\"\u003eValtio released v2.0\u003c/a\u003e of its proxy-state manager for React and Vanilla JS.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eStytch gives you \u003ca href=\"https://stytch.com/?utm_source=bytes.dev\u0026amp;utm_medium=paid_sponsorship\u0026amp;utm_content=bytes.dev-09-23-2024\u0026amp;utm_campaign=bytes.dev-q3-2024\"\u003ecomplete auth infrastructure\u003c/a\u003e (not just widgets), plus built-in fraud and risk prevention in a single, API-first platform. So you’ll never have to hack together multiple auth and security tools again \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAustin Whyte wrote an in-depth post about how his team at Discord \u003ca href=\"https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent\"\u003ereduced WebSocket traffic by 40%\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ca href=\"https://deno.com/blog/v2.0-release-candidate\"\u003eDeno 2.0 release candidate\u003c/a\u003e just dropped. I haven’t been this excited for a cute, animated dinosaur release since the 11th \u003cem\u003eLand Before Time\u003c/em\u003e movie came out.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCloudflare just announced \u003ca href=\"https://www.cloudflare.com/press-releases/2024/cloudflare-helps-content-creators-regain-control-of-content-from-ai/\"\u003ea new marketplace that will let websites charge AI bots for scraping\u003c/a\u003e. I can’t wait until OpenAI sends me a check for $0.78 after training its models to recognize the connection between htmx and my most traumatic middle school memories. Long live late-stage capitalism.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://www.datadoghq.com/resources/synthetic-monitoring-product-brief/?utm_source=bytesdev\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=dg-apm-ww-synthetics-brief-bytes\"\u003eDatadog\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat does this evaluate to?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003eArray\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efrom\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003elength\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e26\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ex\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e i\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e \u003cspan class=\"token number\"\u003e10\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoString\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e36\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ejoin\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\", \"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe English alphabet as a string –\u0026nbsp;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003ea, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z\u003c/code\u003e\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"325"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"325"},"buildId":"lbUg4uuwdMHAXV8paKQMP","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
