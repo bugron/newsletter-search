@@ -42,7 +42,7 @@ export async function fetchCooperpressNewsletter(
         );
         const currentTitle = extractPageTitle(currentHtmlContent);
 
-        if (fetchedTitle === currentTitle) {
+        if (!fetchedTitle || fetchedTitle === currentTitle) {
             console.log(`No new issue available for ${newsletterName}.`);
             await fs.unlink(outputPath);
             return false;

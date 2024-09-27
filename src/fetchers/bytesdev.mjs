@@ -35,7 +35,7 @@ export async function fetchBytesDevNewsletter(
         const htmlContent = await fs.readFile(outputPath, 'utf-8');
         const fetchedTitle = extractPageTitle(htmlContent);
 
-        if (fetchedTitle === '404') {
+        if (!fetchedTitle || fetchedTitle === '404') {
             console.log(`No new issue available for ${newsletterName}.`);
             await fs.unlink(outputPath);
             return false;
