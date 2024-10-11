@@ -1,0 +1,309 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #328 - Bloomberg&#x27;s new TypeScript framework</title><link rel="canonical" href="https://bytes.dev/archives/328"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf."/><meta property="og:url" content="https://bytes.dev/archives/328"/><meta property="og:title" content="Bytes #328 - Bloomberg&#x27;s new TypeScript framework"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/goku-money.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #328 - Bloomberg&#x27;s new TypeScript framework"/><meta property="twitter:description" content="Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf."/><meta property="twitter:image" content="https://bytes.dev/images/content/goku-money.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/2778144452543cf1.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2778144452543cf1.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-1438f4a5b9e84334.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/Z8wS5Ijh9jnqntUMAQgeg/_buildManifest.js" defer=""></script><script src="/_next/static/Z8wS5Ijh9jnqntUMAQgeg/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Bloomberg&#x27;s new TypeScript framework</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->328<!-- -->.</span><span class="mr-6 font-bold">October 3, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/328">#328</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/goku-money.jpg" alt="Goku smoking a cigar looking at a pile of money" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me after investing my life savings into an obscure TypeScript library<!-- --> </p></div><h3>Bloomberg’s new TypeScript framework</h3><p>If you offered me 10 million dollars, I couldn’t tell you what Bloomberg does. But whatever it is, I’m guessing that static typing is <em>very</em> important because their developers have been launching some really cool TypeScript-flavored OSS lately.</p><p>We highlighted <a href="https://bloomberg.github.io/ts-blank-space">ts-blank-space</a> last month, a fast type-stripping compiler that converts TS to JS. And they just launched <a href="https://github.com/bloomberg/stricli/">Stricli</a> earlier this week, a framework for building complex CLIs with type safety and zero dependencies.</p><p><strong>Why do we need another CLI framework?</strong> Michael Molisani (the project’s maintainer) <a href="https://bloomberg.github.io/stricli/blog/intro/">wrote</a> about how existing frameworks like oclif and clipanion do offer full type safety, but they can also introduce additional dependencies and complexity that aren’t necessary for many use cases.</p><p>So he and his team built Stricli to give them all the features they wanted, without any extra overhead:</p><ul>
+<li>
+<p><strong>Full TypeScript support</strong> – including types for named flags and positional arguments that are defined once and flow through the entire app.</p>
+</li>
+<li>
+<p><strong>Dual support for ESM and CommonJS</strong> – plus easy code splitting with ESM build tools and dynamic autocomplete.</p>
+</li>
+<li>
+<p><strong>Zero runtime dependencies</strong> – plus support for optional dependency injection, because all system access is encapsulated in a single context object.</p>
+</li>
+</ul><p>The tradeoff here is that Stricli was purposefully designed with a more limited scope, so you’ll need to add other packages if you want interactive user prompts, terminal output styling, and other features.</p><p><strong>Bottom Line:</strong> If I had known that open-source TypeScript projects were the secret behind Michael Bloomberg’s $100 billion fortune, I would’ve pledged my allegiance to the Type Nerd Mafia way sooner.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/328" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F328" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=No%20one%20knows%20what%20Bloomberg%20does%2C%20but%20they%20keep%20releasing%20cool%20TypeScript%20projects.%20%40bytesdotdev%20broke%20down%20the%20latest%20one.%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F328" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ANo%20one%20knows%20what%20Bloomberg%20does%2C%20but%20they%20keep%20releasing%20cool%20TypeScript%20projects.%20%40bytesdotdev%20broke%20down%20the%20latest%20one.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F328" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/arcjet-logo.png" alt="Arcjet logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/dog-head.jpg" alt="A dog's head on a human's body looking worried" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me watching bots flood my email form with infinite variations of bigbuttz99@hotmail.com<!-- --> </p></div><h3><a href="https://arcjet.com/?ref=ui.dev">Protect your app in just a few lines of code with Arcject</a></h3><p>It gives you <em>native</em> security for Bun, Next.js, Deno, Node.js and every other modern platform – so you can easily implement rate limiting, bot protection, email validation, and protection from common attacks.</p><p><strong>“bUt hOw iS tHIs diFFeReNt fRoM oTheR sEcURitY tOOLs?”</strong> Arcjet is <em>*actually*</em> unique because of 3 core principles:</p><ol>
+<li>
+<p><strong>Proper security needs the <em>full context</em> of the application</strong> – so your security rules are located alongside the code they’re protecting (<a href="https://example.arcjet.com/?ref=ui.dev">see live example</a>).</p>
+</li>
+<li>
+<p><strong>Security rules should be easy to test in dev and prod</strong> – so you can <a href="https://docs.arcjet.com/testing/?ref=ui.dev">run Arcjet locally</a>, in staging, and in production.</p>
+</li>
+<li>
+<p><strong>Security shouldn’t interfere with the rest of your app</strong> – so Arcjet is easy to install, doesn’t add latency, and doesn’t require any re-architecting.</p>
+</li>
+</ol><p><a href="https://arcjet.com/pricing/?ref=ui.dev">Use it for free on your personal projects</a> – and see how easy it is to get enterprise-quality security.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">Raygun</a></h4><p><em>One of their engineers wrote this 2,800-word DEEP dive that compares <a href="https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">Next-gen JS runtimes &amp; package managers to their predecessors</a>, so you can make the best choice for your next project.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Grapes'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Cherry'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Date'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+products<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a<span class="token punctuation">.</span>price <span class="token operator">&gt;</span> b<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p><a href="https://viteconf.org/live">ViteConf is live</a> and happening right now if you want to tune in. I tried using FanDuel to live-bet on how many times the speakers would say “blazing”, but I think that integration is broken.</p>
+</li>
+<li>
+<p>Amelia Wattenberger wrote a beautifully visual article on <a href="https://wattenberger.com/thoughts/hard-and-soft">bridging the gap between the hard logic of machines and the soft logic of humans</a> with your UI.</p>
+</li>
+<li>
+<p><a href="https://zod.fyi/">Zod.fyi</a> lets you visualize the issues in a <code>ZodError</code>. The last time my therapist told me to “visualize my issues,” I didn’t go outside for three days, so hopefully this experience will be more helpful.</p>
+</li>
+<li>
+<p>Here’s an early New Year’s resolution – stop wasting your time on manual tests and <a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles10032024&amp;utm_source=bytes&amp;utm_medium=newsletter">get QA Wolf to give you a personalized demo</a> of how they can help your team achieve 80% automated test coverage and ship 5x faster. They’ve done that for hundreds of companies like Salesloft, Drata, and Autotrader, so you’ll definitely be in good hands. [sponsored]</p>
+</li>
+<li>
+<p>ESLint now officially supports <a href="https://eslint.org/blog/2024/10/eslint-json-markdown-support/">linting JSON and Markdown</a>.</p>
+</li>
+<li>
+<p>Devon Govett gave a great talk on <a href="https://www.youtube.com/watch?v=JUS6EPMbk0U">the past, present, and future of JavaScript bundlers</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/11ty/eleventy/releases/tag/v3.0.0">Eleventy v3.0</a> was released full ESM support, async configuration, new Deno support, and more.</p>
+</li>
+<li>
+<p>Datadog’s team created this <a href="https://datadoghq.com/bytes">Front-end Developer Kit</a> with a bunch of free resources to help you better understand user activity and troubleshoot front-end issues <em>before</em> you crash prod, ideally. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://v2.tauri.app/blog/tauri-20/">Tauri 2.0</a> comes with hot module replacement, a more advanced plugin system, and some noticeable DX improvements.</p>
+</li>
+<li>
+<p>Vite just <a href="https://voidzero.dev/posts/announcing-voidzero-inc">launched a company called VoidZero</a> and raised $4.6m from investors. You might not <em>love</em> the idea of VC-funded open source, but it’s probably more sustainable than Evan You releasing a wallpaper app with a bunch of high-res photos of the Vite maintainers that costs $13.99/month.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">Raygun</a></h4></div></div>
+<p>When using the <code>Array.sort</code> method, the compare function should return a number, not a boolean. Returning a negative number will sort the first item before the second, a positive number will sort the second item before the first, and returning 0 will leave the items in the same order.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Grapes'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Cherry'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Date'</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+products<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a<span class="token punctuation">.</span>price <span class="token operator">-</span> b<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">210,788</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":210788,"post":{"data":{"title":"Bytes: Bloomberg's new TypeScript framework","date":"2024-10-03","featuredImage":"/images/content/goku-money.jpg","description":"Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Evan You gets some bread, visualizing your (Zod) issues, and live betting on ViteConf.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/328\"\u003e#328\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/goku-money.jpg\" alt=\"Goku smoking a cigar looking at a pile of money\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe after investing my life savings into an obscure TypeScript library\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eBloomberg’s new TypeScript framework\u003c/h3\u003e\u003cp\u003eIf you offered me 10 million dollars, I couldn’t tell you what Bloomberg does. But whatever it is, I’m guessing that static typing is \u003cem\u003every\u003c/em\u003e important because their developers have been launching some really cool TypeScript-flavored OSS lately.\u003c/p\u003e\u003cp\u003eWe highlighted \u003ca href=\"https://bloomberg.github.io/ts-blank-space\"\u003ets-blank-space\u003c/a\u003e last month, a fast type-stripping compiler that converts TS to JS. And they just launched \u003ca href=\"https://github.com/bloomberg/stricli/\"\u003eStricli\u003c/a\u003e earlier this week, a framework for building complex CLIs with type safety and zero dependencies.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWhy do we need another CLI framework?\u003c/strong\u003e Michael Molisani (the project’s maintainer) \u003ca href=\"https://bloomberg.github.io/stricli/blog/intro/\"\u003ewrote\u003c/a\u003e about how existing frameworks like oclif and clipanion do offer full type safety, but they can also introduce additional dependencies and complexity that aren’t necessary for many use cases.\u003c/p\u003e\u003cp\u003eSo he and his team built Stricli to give them all the features they wanted, without any extra overhead:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFull TypeScript support\u003c/strong\u003e – including types for named flags and positional arguments that are defined once and flow through the entire app.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDual support for ESM and CommonJS\u003c/strong\u003e – plus easy code splitting with ESM build tools and dynamic autocomplete.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eZero runtime dependencies\u003c/strong\u003e – plus support for optional dependency injection, because all system access is encapsulated in a single context object.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eThe tradeoff here is that Stricli was purposefully designed with a more limited scope, so you’ll need to add other packages if you want interactive user prompts, terminal output styling, and other features.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e If I had known that open-source TypeScript projects were the secret behind Michael Bloomberg’s $100 billion fortune, I would’ve pledged my allegiance to the Type Nerd Mafia way sooner.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/328\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F328\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=No%20one%20knows%20what%20Bloomberg%20does%2C%20but%20they%20keep%20releasing%20cool%20TypeScript%20projects.%20%40bytesdotdev%20broke%20down%20the%20latest%20one.%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F328\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0ANo%20one%20knows%20what%20Bloomberg%20does%2C%20but%20they%20keep%20releasing%20cool%20TypeScript%20projects.%20%40bytesdotdev%20broke%20down%20the%20latest%20one.%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F328\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/arcjet-logo.png\" alt=\"Arcjet logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/dog-head.jpg\" alt=\"A dog's head on a human's body looking worried\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe watching bots flood my email form with infinite variations of bigbuttz99@hotmail.com\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://arcjet.com/?ref=ui.dev\"\u003eProtect your app in just a few lines of code with Arcject\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eIt gives you \u003cem\u003enative\u003c/em\u003e security for Bun, Next.js, Deno, Node.js and every other modern platform – so you can easily implement rate limiting, bot protection, email validation, and protection from common attacks.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003e“bUt hOw iS tHIs diFFeReNt fRoM oTheR sEcURitY tOOLs?”\u003c/strong\u003e Arcjet is \u003cem\u003e*actually*\u003c/em\u003e unique because of 3 core principles:\u003c/p\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eProper security needs the \u003cem\u003efull context\u003c/em\u003e of the application\u003c/strong\u003e – so your security rules are located alongside the code they’re protecting (\u003ca href=\"https://example.arcjet.com/?ref=ui.dev\"\u003esee live example\u003c/a\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSecurity rules should be easy to test in dev and prod\u003c/strong\u003e – so you can \u003ca href=\"https://docs.arcjet.com/testing/?ref=ui.dev\"\u003erun Arcjet locally\u003c/a\u003e, in staging, and in production.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSecurity shouldn’t interfere with the rest of your app\u003c/strong\u003e – so Arcjet is easy to install, doesn’t add latency, and doesn’t require any re-architecting.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003e\u003ca href=\"https://arcjet.com/pricing/?ref=ui.dev\"\u003eUse it for free on your personal projects\u003c/a\u003e – and see how easy it is to get enterprise-quality security.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003eRaygun\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eOne of their engineers wrote this 2,800-word DEEP dive that compares \u003ca href=\"https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003eNext-gen JS runtimes \u0026amp; package managers to their predecessors\u003c/a\u003e, so you can make the best choice for your next project.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e products \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Grapes'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Banana'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Apple'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Cherry'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Date'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\nproducts\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esort\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ea\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e b\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e a\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e\u0026gt;\u003c/span\u003e b\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://viteconf.org/live\"\u003eViteConf is live\u003c/a\u003e and happening right now if you want to tune in. I tried using FanDuel to live-bet on how many times the speakers would say “blazing”, but I think that integration is broken.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAmelia Wattenberger wrote a beautifully visual article on \u003ca href=\"https://wattenberger.com/thoughts/hard-and-soft\"\u003ebridging the gap between the hard logic of machines and the soft logic of humans\u003c/a\u003e with your UI.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://zod.fyi/\"\u003eZod.fyi\u003c/a\u003e lets you visualize the issues in a \u003ccode\u003eZodError\u003c/code\u003e. The last time my therapist told me to “visualize my issues,” I didn’t go outside for three days, so hopefully this experience will be more helpful.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eHere’s an early New Year’s resolution – stop wasting your time on manual tests and \u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles10032024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eget QA Wolf to give you a personalized demo\u003c/a\u003e of how they can help your team achieve 80% automated test coverage and ship 5x faster. They’ve done that for hundreds of companies like Salesloft, Drata, and Autotrader, so you’ll definitely be in good hands. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eESLint now officially supports \u003ca href=\"https://eslint.org/blog/2024/10/eslint-json-markdown-support/\"\u003elinting JSON and Markdown\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDevon Govett gave a great talk on \u003ca href=\"https://www.youtube.com/watch?v=JUS6EPMbk0U\"\u003ethe past, present, and future of JavaScript bundlers\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/11ty/eleventy/releases/tag/v3.0.0\"\u003eEleventy v3.0\u003c/a\u003e was released full ESM support, async configuration, new Deno support, and more.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDatadog’s team created this \u003ca href=\"https://datadoghq.com/bytes\"\u003eFront-end Developer Kit\u003c/a\u003e with a bunch of free resources to help you better understand user activity and troubleshoot front-end issues \u003cem\u003ebefore\u003c/em\u003e you crash prod, ideally. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://v2.tauri.app/blog/tauri-20/\"\u003eTauri 2.0\u003c/a\u003e comes with hot module replacement, a more advanced plugin system, and some noticeable DX improvements.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVite just \u003ca href=\"https://voidzero.dev/posts/announcing-voidzero-inc\"\u003elaunched a company called VoidZero\u003c/a\u003e and raised $4.6m from investors. You might not \u003cem\u003elove\u003c/em\u003e the idea of VC-funded open source, but it’s probably more sustainable than Evan You releasing a wallpaper app with a bunch of high-res photos of the Vite maintainers that costs $13.99/month.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://raygun.com/blog/js-toolbox-part-1/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003eRaygun\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhen using the \u003ccode\u003eArray.sort\u003c/code\u003e method, the compare function should return a number, not a boolean. Returning a negative number will sort the first item before the second, a positive number will sort the second item before the first, and returning 0 will leave the items in the same order.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e products \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Grapes'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Banana'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Apple'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Cherry'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003ename\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token string\"\u003e'Date'\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token literal-property property\"\u003eprice\u003c/span\u003e\u003cspan class=\"token operator\"\u003e:\u003c/span\u003e \u003cspan class=\"token number\"\u003e1\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\nproducts\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003esort\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003ea\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e b\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e a\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice \u003cspan class=\"token operator\"\u003e-\u003c/span\u003e b\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003eprice\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"328"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"328"},"buildId":"Z8wS5Ijh9jnqntUMAQgeg","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
