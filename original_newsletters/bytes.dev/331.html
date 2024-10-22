@@ -1,0 +1,300 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #331 - The One true React framework</title><link rel="canonical" href="https://bytes.dev/archives/331"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Bullying React on the server, threatening an innocent newsletter, and making the radical decision to _not_ burn down your open source community."/><meta property="og:url" content="https://bytes.dev/archives/331"/><meta property="og:title" content="Bytes #331 - The One true React framework"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/dog-hands.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Bullying React on the server, threatening an innocent newsletter, and making the radical decision to _not_ burn down your open source community."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #331 - The One true React framework"/><meta property="twitter:description" content="Bullying React on the server, threatening an innocent newsletter, and making the radical decision to _not_ burn down your open source community."/><meta property="twitter:image" content="https://bytes.dev/images/content/dog-hands.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/2778144452543cf1.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2778144452543cf1.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-1438f4a5b9e84334.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/bd-GBM5oKOXiAkPykhPTK/_buildManifest.js" defer=""></script><script src="/_next/static/bd-GBM5oKOXiAkPykhPTK/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> The One true React framework</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->331<!-- -->.</span><span class="mr-6 font-bold">October 14, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/content/bytes-header-turso.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Bullying React on the server, threatening an innocent newsletter, and making the radical decision to <em>not</em> burn down your open source community.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/331">#331</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/dog-hands.jpg" alt="A dog with human hands thinking" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me reading about a new framework that’s sure to finally fix all my problems<!-- --> </p></div><h3>The One true React framework</h3><p>Have you ever wondered what would happen if React Native had a baby with Rails?</p><p>Well today’s your lucky day, because <a href="https://onestack.dev/">One</a> is a brand new full-stack React framework for web and native that’s definitely not like other <del>girls</del> frameworks. Let’s find out why.</p><p><strong>How we got here:</strong> One was created by the team behind <a href="https://tamagui.dev/">Tamagui</a> – a cross-platform styling library for React that uses an optimizing compiler to let you share more code between web and native.</p><p>One takes that idea about 12 steps further by allowing you to target native and web with just <em>one</em> codebase (<span role="img" aria-label="drum">🥁</span>) via strongly typed file-system routes.</p><p><strong>Here’s how it works:</strong></p><ul>
+<li>
+<p>One is built on Vite, which can serve both React Native and web seamlessly with <a href="https://onestack.dev/docs/routing">file-system routing</a> across server, client, and static pages. This lets you build for native and web in the same project with fast HMR for both.</p>
+</li>
+<li>
+<p>You can target a specific platform by using the same extension convention as React Native in the filename, like <code>blog.web.tsx</code> or <code>blog.ios.tsx</code>.</p>
+</li>
+<li>
+<p>You can choose your rendering mode on a per-page basis with filename suffixes like <code>route+ssg.tsx</code> or <code>route+ssr.tsx</code>.</p>
+</li>
+</ul><p>The framework also comes with a production server out of the box that provides a “default but ejectable” data solution that aims to make cross-platform development as simple as possible – ala Rails and other batteries-included tools of a bygone era.</p><p><strong>Bottom Line:</strong> Could One finally fulfill React Native’s original and now abandoned promise of “write once, run anywhere”?</p><p>I’m not sure, but they were somehow able to get the <code>one</code> npm package name – so maybe they really are the chosen ones after all.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/331" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F331" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=React%20Native%20%2B%20Rails%20%3D%20%40one__js%3F%20Many%20are%20saying%20so%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F331" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AReact%20Native%20%2B%20Rails%20%3D%20%40one__js%3F%20Many%20are%20saying%20so%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F331" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/qa-wolf-logo.png" alt="QA Wolf logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/atlantis.jpg" alt="Guy from Atlantis frowning" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">When your app breaks and you can't even blame it on the WordPress drama<!-- --> </p></div><h3><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles10142024&amp;utm_source=bytes&amp;utm_medium=newsletter"><span role="img" aria-label="waving hand">👋</span> Goodbye low test coverage and slow QA cycles</a></h3><p>Bugs sneak out when less than 80% of user flows are tested before shipping. But getting that kind of coverage (and staying there) is pricey and difficult for any team.</p><p>That’s why some of the best software teams in the world use QA Wolf. Their <a href="https://www.qawolf.com/how-it-works/?utm_campaign=CutYourQACycles10142024&amp;utm_source=bytes&amp;utm_medium=newsletter">AI-native approach</a> gets you 80% automated e2e test coverage for your application – and reduces QA cycles from hours to minutes.</p><p>It comes with:</p><ul>
+<li>Unlimited parallel test runs</li>
+<li>24-hour maintenance and on-demand test creation</li>
+<li>Human-verified bug reports sent directly to your team</li>
+<li>Zero flakes, guaranteed</li>
+</ul><p>The result? With QA Wolf, <a href="https://www.qawolf.com/case-studies/drata/?utm_campaign=CutYourQACycles10142024&amp;utm_source=bytes&amp;utm_medium=newsletter">Drata’s team of 80+ engineers</a> achieved 4x more test cases and 86% faster QA cycles.</p><p><a href="https://www.qawolf.com/?utm_campaign=CutYourQACycles10142024&amp;utm_source=bytes&amp;utm_medium=newsletter">Schedule a demo to learn more</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">Raygun</a></h4><p><em>They just released a new study that <a href="https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">benchmarks various OpenAI models for automated error resolution</a>. It shares which models provided the most helpful responses and where they each struggled most.</em></p></div></div>
+<p>What gets logged?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Baldur Bjarnason wrote a long article on <a href="https://www.baldurbjarnason.com/2024/liskovs-gun/">the parallel evolution of React and Web Components</a>, in light of the most recent culture war. It’s designed to help us all “look past the a**holes to see the forest” – which is valuable advice for both evaluating web dev arguments <em>and</em> hiking near your local nudist campground.</p>
+</li>
+<li>
+<p><a href="https://github.com/tc39/proposal-structs">Structs</a> is a Stage-1 JavaScript proposal for a new low-level feature that would enable developers to run multi-threaded JavaScript.</p>
+</li>
+<li>
+<p>Unlayer provides <a href="https://unlayer.com/?ref=bytes">embeddable content creation tools for SaaS</a>, so you can give your users a drag-n-drop builder to create emails, web pages, or popups. Teams at Netflix, Fidelity, and 1,000+ other companies use Unlayer to build content features faster and save an average of 52% on dev and maintenance costs. [sponsored]</p>
+</li>
+<li>
+<p>bobae kang wrote about <a href="https://bobaekang.com/blog/serverless-servers-and-the-challenge-of-new-react-architecture/">Serverless servers and the challenge of new React architecture</a>.</p>
+</li>
+<li>
+<p>And right on cue, Christoffer Artmann wrote about how <a href="https://www.artmann.co/articles/react-on-the-server-is-not-php">React on the server is not PHP</a>. And if you say that it <em>is</em> PHP, that’s because you’re just a nerd and a bully.</p>
+</li>
+<li>
+<p><a href="https://github.com/kaiban-ai/KaibanJS">KaibanJS</a> JavaScript-native framework for building and managing multi-agent systems with a Kanban-inspired approach.</p>
+</li>
+<li>
+<p><a href="https://github.com/pmndrs/zustand/releases/tag/v5.0.0">Zustand v5</a> just came out with no new major features and a smooth upgrade from v4. How boring of you, Daishi.</p>
+</li>
+<li>
+<p><a href="https://github.com/devagrawal09/solid-events">solid-events</a> is a set of primitives for declarative event composition and state derivation for SolidJS, similar to RxJS.</p>
+</li>
+<li>
+<p><a href="https://fontsensei.com/">Font sensei</a> is a Google fonts picker categorized by tag names. And remember, there is no fear in this font dojo.</p>
+</li>
+<li>
+<p>Sam wrote about <a href="https://sxlijin.github.io/2024-10-09-node-stdout-disappearing-bytes">Node.js, pipes, and disappearing bytes</a>. Excuse me sir, but is that a threat?</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship&amp;utm_source=bytes&amp;utm_campaign=brand&amp;utm_content=blog">Raygun</a></h4></div></div>
+<p>What gets logged?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>A little throw back for all you old heads. This used to be everyone’s favorite JavaScript interview question.</p>
+<p>This code will log <code>5</code> 5 times.</p>
+<p>The reason for this is because we declared our variable with <code>var</code>, which is function scoped. By the time our functions given to <code>setTimeout</code> run, <code>i</code> will already be <code>5</code> and every function will reference that same variable. To fix this, use <code>let</code> which is block scoped and will give each iteration of our for loop its own <code>i</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">210,028</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":210028,"post":{"data":{"title":"Bytes: The One true React framework","date":"2024-10-14","featuredImage":"/images/content/dog-hands.jpg","description":"Bullying React on the server, threatening an innocent newsletter, and making the radical decision to _not_ burn down your open source community.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/content/bytes-header-turso.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Bullying React on the server, threatening an innocent newsletter, and making the radical decision to \u003cem\u003enot\u003c/em\u003e burn down your open source community.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/331\"\u003e#331\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/dog-hands.jpg\" alt=\"A dog with human hands thinking\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe reading about a new framework that’s sure to finally fix all my problems\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eThe One true React framework\u003c/h3\u003e\u003cp\u003eHave you ever wondered what would happen if React Native had a baby with Rails?\u003c/p\u003e\u003cp\u003eWell today’s your lucky day, because \u003ca href=\"https://onestack.dev/\"\u003eOne\u003c/a\u003e is a brand new full-stack React framework for web and native that’s definitely not like other \u003cdel\u003egirls\u003c/del\u003e frameworks. Let’s find out why.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHow we got here:\u003c/strong\u003e One was created by the team behind \u003ca href=\"https://tamagui.dev/\"\u003eTamagui\u003c/a\u003e – a cross-platform styling library for React that uses an optimizing compiler to let you share more code between web and native.\u003c/p\u003e\u003cp\u003eOne takes that idea about 12 steps further by allowing you to target native and web with just \u003cem\u003eone\u003c/em\u003e codebase (\u003cspan role=\"img\" aria-label=\"drum\"\u003e🥁\u003c/span\u003e) via strongly typed file-system routes.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how it works:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eOne is built on Vite, which can serve both React Native and web seamlessly with \u003ca href=\"https://onestack.dev/docs/routing\"\u003efile-system routing\u003c/a\u003e across server, client, and static pages. This lets you build for native and web in the same project with fast HMR for both.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can target a specific platform by using the same extension convention as React Native in the filename, like \u003ccode\u003eblog.web.tsx\u003c/code\u003e or \u003ccode\u003eblog.ios.tsx\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can choose your rendering mode on a per-page basis with filename suffixes like \u003ccode\u003eroute+ssg.tsx\u003c/code\u003e or \u003ccode\u003eroute+ssr.tsx\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eThe framework also comes with a production server out of the box that provides a “default but ejectable” data solution that aims to make cross-platform development as simple as possible – ala Rails and other batteries-included tools of a bygone era.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Could One finally fulfill React Native’s original and now abandoned promise of “write once, run anywhere”?\u003c/p\u003e\u003cp\u003eI’m not sure, but they were somehow able to get the \u003ccode\u003eone\u003c/code\u003e npm package name – so maybe they really are the chosen ones after all.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/331\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F331\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=React%20Native%20%2B%20Rails%20%3D%20%40one__js%3F%20Many%20are%20saying%20so%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F331\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AReact%20Native%20%2B%20Rails%20%3D%20%40one__js%3F%20Many%20are%20saying%20so%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F331\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/qa-wolf-logo.png\" alt=\"QA Wolf logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/atlantis.jpg\" alt=\"Guy from Atlantis frowning\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eWhen your app breaks and you can't even blame it on the WordPress drama\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles10142024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003e\u003cspan role=\"img\" aria-label=\"waving hand\"\u003e👋\u003c/span\u003e Goodbye low test coverage and slow QA cycles\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eBugs sneak out when less than 80% of user flows are tested before shipping. But getting that kind of coverage (and staying there) is pricey and difficult for any team.\u003c/p\u003e\u003cp\u003eThat’s why some of the best software teams in the world use QA Wolf. Their \u003ca href=\"https://www.qawolf.com/how-it-works/?utm_campaign=CutYourQACycles10142024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eAI-native approach\u003c/a\u003e gets you 80% automated e2e test coverage for your application – and reduces QA cycles from hours to minutes.\u003c/p\u003e\u003cp\u003eIt comes with:\u003c/p\u003e\u003cul\u003e\n\u003cli\u003eUnlimited parallel test runs\u003c/li\u003e\n\u003cli\u003e24-hour maintenance and on-demand test creation\u003c/li\u003e\n\u003cli\u003eHuman-verified bug reports sent directly to your team\u003c/li\u003e\n\u003cli\u003eZero flakes, guaranteed\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003eThe result? With QA Wolf, \u003ca href=\"https://www.qawolf.com/case-studies/drata/?utm_campaign=CutYourQACycles10142024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eDrata’s team of 80+ engineers\u003c/a\u003e achieved 4x more test cases and 86% faster QA cycles.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://www.qawolf.com/?utm_campaign=CutYourQACycles10142024\u0026amp;utm_source=bytes\u0026amp;utm_medium=newsletter\"\u003eSchedule a demo to learn more\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003eRaygun\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eThey just released a new study that \u003ca href=\"https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003ebenchmarks various OpenAI models for automated error resolution\u003c/a\u003e. It shares which models provided the most helpful responses and where they each struggled most.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBaldur Bjarnason wrote a long article on \u003ca href=\"https://www.baldurbjarnason.com/2024/liskovs-gun/\"\u003ethe parallel evolution of React and Web Components\u003c/a\u003e, in light of the most recent culture war. It’s designed to help us all “look past the a**holes to see the forest” – which is valuable advice for both evaluating web dev arguments \u003cem\u003eand\u003c/em\u003e hiking near your local nudist campground.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/tc39/proposal-structs\"\u003eStructs\u003c/a\u003e is a Stage-1 JavaScript proposal for a new low-level feature that would enable developers to run multi-threaded JavaScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUnlayer provides \u003ca href=\"https://unlayer.com/?ref=bytes\"\u003eembeddable content creation tools for SaaS\u003c/a\u003e, so you can give your users a drag-n-drop builder to create emails, web pages, or popups. Teams at Netflix, Fidelity, and 1,000+ other companies use Unlayer to build content features faster and save an average of 52% on dev and maintenance costs. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ebobae kang wrote about \u003ca href=\"https://bobaekang.com/blog/serverless-servers-and-the-challenge-of-new-react-architecture/\"\u003eServerless servers and the challenge of new React architecture\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAnd right on cue, Christoffer Artmann wrote about how \u003ca href=\"https://www.artmann.co/articles/react-on-the-server-is-not-php\"\u003eReact on the server is not PHP\u003c/a\u003e. And if you say that it \u003cem\u003eis\u003c/em\u003e PHP, that’s because you’re just a nerd and a bully.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/kaiban-ai/KaibanJS\"\u003eKaibanJS\u003c/a\u003e JavaScript-native framework for building and managing multi-agent systems with a Kanban-inspired approach.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/pmndrs/zustand/releases/tag/v5.0.0\"\u003eZustand v5\u003c/a\u003e just came out with no new major features and a smooth upgrade from v4. How boring of you, Daishi.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/devagrawal09/solid-events\"\u003esolid-events\u003c/a\u003e is a set of primitives for declarative event composition and state derivation for SolidJS, similar to RxJS.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://fontsensei.com/\"\u003eFont sensei\u003c/a\u003e is a Google fonts picker categorized by tag names. And remember, there is no fear in this font dojo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSam wrote about \u003ca href=\"https://sxlijin.github.io/2024-10-09-node-stdout-disappearing-bytes\"\u003eNode.js, pipes, and disappearing bytes\u003c/a\u003e. Excuse me sir, but is that a threat?\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://raygun.com/blog/benchmarking-openai-models-for-automated-error-resolution/?utm_medium=sponsorship\u0026amp;utm_source=bytes\u0026amp;utm_campaign=brand\u0026amp;utm_content=blog\"\u003eRaygun\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat gets logged?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003evar\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA little throw back for all you old heads. This used to be everyone’s favorite JavaScript interview question.\u003c/p\u003e\n\u003cp\u003eThis code will log \u003ccode\u003e5\u003c/code\u003e 5 times.\u003c/p\u003e\n\u003cp\u003eThe reason for this is because we declared our variable with \u003ccode\u003evar\u003c/code\u003e, which is function scoped. By the time our functions given to \u003ccode\u003esetTimeout\u003c/code\u003e run, \u003ccode\u003ei\u003c/code\u003e will already be \u003ccode\u003e5\u003c/code\u003e and every function will reference that same variable. To fix this, use \u003ccode\u003elet\u003c/code\u003e which is block scoped and will give each iteration of our for loop its own \u003ccode\u003ei\u003c/code\u003e.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token function\"\u003esetTimeout\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e console\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003elog\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e1000\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"331"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"331"},"buildId":"bd-GBM5oKOXiAkPykhPTK","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
