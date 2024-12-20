@@ -1,0 +1,342 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #339 - GitHub triples down on AI</title><link rel="canonical" href="https://bytes.dev/archives/339"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell."/><meta property="og:url" content="https://bytes.dev/archives/339"/><meta property="og:title" content="Bytes #339 - GitHub triples down on AI"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/code-poet.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #339 - GitHub triples down on AI"/><meta property="twitter:description" content="Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell."/><meta property="twitter:image" content="https://bytes.dev/images/content/code-poet.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/2778144452543cf1.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2778144452543cf1.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-1438f4a5b9e84334.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/tol3Y8KFqohSZr-_6WYB6/_buildManifest.js" defer=""></script><script src="/_next/static/tol3Y8KFqohSZr-_6WYB6/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> GitHub triples down on AI</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->339<!-- -->.</span><span class="mr-6 font-bold">November 7, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/339">#339</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/code-poet.jpg" alt="Danny Devito with straight white hair in It's Always Sunny" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">As a code poet, I prefer to write my code by hand (in Notepad++)<!-- --> </p></div><h3>GitHub triples down on AI</h3><p>It’s that time of year when the leaves are changing, the pumpkin spice is flowing, and the conferences are conferencing <span role="img" aria-label="sparkles">✨</span>.</p><p>But despite the dozens of keynotes, live demos, and thinly veiled marketing pitches, last week’s <a href="https://github.blog/news-insights/product-news/universe-2024-previews-releases/">GitHub Universe</a> is still generating a <em>lot</em> of buzz on Twitter, Bluesky, and the comment section of the NY Times cooking app (my personal fave).</p><p>That’s because GitHub Copilot used the conference to announce a bunch of game-changing new features that should help it evolve beyond the “fancy autocomplete” stage – and start fulfilling entire tasks across the whole GitHub platform.</p><p><strong>Let’s check out the highlights:</strong></p><ul>
+<li>
+<p><strong>Multi-file editing in VS Code</strong>  – Copilot’s AI is now able to analyze and understand entire codebases and <a href="https://github.blog/changelog/2024-10-29-multi-file-editing-code-review-custom-instructions-and-more-for-github-copilot-in-vs-code-october-release-v0-22/">make changes to multiple files</a> based on your prompts.</p>
+</li>
+<li>
+<p><strong>AI-assisted code reviews</strong> – Copilot can now comment on pull requests, suggest code changes, and even make updates to your code based on feedback. And if it can learn to drunk-argue with junior developers about semicolons at the team BBQ, my manager will be officially obsolete.</p>
+</li>
+<li>
+<p><strong>Choose your <del>fighter</del> model</strong> – Whether you’re a Claude Sonnet stan or an OpenAI o1 truther, you can now choose your own model for Copilot chat and toggle between them.</p>
+</li>
+<li>
+<p><strong><a href="https://githubnext.com/projects/github-spark">GitHub Spark</a></strong> – A new natural-language based toolchain and managed runtime environment for creating and deploying “micro apps.” It’s similar to other NL-based platforms like <a href="https://bolt.new/">bolt.new</a> and v0, but a lot more… micro?</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> Even though it feels like a decade ago, it’s only been a couple years since GitHub Copilot first blew our minds with “T9 Word for developers.” The AI-assisted devtool space space has heated up a <em>lot</em> since then – but GitHub Copilot clearly isn’t going anywhere.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/bright-data-logo.png" alt="bright data logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/bowl-cut.jpg" alt="A guy cutting his own hair" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Trying to manually set up large-scale web scraping for your app<!-- --> </p></div><h3><a href="https://brightdata.com/products/web-scraper?utm_source=brand&amp;utm_campaign=brnd-mkt_newsletter_uidev">Stop using proxies to scrape web data – just use Bright Data</a></h3><p>Their Web Scraper APIs get you access to structured web data from dozens of popular sites – so you’ll never get blocked or rate limited again.</p><p>Plus you’ll never have to worry about setting up proxy servers, headless browsers, or any other infra, because Bright Data handles it all for you.</p><p><strong>Here’s how:</strong></p><ul>
+<li>
+<p>Their CAPTCHA auto-solvers, automated IP rotation, and residential proxies make sure you can always get the data you need.</p>
+</li>
+<li>
+<p>Their infrastructure makes it easy to scale up, with access to <a href="https://brightdata.com/products/web-scraper?utm_source=brand&amp;utm_campaign=brnd-mkt_newsletter_uidev">72 million real user IPs</a> in 195 countries.</p>
+</li>
+<li>
+<p>Their privacy practices comply with GDPR and all other data protection laws.</p>
+</li>
+</ul><p><a href="https://brightdata.com/products/web-scraper?utm_source=brand&amp;utm_campaign=brnd-mkt_newsletter_uidev">Take 10 min to try the Web Scraper API for free</a> – and feel the power of being able to instantly get whatever data you want.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://infinite.red/bytes">Infinite Red</a></h4><p><em>We are expert US-based consultants who have specialized in high-quality React Native development since 2015! <a href="https://infinite.red/bytes">Hire us</a> to build, optimize, deploy, and support your React Native app.</em></p></div></div>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  arguments<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> arg<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>Jake Lazaroff dared to answer the one burning question all the pundits are asking after this election – <a href="https://jakelazaroff.com/words/whats-a-single-page-app/">What’s a Single Page App?</a></p>
+</li>
+<li>
+<p>Oso is hosting a free deep dive on <a href="https://www.osohq.com/webinar-google-authorization-at-scale?utm_source=paid&amp;utm_medium=newsletter&amp;utm_campaign=zanzibar%20webinar&amp;utm_content=bytes">How Google handles Authorization at scale</a>. You’ll learn how Google built its own relationship-based authorization system called Zanzibar, plus the key tradeoffs of building a system like this for your own application vs. using an Authorization as a Service like Oso. [sponsored]</p>
+</li>
+<li>
+<p>Sunil Pai just released a new project called <a href="https://github.com/threepointone/shawarma">Shwarma</a>, which he described as “a little evening spike.” But the last time he said that about one of his projects we ended up with a <a href="https://github.com/threepointone/glam">CSS-in-JS epidemic</a>, so I’d approach with caution.</p>
+</li>
+<li>
+<p>Nuxt just added support for rspack in <a href="https://nuxt.com/blog/v3-14">v3.14</a>, and Rust stans stay winning.</p>
+</li>
+<li>
+<p>Sarah Guthals wrote this <a href="https://sentry.io/resources/debugging-microservices-and-distributed-systems/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=debuggability-fy25q3-microservices&amp;utm_content=newsletter-bytesprimary-na">in-depth guide to debugging microservices and distributed systems</a> for the Sentry blog. It explores why we’ve seen a shift from monolithic architectures to microservices, why it’s harder to debug microsystems, and how to do it better. [sponsored]</p>
+</li>
+<li>
+<p>Ben Grant wrote a 2-part article on the Bun blog about <a href="https://bun.sh/blog/how-bun-supports-v8-apis-without-using-v8-part-2">how Bun supports V8 APIs without using the V8 engine</a>.</p>
+</li>
+<li>
+<p>Nikhil Suresh wrote a <del>plea for help</del> <em>fun article</em> called, <a href="https://ludic.mataroa.blog/blog/get-me-out-of-data-hell/">Get me out of data hell</a>. I’m pretty sure I saw Nate Silver wearing a t-shirt that said the exact same thing last week.</p>
+</li>
+<li>
+<p><a href="https://stack.convex.dev/a-map-of-sync">A Map of Sync</a> shares what Sujay Jayakar learned from 10+ years of working on sync at Dropbox plus his current work to extend Convex’s sync engine for better offline support. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://reactnavigation.org/blog/2024/11/06/react-navigation-7.0/">React Navigation 7.0</a> comes with a new static API that simplifies configuration and makes it easier to work with TypeScript and deep linking.</p>
+</li>
+<li>
+<p>Elliot Levin wrote about <a href="https://www.recall.ai/post/how-websockets-cost-us-1m-on-our-aws-bill">how WebSockets cost his team $1m on their AWS bill</a>. For the record, I would also like to blame WebSockets for the ~$1m bill I just racked up taking my family to Disneyland this week.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/spot-the-bug.png" alt="Spot the Bug logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Spot the Bug: Solution</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://infinite.red/bytes">Infinite Red</a></h4></div></div>
+<p>In JavaScript, <code>arguments</code> is not an array, it is an “array-like object” <span role="img" aria-label="grinning face with sweat">😅</span>. Because it’s an iterable, you can use a for loop to iterate over it, but if you want to use array methods like <code>forEach</code>, you need to convert it to an array first. There are a few different ways to do this.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Or you can use the rest operator to get the arguments as an array:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  args<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> arg<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Or you can use <code>Array.from</code> to convert the arguments to an array:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> arg<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">sumArgs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">206,411</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":206411,"post":{"data":{"title":"Bytes: GitHub triples down on AI","date":"2024-11-07","featuredImage":"/images/content/code-poet.jpg","description":"Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e Blaming WebSockets for questionable life choices, discovering what a SPA is, and escaping data hell.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/339\"\u003e#339\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/code-poet.jpg\" alt=\"Danny Devito with straight white hair in It's Always Sunny\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eAs a code poet, I prefer to write my code by hand (in Notepad++)\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eGitHub triples down on AI\u003c/h3\u003e\u003cp\u003eIt’s that time of year when the leaves are changing, the pumpkin spice is flowing, and the conferences are conferencing \u003cspan role=\"img\" aria-label=\"sparkles\"\u003e✨\u003c/span\u003e.\u003c/p\u003e\u003cp\u003eBut despite the dozens of keynotes, live demos, and thinly veiled marketing pitches, last week’s \u003ca href=\"https://github.blog/news-insights/product-news/universe-2024-previews-releases/\"\u003eGitHub Universe\u003c/a\u003e is still generating a \u003cem\u003elot\u003c/em\u003e of buzz on Twitter, Bluesky, and the comment section of the NY Times cooking app (my personal fave).\u003c/p\u003e\u003cp\u003eThat’s because GitHub Copilot used the conference to announce a bunch of game-changing new features that should help it evolve beyond the “fancy autocomplete” stage – and start fulfilling entire tasks across the whole GitHub platform.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eLet’s check out the highlights:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMulti-file editing in VS Code\u003c/strong\u003e  – Copilot’s AI is now able to analyze and understand entire codebases and \u003ca href=\"https://github.blog/changelog/2024-10-29-multi-file-editing-code-review-custom-instructions-and-more-for-github-copilot-in-vs-code-october-release-v0-22/\"\u003emake changes to multiple files\u003c/a\u003e based on your prompts.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAI-assisted code reviews\u003c/strong\u003e – Copilot can now comment on pull requests, suggest code changes, and even make updates to your code based on feedback. And if it can learn to drunk-argue with junior developers about semicolons at the team BBQ, my manager will be officially obsolete.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eChoose your \u003cdel\u003efighter\u003c/del\u003e model\u003c/strong\u003e – Whether you’re a Claude Sonnet stan or an OpenAI o1 truther, you can now choose your own model for Copilot chat and toggle between them.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://githubnext.com/projects/github-spark\"\u003eGitHub Spark\u003c/a\u003e\u003c/strong\u003e – A new natural-language based toolchain and managed runtime environment for creating and deploying “micro apps.” It’s similar to other NL-based platforms like \u003ca href=\"https://bolt.new/\"\u003ebolt.new\u003c/a\u003e and v0, but a lot more… micro?\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Even though it feels like a decade ago, it’s only been a couple years since GitHub Copilot first blew our minds with “T9 Word for developers.” The AI-assisted devtool space space has heated up a \u003cem\u003elot\u003c/em\u003e since then – but GitHub Copilot clearly isn’t going anywhere.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/bright-data-logo.png\" alt=\"bright data logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/bowl-cut.jpg\" alt=\"A guy cutting his own hair\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eTrying to manually set up large-scale web scraping for your app\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://brightdata.com/products/web-scraper?utm_source=brand\u0026amp;utm_campaign=brnd-mkt_newsletter_uidev\"\u003eStop using proxies to scrape web data – just use Bright Data\u003c/a\u003e\u003c/h3\u003e\u003cp\u003eTheir Web Scraper APIs get you access to structured web data from dozens of popular sites – so you’ll never get blocked or rate limited again.\u003c/p\u003e\u003cp\u003ePlus you’ll never have to worry about setting up proxy servers, headless browsers, or any other infra, because Bright Data handles it all for you.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eHere’s how:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eTheir CAPTCHA auto-solvers, automated IP rotation, and residential proxies make sure you can always get the data you need.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTheir infrastructure makes it easy to scale up, with access to \u003ca href=\"https://brightdata.com/products/web-scraper?utm_source=brand\u0026amp;utm_campaign=brnd-mkt_newsletter_uidev\"\u003e72 million real user IPs\u003c/a\u003e in 195 countries.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTheir privacy practices comply with GDPR and all other data protection laws.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003ca href=\"https://brightdata.com/products/web-scraper?utm_source=brand\u0026amp;utm_campaign=brnd-mkt_newsletter_uidev\"\u003eTake 10 min to try the Web Scraper API for free\u003c/a\u003e – and feel the power of being able to instantly get whatever data you want.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://infinite.red/bytes\"\u003eInfinite Red\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eWe are expert US-based consultants who have specialized in high-quality React Native development since 2015! \u003ca href=\"https://infinite.red/bytes\"\u003eHire us\u003c/a\u003e to build, optimize, deploy, and support your React Native app.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e sum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  arguments\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eforEach\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earg\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    sum \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e arg\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e sum\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e result \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eJake Lazaroff dared to answer the one burning question all the pundits are asking after this election – \u003ca href=\"https://jakelazaroff.com/words/whats-a-single-page-app/\"\u003eWhat’s a Single Page App?\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOso is hosting a free deep dive on \u003ca href=\"https://www.osohq.com/webinar-google-authorization-at-scale?utm_source=paid\u0026amp;utm_medium=newsletter\u0026amp;utm_campaign=zanzibar%20webinar\u0026amp;utm_content=bytes\"\u003eHow Google handles Authorization at scale\u003c/a\u003e. You’ll learn how Google built its own relationship-based authorization system called Zanzibar, plus the key tradeoffs of building a system like this for your own application vs. using an Authorization as a Service like Oso. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSunil Pai just released a new project called \u003ca href=\"https://github.com/threepointone/shawarma\"\u003eShwarma\u003c/a\u003e, which he described as “a little evening spike.” But the last time he said that about one of his projects we ended up with a \u003ca href=\"https://github.com/threepointone/glam\"\u003eCSS-in-JS epidemic\u003c/a\u003e, so I’d approach with caution.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNuxt just added support for rspack in \u003ca href=\"https://nuxt.com/blog/v3-14\"\u003ev3.14\u003c/a\u003e, and Rust stans stay winning.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSarah Guthals wrote this \u003ca href=\"https://sentry.io/resources/debugging-microservices-and-distributed-systems/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=debuggability-fy25q3-microservices\u0026amp;utm_content=newsletter-bytesprimary-na\"\u003ein-depth guide to debugging microservices and distributed systems\u003c/a\u003e for the Sentry blog. It explores why we’ve seen a shift from monolithic architectures to microservices, why it’s harder to debug microsystems, and how to do it better. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBen Grant wrote a 2-part article on the Bun blog about \u003ca href=\"https://bun.sh/blog/how-bun-supports-v8-apis-without-using-v8-part-2\"\u003ehow Bun supports V8 APIs without using the V8 engine\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNikhil Suresh wrote a \u003cdel\u003eplea for help\u003c/del\u003e \u003cem\u003efun article\u003c/em\u003e called, \u003ca href=\"https://ludic.mataroa.blog/blog/get-me-out-of-data-hell/\"\u003eGet me out of data hell\u003c/a\u003e. I’m pretty sure I saw Nate Silver wearing a t-shirt that said the exact same thing last week.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://stack.convex.dev/a-map-of-sync\"\u003eA Map of Sync\u003c/a\u003e shares what Sujay Jayakar learned from 10+ years of working on sync at Dropbox plus his current work to extend Convex’s sync engine for better offline support. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://reactnavigation.org/blog/2024/11/06/react-navigation-7.0/\"\u003eReact Navigation 7.0\u003c/a\u003e comes with a new static API that simplifies configuration and makes it easier to work with TypeScript and deep linking.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eElliot Levin wrote about \u003ca href=\"https://www.recall.ai/post/how-websockets-cost-us-1m-on-our-aws-bill\"\u003ehow WebSockets cost his team $1m on their AWS bill\u003c/a\u003e. For the record, I would also like to blame WebSockets for the ~$1m bill I just racked up taking my family to Disneyland this week.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/spot-the-bug.png\" alt=\"Spot the Bug logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eSpot the Bug: Solution\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://infinite.red/bytes\"\u003eInfinite Red\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eIn JavaScript, \u003ccode\u003earguments\u003c/code\u003e is not an array, it is an “array-like object” \u003cspan role=\"img\" aria-label=\"grinning face with sweat\"\u003e😅\u003c/span\u003e. Because it’s an iterable, you can use a for loop to iterate over it, but if you want to use array methods like \u003ccode\u003eforEach\u003c/code\u003e, you need to convert it to an array first. There are a few different ways to do this.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e sum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003efor\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i \u003cspan class=\"token operator\"\u003e\u0026lt;\u003c/span\u003e arguments\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003elength\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e i\u003cspan class=\"token operator\"\u003e++\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    sum \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e arguments\u003cspan class=\"token punctuation\"\u003e[\u003c/span\u003ei\u003cspan class=\"token punctuation\"\u003e]\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e sum\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e result \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr you can use the rest operator to get the arguments as an array:\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token operator\"\u003e...\u003c/span\u003eargs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e sum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  args\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eforEach\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earg\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    sum \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e arg\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e sum\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e result \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr you can use \u003ccode\u003eArray.from\u003c/code\u003e to convert the arguments to an array:\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003efunction\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"token keyword\"\u003elet\u003c/span\u003e sum \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token number\"\u003e0\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  Array\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003efrom\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003earguments\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003eforEach\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003earg\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e{\u003c/span\u003e\n    sum \u003cspan class=\"token operator\"\u003e+=\u003c/span\u003e arg\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\n  \u003cspan class=\"token keyword\"\u003ereturn\u003c/span\u003e sum\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003cspan class=\"token punctuation\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e result \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003esumArgs\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token number\"\u003e1\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e2\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e3\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e4\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token number\"\u003e5\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"339"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"339"},"buildId":"tol3Y8KFqohSZr-_6WYB6","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
