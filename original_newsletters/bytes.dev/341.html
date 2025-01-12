@@ -1,0 +1,311 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link rel="manifest" href="/favicon/site.webmanifest"/><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000"/><meta name="msapplication-TileColor" content="#000000"/><meta name="theme-color" content="#000000"/><title>Bytes #341 - Node strikes back</title><link rel="canonical" href="https://bytes.dev/archives/341"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content="The unknowable mystery of Remix &amp; React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don&#x27;t even like."/><meta property="og:url" content="https://bytes.dev/archives/341"/><meta property="og:title" content="Bytes #341 - Node strikes back"/><meta property="og:type" content="website"/><meta property="og:image" content="https://bytes.dev/images/content/baseball-glove.jpg"/><meta property="og:site_name" content="Bytes by ui.dev"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:description" content="The unknowable mystery of Remix &amp; React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don&#x27;t even like."/><meta property="twitter:url" content="https://bytes.dev/"/><meta property="twitter:title" content="Bytes #341 - Node strikes back"/><meta property="twitter:description" content="The unknowable mystery of Remix &amp; React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don&#x27;t even like."/><meta property="twitter:image" content="https://bytes.dev/images/content/baseball-glove.jpg"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="uidotdev"/><meta name="next-head-count" content="26"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2712034659094542&amp;ev=PageView&amp;noscript=1"/></noscript><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/2778144452543cf1.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2778144452543cf1.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-45c1d38871d29bef.js" defer=""></script><script src="/_next/static/chunks/framework-4556c45dd113b893.js" defer=""></script><script src="/_next/static/chunks/main-1438f4a5b9e84334.js" defer=""></script><script src="/_next/static/chunks/pages/_app-19dca011c0f14f43.js" defer=""></script><script src="/_next/static/chunks/17007de1-87d7b770c56a584a.js" defer=""></script><script src="/_next/static/chunks/318-62d05fcf8d1400db.js" defer=""></script><script src="/_next/static/chunks/pages/archives/%5Bslug%5D-c56c612fe73a68c8.js" defer=""></script><script src="/_next/static/vMKg_dGxRuKOH6kI_zpH1/_buildManifest.js" defer=""></script><script src="/_next/static/vMKg_dGxRuKOH6kI_zpH1/_ssgManifest.js" defer=""></script><style id="__jsx-undefined">
+    .email-wrapper {
+      color: #231F20;
+      background-color: #FFF;
+      font-size: 16px;
+      font-family: Outfit, sans-serif;
+    }
+
+    p {
+      font-family: Outfit, sans-serif;
+      line-height: 1.5;
+      font-size: 17px;
+    }
+
+    h3, * + p:not([class]) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    a:not([class]) {
+      color: #12b5e5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+
+    h4 {
+      font-size: 19px;
+      margin-bottom: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    pre {
+      background-color: #f9f9f9;
+      border: 1px solid #f9f9f9;
+      color: #231F20;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      word-break: normal; border-collapse : collapse !important;
+    }
+
+    hr {
+      border: 0;
+      border-color: #f5f5f5;
+      border-bottom: 5px solid;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .section-presenter p {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    mark {
+      background-color: #F9F4DA;
+      color: #231F20;
+      padding-left: 2px;
+      padding-right: 2px;
+      border-radius: 2px;
+    }
+
+    .bg-alt {
+      background-color: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .email-wrapper {
+        color: #F9F4DA !important;
+        background-color: #0F0D0E !important;
+      }
+
+      hr {
+        border-color: #262422 !important;
+      }
+
+      mark {
+        background-color: #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      pre {
+        background-color: #231F20 !important;
+        border: 1px solid #231F20 !important;
+        color: #F9F4DA !important;
+      }
+
+      .bg-alt { 
+        background-color: #231F20 !important;
+      }
+
+      .unsubscribe-link {
+        color: #8d8a7f !important;
+      }
+
+      .token.punctuation { 
+        color: #f9f4da !important;
+      }
+    }
+
+    @media screen and (min-width: 600px)  {
+      .mobile-break { display: none; }
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      font-family: "Fira Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #c0c5ce;
+    }
+    pre[class*=language-] {
+      overflow: auto;
+    }
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      text-shadow: none;
+      background: #a7adba;
+    }
+    :not(pre) > code[class*="language-"] {
+      padding: 3px;
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+    .language-text {
+      background: #36424D !important;
+      padding: 3px 8px !important;
+      color: #e5e5e5 !important;
+    }
+    code,
+    code * {
+      font-size: 14px;
+    }
+    code:not(pre) {
+      font-size: 17px;
+    }
+    .token.comment {
+      color: rgb(167, 167, 167);
+    }
+    .token.punctuation { 
+      color: #231F20;
+    }
+    .token.deleted {
+      color: #ed203d;
+    }
+    .token.inserted,
+    .token.attr-name {
+      color: #0ba95b;
+    }
+    .token.string,
+    .token.url {
+      color: #f99157;
+    }
+    .token.attr-value,
+    .token.number {
+      color: #fcba28;
+    }
+    .token.boolean,
+    .token.keyword,
+    .token.function {
+      color: #9d7dce;
+    }
+    .token.keyword,
+    .token.tag,
+    .token.parameter,
+    .token.method,
+    .token.property-access {
+      color: #f38ba3;
+    }
+    .token.changed,
+    .token.property,
+    .token.namespace,
+    .token.operator,
+    .token.selector,
+    .token.doctype,
+    .token.class-name,
+    .token.builtin,
+    .token.char,
+    .token.constant,
+    .token.interpolation {
+      color: #12b5e5;
+    }
+</style><style data-styled="" data-styled-version="5.3.5"></style><style data-href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Outfit:wght@400;500;700;900&family=Paytone+One">@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtQIg.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4QK1C4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4deyC4I.woff) format('woff')}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyC4I.woff) format('woff')}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2CiTp.woff) format('woff')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgK_7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgIv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKv7Ss9XZYalI.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJf7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgKP7Ss9XZYalI.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/firamono/v14/N0bX2SlFPv1weGeLZDtgJv7Ss9XZYQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Outfit';font-style:normal;font-weight:900;src:url(https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTigPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTjgPvfiwq-FQc.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Paytone One';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/paytoneone/v23/0nksC9P7MfYHj2oFtYm2ChTtgPvfiwq-.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next"><div style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><div class="text-white"><div class="bg-brand-coal"><nav class="flex justify-between items-center mb-10 p-8 container mx-auto gap-12"><a class="block relative" href="/"><img width="48" src="/images/bytes-icon.png" alt="Bytes by ui.dev"/></a><div class="flex gap-8"><a class="sm:text-xl text-biege hover:text-yellow underline" href="/advertise">advertise</a><a class="sm:text-xl text-biege hover:text-yellow underline" href="/archives">archives</a></div></nav><div class="mx-auto md:pt-14 md:pb-8 text-center max-w-[75ch]"><h1 class="font-black text-3xl lg:text-6xl uppercase"> Node strikes back</h1><div class="text-sm sm:text-lg font-normal font-mono mt-6"><span class="mr-6 font-bold">Issue #<!-- -->341<!-- -->.</span><span class="mr-6 font-bold">November 14, 2024<!-- -->.</span><span class="font-bold">2 Minute read.</span></div></div></div><div class="p-8 pt-0 relative xl:grid xl:grid-cols-[1fr_auto_1fr] gap-10"><div class="hidden xl:block"></div><div style="line-height:32.36px;font-size:20px" class="jsx-undefined post max-w-[600px] mx-auto"><div class="jsx-undefined"><html><head></head><body><div style="max-width:600px;padding-top:80px"><div style="text-align:center"><img width="600" style="padding-bottom:40px;max-width:100%" src="https://bytes.dev/images/bytes-banner-rounded.png" alt="Bytes"></div><p><strong>Today’s issue:</strong> The unknowable mystery of Remix &amp; React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don’t even like.</p>
+<p>Welcome to <a href="https://bytes.dev/archives/341">#341</a>.</p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="80" src="https://bytes.dev/images/content/eyes.png" alt="Eyeballs logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">The Main Thing</h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/baseball-glove.jpg" alt="A fan trying to rip a baseball out of a baseball player's glove" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Node "borrowing" features from Deno and Bun<!-- --> </p></div><h3>Node strikes back</h3><p>Back in May, we wrote about how Bun and Deno helped wake up a sleeping giant in the form of Node.js 22.</p><p>That release was packed with impactful features for the OG runtime, after what felt like years of merely incremental improvements. Yes, many of those features were already present in the next-gen runtimes, but Node users definitely weren’t complaining.</p><p>Fast forward to last month, and we saw <a href="https://nodejs.org/en/blog/release/v23.0.0">Node 23</a> pick up right where v22 left off, giving us some experimental new features and adding stable support for others.</p><p>The biggest improvement in this release is the now-stable <code>require()</code> support for ESM graphs, which lets you import an ES Module in CommonJS and have it just work.</p><p><strong>Why this is a big deal:</strong> For years, developers have struggled with the transition from CommonJS to ES Modules, largely because you couldn’t <code>require</code> an ESM in Node.js. This issue delayed the full adoption of ESM and led to debates about whether or not you should transpile your code to CJS before publishing to npm. But now, we can finally put all of that behind us <span role="img" aria-label="folded hands">🙏</span>.</p><p><strong>Other highlights in Node 23:</strong></p><ul>
+<li>
+<p><strong>The <code>--experimental-strip-types</code> flag</strong> provides “initial TypeScript support” by stripping type annotations from .ts files, allowing them to run without transforming TypeScript-specific syntax.</p>
+</li>
+<li>
+<p><strong>Stabilized task runner</strong> lets you execute <code>package.json</code> scripts by using <code>node --run</code>, instead of needing to use npm, Yarn, or Bun.</p>
+</li>
+<li>
+<p><strong>The built-in test runner</strong> now comes with glob pattern support for coverage files, which simplifies running tests across multiple files.</p>
+</li>
+</ul><p><strong>Bottom Line:</strong> Between AI, politics, and <a href="https://thetab.com/2024/11/13/dream-podcast-guests-to-her-dance-moms-crush-all-the-chaos-from-jojo-siwas-talk-at-brown">JoJo Siwa speaking at Brown University</a>, it’s clear that we’re living through uncertain times. But at least you’ll be able to tell your grandchildren that you also got to live through the golden age of JavaScript runtimes.</p><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;text-align:center;margin-top:40px"><tbody><tr><td style="padding-top:12px"><a href="https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/341" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/fb-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F341" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/li-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20break%20down%20the%20biggest%20features%20in%20%40nodejs%2023%0A%0A&amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F341" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/tw-share-icon.png"></a><span>&nbsp;&nbsp;</span><a href="mailto:?subject=You%20like%20cornbread%3F&amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20break%20down%20the%20biggest%20features%20in%20%40nodejs%2023%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F341" rel="noopener" style="text-decoration:none" target="_blank"><img alt="" style="display:inline-block;width:32px" width="25" src="https://bytes.dev/images/em-share-icon.png"></a><span>&nbsp;&nbsp;</span></td></tr></tbody></table>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="150" src="https://bytes.dev/images/content/convex-logo.png" alt="Convex logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px"><span>Our Friends <br class="mobile-break">(With Benefits)</span></h2></div><div class="bg-alt" style="padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%"><img src="https://bytes.dev/images/content/sandler-boss.jpg" alt="Adam Sandler's head on a cartoon character's body" width="600" style="max-width:100%;border-radius:5px"><p style="text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic">Me getting ready to mansplain sync engines to you<!-- --> </p></div><h3><a href="https://stack.convex.dev/object-sync-engine">Convex is building an object sync engine for local-first apps</a></h3><p><em>Wtf does that mean?</em> First off, watch your language.</p><p>An object sync engine allows you to keep data in sync across users and devices for local-first apps by syncing an <a href="https://stack.convex.dev/object-sync-engine#a-common-niche-the-object-sync-engine">object graph</a> between clients and a centralized server.</p><p>The Convex team has spent the last few months extending their own sync engine, so that the platform can provide a great batteries-included option for local-first apps.</p><p>And because they like to <del>show off</del> <em>go the extra mile</em>, Sujay Jayakar wrote this <a href="https://stack.convex.dev/object-sync-engine">technical deep dive</a> that breaks down the sync engine’s 3 main pieces:</p><ol>
+<li>The local store</li>
+<li>The server store</li>
+<li>The sync protocol</li>
+</ol><p>The article compares Convex’s approach to other real-time frameworks like Replicache, and it shares how experienced teams evaluate tradeoffs when making complex technical choices.</p><p><a href="https://stack.convex.dev/object-sync-engine">Check out the blog post</a> – Sujay previously worked on sync at Dropbox for a decade, and <em>you can tell.</em></p>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Presented by <a href="https://infinite.red/bytes">Infinite Red</a></h4><p><em>We’re expert, US-based consultants who have specialized in high-quality React Native development since 2015! <a href="https://infinite.red/bytes">Hire us</a> to build, optimize, deploy, and support your React Native app.</em></p></div></div>
+<p>What does this function do?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">surprise</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token parameter">input</span> <span class="token operator">=&gt;</span> fns<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">fn</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">,</span> input
+<span class="token punctuation">)</span>
+</code></pre>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="110" src="https://bytes.dev/images/content/cool-bits.png" alt="Cool Bits logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Cool Bits</h2></div><ol>
+<li>
+<p>I cordially invite you to take the <a href="https://survey.devographics.com/en-US/survey/state-of-react/2024">State of React survey</a> and vote for Bytes, react.gg, and other <del>ui.dev things</del> things you like about the React ecosystem. Will that finally fix my crippling self-esteem issues? There’s only one way to find out.</p>
+</li>
+<li>
+<p>Ahmad Shadeed wrote the best article on the internet about <a href="https://ishadeed.com/article/overflow-clip/">how <code>overflow: clip</code> works in CSS</a>.</p>
+</li>
+<li>
+<p>PropelAuth provides <a href="https://www.propelauth.com/?utm_source=newsletter&amp;utm_campaign=bytesnov24">end-to-end managed user authentication for B2B use cases</a> – and developers are <del>weirdly obsessed</del> <em>very passionate</em> about it. One founder said, “I’ve never come across a tool that works this well for authentication needs. Hands down, one of the best products I have ever used. 11/10 would recommend.” Their free tier is also very good. [sponsored]</p>
+</li>
+<li>
+<p><a href="https://go.dev/blog/15years">Go just turned 15 years old</a>, and I still have no idea what to wear to its quinceañera.</p>
+</li>
+<li>
+<p>Elan Medoff wrote about <a href="https://elanmed.dev/blog/conditional-props-using-type-discrimination">conditional props in React using type discrimination</a>. And if you were just like “oh, that’s exactly what I need” then I’m sending well wishes your way today.</p>
+</li>
+<li>
+<p>Two Sentry engineers, Jenn Mueng and Ram Senthamarai are hosting this <a href="https://sentry.io/resources/debug-faster-sentry-ai-live-demo/?utm_source=bytes&amp;utm_medium=paid-community&amp;utm_campaign=ai-fy25q4-aiworkshop&amp;utm_content=newsletter-aiworkshop-rsvp">live demo of the new AI tools they built for Sentry</a>. They promise to keep the AI hype to a minimum and just show you how they built smarter alerts and other cool features. [sponsored]</p>
+</li>
+<li>
+<p>Jonathan Creamer got the memo for today and wrote this article about <a href="https://www.jonathancreamer.com/using-typescript-in-node-js-scripts-without-actually-writing-typescript/">using TypeScript in Node.js scripts without actually writing TypeScript</a>.</p>
+</li>
+<li>
+<p><a href="https://remix.run/docs/en/main/start/future-flags#unstable_routeconfig">Remix 2.14 and React Router 6.28</a> were just released at the same time because they are both the same project, but also completely distinct projects with different priorities, but also one in spirit. And if that confuses you, it’s probably because you’re a hater.</p>
+</li>
+<li>
+<p>Amelia Wattenberger wrote a visually beautiful article called <a href="https://wattenberger.com/thoughts/llms-as-a-tool-for-thought">LLMs as a tool for thought</a>.</p>
+</li>
+<li>
+<p>Daniel Schwarz wrote an in-depth article on <a href="https://css-tricks.com/the-different-and-modern-ways-to-toggle-content/">the different (and modern) ways to toggle content</a>, which everyone seems to really like. Kind of like this <a href="https://open.spotify.com/track/3Wn1ZONJX2yfbzWo2aPuQN?si=89c1412d76414fea">“different and modern” version of <em>Get Low</em></a> that Mark Zuckerberg made with T-Pain to give his wife as an anniversary gift.</p>
+</li>
+</ol>
+<hr><div style="text-align:center;margin-bottom:36px"><img width="140" src="https://bytes.dev/images/content/pop-quiz.png" alt="Pop Quiz logo"><h2 style="font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px">Pop Quiz: Answer</h2><div class="section-presenter" style="margin-bottom:50px;margin-top:15px"><h4>Sponsored by <a href="https://infinite.red/bytes">Infinite Red</a></h4></div></div>
+<p>What does this function do?</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">surprise</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token parameter">input</span> <span class="token operator">=&gt;</span> fns<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">fn</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">,</span> input
+<span class="token punctuation">)</span>
+</code></pre>
+<p>It’s a <code>pipe</code> function that allows you to chain multiple operations together by taking a series of functions as arguments and applying them in a specific order to the input.</p>
+<p>Wow, words.</p>
+<p>Instead of doing something like this.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">toUpperCase</span> <span class="token operator">=</span> <span class="token parameter">str</span> <span class="token operator">=&gt;</span> str<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">removeSpaces</span> <span class="token operator">=</span> <span class="token parameter">str</span> <span class="token operator">=&gt;</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\s</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">addExclamation</span> <span class="token operator">=</span> <span class="token parameter">str</span> <span class="token operator">=&gt;</span> str <span class="token operator">+</span> <span class="token string">"!"</span>
+
+<span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token function">removeSpaces</span><span class="token punctuation">(</span><span class="token function">addExclamation</span><span class="token punctuation">(</span><span class="token string">"Subscribe to Bytes"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You can do something like this.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">pipe</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token parameter">input</span> <span class="token operator">=&gt;</span> fns<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">fn</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">,</span> input
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> formatString <span class="token operator">=</span> <span class="token function">pipe</span><span class="token punctuation">(</span>toUpperCase<span class="token punctuation">,</span> removeSpaces<span class="token punctuation">,</span> addExclamation<span class="token punctuation">)</span>
+
+<span class="token function">formatString</span><span class="token punctuation">(</span><span class="token string">"Subscribe to Bytes"</span><span class="token punctuation">)</span> <span class="token comment">// SUBSCRIBETOBYTES!</span>
+</code></pre>
+<p>There’s currently a perpetual <a href="https://github.com/tc39/proposal-pipeline-operator">TC39 proposal</a> for adding a true Pipe operator (|&gt;) to JavaScript.</p></div></body></html></div></div><aside class="sticky top-20 self-start justify-self-center hidden xl:block mt-80"><div class="grid gap-4 max-w-xs"><div><p class="mb-6 text-center text-xl">Subscribe to join<!-- --> <span class="font-black">205,244</span> <!-- -->developers who receive Bytes each week, for free.</p><input class="rounded-tl rounded-tr font-medium appearance-none rounded-none float-left text-base mt-0 p-2 w-full h-11 border-none placeholder-biege/50 bg-charcoal focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent" type="email" autoComplete="email" placeholder="email address"/><button class="w-full text-black rounded-br rounded-bl text-sm md:text-lg font-black bg-yellow rounded-none float-left h-10 shadow-none uppercase disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent active:bg-yellow-600">Subscribe</button></div></div></aside></div></div><footer class="mt-20 py-8 lg:pt-20 lg:pb-10 relative bg-brand-charcoal text-brand-biege"><div class="container mx-auto px-8 mb-12 flex justify-center"><img src="/images/bytes-icon.png" alt="Bytes" width="48"/></div><div class="container mx-auto px-8 pb-8"><div><ul class="list-unstyled flex justify-center flex-wrap gap-4 text-sm"><li><a class="underline" href="/archives">Archives</a></li><li><a class="underline" href="/advertise">Advertise</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://npmtrends.com">npmtrends</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://react.gg">Learn React</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://query.gg">Learn React Query</a></li><li><a class="underline" target="_blank" rel="noopener noreferrer" href="https://usehooks.com">useHooks</a></li></ul></div></div><p class="text-center mb-8">Made with ❤️ by<!-- --> <a class="text-brand-red underline" href="https://ui.dev">uidotdev</a></p></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"subcount":205244,"post":{"data":{"title":"Bytes: Node strikes back","date":"2024-11-14","featuredImage":"/images/content/baseball-glove.jpg","description":"The unknowable mystery of Remix \u0026 React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don't even like.","published":true},"content":"\u003chtml\u003e\u003chead\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv style=\"max-width:600px;padding-top:80px\"\u003e\u003cdiv style=\"text-align:center\"\u003e\u003cimg width=\"600\" style=\"padding-bottom:40px;max-width:100%\" src=\"https://bytes.dev/images/bytes-banner-rounded.png\" alt=\"Bytes\"\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eToday’s issue:\u003c/strong\u003e The unknowable mystery of Remix \u0026amp; React Router, a sure-fire way to rebuild my self esteem, and celebrating the birthday of a programming language you don’t even like.\u003c/p\u003e\n\u003cp\u003eWelcome to \u003ca href=\"https://bytes.dev/archives/341\"\u003e#341\u003c/a\u003e.\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"80\" src=\"https://bytes.dev/images/content/eyes.png\" alt=\"Eyeballs logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eThe Main Thing\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/baseball-glove.jpg\" alt=\"A fan trying to rip a baseball out of a baseball player's glove\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eNode \"borrowing\" features from Deno and Bun\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eNode strikes back\u003c/h3\u003e\u003cp\u003eBack in May, we wrote about how Bun and Deno helped wake up a sleeping giant in the form of Node.js 22.\u003c/p\u003e\u003cp\u003eThat release was packed with impactful features for the OG runtime, after what felt like years of merely incremental improvements. Yes, many of those features were already present in the next-gen runtimes, but Node users definitely weren’t complaining.\u003c/p\u003e\u003cp\u003eFast forward to last month, and we saw \u003ca href=\"https://nodejs.org/en/blog/release/v23.0.0\"\u003eNode 23\u003c/a\u003e pick up right where v22 left off, giving us some experimental new features and adding stable support for others.\u003c/p\u003e\u003cp\u003eThe biggest improvement in this release is the now-stable \u003ccode\u003erequire()\u003c/code\u003e support for ESM graphs, which lets you import an ES Module in CommonJS and have it just work.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eWhy this is a big deal:\u003c/strong\u003e For years, developers have struggled with the transition from CommonJS to ES Modules, largely because you couldn’t \u003ccode\u003erequire\u003c/code\u003e an ESM in Node.js. This issue delayed the full adoption of ESM and led to debates about whether or not you should transpile your code to CJS before publishing to npm. But now, we can finally put all of that behind us \u003cspan role=\"img\" aria-label=\"folded hands\"\u003e🙏\u003c/span\u003e.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eOther highlights in Node 23:\u003c/strong\u003e\u003c/p\u003e\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eThe \u003ccode\u003e--experimental-strip-types\u003c/code\u003e flag\u003c/strong\u003e provides “initial TypeScript support” by stripping type annotations from .ts files, allowing them to run without transforming TypeScript-specific syntax.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eStabilized task runner\u003c/strong\u003e lets you execute \u003ccode\u003epackage.json\u003c/code\u003e scripts by using \u003ccode\u003enode --run\u003c/code\u003e, instead of needing to use npm, Yarn, or Bun.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eThe built-in test runner\u003c/strong\u003e now comes with glob pattern support for coverage files, which simplifies running tests across multiple files.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\u003cp\u003e\u003cstrong\u003eBottom Line:\u003c/strong\u003e Between AI, politics, and \u003ca href=\"https://thetab.com/2024/11/13/dream-podcast-guests-to-her-dance-moms-crush-all-the-chaos-from-jojo-siwas-talk-at-brown\"\u003eJoJo Siwa speaking at Brown University\u003c/a\u003e, it’s clear that we’re living through uncertain times. But at least you’ll be able to tell your grandchildren that you also got to live through the golden age of JavaScript runtimes.\u003c/p\u003e\u003ctable width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;text-align:center;margin-top:40px\"\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd style=\"padding-top:12px\"\u003e\u003ca href=\"https://facebook.com/sharer/sharer.php?u=https://bytes.dev/archives/341\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/fb-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbytes.dev%2Farchives%2F341\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/li-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"https://twitter.com/intent/tweet/?text=The%20%40bytesdotdev%20crew%20break%20down%20the%20biggest%20features%20in%20%40nodejs%2023%0A%0A\u0026amp;url=https%3A%2F%2Fbytes.dev%2Farchives%2F341\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/tw-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003ca href=\"mailto:?subject=You%20like%20cornbread%3F\u0026amp;body=Thought%20you'd%20love%20this%20week's%20Bytes%0A---%0AThe%20%40bytesdotdev%20crew%20break%20down%20the%20biggest%20features%20in%20%40nodejs%2023%0Ahttps%3A%2F%2Fbytes.dev%2Farchives%2F341\" rel=\"noopener\" style=\"text-decoration:none\" target=\"_blank\"\u003e\u003cimg alt=\"\" style=\"display:inline-block;width:32px\" width=\"25\" src=\"https://bytes.dev/images/em-share-icon.png\"\u003e\u003c/a\u003e\u003cspan\u003e\u0026nbsp;\u0026nbsp;\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"150\" src=\"https://bytes.dev/images/content/convex-logo.png\" alt=\"Convex logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003e\u003cspan\u003eOur Friends \u003cbr class=\"mobile-break\"\u003e(With Benefits)\u003c/span\u003e\u003c/h2\u003e\u003c/div\u003e\u003cdiv class=\"bg-alt\" style=\"padding:24px;padding-bottom:12px;border-radius:16px;margin-bottom:40px;max-width:100%\"\u003e\u003cimg src=\"https://bytes.dev/images/content/sandler-boss.jpg\" alt=\"Adam Sandler's head on a cartoon character's body\" width=\"600\" style=\"max-width:100%;border-radius:5px\"\u003e\u003cp style=\"text-align:center;font-size:15px;line-height:1;padding-top:10px;padding-bottom:4px;margin:0;font-style:italic\"\u003eMe getting ready to mansplain sync engines to you\u003c!-- --\u003e \u003c/p\u003e\u003c/div\u003e\u003ch3\u003e\u003ca href=\"https://stack.convex.dev/object-sync-engine\"\u003eConvex is building an object sync engine for local-first apps\u003c/a\u003e\u003c/h3\u003e\u003cp\u003e\u003cem\u003eWtf does that mean?\u003c/em\u003e First off, watch your language.\u003c/p\u003e\u003cp\u003eAn object sync engine allows you to keep data in sync across users and devices for local-first apps by syncing an \u003ca href=\"https://stack.convex.dev/object-sync-engine#a-common-niche-the-object-sync-engine\"\u003eobject graph\u003c/a\u003e between clients and a centralized server.\u003c/p\u003e\u003cp\u003eThe Convex team has spent the last few months extending their own sync engine, so that the platform can provide a great batteries-included option for local-first apps.\u003c/p\u003e\u003cp\u003eAnd because they like to \u003cdel\u003eshow off\u003c/del\u003e \u003cem\u003ego the extra mile\u003c/em\u003e, Sujay Jayakar wrote this \u003ca href=\"https://stack.convex.dev/object-sync-engine\"\u003etechnical deep dive\u003c/a\u003e that breaks down the sync engine’s 3 main pieces:\u003c/p\u003e\u003col\u003e\n\u003cli\u003eThe local store\u003c/li\u003e\n\u003cli\u003eThe server store\u003c/li\u003e\n\u003cli\u003eThe sync protocol\u003c/li\u003e\n\u003c/ol\u003e\u003cp\u003eThe article compares Convex’s approach to other real-time frameworks like Replicache, and it shares how experienced teams evaluate tradeoffs when making complex technical choices.\u003c/p\u003e\u003cp\u003e\u003ca href=\"https://stack.convex.dev/object-sync-engine\"\u003eCheck out the blog post\u003c/a\u003e – Sujay previously worked on sync at Dropbox for a decade, and \u003cem\u003eyou can tell.\u003c/em\u003e\u003c/p\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003ePresented by \u003ca href=\"https://infinite.red/bytes\"\u003eInfinite Red\u003c/a\u003e\u003c/h4\u003e\u003cp\u003e\u003cem\u003eWe’re expert, US-based consultants who have specialized in high-quality React Native development since 2015! \u003ca href=\"https://infinite.red/bytes\"\u003eHire us\u003c/a\u003e to build, optimize, deploy, and support your React Native app.\u003c/em\u003e\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat does this function do?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003esurprise\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token operator\"\u003e...\u003c/span\u003efns\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token parameter\"\u003einput\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e fns\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eacc\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token function\"\u003efn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eacc\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e input\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"110\" src=\"https://bytes.dev/images/content/cool-bits.png\" alt=\"Cool Bits logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003eCool Bits\u003c/h2\u003e\u003c/div\u003e\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eI cordially invite you to take the \u003ca href=\"https://survey.devographics.com/en-US/survey/state-of-react/2024\"\u003eState of React survey\u003c/a\u003e and vote for Bytes, react.gg, and other \u003cdel\u003eui.dev things\u003c/del\u003e things you like about the React ecosystem. Will that finally fix my crippling self-esteem issues? There’s only one way to find out.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAhmad Shadeed wrote the best article on the internet about \u003ca href=\"https://ishadeed.com/article/overflow-clip/\"\u003ehow \u003ccode\u003eoverflow: clip\u003c/code\u003e works in CSS\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePropelAuth provides \u003ca href=\"https://www.propelauth.com/?utm_source=newsletter\u0026amp;utm_campaign=bytesnov24\"\u003eend-to-end managed user authentication for B2B use cases\u003c/a\u003e – and developers are \u003cdel\u003eweirdly obsessed\u003c/del\u003e \u003cem\u003every passionate\u003c/em\u003e about it. One founder said, “I’ve never come across a tool that works this well for authentication needs. Hands down, one of the best products I have ever used. 11/10 would recommend.” Their free tier is also very good. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://go.dev/blog/15years\"\u003eGo just turned 15 years old\u003c/a\u003e, and I still have no idea what to wear to its quinceañera.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eElan Medoff wrote about \u003ca href=\"https://elanmed.dev/blog/conditional-props-using-type-discrimination\"\u003econditional props in React using type discrimination\u003c/a\u003e. And if you were just like “oh, that’s exactly what I need” then I’m sending well wishes your way today.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTwo Sentry engineers, Jenn Mueng and Ram Senthamarai are hosting this \u003ca href=\"https://sentry.io/resources/debug-faster-sentry-ai-live-demo/?utm_source=bytes\u0026amp;utm_medium=paid-community\u0026amp;utm_campaign=ai-fy25q4-aiworkshop\u0026amp;utm_content=newsletter-aiworkshop-rsvp\"\u003elive demo of the new AI tools they built for Sentry\u003c/a\u003e. They promise to keep the AI hype to a minimum and just show you how they built smarter alerts and other cool features. [sponsored]\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eJonathan Creamer got the memo for today and wrote this article about \u003ca href=\"https://www.jonathancreamer.com/using-typescript-in-node-js-scripts-without-actually-writing-typescript/\"\u003eusing TypeScript in Node.js scripts without actually writing TypeScript\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://remix.run/docs/en/main/start/future-flags#unstable_routeconfig\"\u003eRemix 2.14 and React Router 6.28\u003c/a\u003e were just released at the same time because they are both the same project, but also completely distinct projects with different priorities, but also one in spirit. And if that confuses you, it’s probably because you’re a hater.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAmelia Wattenberger wrote a visually beautiful article called \u003ca href=\"https://wattenberger.com/thoughts/llms-as-a-tool-for-thought\"\u003eLLMs as a tool for thought\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDaniel Schwarz wrote an in-depth article on \u003ca href=\"https://css-tricks.com/the-different-and-modern-ways-to-toggle-content/\"\u003ethe different (and modern) ways to toggle content\u003c/a\u003e, which everyone seems to really like. Kind of like this \u003ca href=\"https://open.spotify.com/track/3Wn1ZONJX2yfbzWo2aPuQN?si=89c1412d76414fea\"\u003e“different and modern” version of \u003cem\u003eGet Low\u003c/em\u003e\u003c/a\u003e that Mark Zuckerberg made with T-Pain to give his wife as an anniversary gift.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\u003cdiv style=\"text-align:center;margin-bottom:36px\"\u003e\u003cimg width=\"140\" src=\"https://bytes.dev/images/content/pop-quiz.png\" alt=\"Pop Quiz logo\"\u003e\u003ch2 style=\"font-family:Paytone One, sans-serif;text-transform:uppercase;font-size:28px\"\u003ePop Quiz: Answer\u003c/h2\u003e\u003cdiv class=\"section-presenter\" style=\"margin-bottom:50px;margin-top:15px\"\u003e\u003ch4\u003eSponsored by \u003ca href=\"https://infinite.red/bytes\"\u003eInfinite Red\u003c/a\u003e\u003c/h4\u003e\u003c/div\u003e\u003c/div\u003e\n\u003cp\u003eWhat does this function do?\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003esurprise\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token operator\"\u003e...\u003c/span\u003efns\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token parameter\"\u003einput\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e fns\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eacc\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token function\"\u003efn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eacc\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e input\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIt’s a \u003ccode\u003epipe\u003c/code\u003e function that allows you to chain multiple operations together by taking a series of functions as arguments and applying them in a specific order to the input.\u003c/p\u003e\n\u003cp\u003eWow, words.\u003c/p\u003e\n\u003cp\u003eInstead of doing something like this.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003etoUpperCase\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token parameter\"\u003estr\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e str\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eremoveSpaces\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token parameter\"\u003estr\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e str\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereplace\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token regex\"\u003e\u003cspan class=\"token regex-delimiter\"\u003e/\u003c/span\u003e\u003cspan class=\"token regex-source language-regex\"\u003e\\s\u003c/span\u003e\u003cspan class=\"token regex-delimiter\"\u003e/\u003c/span\u003e\u003cspan class=\"token regex-flags\"\u003eg\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003eaddExclamation\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token parameter\"\u003estr\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e str \u003cspan class=\"token operator\"\u003e+\u003c/span\u003e \u003cspan class=\"token string\"\u003e\"!\"\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003etoUpperCase\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003eremoveSpaces\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token function\"\u003eaddExclamation\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Subscribe to Bytes\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can do something like this.\u003c/p\u003e\n\u003cpre class=\"language-js\"\u003e\u003ccode class=\"language-js\"\u003e\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e \u003cspan class=\"token function-variable function\"\u003epipe\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003e\u003cspan class=\"token operator\"\u003e...\u003c/span\u003efns\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token parameter\"\u003einput\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e fns\u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e\u003cspan class=\"token function\"\u003ereduce\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token parameter\"\u003eacc\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e fn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token operator\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"token function\"\u003efn\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003eacc\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e input\n\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token keyword\"\u003econst\u003c/span\u003e formatString \u003cspan class=\"token operator\"\u003e=\u003c/span\u003e \u003cspan class=\"token function\"\u003epipe\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003etoUpperCase\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e removeSpaces\u003cspan class=\"token punctuation\"\u003e,\u003c/span\u003e addExclamation\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"token function\"\u003eformatString\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token string\"\u003e\"Subscribe to Bytes\"\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e \u003cspan class=\"token comment\"\u003e// SUBSCRIBETOBYTES!\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThere’s currently a perpetual \u003ca href=\"https://github.com/tc39/proposal-pipeline-operator\"\u003eTC39 proposal\u003c/a\u003e for adding a true Pipe operator (|\u0026gt;) to JavaScript.\u003c/p\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e","slug":"341"}},"__N_SSG":true},"page":"/archives/[slug]","query":{"slug":"341"},"buildId":"vMKg_dGxRuKOH6kI_zpH1","runtimeConfig":{"nextPlausiblePublicProxyOptions":{"trailingSlash":false}},"isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
